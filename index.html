@@ -4,10 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mestre do Saber - 3º Ano</title>
+    <title>Mestres do Saber - A Lenda de Cognitia</title>
 
+    <meta name="theme-color" content="#4ECDC4">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -16,16 +22,23 @@
                 extend: {
                     fontFamily: { sans: ['Fredoka', 'sans-serif'] },
                     colors: {
-                        'hero-blue': '#3B82F6',
-                        'hero-purple': '#8B5CF6',
-                        'hero-green': '#10B981',
-                        'hero-yellow': '#F59E0B',
-                        'hero-red': '#EF4444',
-                        'bg-soft': '#F3F4F6',
+                        'brand-purple': '#7C3AED',
+                        'brand-blue': '#4ECDC4',
+                        'brand-yellow': '#FFD166',
+                        'brand-red': '#EF476F',
+                        'brand-dark': '#1A535C',
+                        'ui-bg': '#F7F9FC',
                     },
-                    boxShadow: {
-                        'btn': '0 4px 0 0 rgba(0, 0, 0, 0.1)',
-                        'btn-active': '0 0px 0 0 rgba(0, 0, 0, 0.1)',
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pop': 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        pop: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(50px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
                     }
                 }
             }
@@ -34,743 +47,723 @@
 
     <style>
         body {
-            background-color: #F3F4F6;
-            background-image: radial-gradient(#E5E7EB 2px, transparent 2px);
-            background-size: 20px 20px;
-            /* Previne seleção de texto e zoom duplo no celular */
+            background-color: #F7F9FC;
+            background-image: radial-gradient(#E2E8F0 2px, transparent 2px);
+            background-size: 24px 24px;
             user-select: none;
-            touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
-            padding-bottom: 140px;
-            /* Espaço seguro para o rodapé fixo */
+            padding-bottom: 120px;
         }
 
-        /* Botão com efeito de "apertar" */
-        .btn-press {
+        .btn-game {
             transition: all 0.1s;
+            border-bottom-width: 5px;
             transform: translateY(0);
-            border-bottom-width: 4px;
         }
 
-        .btn-press:active {
-            transform: translateY(4px);
+        .btn-game:active {
+            transform: translateY(5px);
             border-bottom-width: 0px;
-            box-shadow: none;
+            box-shadow: none !important;
         }
 
-        /* Animações */
-        .slide-up {
-            animation: slideUp 0.3s ease-out;
+        .hidden-screen {
+            display: none !important;
         }
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-        .pop-in {
-            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .avatar-glow {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
         }
 
-        @keyframes popIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Rodapé Fixo */
-        .fixed-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
-            z-index: 50;
-            padding-bottom: env(safe-area-inset-bottom);
-            /* Para iPhones novos */
+        /* Estilo para bloqueado */
+        .locked-filter {
+            filter: grayscale(1);
+            opacity: 0.6;
+            cursor: not-allowed;
         }
     </style>
 </head>
 
-<body class="font-sans text-gray-700 min-h-screen flex flex-col items-center">
+<body class="text-gray-700 min-h-screen flex flex-col items-center overflow-x-hidden">
 
-    <header
-        class="w-full bg-white p-3 shadow-sm border-b-2 border-gray-100 sticky top-0 z-40 flex justify-between items-center max-w-md mx-auto">
-        <div class="flex items-center gap-2" id="header-left">
-        </div>
-        <div class="bg-yellow-100 px-3 py-1 rounded-full border border-yellow-200 flex items-center gap-1">
-            <span>⭐</span>
-            <span id="score-display" class="font-bold text-yellow-700">0</span>
+    <header id="main-header"
+        class="fixed top-0 w-full z-50 glass-panel shadow-sm px-4 py-2 transition-transform duration-300 hidden-screen">
+        <div class="max-w-xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2 bg-white rounded-full p-1 pr-4 border border-gray-100 shadow-sm cursor-pointer"
+                onclick="UI.showProfile()">
+                <div class="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center text-xl border-2 border-white avatar-glow"
+                    id="header-avatar">🧙‍♂️</div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">Guardião</span>
+                    <span class="text-sm font-bold text-brand-dark truncate w-20" id="header-nick">Jogador</span>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <div
+                    class="flex items-center gap-1 bg-brand-yellow/20 px-3 py-1 rounded-full border border-brand-yellow">
+                    <span>🪙</span>
+                    <span class="font-bold text-yellow-700 text-sm" id="header-coins">0</span>
+                </div>
+                <div class="flex items-center gap-1 bg-brand-blue/20 px-3 py-1 rounded-full border border-brand-blue">
+                    <span>💎</span>
+                    <span class="font-bold text-teal-700 text-sm" id="header-gems">0</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main id="app" class="w-full max-w-md p-4 flex-grow flex flex-col items-center"></main>
+    <main id="game-container" class="w-full max-w-xl flex-grow flex flex-col pt-20 px-4">
 
-    <div id="footer-action" class="fixed-footer hidden">
-        <div class="max-w-md mx-auto p-4 w-full" id="footer-content">
+        <section id="screen-result" class="hidden-screen w-full pb-24">
+            <div id="result-container"></div>
+        </section>
+
+        <section id="screen-intro"
+            class="flex flex-col items-center justify-center min-h-[80vh] text-center animate-slide-up">
+            <div class="mb-8 relative">
+                <div class="absolute inset-0 bg-brand-purple blur-3xl opacity-20 rounded-full"></div>
+                <div class="text-8xl animate-float relative z-10">🏰</div>
+            </div>
+            <h1 class="text-4xl font-black text-brand-dark mb-2">Mestres do Saber</h1>
+            <p class="text-gray-500 mb-8 max-w-xs mx-auto">Salve o reino de Cognitia das Sombras do Esquecimento!</p>
+
+            <div class="bg-white p-6 rounded-3xl shadow-xl w-full border-b-8 border-gray-100">
+                <label class="block text-left text-sm font-bold text-gray-400 mb-2 uppercase">Como devo te
+                    chamar?</label>
+                <input type="text" id="input-nick" placeholder="Ex: Super Sofia" maxlength="12"
+                    class="w-full text-center text-2xl font-bold p-4 bg-gray-50 rounded-2xl border-2 border-gray-200 focus:border-brand-purple focus:outline-none text-brand-purple mb-4 transition-all">
+
+                <button onclick="Game.startAdventure()"
+                    class="w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg shadow-purple-200">
+                    Começar Aventura 🚀
+                </button>
+            </div>
+        </section>
+
+        <section id="screen-map" class="hidden-screen w-full pb-24">
+            <div class="text-center mb-6">
+                <span
+                    class="inline-block px-3 py-1 rounded-full bg-brand-dark text-white text-xs font-bold uppercase tracking-widest mb-2">Mapa
+                    Mundi</span>
+                <h2 class="text-2xl font-black text-gray-800">Escolha seu Destino</h2>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4" id="subjects-grid">
+            </div>
+        </section>
+
+        <section id="screen-subject" class="hidden-screen w-full pb-24">
+            <button onclick="UI.showScreen('screen-map')"
+                class="mb-4 text-sm font-bold text-gray-400 hover:text-gray-600 flex items-center gap-1">
+                ⬅ Voltar ao Mapa
+            </button>
+
+            <div id="subject-header"
+                class="mb-8 text-center p-6 bg-white rounded-3xl shadow-sm border-b-4 border-gray-100">
+            </div>
+
+            <div class="space-y-4" id="categories-list">
+            </div>
+        </section>
+
+        <section id="screen-prep"
+            class="hidden-screen w-full z-50 fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center">
+            <div
+                class="bg-white w-full max-w-lg h-[85vh] sm:h-auto sm:rounded-3xl rounded-t-3xl p-6 flex flex-col animate-slide-up relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-purple to-brand-blue"></div>
+                <button onclick="UI.closePrep()"
+                    class="absolute top-4 right-4 bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center font-bold text-gray-500">✕</button>
+
+                <div class="overflow-y-auto flex-grow pr-2 custom-scroll">
+                    <div class="text-center mt-4">
+                        <div class="text-6xl mb-4 animate-bounce" id="prep-icon">📜</div>
+                        <h2 class="text-2xl font-black text-gray-800 mb-2" id="prep-title">Título</h2>
+                        <div class="prose text-gray-600 leading-relaxed text-lg" id="prep-content">
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex items-center gap-4">
+                        <div class="text-4xl">🎁</div>
+                        <div>
+                            <p class="text-xs font-bold text-yellow-600 uppercase">Recompensa de Estudo</p>
+                            <p class="font-bold text-yellow-800" id="prep-reward-text">Skin: Mago Sábio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <button onclick="Game.finishPrep()"
+                        class="w-full bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg bg-green-500 border-green-600">
+                        Estou Pronto! ⚔️
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-game" class="hidden-screen w-full pb-32">
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="Game.exitGame()"
+                    class="bg-gray-100 hover:bg-red-100 hover:text-red-500 text-gray-500 px-4 py-2 rounded-xl font-bold text-sm transition-colors flex items-center gap-2">
+                    ✕ Sair
+                </button>
+                <div class="text-xs font-bold text-white bg-brand-purple/80 px-3 py-1 rounded-full uppercase tracking-wider"
+                    id="game-level-tag">NÍVEL 1</div>
+            </div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="flex gap-1 text-2xl min-w-[80px]" id="game-hearts">❤️❤️❤️</div>
+                <div class="flex-grow bg-gray-200 rounded-full h-3">
+                    <div id="game-progress"
+                        class="bg-brand-purple h-3 rounded-full transition-all duration-500 shadow-sm"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div
+                class="bg-white rounded-3xl p-6 shadow-lg border-b-8 border-gray-100 relative overflow-hidden min-h-[300px] flex flex-col justify-center">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl rotate-12">❓</div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center leading-snug mb-6"
+                    id="game-question">...</h2>
+
+                <div class="grid gap-3" id="game-options">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-action"
+        class="fixed bottom-0 left-0 w-full bg-white border-t-2 border-gray-100 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] p-4 z-40 hidden-screen">
+        <div class="max-w-xl mx-auto" id="footer-content">
         </div>
     </div>
 
+    <script src="database.js"></script>
     <script>
-        // --- CONTEÚDO PEDAGÓGICO OTIMIZADO (5-4-3) ---
-        const quizData = [
-            {
-                id: "pronomes",
-                title: "Pronomes",
-                icon: "🎒",
-                color: "bg-blue-500",
-                description: "Meu, Teu, Este, Aquele",
-                levels: [
-                    // NÍVEL 1: FÁCIL (5 Questões) - Foco: Identificar posse e lugar básico
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "Se a bola é <strong>minha</strong>, quem é o dono?", options: ["Eu", "Você", "Nós", "Eles"], correct: 0, hint: "Minha = Eu." },
-                            { q: "Qual palavra usamos para apontar algo que está <strong>longe</strong>?", options: ["Este", "Esse", "Aquele", "Meu"], correct: 2, hint: "Longe = Aquele lááá longe." },
-                            { q: "O cachorro é <strong>nosso</strong>. Quem são os donos?", options: ["Eu sozinho", "Você sozinho", "Nós dois", "Ninguém"], correct: 2, hint: "Nosso pertence a nós." },
-                            { q: "Qual palavra indica posse (ser dono)?", options: ["Aquele", "Lá", "Teu", "Onde"], correct: 2, hint: "Teu caderno, teu brinquedo." },
-                            { q: "Eu perdi <strong>meu</strong> lápis. A palavra 'meu' é um pronome...", options: ["Possessivo (dono)", "Demonstrativo (lugar)", "Nome", "Verbo"], correct: 0, hint: "Indica de quem é o lápis." }
-                        ]
-                    },
-                    // NÍVEL 2: MÉDIO (4 Questões) - Foco: Completar frases (Contexto)
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "Eu seguro a bola e diz: '<strong>______</strong> bola é nova'.", options: ["Esta", "Aquela", "Sua", "Nossa"], correct: 0, hint: "Se está na mão dele, é <strong>ESTA</strong>." },
-                            { q: "Mamãe, por favor, me dá <strong>______</strong> copo que está aí com você?", options: ["este", "esse", "aquele", "meu"], correct: 1, hint: "Se está com quem ouve (mamãe), é <strong>ESSE</strong>." },
-                            { q: "Tu esqueceste o ______ caderno?", options: ["meu", "teu", "nosso", "deles"], correct: 1, hint: "Quem fala TU, usa TEU." },
-                            { q: "Nós vamos arrumar a ______ casa.", options: ["nossa", "tua", "sua", "minha"], correct: 0, hint: "Nós cuidamos da <strong>nossa</strong> casa." }
-                        ]
-                    },
-                    // NÍVEL 3: TITÃ (3 Questões) - Foco: Análise e Pegadinhas (mais difícil)
-                    {
-                        name: "Titã",
-                        questions: [
-                            {
-                                q: "João disse: 'Este caderno é meu e aquele é teu'. Qual caderno está mais perto de João?",
-                                options: ["Nenhum", "O caderno 'teu'", "O caderno 'meu'", "Os dois estão longe"],
-                                correct: 2,
-                                hint: "<strong>ESTE</strong> = perto de quem fala (João)."
-                            },
-                            {
-                                q: "Em: 'Maria emprestou seus livros para Ana.' De quem são os livros?",
-                                options: ["De Ana", "De Maria", "Das duas", "De ninguém"],
-                                correct: 1,
-                                hint: "Normalmente '<strong>seus</strong>' retoma o sujeito: Maria."
-                            },
-                            {
-                                q: "Diálogo: — Você trouxe meu casaco? — Não, eu trouxe ______ casaco. Qual opção completa melhor?",
-                                options: ["aquele", "este", "teu", "seu"],
-                                correct: 2,
-                                hint: "Quem fala com 'você' pode usar 'teu' para o casaco de quem ouve."
-                            }
-                        ]
-                    }
-                ]
+        /* * MESTRES DO SABER - ENGINE V2.1 (Com Sistema Anti-Repetição Inteligente) */
+
+        // --- 2. STATE MANAGEMENT ---
+        const State = {
+            data: {
+                nick: "",
+                coins: 0,
+                gems: 0,
+                skins: ["🧙‍♂️"],
+                currentSkin: "🧙‍♂️",
+                progress: {},
+                attempts: {},
+                history: [] // Lista de IDs já respondidos: [1, 2, 5, 99...]
             },
-            {
-                id: "sz",
-                title: "Uso do S e Z",
-                icon: "🐍",
-                color: "bg-yellow-500",
-                description: "Casa ou Caza?",
-                levels: [
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "Onde nós moramos? Ca__a.", options: ["Z", "S", "Ç", "X"], correct: 1, hint: "Casa se escreve com S." },
-                            { q: "Mesa tem som de Z, mas escrevemos com...", options: ["S", "Z", "X", "J"], correct: 0, hint: "Mesa é com S!" },
-                            { q: "Qual animal começa com Z?", options: ["Sapo", "Zebra", "Cobra", "Gato"], correct: 1, hint: "Zebra!" },
-                            { q: "Azeite se escreve com...", options: ["Z", "S", "Ç", "X"], correct: 0, hint: "Azeite é com Z." },
-                            { q: "Qual palavra está escrita certa?", options: ["Cazu", "Casu", "Caso", "Cazo"], correct: 2, hint: "Caso (de acontecer) é com S." }
-                        ]
-                    },
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "Princesa termina igual a...", options: ["Beleza", "Duquesa", "Riqueza", "Cinza"], correct: 1, hint: "Títulos de mulheres (Duquesa, Baronesa) usam S." },
-                            { q: "Belo vira Beleza. Rico vira...", options: ["Riquesa", "Riqueza", "Riquessa", "Riquesa"], correct: 1, hint: "Coisas que vêm de adjetivos usam Z (Riqueza)." },
-                            { q: "Japonês e Francês. Eles terminam com:", options: ["ÊS", "ÊZ", "EIZ", "ES"], correct: 0, hint: "Nacionalidades terminam com ÊS." },
-                            { q: "Pesquisa vem de pesquisar. É com S ou Z?", options: ["S", "Z", "Ç", "X"], correct: 0, hint: "Se a palavra original tem S, a filha também tem." }
-                        ]
-                    },
-                    {
-                        name: "Titã",
-                        questions: [
-                            {
-                                q: "Qual par está com as DUAS palavras escritas corretamente?",
-                                options: [
-                                    "Riqueza e Pobreza",
-                                    "Princesa e Riqueça",
-                                    "Caza e Atraz",
-                                    "Meza e Cazo"
-                                ],
-                                correct: 0,
-                                hint: "Riqueza e Pobreza vêm de adjetivos (rico, pobre) e usam Z."
-                            },
-                            {
-                                q: "Qual frase está TODA correta?",
-                                options: [
-                                    "Ana quize ir ao parque.",
-                                    "Ela quis viajar ontem.",
-                                    "Nós quizeram sair cedo.",
-                                    "Ele quisse comer bolo."
-                                ],
-                                correct: 1,
-                                hint: "<strong>Quis</strong> vem de querer e é com S, sem E no final."
-                            },
-                            {
-                                q: "Em qual palavra o som de Z é escrito com S?",
-                                options: [
-                                    "Azeite",
-                                    "Mesa",
-                                    "Zero",
-                                    "Zebra"
-                                ],
-                                correct: 1,
-                                hint: "Em '<strong>mesa</strong>' ouvimos som de Z, mas escrevemos com S."
-                            }
-                        ]
-                    }
-                ]
+
+            load: function () {
+                const saved = localStorage.getItem('mestres_save_v3'); // Mudei versão para v3
+                if (saved) {
+                    this.data = JSON.parse(saved);
+                    if (!this.data.history) this.data.history = []; // Migração segura
+                    return true;
+                }
+                return false;
             },
-            {
-                id: "verbos",
-                title: "Verbos",
-                icon: "🏃",
-                color: "bg-green-500",
-                description: "Ação e Movimento",
-                levels: [
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "Qual palavra é uma ação (coisa que se faz)?", options: ["Cadeira", "Pular", "Azul", "Pedra"], correct: 1, hint: "Pular é algo que você faz." },
-                            { q: "O gato <strong>dormiu</strong>. O que o gato fez?", options: ["O", "Gato", "Dormiu", "Fofinho"], correct: 2, hint: "Ele dormiu." },
-                            { q: "Complete: O pássaro ______ no céu.", options: ["Voa", "Verde", "Grande", "Asa"], correct: 0, hint: "Voa é a ação." },
-                            { q: "Qual NÃO é verbo?", options: ["Correr", "Comer", "Bonito", "Falar"], correct: 2, hint: "Bonito é uma qualidade, não ação." },
-                            { q: "Choveu muito. Chover é um verbo de...", options: ["Ação de pessoa", "Natureza", "Sentimento", "Objeto"], correct: 1, hint: "É fenômeno da natureza." }
-                        ]
-                    },
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "Amanhã eu ______ bolo.", options: ["Comi", "Como", "Comerei", "Comia"], correct: 2, hint: "Amanhã é futuro: Comerei." },
-                            { q: "Ontem eles ______ bola.", options: ["Jogaram", "Jogarão", "Joga", "Jogar"], correct: 0, hint: "Passado termina com AM: Jogaram." },
-                            { q: "Eu ______ feliz hoje.", options: ["Estou", "Fui", "Serei", "Era"], correct: 0, hint: "Hoje é presente: Estou." },
-                            { q: "Transforme para o passado: Ele canta.", options: ["Ele cantará", "Ele cantou", "Ele cantar", "Ele cante"], correct: 1, hint: "Já aconteceu: Cantou." }
-                        ]
-                    },
-                    {
-                        name: "Titã",
-                        questions: [
-                            {
-                                q: "Qual frase está no PASSADO?",
-                                options: [
-                                    "Ontem eles jogam bola.",
-                                    "Ontem eles jogaram bola.",
-                                    "Amanhã eles jogaram bola.",
-                                    "Hoje eles jogaram bola."
-                                ],
-                                correct: 1,
-                                hint: "Passado: verbo terminado em <strong>-RAM</strong> combina com 'ontem'."
-                            },
-                            {
-                                q: "Qual frase está no FUTURO?",
-                                options: [
-                                    "Ontem eu estudei para a prova.",
-                                    "Hoje eu estudo para a prova.",
-                                    "Amanhã eu estudarei para a prova.",
-                                    "Ontem eu estudarei para a prova."
-                                ],
-                                correct: 2,
-                                hint: "Futuro: termina em <strong>-REI</strong> e combina com 'amanhã'."
-                            },
-                            {
-                                q: "Complete: Amanhã nós ______ cedo para viajar.",
-                                options: [
-                                    "acordamos",
-                                    "acordávamos",
-                                    "acordaremos",
-                                    "acordamos ontem"
-                                ],
-                                correct: 2,
-                                hint: "Futuro: '<strong>acordaremos</strong>' combina com 'amanhã'."
-                            }
-                        ]
-                    }
-                ]
+
+            save: function () {
+                localStorage.setItem('mestres_save_v3', JSON.stringify(this.data));
+                UI.updateHeader();
             },
-            {
-                id: "lhli",
-                title: "LH e LI",
-                icon: "🐇",
-                color: "bg-purple-500",
-                description: "Orelha ou Orelia?",
-                levels: [
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "O coelho comeu a fo__a.", options: ["Lia", "Lha", "La", "Lya"], correct: 1, hint: "Folha é com LH." },
-                            { q: "A minha fami__a é linda.", options: ["Lha", "Lia", "La", "Lhya"], correct: 1, hint: "Família é com LI." },
-                            { q: "Qual está certo?", options: ["Orelha", "Orelia", "Orélia", "Orela"], correct: 0, hint: "Orelha com LH." },
-                            { q: "Sandá__a da menina.", options: ["Lha", "Lia", "La", "Lhya"], correct: 1, hint: "Sandália com LI." },
-                            { q: "Para tomar sopa uso a...", options: ["Coler", "Colier", "Colher", "Coier"], correct: 2, hint: "Colher com LH." }
-                        ]
-                    },
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "Júlio ou Julho (mês)?", options: ["Julho", "Júlio", "Os dois existem", "Nenhum"], correct: 2, hint: "Júlio é nome, Julho é mês. Os dois existem." },
-                            { q: "O palhaço faz palhaçada. O que está errado?", options: ["Palhaço", "Palhaçada", "Paliaço", "Nenhum"], correct: 2, hint: "Paliaço não existe, é com LH." },
-                            { q: "Abe__a faz mel.", options: ["Lia", "Lha", "La", "Li"], correct: 1, hint: "Abelha com LH." },
-                            { q: "Itá__a (país).", options: ["Lha", "Lia", "La", "Li"], correct: 1, hint: "Itália com LI." }
-                        ]
-                    },
-                    {
-                        name: "Titã",
-                        questions: [
-                            { q: "Complete: O ve__inho lia um livro.", options: ["lh", "li", "l", "i"], correct: 0, hint: "Velhinho (veio de velho) é com LH." },
-                            { q: "Utensí__o de cozinha.", options: ["Lio", "Lho", "Li-o", "Lhi-o"], correct: 0, hint: "Utensílio é com LI." },
-                            { q: "Mobí__a da casa.", options: ["Lia", "Lha", "La", "Lya"], correct: 0, hint: "Mobília é com LI." }
-                        ]
+
+            // --- NOVA FUNÇÃO: REGISTRAR HISTÓRICO ---
+            addToHistory: function (questionIds) {
+                // Adiciona apenas IDs novos
+                questionIds.forEach(id => {
+                    if (!this.data.history.includes(id)) {
+                        this.data.history.push(id);
                     }
-                ]
+                });
+                this.save();
             },
-            {
-                id: "tempos",
-                title: "Tempos",
-                icon: "⏰",
-                color: "bg-red-500",
-                description: "Passado, Presente, Futuro",
-                levels: [
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "Ontem eu brinquei. Isso é:", options: ["Passado (já foi)", "Presente (agora)", "Futuro (vai ser)", "Nenhum"], correct: 0, hint: "Ontem já passou." },
-                            { q: "Amanhã nós vamos. Isso é:", options: ["Passado", "Presente", "Futuro", "Nenhum"], correct: 2, hint: "Amanhã ainda vem." },
-                            { q: "Eu estou feliz agora. Isso é:", options: ["Passado", "Presente", "Futuro", "Nenhum"], correct: 1, hint: "Agora é presente." },
-                            { q: "Qual palavra mostra futuro?", options: ["Comi", "Como", "Comerei", "Comia"], correct: 2, hint: "Comerei (vai acontecer)." },
-                            { q: "Qual palavra mostra passado?", options: ["Corro", "Corri", "Correrei", "Correr"], correct: 1, hint: "Corri (já fiz)." }
-                        ]
-                    },
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "Eles brincaram (AM no final).", options: ["Passado", "Futuro", "Presente", "Dúvida"], correct: 0, hint: "AM no final é passado." },
-                            { q: "Eles brincarão (ÃO no final).", options: ["Passado", "Futuro", "Presente", "Dúvida"], correct: 1, hint: "ÃO no final é futuro." },
-                            { q: "Antigamente, as pessoas ______ cartas.", options: ["Escrevem", "Escreverão", "Escreviam", "Escreve"], correct: 2, hint: "Antigamente é passado: Escreviam." },
-                            { q: "Semana que vem eu ______.", options: ["Viajei", "Viajo", "Viajarei", "Viajava"], correct: 2, hint: "Semana que vem é futuro: Viajarei." }
-                        ]
-                    },
-                    {
-                        name: "Titã",
-                        questions: [
-                            { q: "Hoje eu estudo. Ontem eu...", options: ["Estudo", "Estudarei", "Estudei", "Estuda"], correct: 2, hint: "Ontem estudei." },
-                            { q: "Se eu não comer, eu ______ fome.", options: ["Senti", "Sinto", "Sentirei", "Sentia"], correct: 2, hint: "No futuro, sentirei fome." },
-                            { q: "Qual frase está correta?", options: ["Ontem eles comerão bolo", "Ontem eles comeram bolo", "Amanhã eles comeram bolo", "Hoje eles comerão bolo"], correct: 1, hint: "Ontem = Passado = AM (Comeram)." }
-                        ]
-                    }
-                ]
+
+            // --- NOVA FUNÇÃO: CHECAR SE PRECISA RESETAR ---
+            // Se o aluno já viu todas as perguntas fáceis, limpamos o histórico daquele nível
+            // para ele poder jogar de novo sem travar.
+            cleanHistoryForPool: function (poolIds) {
+                this.data.history = this.data.history.filter(id => !poolIds.includes(id));
+                this.save();
             },
-            {
-                id: "sujeito",
-                title: "Sujeito",
-                icon: "🔍",
-                color: "bg-teal-500",
-                description: "Quem fez a ação?",
-                levels: [
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "<strong>O bebê</strong> chorou. Quem chorou?", options: ["O bebê", "Chorou", "Ninguém", "O pai"], correct: 0, hint: "O bebê é o sujeito." },
-                            { q: "<strong>A menina</strong> correu. O sujeito é:", options: ["Correu", "A menina", "Rápido", "Rua"], correct: 1, hint: "A menina praticou a ação." },
-                            { q: "O cachorro latiu. Quem é o sujeito?", options: ["Latiu", "O cachorro", "O gato", "Barulho"], correct: 1, hint: "O cachorro fez o barulho." },
-                            { q: "Nós gostamos de sorvete. Quem gosta?", options: ["Sorvete", "Gostamos", "Nós", "De"], correct: 2, hint: "Nós gostamos." },
-                            { q: "A flor nasceu. Sujeito:", options: ["Nasceu", "Flor", "A flor", "Jardim"], correct: 2, hint: "A flor." }
-                        ]
-                    },
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "Minha mãe fez bolo. O sujeito é:", options: ["Bolo", "Fez", "Minha mãe", "Minha"], correct: 2, hint: "Quem fez? Minha mãe." },
-                            { q: "O carro azul quebrou. Sujeito:", options: ["Carro", "Azul", "O carro azul", "Quebrou"], correct: 2, hint: "O sujeito é tudo: O carro azul." },
-                            { q: "Choveu muito ontem. Tem sujeito?", options: ["Sim, a chuva", "Não, fenômeno da natureza", "Sim, ontem", "Sim, muito"], correct: 1, hint: "Fenômenos (chuva, vento) não têm sujeito." },
-                            { q: "Pedro e Paulo jogaram. Quem é o sujeito?", options: ["Pedro", "Paulo", "Pedro e Paulo", "Jogaram"], correct: 2, hint: "Os dois juntos são o sujeito." }
-                        ]
-                    },
-                    {
-                        name: "Titã",
-                        questions: [
-                            { q: "Saímos cedo hoje. Quem é o sujeito?", options: ["Eles", "Nós (escondido)", "Eu", "Vocês"], correct: 1, hint: "'Saímos' só combina com NÓS." },
-                            { q: "Fui ao mercado. Sujeito:", options: ["Ele", "Tu", "Eu (escondido)", "Nós"], correct: 2, hint: "'Fui' só combina com EU." },
-                            { q: "Quebrou-se o vaso. O que quebrou?", options: ["O vaso", "Alguém", "Ninguém", "Chão"], correct: 0, hint: "O vaso é o sujeito (ele quebrou)." }
-                        ]
-                    }
-                ]
+
+            registerAttempt: function (catId, lvlIdx, passed) {
+                const key = `${catId}-lvl${lvlIdx}`;
+                if (!this.data.attempts[key]) this.data.attempts[key] = { count: 0, timestamp: 0 };
+
+                if (passed) {
+                    this.data.attempts[key].count = 0;
+                } else {
+                    this.data.attempts[key].count++;
+                    this.data.attempts[key].timestamp = Date.now();
+                }
+                this.save();
             },
-            {
-                id: "cedilha",
-                title: "Cedilha (Ç)",
-                icon: "🎪",
-                color: "bg-pink-500",
-                description: "Regras do Ç",
-                levels: [
-                    {
-                        name: "Iniciante",
-                        questions: [
-                            { q: "Palavra pode começar com Ç?", options: ["Sim", "Não", "Às vezes", "Sempre"], correct: 1, hint: "NUNCA começa com Ç." },
-                            { q: "Cora__ão.", options: ["S", "SS", "Ç", "Z"], correct: 2, hint: "Coração usa Ç." },
-                            { q: "Pa__oca.", options: ["Ç", "S", "SS", "C"], correct: 0, hint: "Paçoca usa Ç." },
-                            { q: "A__úcar.", options: ["S", "Z", "Ç", "X"], correct: 2, hint: "Açúcar usa Ç." },
-                            { q: "Cabe__a.", options: ["S", "Ç", "SS", "Z"], correct: 1, hint: "Cabeça usa Ç." }
-                        ]
-                    },
-                    {
-                        name: "Aventureiro",
-                        questions: [
-                            { q: "O Ç só aparece antes de quais letras?", options: ["E, I", "A, O, U", "Qualquer uma", "B, C, D"], correct: 1, hint: "Só antes de A, O, U (Ex: Ça, Ço, Çu)." },
-                            { q: "Vo__ê. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de E usamos C normal. Você." },
-                            { q: "Ba__ia. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de I usamos C normal. Bacia." },
-                            { q: "Mo__ bonita.", options: ["ça", "sa", "ssa", "za"], correct: 0, hint: "Moça é com Ç." }
-                        ]
-                    },
-                    {
-                        name: "Titã",
-                        questions: [
-                            { q: "Qual palavra está errada?", options: ["Coração", "Çapato", "Cabeça", "Açude"], correct: 1, hint: "Sapato é com S. Nunca Ç no começo!" },
-                            { q: "Palhaço e Laço. As duas têm:", options: ["S", "SS", "Ç", "Z"], correct: 2, hint: "As duas usam Ç." },
-                            { q: "Complete: O ca__ador ca__ou.", options: ["ç / ç", "c / c", "s / s", "z / z"], correct: 0, hint: "Caçador e Caçou usam Ç." }
-                        ]
+
+            getAttemptStatus: function (catId, lvlIdx) {
+                const key = `${catId}-lvl${lvlIdx}`;
+                const att = this.data.attempts[key];
+                if (!att) return { locked: false, count: 0 };
+
+                if (att.count >= 2) { // Bloqueia na 3ª tentativa (depois de 2 erros)
+                    const now = Date.now();
+                    const diff = now - att.timestamp;
+                    const hours24 = 24 * 60 * 60 * 1000;
+
+                    if (diff < hours24) {
+                        const timeLeft = Math.ceil((hours24 - diff) / (60 * 60 * 1000));
+                        return { locked: true, timeLeft: timeLeft };
+                    } else {
+                        att.count = 0; // Reset após 24h
+                        this.save();
+                        return { locked: false, count: 0 };
                     }
-                ]
+                }
+                return { locked: false, count: att.count };
+            },
+
+            unlockSkin: function (skin) {
+                if (!this.data.skins.includes(skin)) {
+                    this.data.skins.push(skin);
+                    this.data.currentSkin = skin;
+                    this.save();
+                    alert(`Nova Skin Desbloqueada: ${skin}`);
+                }
+            },
+
+            checkLevelUnlock: function (catId, levelIdx) {
+                if (levelIdx === 0) return true;
+                return this.data.progress[`${catId}-lvl${levelIdx - 1}`] === true;
             }
-        ];
-
-
-        // --- LÓGICA DO JOGO ---
-        let gameState = {
-            score: parseInt(localStorage.getItem('mestreScore')) || 0,
-            unlocked: JSON.parse(localStorage.getItem('mestreUnlocked')) || {},
-            // Formato unlock: "topicId-levelIdx": true
-            currentTopicIndex: 0,
-            currentLevelIndex: 0,
-            currentQuestionIndex: 0,
-            selectedOptionIndex: null
         };
 
-        // Elementos DOM
-        const app = document.getElementById('app');
-        const headerLeft = document.getElementById('header-left');
-        const scoreDisplay = document.getElementById('score-display');
-        const footerAction = document.getElementById('footer-action');
-        const footerContent = document.getElementById('footer-content');
+        // --- 3. UI MANAGER (Mantida igual, apenas adicionei proteções) ---
+        const UI = {
+            screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
 
-        // Inicialização
-        function init() {
-            // Desbloqueia o primeiro nível de todos os tópicos por padrão
-            quizData.forEach((topic, idx) => {
-                if (!gameState.unlocked[`${idx}-0`]) {
-                    gameState.unlocked[`${idx}-0`] = true;
+            showScreen: function (id) {
+                this.screens.forEach(s => {
+                    const el = document.getElementById(s);
+                    if (el) el.classList.add('hidden-screen');
+                });
+                const target = document.getElementById(id);
+                if (target) {
+                    target.classList.remove('hidden-screen');
+                    target.classList.add('animate-slide-up');
                 }
-            });
-            updateScore();
-            renderMap();
-        }
+                const header = document.getElementById('main-header');
+                const footer = document.getElementById('footer-action');
 
-        function updateScore() {
-            scoreDisplay.textContent = gameState.score;
-            localStorage.setItem('mestreScore', gameState.score);
-            localStorage.setItem('mestreUnlocked', JSON.stringify(gameState.unlocked));
-        }
+                if (id === 'screen-intro') {
+                    if (header) header.classList.add('hidden-screen');
+                    if (footer) footer.classList.add('hidden-screen');
+                } else {
+                    if (header) header.classList.remove('hidden-screen');
+                    this.updateHeader();
+                }
+            },
 
-        // --- RENDERIZAR MAPA ---
-        function renderMap() {
-            headerLeft.innerHTML = `<span class="text-xl font-bold text-gray-800">🗺️ Mapa</span>`;
-            footerAction.classList.add('hidden'); // Esconde rodapé no mapa
+            updateHeader: function () {
+                document.getElementById('header-nick').innerText = State.data.nick;
+                document.getElementById('header-avatar').innerText = State.data.currentSkin;
+                document.getElementById('header-coins').innerText = State.data.coins;
+                document.getElementById('header-gems').innerText = State.data.gems;
+            },
 
-            app.innerHTML = `
-                <div class="w-full grid gap-4 pb-20 slide-up">
-                    ${quizData.map((topic, tIdx) => {
-                return `
-                        <div class="bg-white rounded-2xl p-4 shadow-sm border-2 border-gray-100">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="${topic.color} w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-white shadow-btn">
-                                    ${topic.icon}
-                                </div>
-                                <div>
-                                    <h2 class="text-lg font-bold text-gray-700 leading-tight">${topic.title}</h2>
-                                    <p class="text-xs text-gray-400">${topic.description}</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex gap-2">
-                                ${topic.levels.map((lvl, lIdx) => {
-                    const levelKey = `${tIdx}-${lIdx}`;
-                    const isUnlocked = gameState.unlocked[levelKey];
-                    const isCompleted = gameState.unlocked[`${tIdx}-${lIdx}_done`]; // Marcação extra para concluído
+            renderMap: function () {
+                const grid = document.getElementById('subjects-grid');
+                if (!grid) return;
+                grid.innerHTML = '';
+                DB.subjects.forEach(sub => {
+                    grid.innerHTML += `
+                <div onclick="Game.openSubject('${sub.id}')" 
+                    class="bg-white p-4 rounded-3xl shadow-sm border-b-4 border-gray-100 active:scale-95 transition-transform cursor-pointer relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-2 opacity-10 text-6xl group-hover:scale-110 transition-transform">${sub.icon}</div>
+                    <div class="${sub.color} w-12 h-12 rounded-2xl flex items-center justify-center text-2xl text-white shadow-md mb-3">
+                        ${sub.icon}
+                    </div>
+                    <h3 class="font-bold text-gray-700 leading-tight">${sub.name}</h3>
+                    <p class="text-xs text-gray-400 font-bold uppercase mt-1">
+                        ${sub.categories.length} Aventuras
+                    </p>
+                </div>`;
+                });
+                this.showScreen('screen-map');
+            },
 
-                    let btnClass = isUnlocked
-                        ? (lIdx === 2 ? 'bg-purple-100 text-purple-700 border-purple-300' : 'bg-blue-50 text-blue-600 border-blue-200')
-                        : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed';
+            renderSubject: function (subId) {
+                const sub = DB.subjects.find(s => s.id === subId);
+                const container = document.getElementById('categories-list');
+                const header = document.getElementById('subject-header');
 
-                    if (isCompleted) btnClass = 'bg-green-100 text-green-700 border-green-300';
-
-                    const label = lIdx === 2 ? 'TITÃ ⚡' : lvl.name;
-                    const icon = isUnlocked ? (isCompleted ? '✅' : '▶️') : '🔒';
-
-                    return `
-                                    <button onclick="${isUnlocked ? `startLevel(${tIdx}, ${lIdx})` : ''}" 
-                                        class="flex-1 py-2 rounded-xl border-b-4 text-xs font-bold transition-all ${btnClass} ${isUnlocked ? 'active:border-b-0 active:translate-y-1' : ''}">
-                                        <div class="uppercase opacity-70 text-[10px] mb-1">${label}</div>
-                                        <div class="text-base">${icon}</div>
-                                    </button>
-                                    `;
-                }).join('')}
-                            </div>
-                        </div>
-                        `;
-            }).join('')}
-                </div>
-            `;
-            window.scrollTo(0, 0);
-        }
-
-        // --- INICIAR NÍVEL ---
-        function startLevel(tIdx, lIdx) {
-            gameState.currentTopicIndex = tIdx;
-            gameState.currentLevelIndex = lIdx;
-            gameState.currentQuestionIndex = 0;
-            renderQuestion();
-        }
-
-        // --- RENDERIZAR QUESTÃO ---
-        function renderQuestion() {
-            const topic = quizData[gameState.currentTopicIndex];
-            const level = topic.levels[gameState.currentLevelIndex];
-            const question = level.questions[gameState.currentQuestionIndex];
-            const isTitan = gameState.currentLevelIndex === 2;
-
-            // Header do Jogo
-            headerLeft.innerHTML = `
-                <button onclick="renderMap()" class="bg-gray-100 p-2 rounded-full text-sm font-bold text-gray-500 hover:bg-gray-200">
-                    ⬅ Sair
-                </button>
+                header.innerHTML = `
+                <div class="text-6xl mb-2 animate-float">${sub.icon}</div>
+                <h2 class="text-3xl font-black text-gray-800">${sub.name}</h2>
+                <p class="text-gray-500">Complete os desafios!</p>
             `;
 
-            // Barra de Progresso
-            const progress = ((gameState.currentQuestionIndex) / level.questions.length) * 100;
+                container.innerHTML = '';
+                sub.categories.forEach(cat => {
+                    let levelsHTML = '';
+                    const levels = [
+                        { name: "Iniciante", class: "bg-blue-100 text-blue-700 border-blue-200", icon: "🐣", bloomMax: 2 },
+                        { name: "Aventureiro", class: "bg-green-100 text-green-700 border-green-200", icon: "⚔️", bloomMax: 4 },
+                        { name: "Titã", class: "bg-purple-100 text-purple-700 border-purple-200", icon: "👹", bloomMax: 6 },
+                        { name: "Mestre", class: "bg-yellow-100 text-yellow-700 border-yellow-200", icon: "👑", bloomMax: 7 }
+                    ];
 
-            app.innerHTML = `
-                <div class="w-full mb-6 mt-2">
-                    <div class="flex justify-between text-xs font-bold text-gray-400 uppercase mb-1 px-1">
-                        <span>${isTitan ? '⚡ Modo Titã' : level.name}</span>
-                        <span>${gameState.currentQuestionIndex + 1}/${level.questions.length}</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                        <div class="h-full transition-all duration-300 ${isTitan ? 'bg-purple-500' : topic.color.replace('bg-', 'bg-')}" style="width: ${progress}%"></div>
-                    </div>
-                </div>
+                    levels.forEach((lvl, idx) => {
+                        const isUnlocked = State.checkLevelUnlock(cat.id, idx);
+                        const isDone = State.data.progress[`${cat.id}-lvl${idx}`];
+                        const attemptStatus = State.getAttemptStatus(cat.id, idx);
 
-                <div class="w-full bg-white rounded-3xl p-6 shadow-sm border-2 ${isTitan ? 'border-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)]' : 'border-gray-100'} pop-in mb-24">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 leading-snug text-center">
-                        ${formatText(question.q)}
-                    </h2>
+                        let statusIcon = isUnlocked ? (isDone ? "✅" : lvl.icon) : "🔒";
+                        let btnStyle = isUnlocked ? lvl.class : "bg-gray-100 text-gray-400 border-gray-200 opacity-60";
 
-                    <div class="grid gap-3">
-                        ${question.options.map((opt, idx) => `
-                            <button onclick="selectOption(${idx})" id="opt-${idx}"
-                                class="w-full text-left p-4 rounded-xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 btn-press">
-                                ${opt}
+                        if (attemptStatus.locked) {
+                            statusIcon = "⏳";
+                            btnStyle = "bg-gray-200 text-gray-500 border-gray-300 locked-filter";
+                        }
+
+                        levelsHTML += `
+                        <button onclick="${isUnlocked && !attemptStatus.locked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax})` : `Game.showLockMessage(${attemptStatus.locked}, ${attemptStatus.timeLeft})`}"
+                            class="flex-1 py-3 rounded-xl border-b-4 text-xs font-bold transition-transform active:scale-95 ${btnStyle}">
+                            <div class="text-lg mb-1">${statusIcon}</div>
+                            ${lvl.name}
+                        </button>
+                    `;
+                    });
+
+                    container.innerHTML += `
+                    <div class="bg-white rounded-3xl p-5 shadow-sm border-2 border-gray-100">
+                        <div class="flex justify-between items-center mb-4">
+                            <div><h3 class="font-bold text-lg text-gray-700">${cat.name}</h3></div>
+                            <button onclick="Game.openPrep('${cat.id}')" class="bg-brand-yellow text-yellow-800 px-4 py-2 rounded-xl font-bold text-sm shadow-sm hover:bg-yellow-400">
+                                <span>📜</span> Preparar
                             </button>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
+                        </div>
+                        <div class="flex gap-2 w-full">${levelsHTML}</div>
+                    </div>`;
+                });
+                this.showScreen('screen-subject');
+            },
 
-            // Resetar Rodapé Fixo
-            gameState.selectedOptionIndex = null;
-            footerAction.classList.remove('hidden');
-            footerAction.className = "fixed-footer bg-white border-t-2 border-gray-100";
+            openPrepModal: function (content) {
+                document.getElementById('prep-icon').innerText = content.skin;
+                document.getElementById('prep-title').innerHTML = content.title;
+                document.getElementById('prep-content').innerHTML = content.content;
+                document.getElementById('prep-reward-text').innerText = `Skin: ${content.skin}`;
+                document.getElementById('screen-prep').classList.remove('hidden-screen');
+            },
 
-            footerContent.innerHTML = `
-                <button class="w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-2xl text-lg cursor-not-allowed shadow-none" disabled>
-                    Escolha uma resposta
-                </button>
-            `;
+            closePrep: function () {
+                document.getElementById('screen-prep').classList.add('hidden-screen');
+            },
 
-            window.scrollTo(0, 0);
-        }
+            renderGameScreen: function (q, total, current, lives) {
+                this.showScreen('screen-game');
+                const pct = ((current) / total) * 100;
+                document.getElementById('game-progress').style.width = `${pct}%`;
+                let hearts = '';
+                for (let i = 0; i < lives; i++) hearts += '❤️';
+                document.getElementById('game-hearts').innerText = hearts;
+                document.getElementById('game-question').innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-brand-purple">$1</span>').replace(/______/g, '<span class="border-b-4 border-gray-300 w-16 inline-block"></span>');
 
-        // Formatação simples (Negrito)
-        function formatText(text) {
-            return text.replace(/\*\*(.*?)\*\*/g, '<span class="text-blue-600">$1</span>')
-                .replace(/__/g, '<span class="inline-block w-8 border-b-2 border-gray-400"></span>');
-        }
+                const optsContainer = document.getElementById('game-options');
+                optsContainer.innerHTML = '';
+                q.opts.forEach((opt, idx) => {
+                    optsContainer.innerHTML += `
+                    <button onclick="Game.selectOption(${idx})" id="opt-${idx}"
+                        class="w-full text-left p-4 rounded-2xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 btn-game">
+                        ${opt}
+                    </button>`;
+                });
 
-        // --- SELECIONAR OPÇÃO ---
-        function selectOption(idx) {
-            if (document.getElementById(`opt-${idx}`).disabled) return;
+                const footer = document.getElementById('footer-action');
+                footer.classList.remove('hidden-screen');
+                footer.innerHTML = `<div class="max-w-xl mx-auto"><button class="w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-2xl text-lg cursor-not-allowed" disabled>Escolha uma resposta</button></div>`;
+            },
 
-            // Limpa anteriores
-            document.querySelectorAll('[id^="opt-"]').forEach(btn => {
-                btn.className = "w-full text-left p-4 rounded-xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all btn-press";
-            });
+            showFeedback: function (isCorrect, hint, nextFn) {
+                const footer = document.getElementById('footer-action');
+                const color = isCorrect ? 'green' : 'red';
+                const title = isCorrect ? 'INCRÍVEL!' : 'CORREÇÃO:';
 
-            // Marca atual
-            const btn = document.getElementById(`opt-${idx}`);
-            btn.className = "w-full text-left p-4 rounded-xl border-2 border-blue-400 bg-blue-50 font-bold text-blue-600 transition-all btn-press shadow-btn transform -translate-y-1";
-
-            gameState.selectedOptionIndex = idx;
-
-            // Ativa botão no rodapé
-            const topicColor = quizData[gameState.currentTopicIndex].color;
-            footerContent.innerHTML = `
-                <button onclick="checkAnswer()" class="w-full ${topicColor} hover:opacity-90 text-white font-bold py-4 rounded-2xl text-lg shadow-btn btn-press uppercase tracking-wide">
-                    Confirmar
-                </button>
-            `;
-        }
-
-        // --- VERIFICAR RESPOSTA ---
-        function checkAnswer() {
-            const topic = quizData[gameState.currentTopicIndex];
-            const level = topic.levels[gameState.currentLevelIndex];
-            const question = level.questions[gameState.currentQuestionIndex];
-            const isCorrect = gameState.selectedOptionIndex === question.correct;
-
-            // Trava opções
-            document.querySelectorAll('[id^="opt-"]').forEach(btn => {
-                btn.disabled = true;
-                btn.classList.remove('btn-press', 'active:scale-95');
-                btn.style.transform = "none";
-            });
-
-            const selBtn = document.getElementById(`opt-${gameState.selectedOptionIndex}`);
-            const corrBtn = document.getElementById(`opt-${question.correct}`);
-
-            if (isCorrect) {
-                selBtn.className = "w-full text-left p-4 rounded-xl border-2 border-green-500 bg-green-100 text-green-700 font-bold shadow-none";
-                selBtn.innerHTML += ` <span class="float-right text-xl">✅</span>`;
-                gameState.score += 10;
-                updateScore();
-                // Confete
-                confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
-            } else {
-                selBtn.className = "w-full text-left p-4 rounded-xl border-2 border-red-400 bg-red-100 text-red-700 font-bold opacity-80 shadow-none";
-                selBtn.innerHTML += ` <span class="float-right text-xl">❌</span>`;
-                corrBtn.className = "w-full text-left p-4 rounded-xl border-2 border-green-500 bg-green-100 text-green-700 font-bold animate-pulse shadow-none";
-            }
-
-            // --- FEEDBACK NO RODAPÉ FIXO (Segredo da Usabilidade) ---
-            const isLast = gameState.currentQuestionIndex === level.questions.length - 1;
-
-            footerAction.className = `fixed-footer ${isCorrect ? 'bg-green-50 border-t-2 border-green-200' : 'bg-red-50 border-t-2 border-red-200'} slide-up`;
-
-            footerContent.innerHTML = `
-                <div class="flex flex-col gap-3">
-                    <div class="flex items-start gap-3">
-                        <div class="text-3xl bg-white rounded-full p-1 shadow-sm">${isCorrect ? '🎉' : '💡'}</div>
+                footer.innerHTML = `
+                <div class="max-w-xl mx-auto flex flex-col gap-3 animate-slide-up">
+                    <div class="flex items-start gap-3 bg-${color}-50 p-4 rounded-2xl border border-${color}-100">
+                        <div class="text-3xl">${isCorrect ? '🎉' : '💡'}</div>
                         <div>
-                            <p class="font-black ${isCorrect ? 'text-green-700' : 'text-red-600'} uppercase text-sm mb-1">
-                                ${isCorrect ? 'Incrível!' : 'Correção:'}
-                            </p>
-                            <p class="text-gray-700 text-sm font-medium leading-snug">${question.hint}</p>
+                            <p class="font-black text-${color}-600 uppercase text-sm">${title}</p>
+                            <p class="text-gray-600 font-medium leading-tight">${hint}</p>
                         </div>
                     </div>
-                    <button onclick="${isLast ? 'finishLevel()' : 'nextQuestion()'}" 
-                        class="w-full ${isCorrect ? 'bg-green-500' : 'bg-gray-700'} text-white font-bold py-3 rounded-2xl text-lg shadow-btn btn-press uppercase tracking-wider mt-1">
-                        ${isLast ? 'Concluir' : 'Continuar'}
+                    <button onclick="${nextFn}" class="w-full bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
+                        ${isCorrect ? 'CONTINUAR' : 'ENTENDI'}
+                    </button>
+                </div>`;
+            },
+
+            showResult: function (isVictory, score, totalQuestions, retryFn, mapFn) {
+                const container = document.getElementById('result-container');
+                const footer = document.getElementById('footer-action');
+                if (footer) footer.classList.add('hidden-screen');
+
+                // Cálculo da porcentagem (usando acertos/total)
+                // Nota: Se cada questão vale 10, total score possivel é 50.
+                const percentage = Math.round((score / (totalQuestions * 10)) * 100);
+
+                try { if (typeof confetti === 'function' && isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } }); } catch (e) { }
+
+                container.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-full pt-10 animate-pop px-4">
+                <div class="text-8xl mb-4 animate-bounce">${isVictory ? '🏆' : '🐢'}</div>
+                <h2 class="text-3xl font-black text-gray-800 mb-2">${isVictory ? 'Vitória Épica!' : 'Não desista!'}</h2>
+                <p class="text-gray-500 mb-6 text-center">
+                    ${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}
+                </p>
+                
+                <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-gray-100 w-full mb-6 text-center">
+                    <p class="text-sm font-bold text-gray-400 uppercase">Sua Nota</p>
+                    <p class="text-5xl font-black ${isVictory ? 'text-brand-purple' : 'text-brand-red'}">${percentage}%</p>
+                    <p class="text-xs text-gray-400 mt-2">Mínimo para passar: 70%</p>
+                </div>
+
+                ${isVictory ? `
+                    <div class="flex gap-4 w-full mb-8">
+                        <div class="flex-1 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex flex-col items-center">
+                            <span class="text-xl">🪙</span>
+                            <span class="font-bold text-yellow-800 text-sm">+20 Coins</span>
+                        </div>
+                    </div>` : ''
+                    }
+
+                <div class="w-full space-y-3">
+                    ${!isVictory ? `
+                    <button onclick="${retryFn}" class="w-full bg-brand-yellow text-yellow-900 font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
+                        Tentar Novamente 🔄
+                    </button>` : ''}
+                    
+                    <button onclick="${mapFn}" class="w-full bg-gray-200 text-gray-600 font-bold py-4 rounded-2xl text-xl btn-game">
+                        Voltar ao Mapa
                     </button>
                 </div>
-            `;
-        }
+            </div>`;
 
-        function nextQuestion() {
-            gameState.currentQuestionIndex++;
-            renderQuestion();
-        }
-
-        // --- TELA DE VITÓRIA / DECISÃO ---
-        function finishLevel() {
-            const topic = quizData[gameState.currentTopicIndex];
-            const nextLevelIdx = gameState.currentLevelIndex + 1;
-            const hasNextLevel = nextLevelIdx < topic.levels.length;
-
-            // Salvar progresso
-            const levelKey = `${gameState.currentTopicIndex}-${gameState.currentLevelIndex}`;
-            gameState.unlocked[levelKey] = true; // Desbloqueado (já estava)
-            gameState.unlocked[`${levelKey}_done`] = true; // Concluído
-
-            if (hasNextLevel) {
-                gameState.unlocked[`${gameState.currentTopicIndex}-${nextLevelIdx}`] = true; // Desbloqueia próximo
+                this.showScreen('screen-result');
             }
-            // Desbloqueia próximo tópico nível 0 se terminar qualquer nível do atual (Lógica flexível)
-            const nextTopicIdx = gameState.currentTopicIndex + 1;
-            if (nextTopicIdx < quizData.length) {
-                gameState.unlocked[`${nextTopicIdx}-0`] = true;
+        };
+
+        // --- 4. GAME ENGINE LOGIC ---
+        const Game = {
+            currentSession: null,
+
+            exitGame: function () {
+                if (confirm("Tem certeza que quer sair? Todo o progresso desta fase será perdido! 🛡️")) {
+                    // Cancela a sessão atual
+                    this.currentSession = null;
+                    // Volta para a tela da matéria atual (para escolher outro nível)
+                    // Precisamos saber qual era a matéria. Vamos pegar do ID da categoria.
+                    // O ID é tipo "pt-pronomes-lvl1". O prefixo "pt" é a matéria.
+                    // Mas como temos a tela de subject aberta por baixo, basta renderizar ela de novo.
+
+                    // Recupera o ID da matéria pelo ID da categoria atual ou volta pro mapa
+                    // Opção segura: Voltar para o Mapa
+                    UI.renderMap();
+                }
+            },
+
+            startAdventure: function () {
+                const nick = document.getElementById('input-nick').value;
+                if (nick.length < 3) return alert("O nome precisa ter pelo menos 3 letras!");
+                State.data.nick = nick;
+                State.save();
+                UI.renderMap();
+            },
+
+            openSubject: function (id) { UI.renderSubject(id); },
+
+            openPrep: function (catId) {
+                let category = null;
+                DB.subjects.forEach(s => {
+                    const c = s.categories.find(k => k.id === catId);
+                    if (c) category = c;
+                });
+                this.tempSkin = category.prep.skin;
+                UI.openPrepModal(category.prep);
+            },
+
+            finishPrep: function () {
+                State.unlockSkin(this.tempSkin);
+                State.data.coins += 10;
+                State.save();
+                UI.closePrep();
+                try { confetti({ particleCount: 50, spread: 50 }); } catch (e) { }
+            },
+
+            showLockMessage: function (locked, time) {
+                if (locked) {
+                    alert(`Você precisa descansar! Esse nível está bloqueado por mais ${time} horas.`);
+                } else {
+                    alert("Complete o nível anterior para desbloquear este.");
+                }
+            },
+
+            startLevel: function (catId, levelIdx, bloomMax) {
+                let category = null;
+                DB.subjects.forEach(s => {
+                    const c = s.categories.find(k => k.id === catId);
+                    if (c) category = c;
+                });
+
+                let minBloom = bloomMax - 1;
+                if (levelIdx === 0) minBloom = 1;
+
+                // --- LÓGICA DE SORTEIO COM MEMÓRIA (Deck de Cartas) ---
+
+                // 1. Pega todas as questões possíveis para o nível
+                const fullPool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
+
+                // 2. Filtra as que o usuário AINDA NÃO VIU (Inéditas)
+                let freshQuestions = fullPool.filter(q => !State.data.history.includes(q.id));
+
+                // 3. Se tiver menos de 5 inéditas, precisamos reciclar!
+                if (freshQuestions.length < 5) {
+                    // Remove os IDs desse pool específico do histórico global para que eles "apareçam" de novo
+                    // Basicamente, "embaralha o baralho" de novo
+                    const poolIds = fullPool.map(q => q.id);
+                    State.cleanHistoryForPool(poolIds);
+
+                    // Pega de novo (agora todas estarão 'fresh')
+                    freshQuestions = fullPool;
+                }
+
+                // 4. Sorteia e Pega 5
+                const shuffled = freshQuestions.sort(() => 0.5 - Math.random());
+                const selectedQuestions = shuffled.slice(0, 5);
+
+                if (selectedQuestions.length === 0) {
+                    return alert("Erro: Sem questões disponíveis no banco de dados.");
+                }
+
+                this.currentSession = {
+                    catId: catId,
+                    levelIdx: levelIdx,
+                    questions: selectedQuestions,
+                    questionIds: selectedQuestions.map(q => q.id), // Guardar IDs para salvar no fim
+                    idx: 0,
+                    lives: 3,
+                    score: 0,
+                    totalQuestions: 5,
+                    correctCount: 0
+                };
+
+                UI.renderGameScreen(selectedQuestions[0], 5, 0, 3);
+            },
+
+            selectOption: function (optIdx) {
+                const btns = document.querySelectorAll('[id^="opt-"]');
+                btns.forEach(b => {
+                    b.classList.replace('border-brand-purple', 'border-gray-200');
+                    b.classList.replace('bg-purple-50', 'bg-gray-50');
+                });
+                const selected = document.getElementById(`opt-${optIdx}`);
+                selected.classList.replace('border-gray-200', 'border-brand-purple');
+                selected.classList.replace('bg-gray-50', 'bg-purple-50');
+                this.currentSession.selectedOpt = optIdx;
+
+                const footer = document.getElementById('footer-action');
+                footer.innerHTML = `<div class="max-w-xl mx-auto"><button onclick="Game.checkAnswer()" class="w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">CONFIRMAR</button></div>`;
+            },
+
+            checkAnswer: function () {
+                const session = this.currentSession;
+                const q = session.questions[session.idx];
+                const isCorrect = session.selectedOpt === q.c;
+
+                const btns = document.querySelectorAll('[id^="opt-"]');
+                btns.forEach(b => b.disabled = true);
+
+                const selBtn = document.getElementById(`opt-${session.selectedOpt}`);
+                const corBtn = document.getElementById(`opt-${q.c}`);
+
+                if (isCorrect) {
+                    selBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                    session.score += 10;
+                    session.correctCount++;
+                } else {
+                    selBtn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+                    corBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                    session.lives--;
+                }
+                UI.showFeedback(isCorrect, q.h, 'Game.nextQuestion()');
+            },
+
+            nextQuestion: function () {
+                const session = this.currentSession;
+                session.idx++;
+
+                if (session.idx < session.questions.length && session.lives > 0) {
+                    UI.renderGameScreen(session.questions[session.idx], session.totalQuestions, session.idx, session.lives);
+                } else {
+                    this.finishLevel();
+                }
+            },
+
+            finishLevel: function () {
+                const session = this.currentSession;
+
+                // Salva no histórico que essas perguntas foram vistas (para não repetir logo)
+                State.addToHistory(session.questionIds);
+
+                const percent = (session.correctCount / session.totalQuestions) * 100;
+                const passed = percent >= 70;
+
+                // Registra tentativa (sucesso ou falha)
+                State.registerAttempt(session.catId, session.levelIdx, passed);
+
+                if (passed) {
+                    State.data.progress[`${session.catId}-lvl${session.levelIdx}`] = true;
+                    State.data.coins += 20;
+                    State.save();
+                    UI.showResult(true, session.score, session.totalQuestions, null, 'UI.renderMap()');
+                } else {
+                    // Verifica bloqueio
+                    const status = State.getAttemptStatus(session.catId, session.levelIdx);
+
+                    if (status.locked) {
+                        alert(`Você falhou 2 vezes seguidas. O nível está bloqueado por 24h para você descansar.`);
+                        UI.renderMap();
+                    } else {
+                        UI.showResult(false, session.score, session.totalQuestions, `Game.retryLevel('${session.catId}', ${session.levelIdx})`, 'UI.renderMap()');
+                    }
+                }
+            },
+
+            retryLevel: function (catId, lvlIdx) {
+                const levels = [2, 4, 6, 7]; // BloomMax mapping
+                const bloomMax = levels[lvlIdx];
+                this.startLevel(catId, lvlIdx, bloomMax);
             }
+        };
 
-            updateScore();
-            confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
-
-            footerAction.classList.add('hidden'); // Esconde rodapé
-
-            app.innerHTML = `
-                <div class="text-center mt-8 pop-in w-full max-w-sm">
-                    <div class="text-7xl mb-4 animate-bounce">🏆</div>
-                    <h2 class="text-3xl font-black text-gray-800 mb-2">Vitória!</h2>
-                    <p class="text-gray-500 mb-8 font-medium">Você completou o nível!</p>
-
-                    <div class="grid gap-4 w-full">
-                        ${hasNextLevel ? `
-                            <button onclick="startLevel(${gameState.currentTopicIndex}, ${nextLevelIdx})" 
-                                class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white p-5 rounded-3xl shadow-lg btn-press flex items-center justify-between group relative overflow-hidden">
-                                <div class="text-left">
-                                    <p class="text-[10px] uppercase opacity-80 font-bold tracking-widest">Subir de Nível</p>
-                                    <p class="text-xl font-bold">Ir para ${topic.levels[nextLevelIdx].name}</p>
-                                </div>
-                                <span class="text-3xl bg-white/20 rounded-full w-10 h-10 flex items-center justify-center">⬆️</span>
-                            </button>
-                        ` : `
-                             <div class="bg-yellow-100 p-6 rounded-3xl text-yellow-800 font-bold border-2 border-yellow-300 shadow-sm">
-                                👑 Você virou um Mestre neste assunto!
-                             </div>
-                        `}
-
-                        ${nextTopicIdx < quizData.length ? `
-                            <button onclick="startLevel(${nextTopicIdx}, 0)" 
-                                class="w-full bg-white border-2 border-gray-200 text-gray-600 p-4 rounded-3xl shadow-sm btn-press flex items-center justify-between hover:bg-gray-50">
-                                <div class="text-left">
-                                    <p class="text-[10px] uppercase opacity-60 font-bold tracking-widest">Novo Assunto</p>
-                                    <p class="text-lg font-bold text-gray-800">${quizData[nextTopicIdx].title}</p>
-                                </div>
-                                <span class="text-2xl">➡</span>
-                            </button>
-                        ` : ''}
-
-                        <button onclick="renderMap()" class="text-gray-400 font-bold py-4 text-sm mt-2">Voltar ao Mapa</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Inicia App
-        init();
-
+        window.onload = function () {
+            if (State.load()) {
+                UI.renderMap();
+                document.getElementById('screen-intro').classList.add('hidden-screen');
+                document.getElementById('screen-map').classList.remove('hidden-screen');
+                document.getElementById('main-header').classList.remove('hidden-screen');
+                UI.updateHeader();
+            }
+        };
     </script>
 </body>
 

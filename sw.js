@@ -1,16 +1,13 @@
 // Nome do cache (mude o número 'v1' se fizer grandes atualizações no futuro)
-const CACHE_NAME = 'lendas-do-saber-v1';
+const CACHE_NAME = 'mestres-do-saber-v2';
 
-// Lista de arquivos para salvar no cache imediatamente
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
     './manifest.json',
     './icon-192.png',
-    './icon-512.png'
-    // Nota: Links externos (CDNs como Tailwind e Confetti) serão cacheados
-    // automaticamente pelo navegador na primeira vez que forem usados,
-    // graças à estratégia "cache-first" abaixo.
+    './icon-512.png',
+    './database.js'
 ];
 
 // Instalação do Service Worker e cache dos arquivos iniciais
