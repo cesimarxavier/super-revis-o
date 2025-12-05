@@ -139,30 +139,45 @@
                     {
                         name: "Iniciante",
                         questions: [
-                            { q: "Se a bola é **minha**, quem é o dono?", options: ["Eu", "Você", "Nós", "Eles"], correct: 0, hint: "Minha = Eu." },
-                            { q: "Qual palavra usamos para apontar algo que está **longe**?", options: ["Este", "Esse", "Aquele", "Meu"], correct: 2, hint: "Longe = Aquele lááá longe." },
-                            { q: "O cachorro é **nosso**. Quem são os donos?", options: ["Eu sozinho", "Você sozinho", "Nós dois", "Ninguém"], correct: 2, hint: "Nosso pertence a nós." },
+                            { q: "Se a bola é <strong>minha</strong>, quem é o dono?", options: ["Eu", "Você", "Nós", "Eles"], correct: 0, hint: "Minha = Eu." },
+                            { q: "Qual palavra usamos para apontar algo que está <strong>longe</strong>?", options: ["Este", "Esse", "Aquele", "Meu"], correct: 2, hint: "Longe = Aquele lááá longe." },
+                            { q: "O cachorro é <strong>nosso</strong>. Quem são os donos?", options: ["Eu sozinho", "Você sozinho", "Nós dois", "Ninguém"], correct: 2, hint: "Nosso pertence a nós." },
                             { q: "Qual palavra indica posse (ser dono)?", options: ["Aquele", "Lá", "Teu", "Onde"], correct: 2, hint: "Teu caderno, teu brinquedo." },
-                            { q: "Eu perdi **meu** lápis. A palavra 'meu' é um pronome...", options: ["Possessivo (dono)", "Demonstrativo (lugar)", "Nome", "Verbo"], correct: 0, hint: "Indica de quem é o lápis." }
+                            { q: "Eu perdi <strong>meu</strong> lápis. A palavra 'meu' é um pronome...", options: ["Possessivo (dono)", "Demonstrativo (lugar)", "Nome", "Verbo"], correct: 0, hint: "Indica de quem é o lápis." }
                         ]
                     },
                     // NÍVEL 2: MÉDIO (4 Questões) - Foco: Completar frases (Contexto)
                     {
                         name: "Aventureiro",
                         questions: [
-                            { q: "O menino segura a bola e diz: '______ bola é nova'.", options: ["Esta", "Aquela", "Sua", "Nossa"], correct: 0, hint: "Se está na mão dele, é **ESTA**." },
-                            { q: "Mamãe, me dá **______** copo que está aí com você?", options: ["este", "esse", "aquele", "meu"], correct: 1, hint: "Se está com quem ouve (mamãe), é **ESSE**." },
+                            { q: "Eu seguro a bola e diz: '<strong>______</strong> bola é nova'.", options: ["Esta", "Aquela", "Sua", "Nossa"], correct: 0, hint: "Se está na mão dele, é <strong>ESTA</strong>." },
+                            { q: "Mamãe, por favor, me dá <strong>______</strong> copo que está aí com você?", options: ["este", "esse", "aquele", "meu"], correct: 1, hint: "Se está com quem ouve (mamãe), é <strong>ESSE</strong>." },
                             { q: "Tu esqueceste o ______ caderno?", options: ["meu", "teu", "nosso", "deles"], correct: 1, hint: "Quem fala TU, usa TEU." },
-                            { q: "Nós vamos arrumar a ______ casa.", options: ["nossa", "tua", "sua", "minha"], correct: 0, hint: "Nós cuidamos da **nossa** casa." }
+                            { q: "Nós vamos arrumar a ______ casa.", options: ["nossa", "tua", "sua", "minha"], correct: 0, hint: "Nós cuidamos da <strong>nossa</strong> casa." }
                         ]
                     },
-                    // NÍVEL 3: TITÃ (3 Questões) - Foco: Análise e Pegadinhas
+                    // NÍVEL 3: TITÃ (3 Questões) - Foco: Análise e Pegadinhas (mais difícil)
                     {
                         name: "Titã",
                         questions: [
-                            { q: "DESAFIO: 'Vendi meu carro para ele'. De quem era o carro antes?", options: ["Dele", "Meu", "Do vizinho", "Não tinha dono"], correct: 1, hint: "Estava escrito 'meu carro'." },
-                            { q: "Olhando para uma estrela no céu, dizemos:", options: ["Esta estrela", "Essa estrela", "Aquela estrela", "Minha estrela"], correct: 2, hint: "Está muito longe de todos, então é **Aquela**." },
-                            { q: "Qual frase está ERRADA?", options: ["Este aqui é meu pai", "Aquele ali é meu pai", "Esse ali é meu pai", "Aquilo lá é um avião"], correct: 2, hint: "Não usamos 'Esse' com 'ali'. 'Esse' é aí perto de você." }
+                            {
+                                q: "João disse: 'Este caderno é meu e aquele é teu'. Qual caderno está mais perto de João?",
+                                options: ["Nenhum", "O caderno 'teu'", "O caderno 'meu'", "Os dois estão longe"],
+                                correct: 2,
+                                hint: "<strong>ESTE</strong> = perto de quem fala (João)."
+                            },
+                            {
+                                q: "Em: 'Maria emprestou seus livros para Ana.' De quem são os livros?",
+                                options: ["De Ana", "De Maria", "Das duas", "De ninguém"],
+                                correct: 1,
+                                hint: "Normalmente '<strong>seus</strong>' retoma o sujeito: Maria."
+                            },
+                            {
+                                q: "Diálogo: — Você trouxe meu casaco? — Não, eu trouxe ______ casaco. Qual opção completa melhor?",
+                                options: ["aquele", "este", "teu", "seu"],
+                                correct: 2,
+                                hint: "Quem fala com 'você' pode usar 'teu' para o casaco de quem ouve."
+                            }
                         ]
                     }
                 ]
@@ -196,9 +211,39 @@
                     {
                         name: "Titã",
                         questions: [
-                            { q: "Qual o único par onde as duas são com Z?", options: ["Casa e Mesa", "Riqueza e Pobreza", "Princesa e Duquesa", "Liso e Riso"], correct: 1, hint: "Riqueza e Pobreza vêm de Rico e Pobre (adjetivos)." },
-                            { q: "O verbo 'Quis' (eu quis algo) se escreve com:", options: ["S", "Z", "X", "Ç"], correct: 0, hint: "Querer e Quis são com S." },
-                            { q: "Atrás (lugar) e Traz (verbo trazer). Qual é de lugar?", options: ["Traz", "Trás", "Atrás", "Atraz"], correct: 2, hint: "Ficar ATRÁS é com S." }
+                            {
+                                q: "Qual par está com as DUAS palavras escritas corretamente?",
+                                options: [
+                                    "Riqueza e Pobreza",
+                                    "Princesa e Riqueça",
+                                    "Caza e Atraz",
+                                    "Meza e Cazo"
+                                ],
+                                correct: 0,
+                                hint: "Riqueza e Pobreza vêm de adjetivos (rico, pobre) e usam Z."
+                            },
+                            {
+                                q: "Qual frase está TODA correta?",
+                                options: [
+                                    "Ana quize ir ao parque.",
+                                    "Ela quis viajar ontem.",
+                                    "Nós quizeram sair cedo.",
+                                    "Ele quisse comer bolo."
+                                ],
+                                correct: 1,
+                                hint: "<strong>Quis</strong> vem de querer e é com S, sem E no final."
+                            },
+                            {
+                                q: "Em qual palavra o som de Z é escrito com S?",
+                                options: [
+                                    "Azeite",
+                                    "Mesa",
+                                    "Zero",
+                                    "Zebra"
+                                ],
+                                correct: 1,
+                                hint: "Em '<strong>mesa</strong>' ouvimos som de Z, mas escrevemos com S."
+                            }
                         ]
                     }
                 ]
@@ -214,7 +259,7 @@
                         name: "Iniciante",
                         questions: [
                             { q: "Qual palavra é uma ação (coisa que se faz)?", options: ["Cadeira", "Pular", "Azul", "Pedra"], correct: 1, hint: "Pular é algo que você faz." },
-                            { q: "O gato **dormiu**. O que o gato fez?", options: ["O", "Gato", "Dormiu", "Fofinho"], correct: 2, hint: "Ele dormiu." },
+                            { q: "O gato <strong>dormiu</strong>. O que o gato fez?", options: ["O", "Gato", "Dormiu", "Fofinho"], correct: 2, hint: "Ele dormiu." },
                             { q: "Complete: O pássaro ______ no céu.", options: ["Voa", "Verde", "Grande", "Asa"], correct: 0, hint: "Voa é a ação." },
                             { q: "Qual NÃO é verbo?", options: ["Correr", "Comer", "Bonito", "Falar"], correct: 2, hint: "Bonito é uma qualidade, não ação." },
                             { q: "Choveu muito. Chover é um verbo de...", options: ["Ação de pessoa", "Natureza", "Sentimento", "Objeto"], correct: 1, hint: "É fenômeno da natureza." }
@@ -232,9 +277,39 @@
                     {
                         name: "Titã",
                         questions: [
-                            { q: "Eles estudarão (com ÃO) acontece quando?", options: ["Ontem (Passado)", "Agora (Presente)", "Amanhã (Futuro)", "Nunca"], correct: 2, hint: "ÃO no final é sempre Futuro." },
-                            { q: "Qual frase está no Futuro?", options: ["O sol brilhou", "O sol brilha", "O sol brilhará", "O sol brilhava"], correct: 2, hint: "Brilhará = vai acontecer." },
-                            { q: "Verbo 'Ser'. Eu sou, Tu és, Ele...", options: ["Somo", "É", "São", "Fui"], correct: 1, hint: "Ele É." }
+                            {
+                                q: "Qual frase está no PASSADO?",
+                                options: [
+                                    "Ontem eles jogam bola.",
+                                    "Ontem eles jogaram bola.",
+                                    "Amanhã eles jogaram bola.",
+                                    "Hoje eles jogaram bola."
+                                ],
+                                correct: 1,
+                                hint: "Passado: verbo terminado em <strong>-RAM</strong> combina com 'ontem'."
+                            },
+                            {
+                                q: "Qual frase está no FUTURO?",
+                                options: [
+                                    "Ontem eu estudei para a prova.",
+                                    "Hoje eu estudo para a prova.",
+                                    "Amanhã eu estudarei para a prova.",
+                                    "Ontem eu estudarei para a prova."
+                                ],
+                                correct: 2,
+                                hint: "Futuro: termina em <strong>-REI</strong> e combina com 'amanhã'."
+                            },
+                            {
+                                q: "Complete: Amanhã nós ______ cedo para viajar.",
+                                options: [
+                                    "acordamos",
+                                    "acordávamos",
+                                    "acordaremos",
+                                    "acordamos ontem"
+                                ],
+                                correct: 2,
+                                hint: "Futuro: '<strong>acordaremos</strong>' combina com 'amanhã'."
+                            }
                         ]
                     }
                 ]
@@ -321,8 +396,8 @@
                     {
                         name: "Iniciante",
                         questions: [
-                            { q: "**O bebê** chorou. Quem chorou?", options: ["O bebê", "Chorou", "Ninguém", "O pai"], correct: 0, hint: "O bebê é o sujeito." },
-                            { q: "**A menina** correu. O sujeito é:", options: ["Correu", "A menina", "Rápido", "Rua"], correct: 1, hint: "A menina praticou a ação." },
+                            { q: "<strong>O bebê</strong> chorou. Quem chorou?", options: ["O bebê", "Chorou", "Ninguém", "O pai"], correct: 0, hint: "O bebê é o sujeito." },
+                            { q: "<strong>A menina</strong> correu. O sujeito é:", options: ["Correu", "A menina", "Rápido", "Rua"], correct: 1, hint: "A menina praticou a ação." },
                             { q: "O cachorro latiu. Quem é o sujeito?", options: ["Latiu", "O cachorro", "O gato", "Barulho"], correct: 1, hint: "O cachorro fez o barulho." },
                             { q: "Nós gostamos de sorvete. Quem gosta?", options: ["Sorvete", "Gostamos", "Nós", "De"], correct: 2, hint: "Nós gostamos." },
                             { q: "A flor nasceu. Sujeito:", options: ["Nasceu", "Flor", "A flor", "Jardim"], correct: 2, hint: "A flor." }
@@ -369,8 +444,8 @@
                         questions: [
                             { q: "O Ç só aparece antes de quais letras?", options: ["E, I", "A, O, U", "Qualquer uma", "B, C, D"], correct: 1, hint: "Só antes de A, O, U (Ex: Ça, Ço, Çu)." },
                             { q: "Vo__ê. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de E usamos C normal. Você." },
-                            { q: "Baci__a. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de I usamos C normal. Bacia." },
-                            { q: "Mo__a bonita.", options: ["ça", "sa", "ssa", "za"], correct: 0, hint: "Moça é com Ç." }
+                            { q: "Ba__ia. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de I usamos C normal. Bacia." },
+                            { q: "Mo__ bonita.", options: ["ça", "sa", "ssa", "za"], correct: 0, hint: "Moça é com Ç." }
                         ]
                     },
                     {
@@ -384,6 +459,7 @@
                 ]
             }
         ];
+
 
         // --- LÓGICA DO JOGO ---
         let gameState = {
