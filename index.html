@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendas do Saber - Modo Dragão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Fredoka', 'sans-serif'] },
+                    colors: {
+                        'school-red': '#FF6B6B',
+                        'school-blue': '#4ECDC4',
+                        'school-yellow': '#FFE66D',
+                        'school-green': '#1A535C',
+                        'dragon-gold': '#FFD700',
+                        'dragon-dark': '#2D3748',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F0F4F8;
+            background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        .btn-3d {
+            transition: transform 0.1s;
+            border-bottom-width: 5px;
+        }
+
+        .btn-3d:active {
+            transform: translateY(5px);
+            border-bottom-width: 0px;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo para o Modo Dragão */
+        .dragon-bg {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-700 min-h-screen flex flex-col items-center">
+
+    <header class="w-full bg-white p-4 shadow-lg border-b-4 border-blue-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3 bg-blue-50 px-3 py-2 rounded-2xl border-2 border-blue-100 cursor-pointer"
+                onclick="showProfile()">
+                <div class="text-3xl animate-float" id="char-icon">🥚</div>
+                <div class="leading-tight hidden md:block">
+                    <p class="text-xs font-bold text-gray-400 uppercase">Eu sou um</p>
+                    <p class="text-sm font-bold text-school-green" id="char-name">Ovo Curioso</p>
+                </div>
+            </div>
+            <div
+                class="bg-school-yellow px-4 py-2 rounded-2xl border-b-4 border-yellow-500 shadow-sm flex items-center gap-2">
+                <span class="text-xl">⭐</span>
+                <span id="global-score" class="font-bold text-xl text-yellow-900">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main id="app" class="w-full max-w-3xl p-4 md:p-6 flex-grow flex flex-col items-center justify-start pb-24"></main>
+
+    <script>
+        // --- CONTEÚDO PEDAGÓGICO ---
+        const quizData = [
+            {
+                id: 1, title: "Pronomes", medal: "Detetive", icon: "🎒", color: "bg-blue-400",
+                description: "Quem é o dono?",
+                study: {
+                    title: "O que são Pronomes?",
+                    content: "Pronomes são palavras que substituem nomes ou mostram de quem são as coisas.",
+                    cards: [
+                        { emoji: "🙋‍♂️", text: "POSSESSIVOS: Indicam Dono. Ex: Meu, Teu, Nosso." },
+                        { emoji: "👉", text: "DEMONSTRATIVOS: Mostram Lugar. Ex: Este (perto), Aquele (longe)." }
+                    ]
+                },
+                questions: [
+                    { level: "Nível 1", q: "A palavra **Minha** indica:", options: ["Posse (dono)", "Lugar", "Cor", "Tamanho"], correct: 0, explanation: "Minha indica que pertence a mim!" },
+                    { level: "Nível 2", q: "Bola na mão do menino. Ele diz:", options: ["Aquela bola", "Esta bola", "Sua bola", "Nossa bola"], correct: 1, explanation: "Se está na mão, é ESTA." },
+                    // Adicione mais 8 questões aqui...
+                ]
+            },
+            {
+                id: 2, title: "S e Z", medal: "Encantador", icon: "🐍", color: "bg-yellow-400",
+                description: "O som que engana!",
+                study: {
+                    title: "Regra do S com som de Z",
+                    content: "O S é muito esperto! Quando ele está sozinho no meio de duas vogais, ele imita o som do Z.",
+                    cards: [
+                        { emoji: "🏠", text: "CA-S-A (O S está entre dois A)" },
+                        { emoji: "👸", text: "PRIN-CE-S-A (O S está entre E e A)" }
+                    ]
+                },
+                questions: [
+                    { level: "Nível 1", q: "Escrita correta:", options: ["Caza", "Casa", "Cassa", "Kasa"], correct: 1, explanation: "S entre vogais tem som de Z." }
+                ]
+            },
+            // Adicione os outros 5 tópicos seguindo o padrão...
+            { id: 3, title: "Verbos", medal: "Atleta", icon: "🏃", color: "bg-school-green", description: "Ação!", study: { title: "Verbo é Ação", content: "Tudo que a gente faz é verbo.", cards: [{ emoji: "🏃", text: "Correr" }, { emoji: "😴", text: "Dormir" }] }, questions: [{ level: "Nível 1", q: "Ação:", options: ["Mesa", "Pular", "Azul", "Ar"], correct: 1, explanation: "Pular é ação." }] },
+            { id: 4, title: "LH e LI", medal: "Coelho", icon: "🐇", color: "bg-purple-400", description: "Sons parecidos", study: { title: "LH ou LI?", content: "Preste atenção na pronúncia.", cards: [{ emoji: "👪", text: "Família (LI)" }, { emoji: "🥄", text: "Colher (LH)" }] }, questions: [{ level: "Nível 1", q: "Correto:", options: ["Familha", "Família", "Famia", "Familla"], correct: 1, explanation: "Família é com LI." }] },
+            { id: 5, title: "Tempos", medal: "Viajante", icon: "⏰", color: "bg-red-400", description: "Passado e Futuro", study: { title: "Máquina do Tempo", content: "Os verbos mudam com o tempo.", cards: [{ emoji: "🔙", text: "Ontem eu COMI" }, { emoji: "🔜", text: "Amanhã eu COMEREI" }] }, questions: [{ level: "Nível 1", q: "Amanhã eu...", options: ["Fui", "Irei", "Estava", "Era"], correct: 1, explanation: "Futuro!" }] },
+            { id: 6, title: "Sujeito", medal: "Investigador", icon: "🔍", color: "bg-teal-400", description: "Quem fez?", study: { title: "Quem é o Sujeito?", content: "Sujeito é quem pratica a ação na frase.", cards: [{ emoji: "🐶", text: "'O cão latiu'. Quem latiu? O Cão." }] }, questions: [{ level: "Nível 1", q: "Quem latiu?", options: ["O cão", "Latiu", "Ninguém", "Ontem"], correct: 0, explanation: "O cão é o sujeito." }] },
+            { id: 7, title: "Cedilha", medal: "Palhaço", icon: "🎪", color: "bg-pink-400", description: "Regras do Ç", study: { title: "Segredos do Ç", content: "O Ç só aparece antes de A, O, U.", cards: [{ emoji: "🚫", text: "NUNCA começa palavra com Ç" }, { emoji: "❤", text: "Coração" }] }, questions: [{ level: "Nível 1", q: "Começa com Ç?", options: ["Sim", "Não", "Talvez", "Sempre"], correct: 1, explanation: "Nunca!" }] },
+        ];
+
+        // --- QUESTÕES DO MODO DRAGÃO (ENDGAME) ---
+        // Aqui você colocaria questões muito difíceis ou uma mistura de todas
+        const dragonQuestions = [
+            { q: "DESAFIO MISTO: 'Nós ______ que ______ casa é bonita'.", options: ["achamos / aquela", "achamos / aquilo", "acho / aquela", "acham / essa"], correct: 0, explanation: "Concordância (Nós achamos) + Pronome (Aquela casa)." },
+            { q: "DESAFIO MISTO: Qual frase está PERFEITA?", options: ["A princesa comeu a maçã.", "A princeza comeu a maçã.", "A princesa comeu a massã.", "A princesa comeu há maçã."], correct: 0, explanation: "Princesa com S, Maçã com Ç." },
+            { q: "DRAGÃO SUPREMO: O sujeito de 'Ontem, choveu muito' é:", options: ["Ontem", "Choveu", "Muito", "Inexistente (fenômeno)"], correct: 3, explanation: "Fenômenos da natureza não têm sujeito!" },
+            // Adicione muitas questões aqui para o modo infinito
+        ];
+
+        // --- ESTADO DO JOGO ---
+        let state = {
+            screen: 'map',
+            currentTopicIndex: null,
+            currentQuestionIndex: 0,
+            score: 0,
+            completedTopics: [],
+            dragonStreak: 0, // Sequência de acertos no modo dragão
+            dragonRank: "Iniciante"
+        };
+
+        const app = document.getElementById('app');
+        const scoreDisplay = document.getElementById('global-score');
+        const charIcon = document.getElementById('char-icon');
+        const charName = document.getElementById('char-name');
+
+        const characters = [
+            { min: 0, name: "Ovo Curioso", icon: "🥚" },
+            { min: 1, name: "Pintinho", icon: "🐣" },
+            { min: 3, name: "Coruja", icon: "🦉" },
+            { min: 5, name: "Mago", icon: "🧙‍♂️" },
+            { min: 7, name: "Cavaleiro Real", icon: "🤴" }
+        ];
+
+        function updateChar() {
+            const char = characters.slice().reverse().find(c => state.completedTopics.length >= c.min) || characters[0];
+            charIcon.innerText = char.icon;
+            charName.innerText = char.name;
+        }
+
+        // --- TELA: MAPA ---
+        function renderMap() {
+            updateChar();
+            const allCompleted = state.completedTopics.length === 7; // Mudar para 7 quando tiver todos os tópicos
+
+            app.innerHTML = `
+                <div class="text-center mb-6 fade-in">
+                    <h2 class="text-3xl font-bold text-gray-800">🗺️ Mapa das Lendas</h2>
+                    <p class="text-gray-500">Colete as 7 medalhas para abrir o Portal!</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full fade-in pb-10">
+                    ${quizData.map((topic, index) => {
+                const isDone = state.completedTopics.includes(index);
+                return `
+                        <div class="bg-white rounded-3xl p-5 shadow-lg border-b-8 ${isDone ? 'border-green-400 bg-green-50' : 'border-gray-200'} relative overflow-hidden">
+                            ${isDone ? '<div class="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 text-xs font-bold rounded-bl-xl">COMPLETO</div>' : ''}
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="${topic.color} w-14 h-14 rounded-xl flex items-center justify-center text-2xl text-white shadow-md border-2 border-white">
+                                    ${topic.icon}
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-800">${topic.title}</h3>
+                                    <p class="text-xs text-gray-500">${topic.description}</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="renderStudy(${index})" class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-600 font-bold py-2 rounded-xl text-sm transition-colors border-b-4 border-blue-200 active:border-b-0 active:translate-y-1">
+                                    📖 Aprender
+                                </button>
+                                <button onclick="startTopic(${index})" class="flex-1 bg-school-green hover:bg-teal-700 text-white font-bold py-2 rounded-xl text-sm transition-colors border-b-4 border-teal-800 active:border-b-0 active:translate-y-1 btn-3d">
+                                    ${isDone ? 'Refazer' : '▶️ Jogar'}
+                                </button>
+                            </div>
+                        </div>`;
+            }).join('')}
+                </div>
+
+                ${allCompleted ? `
+                    <div class="w-full mt-8 fade-in animate-pulse-fast cursor-pointer" onclick="startDragonMode()">
+                        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl p-8 shadow-2xl border-b-8 border-indigo-900 text-white text-center transform hover:scale-105 transition-transform relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
+                            <h2 class="text-3xl font-black mb-2 text-yellow-300">🐉 PORTAL DOS DRAGÕES</h2>
+                            <p class="mb-4 text-purple-200">Apenas para os mais sábios! O desafio infinito.</p>
+                            <button class="bg-yellow-400 text-purple-900 font-bold px-8 py-3 rounded-full shadow-lg text-xl hover:bg-yellow-300 transition-colors">
+                                ENTRAR NO DESAFIO
+                            </button>
+                        </div>
+                    </div>
+                ` : `
+                    <div class="w-full mt-4 text-center p-4 bg-gray-200 rounded-xl border-dashed border-4 border-gray-300 text-gray-400">
+                        🔒 O Portal Secreto está trancado. <br>Conquiste todas as medalhas para ver o que tem aqui!
+                    </div>
+                `}
+            `;
+            window.scrollTo(0, 0);
+        }
+
+        // --- TELA: ESCOLINHA (TUTORIAL) ---
+        function renderStudy(index) {
+            const topic = quizData[index];
+            app.innerHTML = `
+                <div class="w-full max-w-2xl bg-white rounded-3xl shadow-xl border-b-8 border-blue-200 p-8 fade-in relative">
+                    <button onclick="renderMap()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 font-bold">⬅ Voltar</button>
+                    
+                    <div class="text-center mt-6 mb-8">
+                        <div class="${topic.color} w-20 h-20 rounded-full flex items-center justify-center text-4xl text-white shadow-lg mx-auto mb-4 border-4 border-white">
+                            ${topic.icon}
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800">${topic.study.title}</h2>
+                        <p class="text-lg text-gray-600 mt-2">${topic.study.content}</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        ${topic.study.cards.map(card => `
+                            <div class="bg-blue-50 p-4 rounded-2xl border-2 border-blue-100 flex items-center gap-3">
+                                <span class="text-3xl">${card.emoji}</span>
+                                <span class="font-bold text-gray-700 leading-tight">${card.text}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200 text-center mb-6">
+                        <p class="text-yellow-800 text-sm">💡 Dica: Leia com atenção antes de jogar para ganhar mais pontos!</p>
+                    </div>
+
+                    <button onclick="startTopic(${index})" class="w-full bg-school-green hover:bg-teal-700 text-white font-bold py-4 rounded-xl text-xl shadow-lg btn-3d">
+                        Entendi! Quero Jogar! 🚀
+                    </button>
+                </div>
+            `;
+            window.scrollTo(0, 0);
+        }
+
+        // --- INICIAR JOGO NORMAL ---
+        function startTopic(index) {
+            state.screen = 'game';
+            state.currentTopicIndex = index;
+            state.currentQuestionIndex = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const topic = quizData[state.currentTopicIndex];
+            const question = topic.questions[state.currentQuestionIndex];
+
+            // Layout da questão (similar ao anterior, simplificado aqui)
+            app.innerHTML = `
+                <div class="w-full mb-4 px-2 flex justify-between">
+                    <button onclick="renderMap()" class="text-gray-400 font-bold text-sm">⬅ Sair</button>
+                    <span class="text-school-blue font-bold text-xs uppercase">${topic.title} • ${state.currentQuestionIndex + 1}/${topic.questions.length}</span>
+                </div>
+                
+                <div class="bg-white w-full rounded-3xl shadow-xl border-b-8 border-gray-200 p-6 relative fade-in">
+                    <div class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-xs font-bold uppercase mb-4">${question.level}</div>
+                    <h2 class="text-xl md:text-2xl text-gray-800 font-bold mb-6">${formatText(question.q)}</h2>
+                    <div class="grid gap-3" id="opts">
+                        ${question.options.map((opt, idx) => `
+                            <button onclick="checkAnswer(${idx})" id="opt-${idx}" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 bg-gray-50 hover:bg-blue-50 font-semibold text-gray-600 btn-3d flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center text-sm">${['A', 'B', 'C', 'D'][idx]}</div>
+                                ${formatText(opt)}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="feedback"></div>
+                </div>
+            `;
+            window.scrollTo(0, 0);
+        }
+
+        function checkAnswer(idx) {
+            const topic = quizData[state.currentTopicIndex];
+            const q = topic.questions[state.currentQuestionIndex];
+            const isCorrect = idx === q.correct;
+
+            document.querySelectorAll('#opts button').forEach(b => b.disabled = true);
+            const btn = document.getElementById(`opt-${idx}`);
+
+            if (isCorrect) {
+                btn.className = "w-full text-left p-4 rounded-xl bg-green-100 border-2 border-green-500 text-green-800 font-bold flex gap-3";
+                state.score += 10;
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+            } else {
+                btn.className = "w-full text-left p-4 rounded-xl bg-red-100 border-2 border-red-400 text-red-800 font-bold flex gap-3";
+                document.getElementById(`opt-${q.correct}`).classList.add('bg-green-50', 'border-green-300', 'text-green-700');
+            }
+            updateScore();
+
+            const isLast = state.currentQuestionIndex === topic.questions.length - 1;
+            document.getElementById('feedback').innerHTML = `
+                <div class="mt-6 p-4 rounded-xl ${isCorrect ? 'bg-green-50' : 'bg-orange-50'} border fade-in">
+                    <p class="font-bold ${isCorrect ? 'text-green-600' : 'text-orange-600'} text-lg">${isCorrect ? 'Muito bem!' : 'Ops!'}</p>
+                    <p class="text-gray-700 mt-1">${q.explanation}</p>
+                    <button onclick="${isLast ? 'finishTopic()' : 'nextQ()'}" class="mt-4 w-full bg-school-green text-white font-bold py-3 rounded-lg btn-3d">
+                        ${isLast ? 'Concluir Fase' : 'Próxima'}
+                    </button>
+                </div>
+            `;
+        }
+
+        function nextQ() { state.currentQuestionIndex++; renderQuestion(); }
+
+        function finishTopic() {
+            if (!state.completedTopics.includes(state.currentTopicIndex)) state.completedTopics.push(state.currentTopicIndex);
+            confetti({ particleCount: 150, spread: 100 });
+            renderMap();
+            // Mostra alert simples (no código real use modal)
+            setTimeout(() => alert(`Você completou: ${quizData[state.currentTopicIndex].title}!`), 100);
+        }
+
+        // --- MODO DRAGÃO (ENDGAME) ---
+        function startDragonMode() {
+            state.dragonStreak = 0;
+            state.dragonRank = "Dragão de Bronze";
+            renderDragonQuestion();
+        }
+
+        function renderDragonQuestion() {
+            // Sorteia uma questão
+            const q = dragonQuestions[Math.floor(Math.random() * dragonQuestions.length)];
+
+            // Define Rank Visual
+            let rankColor = "text-yellow-600";
+            if (state.dragonStreak >= 5) { state.dragonRank = "Dragão de Prata"; rankColor = "text-gray-400"; }
+            if (state.dragonStreak >= 10) { state.dragonRank = "Dragão Dourado"; rankColor = "text-yellow-400"; }
+            if (state.dragonStreak >= 15) { state.dragonRank = "Dragão Supremo"; rankColor = "text-purple-400"; }
+            if (state.dragonStreak >= 20) { state.dragonRank = "DEUS DRAGÃO"; rankColor = "text-red-500 animate-pulse"; }
+
+            app.innerHTML = `
+                <div class="w-full min-h-screen bg-gray-900 absolute top-0 left-0 p-6 flex flex-col items-center">
+                    <div class="w-full max-w-2xl">
+                        <div class="flex justify-between items-center text-white mb-6">
+                            <button onclick="renderMap()" class="text-gray-400 hover:text-white">❌ Sair</button>
+                            <div class="text-right">
+                                <p class="text-xs text-gray-400 uppercase">Sequência</p>
+                                <p class="text-2xl font-black text-white">🔥 ${state.dragonStreak}</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center mb-8">
+                            <span class="text-6xl filter drop-shadow-lg">🐲</span>
+                            <h2 class="text-2xl font-black uppercase mt-2 ${rankColor}">${state.dragonRank}</h2>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-3xl p-6 border-2 border-gray-700 shadow-2xl relative">
+                            <h2 class="text-xl text-white font-bold mb-6">${formatText(q.q)}</h2>
+                            <div class="grid gap-3" id="dragon-opts">
+                                ${q.options.map((opt, idx) => `
+                                    <button onclick="checkDragon(${idx}, ${q.correct})" class="w-full text-left p-4 rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 border border-gray-600 font-bold transition-all">
+                                        ${formatText(opt)}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkDragon(idx, correct) {
+            const btns = document.querySelectorAll('#dragon-opts button');
+            btns.forEach(b => b.disabled = true);
+
+            if (idx === correct) {
+                btns[idx].classList.remove('bg-gray-700');
+                btns[idx].classList.add('bg-green-600', 'border-green-400', 'text-white');
+                state.dragonStreak++;
+                state.score += 20; // Pontos em dobro
+                updateScore();
+                confetti({ particleCount: 30, spread: 50, colors: ['#FFD700', '#FF0000'] });
+                setTimeout(renderDragonQuestion, 1500); // Próxima automática
+            } else {
+                btns[idx].classList.remove('bg-gray-700');
+                btns[idx].classList.add('bg-red-600', 'text-white');
+                btns[correct].classList.add('bg-green-600', 'text-white');
+                // Game Over do modo dragão
+                setTimeout(() => {
+                    alert(`O Dragão venceu desta vez! Sua sequência foi: ${state.dragonStreak}`);
+                    renderMap();
+                }, 2000);
+            }
+        }
+
+        // Utils
+        function formatText(t) { return t.replace(/\*\*(.*?)\*\*/g, '<span class="text-school-blue font-extrabold">$1</span>'); }
+        function updateScore() { document.getElementById('global-score').innerText = state.score; }
+
+        renderMap();
+    </script>
+</body>
+
+</html>
