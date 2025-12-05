@@ -4,13 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Desafio Titã - 3º Ano</title>
-
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#4ECDC4">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="icon-192.png">
+    <title>Mestre do Saber - 3º Ano</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,15 +16,16 @@
                 extend: {
                     fontFamily: { sans: ['Fredoka', 'sans-serif'] },
                     colors: {
-                        'brand-blue': '#4ECDC4',
-                        'brand-yellow': '#FFE66D',
-                        'brand-red': '#FF6B6B',
-                        'brand-purple': '#6D28D9', // Cor do Titã
-                        'titan-gold': '#F59E0B',
+                        'hero-blue': '#3B82F6',
+                        'hero-purple': '#8B5CF6',
+                        'hero-green': '#10B981',
+                        'hero-yellow': '#F59E0B',
+                        'hero-red': '#EF4444',
+                        'bg-soft': '#F3F4F6',
                     },
-                    animation: {
-                        'bounce-subtle': 'bounce 2s infinite',
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    boxShadow: {
+                        'btn': '0 4px 0 0 rgba(0, 0, 0, 0.1)',
+                        'btn-active': '0 0px 0 0 rgba(0, 0, 0, 0.1)',
                     }
                 }
             }
@@ -40,34 +35,32 @@
     <style>
         body {
             background-color: #F3F4F6;
-            background-image: radial-gradient(#D1D5DB 2px, transparent 2px);
-            background-size: 24px 24px;
-            /* Previne seleção e zoom indesejado em toques rápidos */
-            touch-action: manipulation;
+            background-image: radial-gradient(#E5E7EB 2px, transparent 2px);
+            background-size: 20px 20px;
+            /* Previne seleção de texto e zoom duplo no celular */
             user-select: none;
+            touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
-            padding-bottom: 100px;
-            /* Espaço para a barra fixa */
+            padding-bottom: 140px;
+            /* Espaço seguro para o rodapé fixo */
         }
 
-        .btn-push {
-            transition: transform 0.1s, border-bottom-width 0.1s;
+        /* Botão com efeito de "apertar" */
+        .btn-press {
+            transition: all 0.1s;
+            transform: translateY(0);
             border-bottom-width: 4px;
         }
 
-        .btn-push:active {
+        .btn-press:active {
             transform: translateY(4px);
             border-bottom-width: 0px;
+            box-shadow: none;
         }
 
-        .titan-glow {
-            box-shadow: 0 0 15px rgba(109, 40, 217, 0.5);
-            border: 2px solid #C4B5FD;
-        }
-
-        /* Animações de transição */
+        /* Animações */
         .slide-up {
-            animation: slideUp 0.4s ease-out;
+            animation: slideUp 0.3s ease-out;
         }
 
         @keyframes slideUp {
@@ -81,76 +74,95 @@
                 opacity: 1;
             }
         }
+
+        .pop-in {
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Rodapé Fixo */
+        .fixed-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 50;
+            padding-bottom: env(safe-area-inset-bottom);
+            /* Para iPhones novos */
+        }
     </style>
 </head>
 
 <body class="font-sans text-gray-700 min-h-screen flex flex-col items-center">
 
     <header
-        class="w-full bg-white p-3 shadow-md border-b-4 border-gray-200 sticky top-0 z-40 flex justify-between items-center max-w-lg mx-auto rounded-b-xl">
-        <div class="flex items-center gap-2" onclick="renderMap()">
-            <div class="bg-blue-100 p-2 rounded-full text-xl cursor-pointer">🔙</div>
-            <div>
-                <p class="text-[10px] uppercase font-bold text-gray-400">Pontos</p>
-                <p class="text-xl font-black text-brand-purple" id="header-score">0</p>
-            </div>
+        class="w-full bg-white p-3 shadow-sm border-b-2 border-gray-100 sticky top-0 z-40 flex justify-between items-center max-w-md mx-auto">
+        <div class="flex items-center gap-2" id="header-left">
         </div>
-        <div class="flex items-center gap-2">
-            <div class="text-right">
-                <p class="text-[10px] uppercase font-bold text-gray-400">Nível Atual</p>
-                <p class="text-sm font-bold text-brand-blue" id="header-rank">Iniciante</p>
-            </div>
-            <div class="text-2xl animate-bounce-subtle">🐣</div>
+        <div class="bg-yellow-100 px-3 py-1 rounded-full border border-yellow-200 flex items-center gap-1">
+            <span>⭐</span>
+            <span id="score-display" class="font-bold text-yellow-700">0</span>
         </div>
     </header>
 
-    <main id="app" class="w-full max-w-lg p-4 flex-grow flex flex-col items-center"></main>
+    <main id="app" class="w-full max-w-md p-4 flex-grow flex flex-col items-center"></main>
 
-    <div id="action-bar"
-        class="fixed bottom-0 left-0 w-full bg-white border-t-4 border-gray-200 p-4 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] hidden">
-        <div class="max-w-lg mx-auto" id="action-content">
+    <div id="footer-action" class="fixed-footer hidden">
+        <div class="max-w-md mx-auto p-4 w-full" id="footer-content">
         </div>
     </div>
 
     <script>
-        // --- BANCO DE QUESTÕES OTIMIZADO (5-4-3) ---
-        // Estrutura: Tópico -> Níveis [0,1,2] -> Questões
-
-        const topics = [
+        // --- CONTEÚDO PEDAGÓGICO OTIMIZADO (5-4-3) ---
+        const quizData = [
             {
                 id: "pronomes",
                 title: "Pronomes",
                 icon: "🎒",
-                color: "bg-blue-400",
+                color: "bg-blue-500",
+                description: "Meu, Teu, Este, Aquele",
                 levels: [
+                    // NÍVEL 1: FÁCIL (5 Questões) - Foco: Identificar posse e lugar básico
                     {
-                        name: "Básico",
-                        qCount: 5,
+                        name: "Iniciante",
                         questions: [
-                            { q: "Eu gosto da **minha** escola. A palavra 'minha' diz que a escola é de quem?", options: ["De quem está falando (Eu)", "Da escola", "De outra pessoa", "De ninguém"], correct: 0, feedback: "Isso! 'Minha' significa que é sua." },
-                            { q: "Qual palavra usamos para mostrar algo que está **longe**?", options: ["Este", "Esse", "Aquele", "Meu"], correct: 2, feedback: "'Aquele' aponta para longe. Aquele pássaro no céu!" },
-                            { q: "O cachorro é **nosso**. Quem é o dono?", options: ["Só eu", "Só você", "Nós dois", "Eles"], correct: 2, feedback: "Nosso = meu + seu. Pertence a nós!" },
-                            { q: "A frase 'Eu fui ao parque'. Quem foi ao parque?", options: ["Eu", "Tu", "Ele", "Nós"], correct: 0, feedback: "Está escrito 'Eu' fui." },
-                            { q: "Qual dessas palavras indica **posse** (ser dono)?", options: ["Aquele", "Este", "Teu", "Eu"], correct: 2, feedback: "'Teu' indica que é seu. Teu brinquedo." }
+                            { q: "Se a bola é **minha**, quem é o dono?", options: ["Eu", "Você", "Nós", "Eles"], correct: 0, hint: "Minha = Eu." },
+                            { q: "Qual palavra usamos para apontar algo que está **longe**?", options: ["Este", "Esse", "Aquele", "Meu"], correct: 2, hint: "Longe = Aquele lááá longe." },
+                            { q: "O cachorro é **nosso**. Quem são os donos?", options: ["Eu sozinho", "Você sozinho", "Nós dois", "Ninguém"], correct: 2, hint: "Nosso pertence a nós." },
+                            { q: "Qual palavra indica posse (ser dono)?", options: ["Aquele", "Lá", "Teu", "Onde"], correct: 2, hint: "Teu caderno, teu brinquedo." },
+                            { q: "Eu perdi **meu** lápis. A palavra 'meu' é um pronome...", options: ["Possessivo (dono)", "Demonstrativo (lugar)", "Nome", "Verbo"], correct: 0, hint: "Indica de quem é o lápis." }
                         ]
                     },
+                    // NÍVEL 2: MÉDIO (4 Questões) - Foco: Completar frases (Contexto)
                     {
-                        name: "Médio",
-                        qCount: 4,
+                        name: "Aventureiro",
                         questions: [
-                            { q: "A bola está na mão do menino. Ele diz: Essa bola ou Esta bola?", options: ["Esta bola (perto dele)", "Essa bola (perto do outro)", "Aquela bola (longe)", "Sua bola"], correct: 0, feedback: "Se está na mão de quem fala, é **ESTA**." },
-                            { q: "Complete: Você perdeu o ______ lápis?", options: ["meu", "teu", "nosso", "ele"], correct: 1, feedback: "Quem fala 'Você' ou 'Tu', usa 'Teu' ou 'Seu'." },
-                            { q: "Mãe, pega ______ toalha aí do seu lado?", options: ["esta", "essa", "aquela", "minha"], correct: 1, feedback: "Se está do lado de quem escuta (a mãe), é **ESSA**." },
-                            { q: "Nós arrumamos a ______ sala.", options: ["nossa", "sua", "tua", "minha"], correct: 0, feedback: "Nós cuidamos do que é **NOSSO**." }
+                            { q: "O menino segura a bola e diz: '______ bola é nova'.", options: ["Esta", "Aquela", "Sua", "Nossa"], correct: 0, hint: "Se está na mão dele, é **ESTA**." },
+                            { q: "Mamãe, me dá **______** copo que está aí com você?", options: ["este", "esse", "aquele", "meu"], correct: 1, hint: "Se está com quem ouve (mamãe), é **ESSE**." },
+                            { q: "Tu esqueceste o ______ caderno?", options: ["meu", "teu", "nosso", "deles"], correct: 1, hint: "Quem fala TU, usa TEU." },
+                            { q: "Nós vamos arrumar a ______ casa.", options: ["nossa", "tua", "sua", "minha"], correct: 0, hint: "Nós cuidamos da **nossa** casa." }
                         ]
                     },
+                    // NÍVEL 3: TITÃ (3 Questões) - Foco: Análise e Pegadinhas
                     {
-                        name: "TITÃ ⚡",
-                        qCount: 3,
+                        name: "Titã",
                         questions: [
-                            { q: "Desafio: 'Tu e eu somos amigos. O segredo é ______'.", options: ["teu", "meu", "nosso", "deles"], correct: 2, feedback: "Tu + Eu = Nós. Então o segredo é **NOSSO**." },
-                            { q: "Qual frase está correta?", options: ["Este aqui é meu pai.", "Esse aqui é meu pai.", "Aquele aqui é meu pai.", "Aquilo aqui é meu pai."], correct: 0, feedback: "Se o pai está 'aqui' (perto), usamos **ESTE**." },
-                            { q: "Analise: 'Vendi meu carro para ele'. De quem era o carro antes?", options: ["Dele", "Meu", "Nosso", "Do carro"], correct: 1, feedback: "O carro era **MEU** antes de vender." }
+                            { q: "DESAFIO: 'Vendi meu carro para ele'. De quem era o carro antes?", options: ["Dele", "Meu", "Do vizinho", "Não tinha dono"], correct: 1, hint: "Estava escrito 'meu carro'." },
+                            { q: "Olhando para uma estrela no céu, dizemos:", options: ["Esta estrela", "Essa estrela", "Aquela estrela", "Minha estrela"], correct: 2, hint: "Está muito longe de todos, então é **Aquela**." },
+                            { q: "Qual frase está ERRADA?", options: ["Este aqui é meu pai", "Aquele ali é meu pai", "Esse ali é meu pai", "Aquilo lá é um avião"], correct: 2, hint: "Não usamos 'Esse' com 'ali'. 'Esse' é aí perto de você." }
                         ]
                     }
                 ]
@@ -159,114 +171,296 @@
                 id: "sz",
                 title: "Uso do S e Z",
                 icon: "🐍",
-                color: "bg-yellow-400",
+                color: "bg-yellow-500",
+                description: "Casa ou Caza?",
                 levels: [
                     {
-                        name: "Básico",
-                        qCount: 5,
+                        name: "Iniciante",
                         questions: [
-                            { q: "Qual o nome do objeto onde moramos?", options: ["Caza", "Casa", "Caça", "Kasa"], correct: 1, feedback: "Casa se escreve com S." },
-                            { q: "O som do S em 'Mesa' parece com qual letra?", options: ["Z", "J", "X", "C"], correct: 0, feedback: "Mesa tem som de Z, mas escreve com S." },
-                            { q: "Qual está certo?", options: ["Azul", "Asul", "Açul", "Axul"], correct: 0, feedback: "Azul é com Z!" },
-                            { q: "Zebra começa com...", options: ["S", "Z", "C", "X"], correct: 1, feedback: "Zebra é com Z." },
-                            { q: "Vaso de flor. Como escreve?", options: ["Vazo", "Vaso", "Vaço", "Vasso"], correct: 1, feedback: "Vaso é com S." }
+                            { q: "Onde nós moramos? Ca__a.", options: ["Z", "S", "Ç", "X"], correct: 1, hint: "Casa se escreve com S." },
+                            { q: "Mesa tem som de Z, mas escrevemos com...", options: ["S", "Z", "X", "J"], correct: 0, hint: "Mesa é com S!" },
+                            { q: "Qual animal começa com Z?", options: ["Sapo", "Zebra", "Cobra", "Gato"], correct: 1, hint: "Zebra!" },
+                            { q: "Azeite se escreve com...", options: ["Z", "S", "Ç", "X"], correct: 0, hint: "Azeite é com Z." },
+                            { q: "Qual palavra está escrita certa?", options: ["Cazu", "Casu", "Caso", "Cazo"], correct: 2, hint: "Caso (de acontecer) é com S." }
                         ]
                     },
                     {
-                        name: "Médio",
-                        qCount: 4,
+                        name: "Aventureiro",
                         questions: [
-                            { q: "Princesa e Duquesa terminam com...", options: ["EZA", "ESA", "EÇA", "EZZA"], correct: 1, feedback: "Títulos femininos terminam em ESA." },
-                            { q: "Beleza vem de belo. Escrevemos com:", options: ["Z", "S", "SS", "Ç"], correct: 0, feedback: "Qualidades que viram nomes (Belo -> Beleza) usamos Z." },
-                            { q: "Japonês, Francês, Inglês. Terminam com:", options: ["ÊS", "ÊZ", "EIZ", "ES"], correct: 0, feedback: "Nacionalidades usamos ÊS." },
-                            { q: "Pousada vem de pousar. É com S ou Z?", options: ["S", "Z", "Ç", "SS"], correct: 0, feedback: "Se pousar é com S, pousada também é." }
+                            { q: "Princesa termina igual a...", options: ["Beleza", "Duquesa", "Riqueza", "Cinza"], correct: 1, hint: "Títulos de mulheres (Duquesa, Baronesa) usam S." },
+                            { q: "Belo vira Beleza. Rico vira...", options: ["Riquesa", "Riqueza", "Riquessa", "Riquesa"], correct: 1, hint: "Coisas que vêm de adjetivos usam Z (Riqueza)." },
+                            { q: "Japonês e Francês. Eles terminam com:", options: ["ÊS", "ÊZ", "EIZ", "ES"], correct: 0, hint: "Nacionalidades terminam com ÊS." },
+                            { q: "Pesquisa vem de pesquisar. É com S ou Z?", options: ["S", "Z", "Ç", "X"], correct: 0, hint: "Se a palavra original tem S, a filha também tem." }
                         ]
                     },
                     {
-                        name: "TITÃ ⚡",
-                        qCount: 3,
+                        name: "Titã",
                         questions: [
-                            { q: "Desafio: Qual par está correto?", options: ["Riqueza e Pobreza", "Riquesa e Pobresa", "Riqueza e Pobresa", "Riquesa e Pobreza"], correct: 0, feedback: "As duas palavras usam Z (Rico->Riqueza, Pobre->Pobreza)." },
-                            { q: "Analise: 'Ele quis fazer café'. Quis é com:", options: ["S", "Z", "X", "Ç"], correct: 0, feedback: "Quis (verbo querer) é sempre com S." },
-                            { q: "Pesquisa se escreve com S. E Pesquisar?", options: ["Com S", "Com Z", "Muda para Z", "Com Ç"], correct: 0, feedback: "A família continua igual! Pesquisa -> Pesquisar (tudo S)." }
+                            { q: "Qual o único par onde as duas são com Z?", options: ["Casa e Mesa", "Riqueza e Pobreza", "Princesa e Duquesa", "Liso e Riso"], correct: 1, hint: "Riqueza e Pobreza vêm de Rico e Pobre (adjetivos)." },
+                            { q: "O verbo 'Quis' (eu quis algo) se escreve com:", options: ["S", "Z", "X", "Ç"], correct: 0, hint: "Querer e Quis são com S." },
+                            { q: "Atrás (lugar) e Traz (verbo trazer). Qual é de lugar?", options: ["Traz", "Trás", "Atrás", "Atraz"], correct: 2, hint: "Ficar ATRÁS é com S." }
                         ]
                     }
                 ]
             },
-            // Adicione os outros tópicos (Verbo, LH/LI, etc) seguindo a estrutura acima...
-            // Para testar, os tópicos abaixo são placeholders funcionais
-            { id: "verbos", title: "Verbos", icon: "🏃", color: "bg-green-400", levels: [{ name: "Básico", qCount: 5, questions: Array(5).fill({ q: "Exemplo de Verbo:", options: ["Correr", "Azul", "Mesa", "Ar"], correct: 0, feedback: "Ação!" }) }, { name: "Médio", qCount: 4, questions: Array(4).fill({ q: "Exemplo Médio", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }, { name: "TITÃ ⚡", qCount: 3, questions: Array(3).fill({ q: "Exemplo Titã", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }] },
-            { id: "lhli", title: "LH e LI", icon: "🐇", color: "bg-purple-400", levels: [{ name: "Básico", qCount: 5, questions: Array(5).fill({ q: "Exemplo LH:", options: ["A", "B", "C", "D"], correct: 0, feedback: "Ação!" }) }, { name: "Médio", qCount: 4, questions: Array(4).fill({ q: "Exemplo Médio", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }, { name: "TITÃ ⚡", qCount: 3, questions: Array(3).fill({ q: "Exemplo Titã", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }] },
-            { id: "tempos", title: "Passado/Futuro", icon: "⏰", color: "bg-red-400", levels: [{ name: "Básico", qCount: 5, questions: Array(5).fill({ q: "Exemplo Tempo:", options: ["A", "B", "C", "D"], correct: 0, feedback: "Ação!" }) }, { name: "Médio", qCount: 4, questions: Array(4).fill({ q: "Exemplo Médio", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }, { name: "TITÃ ⚡", qCount: 3, questions: Array(3).fill({ q: "Exemplo Titã", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }] },
-            { id: "sujeito", title: "Sujeito", icon: "🔍", color: "bg-teal-400", levels: [{ name: "Básico", qCount: 5, questions: Array(5).fill({ q: "Exemplo Sujeito:", options: ["A", "B", "C", "D"], correct: 0, feedback: "Ação!" }) }, { name: "Médio", qCount: 4, questions: Array(4).fill({ q: "Exemplo Médio", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }, { name: "TITÃ ⚡", qCount: 3, questions: Array(3).fill({ q: "Exemplo Titã", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }] },
-            { id: "cedilha", title: "Cedilha", icon: "🎪", color: "bg-pink-400", levels: [{ name: "Básico", qCount: 5, questions: Array(5).fill({ q: "Exemplo Cedilha:", options: ["A", "B", "C", "D"], correct: 0, feedback: "Ação!" }) }, { name: "Médio", qCount: 4, questions: Array(4).fill({ q: "Exemplo Médio", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }, { name: "TITÃ ⚡", qCount: 3, questions: Array(3).fill({ q: "Exemplo Titã", options: ["A", "B", "C", "D"], correct: 0, feedback: "Explicação" }) }] },
+            {
+                id: "verbos",
+                title: "Verbos",
+                icon: "🏃",
+                color: "bg-green-500",
+                description: "Ação e Movimento",
+                levels: [
+                    {
+                        name: "Iniciante",
+                        questions: [
+                            { q: "Qual palavra é uma ação (coisa que se faz)?", options: ["Cadeira", "Pular", "Azul", "Pedra"], correct: 1, hint: "Pular é algo que você faz." },
+                            { q: "O gato **dormiu**. O que o gato fez?", options: ["O", "Gato", "Dormiu", "Fofinho"], correct: 2, hint: "Ele dormiu." },
+                            { q: "Complete: O pássaro ______ no céu.", options: ["Voa", "Verde", "Grande", "Asa"], correct: 0, hint: "Voa é a ação." },
+                            { q: "Qual NÃO é verbo?", options: ["Correr", "Comer", "Bonito", "Falar"], correct: 2, hint: "Bonito é uma qualidade, não ação." },
+                            { q: "Choveu muito. Chover é um verbo de...", options: ["Ação de pessoa", "Natureza", "Sentimento", "Objeto"], correct: 1, hint: "É fenômeno da natureza." }
+                        ]
+                    },
+                    {
+                        name: "Aventureiro",
+                        questions: [
+                            { q: "Amanhã eu ______ bolo.", options: ["Comi", "Como", "Comerei", "Comia"], correct: 2, hint: "Amanhã é futuro: Comerei." },
+                            { q: "Ontem eles ______ bola.", options: ["Jogaram", "Jogarão", "Joga", "Jogar"], correct: 0, hint: "Passado termina com AM: Jogaram." },
+                            { q: "Eu ______ feliz hoje.", options: ["Estou", "Fui", "Serei", "Era"], correct: 0, hint: "Hoje é presente: Estou." },
+                            { q: "Transforme para o passado: Ele canta.", options: ["Ele cantará", "Ele cantou", "Ele cantar", "Ele cante"], correct: 1, hint: "Já aconteceu: Cantou." }
+                        ]
+                    },
+                    {
+                        name: "Titã",
+                        questions: [
+                            { q: "Eles estudarão (com ÃO) acontece quando?", options: ["Ontem (Passado)", "Agora (Presente)", "Amanhã (Futuro)", "Nunca"], correct: 2, hint: "ÃO no final é sempre Futuro." },
+                            { q: "Qual frase está no Futuro?", options: ["O sol brilhou", "O sol brilha", "O sol brilhará", "O sol brilhava"], correct: 2, hint: "Brilhará = vai acontecer." },
+                            { q: "Verbo 'Ser'. Eu sou, Tu és, Ele...", options: ["Somo", "É", "São", "Fui"], correct: 1, hint: "Ele É." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "lhli",
+                title: "LH e LI",
+                icon: "🐇",
+                color: "bg-purple-500",
+                description: "Orelha ou Orelia?",
+                levels: [
+                    {
+                        name: "Iniciante",
+                        questions: [
+                            { q: "O coelho comeu a fo__a.", options: ["Lia", "Lha", "La", "Lya"], correct: 1, hint: "Folha é com LH." },
+                            { q: "A minha fami__a é linda.", options: ["Lha", "Lia", "La", "Lhya"], correct: 1, hint: "Família é com LI." },
+                            { q: "Qual está certo?", options: ["Orelha", "Orelia", "Orélia", "Orela"], correct: 0, hint: "Orelha com LH." },
+                            { q: "Sandá__a da menina.", options: ["Lha", "Lia", "La", "Lhya"], correct: 1, hint: "Sandália com LI." },
+                            { q: "Para tomar sopa uso a...", options: ["Coler", "Colier", "Colher", "Coier"], correct: 2, hint: "Colher com LH." }
+                        ]
+                    },
+                    {
+                        name: "Aventureiro",
+                        questions: [
+                            { q: "Júlio ou Julho (mês)?", options: ["Julho", "Júlio", "Os dois existem", "Nenhum"], correct: 2, hint: "Júlio é nome, Julho é mês. Os dois existem." },
+                            { q: "O palhaço faz palhaçada. O que está errado?", options: ["Palhaço", "Palhaçada", "Paliaço", "Nenhum"], correct: 2, hint: "Paliaço não existe, é com LH." },
+                            { q: "Abe__a faz mel.", options: ["Lia", "Lha", "La", "Li"], correct: 1, hint: "Abelha com LH." },
+                            { q: "Itá__a (país).", options: ["Lha", "Lia", "La", "Li"], correct: 1, hint: "Itália com LI." }
+                        ]
+                    },
+                    {
+                        name: "Titã",
+                        questions: [
+                            { q: "Complete: O ve__inho lia um livro.", options: ["lh", "li", "l", "i"], correct: 0, hint: "Velhinho (veio de velho) é com LH." },
+                            { q: "Utensí__o de cozinha.", options: ["Lio", "Lho", "Li-o", "Lhi-o"], correct: 0, hint: "Utensílio é com LI." },
+                            { q: "Mobí__a da casa.", options: ["Lia", "Lha", "La", "Lya"], correct: 0, hint: "Mobília é com LI." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "tempos",
+                title: "Tempos",
+                icon: "⏰",
+                color: "bg-red-500",
+                description: "Passado, Presente, Futuro",
+                levels: [
+                    {
+                        name: "Iniciante",
+                        questions: [
+                            { q: "Ontem eu brinquei. Isso é:", options: ["Passado (já foi)", "Presente (agora)", "Futuro (vai ser)", "Nenhum"], correct: 0, hint: "Ontem já passou." },
+                            { q: "Amanhã nós vamos. Isso é:", options: ["Passado", "Presente", "Futuro", "Nenhum"], correct: 2, hint: "Amanhã ainda vem." },
+                            { q: "Eu estou feliz agora. Isso é:", options: ["Passado", "Presente", "Futuro", "Nenhum"], correct: 1, hint: "Agora é presente." },
+                            { q: "Qual palavra mostra futuro?", options: ["Comi", "Como", "Comerei", "Comia"], correct: 2, hint: "Comerei (vai acontecer)." },
+                            { q: "Qual palavra mostra passado?", options: ["Corro", "Corri", "Correrei", "Correr"], correct: 1, hint: "Corri (já fiz)." }
+                        ]
+                    },
+                    {
+                        name: "Aventureiro",
+                        questions: [
+                            { q: "Eles brincaram (AM no final).", options: ["Passado", "Futuro", "Presente", "Dúvida"], correct: 0, hint: "AM no final é passado." },
+                            { q: "Eles brincarão (ÃO no final).", options: ["Passado", "Futuro", "Presente", "Dúvida"], correct: 1, hint: "ÃO no final é futuro." },
+                            { q: "Antigamente, as pessoas ______ cartas.", options: ["Escrevem", "Escreverão", "Escreviam", "Escreve"], correct: 2, hint: "Antigamente é passado: Escreviam." },
+                            { q: "Semana que vem eu ______.", options: ["Viajei", "Viajo", "Viajarei", "Viajava"], correct: 2, hint: "Semana que vem é futuro: Viajarei." }
+                        ]
+                    },
+                    {
+                        name: "Titã",
+                        questions: [
+                            { q: "Hoje eu estudo. Ontem eu...", options: ["Estudo", "Estudarei", "Estudei", "Estuda"], correct: 2, hint: "Ontem estudei." },
+                            { q: "Se eu não comer, eu ______ fome.", options: ["Senti", "Sinto", "Sentirei", "Sentia"], correct: 2, hint: "No futuro, sentirei fome." },
+                            { q: "Qual frase está correta?", options: ["Ontem eles comerão bolo", "Ontem eles comeram bolo", "Amanhã eles comeram bolo", "Hoje eles comerão bolo"], correct: 1, hint: "Ontem = Passado = AM (Comeram)." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "sujeito",
+                title: "Sujeito",
+                icon: "🔍",
+                color: "bg-teal-500",
+                description: "Quem fez a ação?",
+                levels: [
+                    {
+                        name: "Iniciante",
+                        questions: [
+                            { q: "**O bebê** chorou. Quem chorou?", options: ["O bebê", "Chorou", "Ninguém", "O pai"], correct: 0, hint: "O bebê é o sujeito." },
+                            { q: "**A menina** correu. O sujeito é:", options: ["Correu", "A menina", "Rápido", "Rua"], correct: 1, hint: "A menina praticou a ação." },
+                            { q: "O cachorro latiu. Quem é o sujeito?", options: ["Latiu", "O cachorro", "O gato", "Barulho"], correct: 1, hint: "O cachorro fez o barulho." },
+                            { q: "Nós gostamos de sorvete. Quem gosta?", options: ["Sorvete", "Gostamos", "Nós", "De"], correct: 2, hint: "Nós gostamos." },
+                            { q: "A flor nasceu. Sujeito:", options: ["Nasceu", "Flor", "A flor", "Jardim"], correct: 2, hint: "A flor." }
+                        ]
+                    },
+                    {
+                        name: "Aventureiro",
+                        questions: [
+                            { q: "Minha mãe fez bolo. O sujeito é:", options: ["Bolo", "Fez", "Minha mãe", "Minha"], correct: 2, hint: "Quem fez? Minha mãe." },
+                            { q: "O carro azul quebrou. Sujeito:", options: ["Carro", "Azul", "O carro azul", "Quebrou"], correct: 2, hint: "O sujeito é tudo: O carro azul." },
+                            { q: "Choveu muito ontem. Tem sujeito?", options: ["Sim, a chuva", "Não, fenômeno da natureza", "Sim, ontem", "Sim, muito"], correct: 1, hint: "Fenômenos (chuva, vento) não têm sujeito." },
+                            { q: "Pedro e Paulo jogaram. Quem é o sujeito?", options: ["Pedro", "Paulo", "Pedro e Paulo", "Jogaram"], correct: 2, hint: "Os dois juntos são o sujeito." }
+                        ]
+                    },
+                    {
+                        name: "Titã",
+                        questions: [
+                            { q: "Saímos cedo hoje. Quem é o sujeito?", options: ["Eles", "Nós (escondido)", "Eu", "Vocês"], correct: 1, hint: "'Saímos' só combina com NÓS." },
+                            { q: "Fui ao mercado. Sujeito:", options: ["Ele", "Tu", "Eu (escondido)", "Nós"], correct: 2, hint: "'Fui' só combina com EU." },
+                            { q: "Quebrou-se o vaso. O que quebrou?", options: ["O vaso", "Alguém", "Ninguém", "Chão"], correct: 0, hint: "O vaso é o sujeito (ele quebrou)." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "cedilha",
+                title: "Cedilha (Ç)",
+                icon: "🎪",
+                color: "bg-pink-500",
+                description: "Regras do Ç",
+                levels: [
+                    {
+                        name: "Iniciante",
+                        questions: [
+                            { q: "Palavra pode começar com Ç?", options: ["Sim", "Não", "Às vezes", "Sempre"], correct: 1, hint: "NUNCA começa com Ç." },
+                            { q: "Cora__ão.", options: ["S", "SS", "Ç", "Z"], correct: 2, hint: "Coração usa Ç." },
+                            { q: "Pa__oca.", options: ["Ç", "S", "SS", "C"], correct: 0, hint: "Paçoca usa Ç." },
+                            { q: "A__úcar.", options: ["S", "Z", "Ç", "X"], correct: 2, hint: "Açúcar usa Ç." },
+                            { q: "Cabe__a.", options: ["S", "Ç", "SS", "Z"], correct: 1, hint: "Cabeça usa Ç." }
+                        ]
+                    },
+                    {
+                        name: "Aventureiro",
+                        questions: [
+                            { q: "O Ç só aparece antes de quais letras?", options: ["E, I", "A, O, U", "Qualquer uma", "B, C, D"], correct: 1, hint: "Só antes de A, O, U (Ex: Ça, Ço, Çu)." },
+                            { q: "Vo__ê. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de E usamos C normal. Você." },
+                            { q: "Baci__a. Com C ou Ç?", options: ["C", "Ç", "S", "SS"], correct: 0, hint: "Antes de I usamos C normal. Bacia." },
+                            { q: "Mo__a bonita.", options: ["ça", "sa", "ssa", "za"], correct: 0, hint: "Moça é com Ç." }
+                        ]
+                    },
+                    {
+                        name: "Titã",
+                        questions: [
+                            { q: "Qual palavra está errada?", options: ["Coração", "Çapato", "Cabeça", "Açude"], correct: 1, hint: "Sapato é com S. Nunca Ç no começo!" },
+                            { q: "Palhaço e Laço. As duas têm:", options: ["S", "SS", "Ç", "Z"], correct: 2, hint: "As duas usam Ç." },
+                            { q: "Complete: O ca__ador ca__ou.", options: ["ç / ç", "c / c", "s / s", "z / z"], correct: 0, hint: "Caçador e Caçou usam Ç." }
+                        ]
+                    }
+                ]
+            }
         ];
 
-        // --- ESTADO DO JOGO ---
+        // --- LÓGICA DO JOGO ---
         let gameState = {
-            progress: JSON.parse(localStorage.getItem('titaProgress')) || {}, // Guarda quais níveis foram completados
-            score: parseInt(localStorage.getItem('titaScore')) || 0,
-            currentTopicIdx: 0,
-            currentLevelIdx: 0,
-            questionIdx: 0,
-            mistakes: 0 // Para dar feedback se errar muito
+            score: parseInt(localStorage.getItem('mestreScore')) || 0,
+            unlocked: JSON.parse(localStorage.getItem('mestreUnlocked')) || {},
+            // Formato unlock: "topicId-levelIdx": true
+            currentTopicIndex: 0,
+            currentLevelIndex: 0,
+            currentQuestionIndex: 0,
+            selectedOptionIndex: null
         };
 
+        // Elementos DOM
         const app = document.getElementById('app');
-        const actionBar = document.getElementById('action-bar');
-        const actionContent = document.getElementById('action-content');
-        const scoreDisplay = document.getElementById('header-score');
+        const headerLeft = document.getElementById('header-left');
+        const scoreDisplay = document.getElementById('score-display');
+        const footerAction = document.getElementById('footer-action');
+        const footerContent = document.getElementById('footer-content');
 
-        // --- FUNÇÕES DE NAVEGAÇÃO ---
-
-        function saveProgress() {
-            localStorage.setItem('titaProgress', JSON.stringify(gameState.progress));
-            localStorage.setItem('titaScore', gameState.score.toString());
-            scoreDisplay.innerText = gameState.score;
+        // Inicialização
+        function init() {
+            // Desbloqueia o primeiro nível de todos os tópicos por padrão
+            quizData.forEach((topic, idx) => {
+                if (!gameState.unlocked[`${idx}-0`]) {
+                    gameState.unlocked[`${idx}-0`] = true;
+                }
+            });
+            updateScore();
+            renderMap();
         }
 
+        function updateScore() {
+            scoreDisplay.textContent = gameState.score;
+            localStorage.setItem('mestreScore', gameState.score);
+            localStorage.setItem('mestreUnlocked', JSON.stringify(gameState.unlocked));
+        }
+
+        // --- RENDERIZAR MAPA ---
         function renderMap() {
-            saveProgress();
-            actionBar.classList.add('hidden'); // Esconde barra no mapa
+            headerLeft.innerHTML = `<span class="text-xl font-bold text-gray-800">🗺️ Mapa</span>`;
+            footerAction.classList.add('hidden'); // Esconde rodapé no mapa
 
             app.innerHTML = `
-                <div class="w-full mb-6 text-center slide-up">
-                    <h1 class="text-2xl font-black text-gray-800 mb-1">Mapa do Mundo</h1>
-                    <p class="text-sm text-gray-500">Escolha seu desafio!</p>
-                </div>
                 <div class="w-full grid gap-4 pb-20 slide-up">
-                    ${topics.map((topic, tIdx) => {
+                    ${quizData.map((topic, tIdx) => {
                 return `
                         <div class="bg-white rounded-2xl p-4 shadow-sm border-2 border-gray-100">
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="${topic.color} w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-white shadow-sm">
+                                <div class="${topic.color} w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-white shadow-btn">
                                     ${topic.icon}
                                 </div>
-                                <h2 class="text-lg font-bold text-gray-700">${topic.title}</h2>
+                                <div>
+                                    <h2 class="text-lg font-bold text-gray-700 leading-tight">${topic.title}</h2>
+                                    <p class="text-xs text-gray-400">${topic.description}</p>
+                                </div>
                             </div>
                             
                             <div class="flex gap-2">
                                 ${topic.levels.map((lvl, lIdx) => {
-                    // Lógica de Bloqueio
-                    const levelId = `${tIdx}-${lIdx}`;
-                    const prevLevelId = `${tIdx}-${lIdx - 1}`;
-                    const isCompleted = gameState.progress[levelId];
+                    const levelKey = `${tIdx}-${lIdx}`;
+                    const isUnlocked = gameState.unlocked[levelKey];
+                    const isCompleted = gameState.unlocked[`${tIdx}-${lIdx}_done`]; // Marcação extra para concluído
 
-                    // Nível 0 sempre aberto. Outros dependem do anterior.
-                    let isLocked = lIdx > 0 && !gameState.progress[prevLevelId];
+                    let btnClass = isUnlocked
+                        ? (lIdx === 2 ? 'bg-purple-100 text-purple-700 border-purple-300' : 'bg-blue-50 text-blue-600 border-blue-200')
+                        : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed';
 
-                    // Estilo do botão
-                    let btnColor = isLocked ? 'bg-gray-100 text-gray-400 border-gray-200' :
-                        isCompleted ? 'bg-green-100 text-green-700 border-green-300' :
-                            lIdx === 2 ? 'bg-purple-100 text-purple-700 border-purple-300' : 'bg-blue-50 text-blue-600 border-blue-200';
+                    if (isCompleted) btnClass = 'bg-green-100 text-green-700 border-green-300';
 
-                    let icon = isLocked ? '🔒' : isCompleted ? '✅' : lIdx === 2 ? '⚡' : (lIdx + 1);
+                    const label = lIdx === 2 ? 'TITÃ ⚡' : lvl.name;
+                    const icon = isUnlocked ? (isCompleted ? '✅' : '▶️') : '🔒';
 
                     return `
-                                    <button onclick="${isLocked ? '' : `startLevel(${tIdx}, ${lIdx})`}" 
-                                        class="flex-1 py-3 rounded-xl font-bold border-b-4 text-sm transition-all ${btnColor} ${isLocked ? '' : 'active:border-b-0 active:translate-y-1'}">
-                                        <div class="text-xs uppercase mb-1 opacity-70">${lvl.name}</div>
-                                        <div class="text-lg">${icon}</div>
+                                    <button onclick="${isUnlocked ? `startLevel(${tIdx}, ${lIdx})` : ''}" 
+                                        class="flex-1 py-2 rounded-xl border-b-4 text-xs font-bold transition-all ${btnClass} ${isUnlocked ? 'active:border-b-0 active:translate-y-1' : ''}">
+                                        <div class="uppercase opacity-70 text-[10px] mb-1">${label}</div>
+                                        <div class="text-base">${icon}</div>
                                     </button>
                                     `;
                 }).join('')}
@@ -279,48 +473,51 @@
             window.scrollTo(0, 0);
         }
 
-        // --- MOTOR DO JOGO ---
-
+        // --- INICIAR NÍVEL ---
         function startLevel(tIdx, lIdx) {
-            gameState.currentTopicIdx = tIdx;
-            gameState.currentLevelIdx = lIdx;
-            gameState.questionIdx = 0;
-            gameState.mistakes = 0;
+            gameState.currentTopicIndex = tIdx;
+            gameState.currentLevelIndex = lIdx;
+            gameState.currentQuestionIndex = 0;
             renderQuestion();
         }
 
+        // --- RENDERIZAR QUESTÃO ---
         function renderQuestion() {
-            const topic = topics[gameState.currentTopicIdx];
-            const level = topic.levels[gameState.currentLevelIdx];
-            const question = level.questions[gameState.questionIdx];
+            const topic = quizData[gameState.currentTopicIndex];
+            const level = topic.levels[gameState.currentLevelIndex];
+            const question = level.questions[gameState.currentQuestionIndex];
+            const isTitan = gameState.currentLevelIndex === 2;
 
-            const isTitan = gameState.currentLevelIdx === 2;
+            // Header do Jogo
+            headerLeft.innerHTML = `
+                <button onclick="renderMap()" class="bg-gray-100 p-2 rounded-full text-sm font-bold text-gray-500 hover:bg-gray-200">
+                    ⬅ Sair
+                </button>
+            `;
 
-            // Barra de progresso
-            const progressPct = ((gameState.questionIdx) / level.questions.length) * 100;
+            // Barra de Progresso
+            const progress = ((gameState.currentQuestionIndex) / level.questions.length) * 100;
 
             app.innerHTML = `
-                <div class="w-full mb-6 px-1">
-                    <div class="flex justify-between text-xs font-bold text-gray-400 uppercase mb-1">
-                        <span>${isTitan ? 'Modo Titã' : level.name}</span>
-                        <span>${gameState.questionIdx + 1}/${level.questions.length}</span>
+                <div class="w-full mb-6 mt-2">
+                    <div class="flex justify-between text-xs font-bold text-gray-400 uppercase mb-1 px-1">
+                        <span>${isTitan ? '⚡ Modo Titã' : level.name}</span>
+                        <span>${gameState.currentQuestionIndex + 1}/${level.questions.length}</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                        <div class="h-full transition-all duration-300 ${isTitan ? 'bg-brand-purple' : 'bg-brand-blue'}" style="width: ${progressPct}%"></div>
+                        <div class="h-full transition-all duration-300 ${isTitan ? 'bg-purple-500' : topic.color.replace('bg-', 'bg-')}" style="width: ${progress}%"></div>
                     </div>
                 </div>
 
-                <div class="w-full bg-white rounded-3xl p-6 shadow-lg border-2 ${isTitan ? 'border-purple-200 titan-glow' : 'border-gray-100'} slide-up mb-24">
-                    ${isTitan ? '<div class="text-center text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">⚡ Pergunta Lendária</div>' : ''}
-                    
+                <div class="w-full bg-white rounded-3xl p-6 shadow-sm border-2 ${isTitan ? 'border-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)]' : 'border-gray-100'} pop-in mb-24">
                     <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 leading-snug text-center">
-                        ${question.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-brand-blue">$1</span>')}
+                        ${formatText(question.q)}
                     </h2>
 
-                    <div class="grid gap-3" id="options-grid">
+                    <div class="grid gap-3">
                         ${question.options.map((opt, idx) => `
-                            <button onclick="selectOption(${idx})" id="btn-opt-${idx}"
-                                class="w-full text-left p-4 rounded-xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 hover:bg-blue-50">
+                            <button onclick="selectOption(${idx})" id="opt-${idx}"
+                                class="w-full text-left p-4 rounded-xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 btn-press">
                                 ${opt}
                             </button>
                         `).join('')}
@@ -328,85 +525,98 @@
                 </div>
             `;
 
-            // Resetar Barra de Ação
-            actionBar.classList.remove('hidden');
-            actionContent.innerHTML = `
-                <button class="w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-xl text-lg cursor-not-allowed" disabled>
+            // Resetar Rodapé Fixo
+            gameState.selectedOptionIndex = null;
+            footerAction.classList.remove('hidden');
+            footerAction.className = "fixed-footer bg-white border-t-2 border-gray-100";
+
+            footerContent.innerHTML = `
+                <button class="w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-2xl text-lg cursor-not-allowed shadow-none" disabled>
                     Escolha uma resposta
                 </button>
             `;
+
             window.scrollTo(0, 0);
         }
 
-        let selectedIdx = null;
+        // Formatação simples (Negrito)
+        function formatText(text) {
+            return text.replace(/\*\*(.*?)\*\*/g, '<span class="text-blue-600">$1</span>')
+                .replace(/__/g, '<span class="inline-block w-8 border-b-2 border-gray-400"></span>');
+        }
 
+        // --- SELECIONAR OPÇÃO ---
         function selectOption(idx) {
-            // Remove seleção anterior
-            document.querySelectorAll('[id^="btn-opt-"]').forEach(btn => {
-                btn.classList.remove('border-brand-blue', 'bg-blue-100', 'text-brand-blue');
-                btn.classList.add('border-gray-200', 'bg-gray-50', 'text-gray-600');
+            if (document.getElementById(`opt-${idx}`).disabled) return;
+
+            // Limpa anteriores
+            document.querySelectorAll('[id^="opt-"]').forEach(btn => {
+                btn.className = "w-full text-left p-4 rounded-xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all btn-press";
             });
 
-            // Aplica nova seleção
-            const btn = document.getElementById(`btn-opt-${idx}`);
-            btn.classList.remove('border-gray-200', 'bg-gray-50', 'text-gray-600');
-            btn.classList.add('border-brand-blue', 'bg-blue-100', 'text-brand-blue');
+            // Marca atual
+            const btn = document.getElementById(`opt-${idx}`);
+            btn.className = "w-full text-left p-4 rounded-xl border-2 border-blue-400 bg-blue-50 font-bold text-blue-600 transition-all btn-press shadow-btn transform -translate-y-1";
 
-            selectedIdx = idx;
+            gameState.selectedOptionIndex = idx;
 
-            // Ativa botão de confirmar na barra fixa
-            actionContent.innerHTML = `
-                <button onclick="checkAnswer()" class="w-full bg-brand-blue hover:bg-teal-500 text-white font-bold py-4 rounded-xl text-lg btn-push shadow-lg">
-                    VERIFICAR
+            // Ativa botão no rodapé
+            const topicColor = quizData[gameState.currentTopicIndex].color;
+            footerContent.innerHTML = `
+                <button onclick="checkAnswer()" class="w-full ${topicColor} hover:opacity-90 text-white font-bold py-4 rounded-2xl text-lg shadow-btn btn-press uppercase tracking-wide">
+                    Confirmar
                 </button>
             `;
         }
 
+        // --- VERIFICAR RESPOSTA ---
         function checkAnswer() {
-            const topic = topics[gameState.currentTopicIdx];
-            const level = topic.levels[gameState.currentLevelIdx];
-            const question = level.questions[gameState.questionIdx];
-            const isCorrect = selectedIdx === question.correct;
+            const topic = quizData[gameState.currentTopicIndex];
+            const level = topic.levels[gameState.currentLevelIndex];
+            const question = level.questions[gameState.currentQuestionIndex];
+            const isCorrect = gameState.selectedOptionIndex === question.correct;
 
             // Trava opções
-            const allBtns = document.querySelectorAll('[id^="btn-opt-"]');
-            allBtns.forEach(btn => btn.disabled = true);
+            document.querySelectorAll('[id^="opt-"]').forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('btn-press', 'active:scale-95');
+                btn.style.transform = "none";
+            });
 
-            // Visual nas opções
-            const selBtn = document.getElementById(`btn-opt-${selectedIdx}`);
-            const corrBtn = document.getElementById(`btn-opt-${question.correct}`);
+            const selBtn = document.getElementById(`opt-${gameState.selectedOptionIndex}`);
+            const corrBtn = document.getElementById(`opt-${question.correct}`);
 
             if (isCorrect) {
-                selBtn.className = "w-full text-left p-4 rounded-xl border-2 border-green-500 bg-green-100 text-green-700 font-bold";
+                selBtn.className = "w-full text-left p-4 rounded-xl border-2 border-green-500 bg-green-100 text-green-700 font-bold shadow-none";
+                selBtn.innerHTML += ` <span class="float-right text-xl">✅</span>`;
                 gameState.score += 10;
-                saveProgress();
-                playSound('correct');
+                updateScore();
+                // Confete
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
             } else {
-                selBtn.className = "w-full text-left p-4 rounded-xl border-2 border-red-400 bg-red-100 text-red-700 font-bold opacity-60";
-                corrBtn.className = "w-full text-left p-4 rounded-xl border-2 border-green-500 bg-green-100 text-green-700 font-bold animate-pulse";
-                gameState.mistakes++;
-                playSound('wrong');
+                selBtn.className = "w-full text-left p-4 rounded-xl border-2 border-red-400 bg-red-100 text-red-700 font-bold opacity-80 shadow-none";
+                selBtn.innerHTML += ` <span class="float-right text-xl">❌</span>`;
+                corrBtn.className = "w-full text-left p-4 rounded-xl border-2 border-green-500 bg-green-100 text-green-700 font-bold animate-pulse shadow-none";
             }
 
-            // Feedback na Barra Fixa (PEDAGOGIA: Feedback Imediato)
-            const isLast = gameState.questionIdx === level.questions.length - 1;
+            // --- FEEDBACK NO RODAPÉ FIXO (Segredo da Usabilidade) ---
+            const isLast = gameState.currentQuestionIndex === level.questions.length - 1;
 
-            // Muda cor da barra dependendo do acerto/erro
-            actionBar.className = `fixed bottom-0 left-0 w-full p-4 z-50 border-t-4 shadow-lg ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`;
+            footerAction.className = `fixed-footer ${isCorrect ? 'bg-green-50 border-t-2 border-green-200' : 'bg-red-50 border-t-2 border-red-200'} slide-up`;
 
-            actionContent.innerHTML = `
+            footerContent.innerHTML = `
                 <div class="flex flex-col gap-3">
                     <div class="flex items-start gap-3">
-                        <div class="text-3xl">${isCorrect ? '🎉' : '🤔'}</div>
+                        <div class="text-3xl bg-white rounded-full p-1 shadow-sm">${isCorrect ? '🎉' : '💡'}</div>
                         <div>
-                            <p class="font-black ${isCorrect ? 'text-green-700' : 'text-red-700'} uppercase text-sm">
-                                ${isCorrect ? 'Mandou bem!' : 'Ops, correção:'}
+                            <p class="font-black ${isCorrect ? 'text-green-700' : 'text-red-600'} uppercase text-sm mb-1">
+                                ${isCorrect ? 'Incrível!' : 'Correção:'}
                             </p>
-                            <p class="text-gray-700 text-sm leading-tight font-medium">${question.feedback}</p>
+                            <p class="text-gray-700 text-sm font-medium leading-snug">${question.hint}</p>
                         </div>
                     </div>
                     <button onclick="${isLast ? 'finishLevel()' : 'nextQuestion()'}" 
-                        class="w-full ${isCorrect ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'} text-white font-bold py-3 rounded-xl text-lg btn-push shadow-md uppercase tracking-wider">
+                        class="w-full ${isCorrect ? 'bg-green-500' : 'bg-gray-700'} text-white font-bold py-3 rounded-2xl text-lg shadow-btn btn-press uppercase tracking-wider mt-1">
                         ${isLast ? 'Concluir' : 'Continuar'}
                     </button>
                 </div>
@@ -414,78 +624,76 @@
         }
 
         function nextQuestion() {
-            gameState.questionIdx++;
+            gameState.currentQuestionIndex++;
             renderQuestion();
         }
 
         // --- TELA DE VITÓRIA / DECISÃO ---
         function finishLevel() {
-            // Salva Progresso
-            const levelId = `${gameState.currentTopicIdx}-${gameState.currentLevelIdx}`;
-            gameState.progress[levelId] = true;
-            saveProgress();
-
-            const topic = topics[gameState.currentTopicIdx];
-            const nextLevelIdx = gameState.currentLevelIdx + 1;
+            const topic = quizData[gameState.currentTopicIndex];
+            const nextLevelIdx = gameState.currentLevelIndex + 1;
             const hasNextLevel = nextLevelIdx < topic.levels.length;
-            const nextTopicIdx = gameState.currentTopicIdx + 1;
-            const hasNextTopic = nextTopicIdx < topics.length;
 
-            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-            playSound('win');
+            // Salvar progresso
+            const levelKey = `${gameState.currentTopicIndex}-${gameState.currentLevelIndex}`;
+            gameState.unlocked[levelKey] = true; // Desbloqueado (já estava)
+            gameState.unlocked[`${levelKey}_done`] = true; // Concluído
 
-            actionBar.classList.add('hidden'); // Esconde barra fixa na tela de vitória
+            if (hasNextLevel) {
+                gameState.unlocked[`${gameState.currentTopicIndex}-${nextLevelIdx}`] = true; // Desbloqueia próximo
+            }
+            // Desbloqueia próximo tópico nível 0 se terminar qualquer nível do atual (Lógica flexível)
+            const nextTopicIdx = gameState.currentTopicIndex + 1;
+            if (nextTopicIdx < quizData.length) {
+                gameState.unlocked[`${nextTopicIdx}-0`] = true;
+            }
 
-            // TELA DE DECISÃO (PEDAGOGIA: Autonomia)
+            updateScore();
+            confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+
+            footerAction.classList.add('hidden'); // Esconde rodapé
+
             app.innerHTML = `
-                <div class="text-center mt-10 slide-up max-w-sm">
-                    <div class="text-6xl mb-4 animate-bounce-subtle">🏆</div>
-                    <h2 class="text-3xl font-black text-gray-800 mb-2">Nível Completo!</h2>
-                    <p class="text-gray-500 mb-8">Você ganhou +${gameState.score} pontos!</p>
+                <div class="text-center mt-8 pop-in w-full max-w-sm">
+                    <div class="text-7xl mb-4 animate-bounce">🏆</div>
+                    <h2 class="text-3xl font-black text-gray-800 mb-2">Vitória!</h2>
+                    <p class="text-gray-500 mb-8 font-medium">Você completou o nível!</p>
 
                     <div class="grid gap-4 w-full">
                         ${hasNextLevel ? `
-                            <button onclick="startLevel(${gameState.currentTopicIdx}, ${nextLevelIdx})" 
-                                class="w-full bg-brand-purple text-white p-5 rounded-2xl shadow-xl btn-push flex items-center justify-between group relative overflow-hidden">
-                                <div class="absolute inset-0 bg-white opacity-10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                            <button onclick="startLevel(${gameState.currentTopicIndex}, ${nextLevelIdx})" 
+                                class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white p-5 rounded-3xl shadow-lg btn-press flex items-center justify-between group relative overflow-hidden">
                                 <div class="text-left">
-                                    <p class="text-xs uppercase opacity-80 font-bold">Desafio Aceito</p>
-                                    <p class="text-xl font-bold">Próximo Nível: ${topic.levels[nextLevelIdx].name}</p>
+                                    <p class="text-[10px] uppercase opacity-80 font-bold tracking-widest">Subir de Nível</p>
+                                    <p class="text-xl font-bold">Ir para ${topic.levels[nextLevelIdx].name}</p>
                                 </div>
-                                <span class="text-3xl">⬆️</span>
+                                <span class="text-3xl bg-white/20 rounded-full w-10 h-10 flex items-center justify-center">⬆️</span>
                             </button>
                         ` : `
-                             <div class="bg-yellow-100 p-4 rounded-xl text-yellow-800 font-bold border-2 border-yellow-300">
-                                👑 Você dominou este assunto! (Titã)
+                             <div class="bg-yellow-100 p-6 rounded-3xl text-yellow-800 font-bold border-2 border-yellow-300 shadow-sm">
+                                👑 Você virou um Mestre neste assunto!
                              </div>
                         `}
 
-                        ${hasNextTopic ? `
+                        ${nextTopicIdx < quizData.length ? `
                             <button onclick="startLevel(${nextTopicIdx}, 0)" 
-                                class="w-full bg-white border-2 border-gray-200 text-gray-600 p-4 rounded-2xl shadow-sm btn-push flex items-center justify-between hover:bg-gray-50">
+                                class="w-full bg-white border-2 border-gray-200 text-gray-600 p-4 rounded-3xl shadow-sm btn-press flex items-center justify-between hover:bg-gray-50">
                                 <div class="text-left">
-                                    <p class="text-xs uppercase opacity-60 font-bold">Mudar de Assunto</p>
-                                    <p class="text-lg font-bold text-gray-800">Ir para: ${topics[nextTopicIdx].title}</p>
+                                    <p class="text-[10px] uppercase opacity-60 font-bold tracking-widest">Novo Assunto</p>
+                                    <p class="text-lg font-bold text-gray-800">${quizData[nextTopicIdx].title}</p>
                                 </div>
                                 <span class="text-2xl">➡</span>
                             </button>
                         ` : ''}
 
-                        <button onclick="renderMap()" class="text-gray-400 font-bold py-4">Voltar ao Mapa</button>
+                        <button onclick="renderMap()" class="text-gray-400 font-bold py-4 text-sm mt-2">Voltar ao Mapa</button>
                     </div>
                 </div>
             `;
         }
 
-        // --- EFEITOS SONOROS (Simulados) ---
-        function playSound(type) {
-            // Aqui você pode adicionar sons reais usando Audio()
-            // Por enquanto é visual/lógico
-        }
-
-        // Init
-        renderMap();
-        scoreDisplay.innerText = gameState.score;
+        // Inicia App
+        init();
 
     </script>
 </body>
