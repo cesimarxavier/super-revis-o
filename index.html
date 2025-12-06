@@ -7,7 +7,7 @@
     <title>Mestres do Saber - A Lenda de Cognitia</title>
 
     <meta name="theme-color" content="#4ECDC4">
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -81,14 +81,11 @@
             box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
         }
 
-        /* Estilo para bloqueado */
         .locked-filter {
             filter: grayscale(1);
             opacity: 0.6;
             cursor: not-allowed;
         }
-
-        /* estilo.css */
 
         /* Define que as bordas de células adjacentes se fundam em uma única borda */
         table {
@@ -144,230 +141,7 @@
             <div class="flex items-center gap-2 bg-white rounded-full p-1 pr-4 border border-gray-100 shadow-sm cursor-pointer"
                 onclick="UI.showProfile()">
                 <div class="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center text-xl border-2 border-white avatar-glow"
-                    id="header-avatar"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <!-- Gradientes para dar profundidade -->
-                            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#6B5DD3;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#4A3B9F;stop-opacity:1" />
-                            </linearGradient>
-
-                            <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#E8D5F2;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#C9A8DC;stop-opacity:1" />
-                            </linearGradient>
-
-                            <linearGradient id="roofGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#D44A7A;stop-opacity:1" />
-                            </linearGradient>
-
-                            <linearGradient id="doorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#6B4AC9;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#4A2F8A;stop-opacity:1" />
-                            </linearGradient>
-
-                            <!-- Animações -->
-                            <style>
-                                @keyframes float {
-
-                                    0%,
-                                    100% {
-                                        transform: translateY(0px);
-                                    }
-
-                                    50% {
-                                        transform: translateY(-8px);
-                                    }
-                                }
-
-                                @keyframes wave {
-
-                                    0%,
-                                    100% {
-                                        transform: rotate(0deg);
-                                    }
-
-                                    25% {
-                                        transform: rotate(5deg);
-                                    }
-
-                                    75% {
-                                        transform: rotate(-5deg);
-                                    }
-                                }
-
-                                @keyframes sparkle {
-
-                                    0%,
-                                    100% {
-                                        opacity: 1;
-                                        transform: scale(1);
-                                    }
-
-                                    50% {
-                                        opacity: 0.4;
-                                        transform: scale(0.8);
-                                    }
-                                }
-
-                                @keyframes glow {
-
-                                    0%,
-                                    100% {
-                                        opacity: 0.6;
-                                    }
-
-                                    50% {
-                                        opacity: 1;
-                                    }
-                                }
-
-                                .castle-main {
-                                    animation: float 3s ease-in-out infinite;
-                                }
-
-                                .flag {
-                                    animation: wave 2s ease-in-out infinite;
-                                    transform-origin: bottom left;
-                                }
-
-                                .sparkle {
-                                    animation: sparkle 1.5s ease-in-out infinite;
-                                }
-
-                                .window-glow {
-                                    animation: glow 2s ease-in-out infinite;
-                                }
-                            </style>
-                        </defs>
-
-                        <!-- Fundo céu -->
-                        <rect width="300" height="300" fill="url(#skyGrad)" />
-
-                        <!-- Estrelas decorativas -->
-                        <circle class="sparkle" cx="40" cy="40" r="2" fill="#FFD700" style="animation-delay: 0s;" />
-                        <circle class="sparkle" cx="260" cy="60" r="2.5" fill="#FFD700"
-                            style="animation-delay: 0.5s;" />
-                        <circle class="sparkle" cx="80" cy="80" r="1.5" fill="#FFF" style="animation-delay: 1s;" />
-                        <circle class="sparkle" cx="240" cy="100" r="2" fill="#FFF" style="animation-delay: 0.3s;" />
-
-                        <!-- Castelo principal -->
-                        <g class="castle-main">
-                            <!-- Torres laterais -->
-                            <!-- Torre esquerda -->
-                            <g>
-                                <!-- Corpo da torre -->
-                                <rect x="40" y="140" width="50" height="90" fill="url(#wallGrad)" stroke="#9D7BB8"
-                                    stroke-width="2" />
-                                <rect x="42" y="142" width="46" height="10" fill="#F5E6FF" opacity="0.5" />
-
-                                <!-- Telhado cônico -->
-                                <path d="M 35 140 L 65 100 L 95 140 Z" fill="url(#roofGrad)" stroke="#B83870"
-                                    stroke-width="2" />
-                                <ellipse cx="65" cy="140" rx="30" ry="8" fill="#D4568A" />
-
-                                <!-- Decoração topo -->
-                                <circle cx="65" cy="95" r="6" fill="#FFD700" stroke="#FFA500" stroke-width="2" />
-
-                                <!-- Janela -->
-                                <rect x="55" y="170" width="20" height="25" rx="10" fill="url(#doorGrad)"
-                                    stroke="#8A5CC6" stroke-width="2" />
-                                <rect class="window-glow" x="57" y="172" width="16" height="21" rx="8" fill="#A78BFA"
-                                    opacity="0.6" />
-                            </g>
-
-                            <!-- Torre direita -->
-                            <g>
-                                <!-- Corpo da torre -->
-                                <rect x="210" y="140" width="50" height="90" fill="url(#wallGrad)" stroke="#9D7BB8"
-                                    stroke-width="2" />
-                                <rect x="212" y="142" width="46" height="10" fill="#F5E6FF" opacity="0.5" />
-
-                                <!-- Telhado cônico -->
-                                <path d="M 205 140 L 235 100 L 265 140 Z" fill="url(#roofGrad)" stroke="#B83870"
-                                    stroke-width="2" />
-                                <ellipse cx="235" cy="140" rx="30" ry="8" fill="#D4568A" />
-
-                                <!-- Decoração topo -->
-                                <circle cx="235" cy="95" r="6" fill="#FFD700" stroke="#FFA500" stroke-width="2" />
-
-                                <!-- Janela -->
-                                <rect x="225" y="170" width="20" height="25" rx="10" fill="url(#doorGrad)"
-                                    stroke="#8A5CC6" stroke-width="2" />
-                                <rect class="window-glow" x="227" y="172" width="16" height="21" rx="8" fill="#A78BFA"
-                                    opacity="0.6" />
-                            </g>
-
-                            <!-- Torre central (principal) -->
-                            <g>
-                                <!-- Corpo principal -->
-                                <rect x="100" y="120" width="100" height="110" fill="url(#wallGrad)" stroke="#9D7BB8"
-                                    stroke-width="3" />
-                                <rect x="103" y="123" width="94" height="15" fill="#F5E6FF" opacity="0.5" />
-
-                                <!-- Ameias decorativas -->
-                                <rect x="100" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
-                                    stroke-width="2" />
-                                <rect x="125" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
-                                    stroke-width="2" />
-                                <rect x="160" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
-                                    stroke-width="2" />
-                                <rect x="185" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
-                                    stroke-width="2" />
-
-                                <!-- Telhado principal -->
-                                <path d="M 90 120 L 150 60 L 210 120 Z" fill="url(#roofGrad)" stroke="#B83870"
-                                    stroke-width="3" />
-                                <ellipse cx="150" cy="120" rx="60" ry="10" fill="#D4568A" />
-
-                                <!-- Bandeira no topo -->
-                                <line x1="150" y1="60" x2="150" y2="30" stroke="#8B5CF6" stroke-width="3" />
-                                <path class="flag" d="M 150 35 L 180 40 L 150 45 Z" fill="#FF6B9D" stroke="#D4568A"
-                                    stroke-width="1.5" />
-
-                                <!-- Estrela no topo da bandeira -->
-                                <circle cx="150" cy="28" r="5" fill="#FFD700" stroke="#FFA500" stroke-width="2" />
-
-                                <!-- Porta principal -->
-                                <path d="M 130 180 Q 130 160 150 160 Q 170 160 170 180 L 170 230 L 130 230 Z"
-                                    fill="url(#doorGrad)" stroke="#6B4AC9" stroke-width="3" />
-                                <ellipse cx="150" cy="180" rx="20" ry="8" fill="#4A2F8A" />
-
-                                <!-- Detalhes da porta -->
-                                <circle cx="160" cy="205" r="3" fill="#FFD700" />
-                                <rect x="148" y="165" width="4" height="60" fill="#5B3BA0" opacity="0.5" />
-
-                                <!-- Janelas laterais -->
-                                <rect x="110" y="160" width="15" height="20" rx="7" fill="url(#doorGrad)"
-                                    stroke="#8A5CC6" stroke-width="2" />
-                                <rect class="window-glow" x="112" y="162" width="11" height="16" rx="5" fill="#A78BFA"
-                                    opacity="0.6" />
-
-                                <rect x="175" y="160" width="15" height="20" rx="7" fill="url(#doorGrad)"
-                                    stroke="#8A5CC6" stroke-width="2" />
-                                <rect class="window-glow" x="177" y="162" width="11" height="16" rx="5" fill="#A78BFA"
-                                    opacity="0.6" />
-                            </g>
-
-                            <!-- Decorações adicionais -->
-                            <!-- Bandeiras nas torres laterais -->
-                            <g>
-                                <line x1="65" y1="95" x2="65" y2="75" stroke="#8B5CF6" stroke-width="2" />
-                                <path class="flag" d="M 65 78 L 85 82 L 65 86 Z" fill="#4ADEEF" stroke="#2CB8CC"
-                                    stroke-width="1" style="animation-delay: 0.5s;" />
-                            </g>
-
-                            <g>
-                                <line x1="235" y1="95" x2="235" y2="75" stroke="#8B5CF6" stroke-width="2" />
-                                <path class="flag" d="M 235 78 L 255 82 L 235 86 Z" fill="#4ADEEF" stroke="#2CB8CC"
-                                    stroke-width="1" style="animation-delay: 0.7s;" />
-                            </g>
-                        </g>
-
-                        <!-- Sombra -->
-                        <ellipse cx="150" cy="235" rx="110" ry="10" fill="#000" opacity="0.15" />
-                    </svg></div>
+                    id="header-avatar">🧙‍♂️</div>
                 <div class="flex flex-col leading-none">
                     <span class="text-[10px] font-bold text-gray-400 uppercase">Guardião</span>
                     <span class="text-sm font-bold text-brand-dark truncate w-20" id="header-nick">Jogador</span>
@@ -423,9 +197,7 @@
                     Mundi</span>
                 <h2 class="text-2xl font-black text-gray-800">Escolha seu Destino</h2>
             </div>
-
-            <div class="grid grid-cols-2 gap-4" id="subjects-grid">
-            </div>
+            <div class="grid grid-cols-2 gap-4" id="subjects-grid"></div>
         </section>
 
         <section id="screen-subject" class="hidden-screen w-full pb-24">
@@ -433,13 +205,9 @@
                 class="mb-4 text-sm font-bold text-gray-400 hover:text-gray-600 flex items-center gap-1">
                 ⬅ Voltar ao Mapa
             </button>
-
             <div id="subject-header"
-                class="mb-8 text-center p-6 bg-white rounded-3xl shadow-sm border-b-4 border-gray-100">
-            </div>
-
-            <div class="space-y-4" id="categories-list">
-            </div>
+                class="mb-8 text-center p-6 bg-white rounded-3xl shadow-sm border-b-4 border-gray-100"></div>
+            <div class="space-y-4" id="categories-list"></div>
         </section>
 
         <section id="screen-prep"
@@ -454,10 +222,8 @@
                     <div class="text-center mt-4">
                         <div class="text-6xl mb-4 animate-bounce" id="prep-icon">📜</div>
                         <h2 class="text-2xl font-black text-gray-800 mb-2" id="prep-title">Título</h2>
-                        <div class="prose text-gray-600 leading-relaxed text-lg" id="prep-content">
-                        </div>
+                        <div class="prose text-gray-600 leading-relaxed text-lg" id="prep-content"></div>
                     </div>
-
                     <div class="mt-8 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex items-center gap-4">
                         <div class="text-4xl">🎁</div>
                         <div>
@@ -469,7 +235,7 @@
 
                 <div class="mt-6 pt-4 border-t border-gray-100">
                     <button onclick="Game.finishPrep()"
-                        class="w-full bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg bg-green-500 border-green-600">
+                        class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg bg-green-500 border-green-600">
                         Estou Pronto! ⚔️
                     </button>
                 </div>
@@ -478,21 +244,14 @@
 
         <section id="screen-game" class="hidden-screen w-full pb-32">
             <div class="flex justify-between items-center mb-6">
-                <button onclick="Game.exitGame()"
-                    class="bg-gray-100 hover:bg-red-100 hover:text-red-500 text-gray-500 px-4 py-2 rounded-xl font-bold text-sm transition-colors flex items-center gap-2">
-                    ✕ Sair
-                </button>
-                <div class="text-xs font-bold text-white bg-brand-purple/80 px-3 py-1 rounded-full uppercase tracking-wider"
+                <div class="flex gap-1 text-2xl" id="game-hearts">❤️❤️❤️</div>
+                <div class="text-xs font-bold text-gray-400 bg-gray-100 px-3 py-1 rounded-full uppercase"
                     id="game-level-tag">NÍVEL 1</div>
             </div>
 
-            <div class="flex items-center gap-4 mb-6">
-                <div class="flex gap-1 text-2xl min-w-[80px]" id="game-hearts">❤️❤️❤️</div>
-                <div class="flex-grow bg-gray-200 rounded-full h-3">
-                    <div id="game-progress"
-                        class="bg-brand-purple h-3 rounded-full transition-all duration-500 shadow-sm"
-                        style="width: 0%"></div>
-                </div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+                <div id="game-progress" class="bg-brand-purple h-2 rounded-full transition-all duration-500"
+                    style="width: 0%"></div>
             </div>
 
             <div
@@ -500,22 +259,20 @@
                 <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl rotate-12">❓</div>
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center leading-snug mb-6"
                     id="game-question">...</h2>
-
-                <div class="grid gap-3" id="game-options">
-                </div>
+                <div class="grid gap-3" id="game-options"></div>
             </div>
         </section>
     </main>
 
     <div id="footer-action"
         class="fixed bottom-0 left-0 w-full bg-white border-t-2 border-gray-100 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] p-4 z-40 hidden-screen">
-        <div class="max-w-xl mx-auto" id="footer-content">
-        </div>
+        <div class="max-w-xl mx-auto" id="footer-content"></div>
     </div>
 
     <script src="database.js"></script>
+
     <script>
-        /* * MESTRES DO SABER - ENGINE V2.1 (Com Sistema Anti-Repetição Inteligente) */
+        /* MESTRES DO SABER - ENGINE V2.2 */
 
         // --- 2. STATE MANAGEMENT ---
         const State = {
@@ -527,14 +284,14 @@
                 currentSkin: "🧙‍♂️",
                 progress: {},
                 attempts: {},
-                history: [] // Lista de IDs já respondidos: [1, 2, 5, 99...]
+                history: []
             },
 
             load: function () {
-                const saved = localStorage.getItem('mestres_save_v3'); // Mudei versão para v3
+                const saved = localStorage.getItem('mestres_save_v3');
                 if (saved) {
                     this.data = JSON.parse(saved);
-                    if (!this.data.history) this.data.history = []; // Migração segura
+                    if (!this.data.history) this.data.history = [];
                     return true;
                 }
                 return false;
@@ -545,9 +302,7 @@
                 UI.updateHeader();
             },
 
-            // --- NOVA FUNÇÃO: REGISTRAR HISTÓRICO ---
             addToHistory: function (questionIds) {
-                // Adiciona apenas IDs novos
                 questionIds.forEach(id => {
                     if (!this.data.history.includes(id)) {
                         this.data.history.push(id);
@@ -556,9 +311,6 @@
                 this.save();
             },
 
-            // --- NOVA FUNÇÃO: CHECAR SE PRECISA RESETAR ---
-            // Se o aluno já viu todas as perguntas fáceis, limpamos o histórico daquele nível
-            // para ele poder jogar de novo sem travar.
             cleanHistoryForPool: function (poolIds) {
                 this.data.history = this.data.history.filter(id => !poolIds.includes(id));
                 this.save();
@@ -582,7 +334,7 @@
                 const att = this.data.attempts[key];
                 if (!att) return { locked: false, count: 0 };
 
-                if (att.count >= 2) { // Bloqueia na 3ª tentativa (depois de 2 erros)
+                if (att.count >= 2) {
                     const now = Date.now();
                     const diff = now - att.timestamp;
                     const hours24 = 24 * 60 * 60 * 1000;
@@ -591,7 +343,7 @@
                         const timeLeft = Math.ceil((hours24 - diff) / (60 * 60 * 1000));
                         return { locked: true, timeLeft: timeLeft };
                     } else {
-                        att.count = 0; // Reset após 24h
+                        att.count = 0;
                         this.save();
                         return { locked: false, count: 0 };
                     }
@@ -614,7 +366,7 @@
             }
         };
 
-        // --- 3. UI MANAGER (Mantida igual, apenas adicionei proteções) ---
+        // --- 3. UI MANAGER ---
         const UI = {
             screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
 
@@ -651,6 +403,8 @@
                 const grid = document.getElementById('subjects-grid');
                 if (!grid) return;
                 grid.innerHTML = '';
+                if (typeof DB === 'undefined') return console.error("Database não carregado.");
+
                 DB.subjects.forEach(sub => {
                     grid.innerHTML += `
                 <div onclick="Game.openSubject('${sub.id}')" 
@@ -781,13 +535,12 @@
                 </div>`;
             },
 
-            showResult: function (isVictory, score, totalQuestions, retryFn, mapFn) {
+            // --- ATUALIZAÇÃO: TELA DE VITÓRIA COM OPÇÃO "PRÓXIMO" OU "REPETIR" ---
+            showResult: function (isVictory, score, totalQuestions, nextLevelFn, retryFn, mapFn) {
                 const container = document.getElementById('result-container');
                 const footer = document.getElementById('footer-action');
                 if (footer) footer.classList.add('hidden-screen');
 
-                // Cálculo da porcentagem (usando acertos/total)
-                // Nota: Se cada questão vale 10, total score possivel é 50.
                 const percentage = Math.round((score / (totalQuestions * 10)) * 100);
 
                 try { if (typeof confetti === 'function' && isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } }); } catch (e) { }
@@ -816,10 +569,14 @@
                     }
 
                 <div class="w-full space-y-3">
-                    ${!isVictory ? `
-                    <button onclick="${retryFn}" class="w-full bg-brand-yellow text-yellow-900 font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
-                        Tentar Novamente 🔄
+                    ${isVictory && nextLevelFn ? `
+                    <button onclick="${nextLevelFn}" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
+                        Próximo Nível ➡️
                     </button>` : ''}
+
+                    <button onclick="${retryFn}" class="w-full bg-brand-yellow text-yellow-900 font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
+                        ${isVictory ? 'Jogar Novamente 🔄' : 'Tentar Novamente 🔄'}
+                    </button>
                     
                     <button onclick="${mapFn}" class="w-full bg-gray-200 text-gray-600 font-bold py-4 rounded-2xl text-xl btn-game">
                         Voltar ao Mapa
@@ -837,15 +594,7 @@
 
             exitGame: function () {
                 if (confirm("Tem certeza que quer sair? Todo o progresso desta fase será perdido! 🛡️")) {
-                    // Cancela a sessão atual
                     this.currentSession = null;
-                    // Volta para a tela da matéria atual (para escolher outro nível)
-                    // Precisamos saber qual era a matéria. Vamos pegar do ID da categoria.
-                    // O ID é tipo "pt-pronomes-lvl1". O prefixo "pt" é a matéria.
-                    // Mas como temos a tela de subject aberta por baixo, basta renderizar ela de novo.
-
-                    // Recupera o ID da matéria pelo ID da categoria atual ou volta pro mapa
-                    // Opção segura: Voltar para o Mapa
                     UI.renderMap();
                 }
             },
@@ -896,26 +645,15 @@
                 let minBloom = bloomMax - 1;
                 if (levelIdx === 0) minBloom = 1;
 
-                // --- LÓGICA DE SORTEIO COM MEMÓRIA (Deck de Cartas) ---
-
-                // 1. Pega todas as questões possíveis para o nível
                 const fullPool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
-
-                // 2. Filtra as que o usuário AINDA NÃO VIU (Inéditas)
                 let freshQuestions = fullPool.filter(q => !State.data.history.includes(q.id));
 
-                // 3. Se tiver menos de 5 inéditas, precisamos reciclar!
                 if (freshQuestions.length < 5) {
-                    // Remove os IDs desse pool específico do histórico global para que eles "apareçam" de novo
-                    // Basicamente, "embaralha o baralho" de novo
                     const poolIds = fullPool.map(q => q.id);
                     State.cleanHistoryForPool(poolIds);
-
-                    // Pega de novo (agora todas estarão 'fresh')
                     freshQuestions = fullPool;
                 }
 
-                // 4. Sorteia e Pega 5
                 const shuffled = freshQuestions.sort(() => 0.5 - Math.random());
                 const selectedQuestions = shuffled.slice(0, 5);
 
@@ -927,7 +665,7 @@
                     catId: catId,
                     levelIdx: levelIdx,
                     questions: selectedQuestions,
-                    questionIds: selectedQuestions.map(q => q.id), // Guardar IDs para salvar no fim
+                    questionIds: selectedQuestions.map(q => q.id),
                     idx: 0,
                     lives: 3,
                     score: 0,
@@ -989,30 +727,35 @@
 
             finishLevel: function () {
                 const session = this.currentSession;
-
-                // Salva no histórico que essas perguntas foram vistas (para não repetir logo)
                 State.addToHistory(session.questionIds);
 
                 const percent = (session.correctCount / session.totalQuestions) * 100;
                 const passed = percent >= 70;
 
-                // Registra tentativa (sucesso ou falha)
                 State.registerAttempt(session.catId, session.levelIdx, passed);
+
+                const retryFn = `Game.retryLevel('${session.catId}', ${session.levelIdx})`;
+                const mapFn = 'UI.renderMap()';
+
+                // Lógica do Próximo Nível (Se existir e for desbloqueado agora)
+                let nextLevelFn = null;
+                if (passed && session.levelIdx < 3) { // 3 é o índice máximo (Mestre)
+                    const nextBloom = [2, 4, 6, 7][session.levelIdx + 1]; // Próximo bloom
+                    nextLevelFn = `Game.startLevel('${session.catId}', ${session.levelIdx + 1}, ${nextBloom})`;
+                }
 
                 if (passed) {
                     State.data.progress[`${session.catId}-lvl${session.levelIdx}`] = true;
                     State.data.coins += 20;
                     State.save();
-                    UI.showResult(true, session.score, session.totalQuestions, null, 'UI.renderMap()');
+                    UI.showResult(true, session.score, session.totalQuestions, nextLevelFn, retryFn, mapFn);
                 } else {
-                    // Verifica bloqueio
                     const status = State.getAttemptStatus(session.catId, session.levelIdx);
-
                     if (status.locked) {
                         alert(`Você falhou 2 vezes seguidas. O nível está bloqueado por 24h para você descansar.`);
                         UI.renderMap();
                     } else {
-                        UI.showResult(false, session.score, session.totalQuestions, `Game.retryLevel('${session.catId}', ${session.levelIdx})`, 'UI.renderMap()');
+                        UI.showResult(false, session.score, session.totalQuestions, null, retryFn, mapFn);
                     }
                 }
             },
