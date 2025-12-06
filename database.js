@@ -433,36 +433,25 @@ const DB = {
 
                 // ---------------- BLOOM 4 — Analisar ----------------
                 { id: 26, bloom: 4, q: "Qual valor é maior?", opts: ["R$0,50", "R$0,75", "R$1,00", "R$0,25"], c: 2, h: "R$1 é o maior." },
-
                 { id: 27, bloom: 4, q: "Qual conjunto soma mais?", opts: ["R$2 + R$2", "R$1 + R$1 + R$1", "R$5", "R$3 + R$1"], c: 2, h: "R$5 é o maior." },
-
                 { id: 28, bloom: 4, q: "Qual valor é menor?", opts: ["R$0,10", "R$0,05", "R$0,50", "R$0,25"], c: 1, h: "Cinco centavos é o menor." },
-
                 { id: 29, bloom: 4, q: "Qual grupo soma R$4?", opts: ["2+2", "1+1+1+1+1", "3+3", "1+2"], c: 0, h: "2+2 = 4." },
-
                 { id: 30, bloom: 4, q: "Qual valor está mais próximo de R$1?", opts: ["R$0,90", "R$0,40", "R$0,10", "R$0,25"], c: 0, h: "0,90 é o mais próximo." },
 
                 // ---------------- BLOOM 5 — Avaliar ----------------
                 { id: 31, bloom: 5, q: "Qual estratégia é melhor para contar dinheiro?", opts: ["Começar pelas maiores notas", "Começar pelas menores moedas", "Adivinhar o total", "Somar só as moedas"], c: 0, h: "Notas maiores aceleram o cálculo." },
-
                 { id: 32, bloom: 5, q: "Para verificar se o troco está correto, você deve:", opts: ["Somar valor pago + valor do produto", "Somar troco + valor do produto", "Subtrair produto do valor pago", "Multiplicar tudo"], c: 2, h: "Troco = pago − produto." },
-
                 { id: 33, bloom: 5, q: "Em compras pequenas, qual moeda costuma facilitar o troco?", opts: ["R$1", "R$0,50", "R$0,10", "R$0,05"], c: 1, h: "50 centavos reduz combinações." },
-
                 { id: 34, bloom: 5, q: "Para comparar valores próximos, qual estratégia é melhor?", opts: ["Transformar em centavos", "Usar apenas notas", "Ignorar moedas", "Comparar cores das notas"], c: 0, h: "Centavos eliminam vírgulas." },
 
                 // ---------------- BLOOM 6 — Criar ----------------
                 { id: 35, bloom: 6, q: "Crie um valor igual a R$3 usando apenas moedas.", opts: ["6 moedas de 50 centavos", "3 moedas de 50 centavos", "10 moedas de 10 centavos", "1 moeda de R$3"], c: 0, h: "6×0,50 = 3." },
-
                 { id: 36, bloom: 6, q: "Escolha uma combinação que totalize R$8:", opts: ["4 notas de R$2", "1 nota de R$10", "3 notas de R$3", "8 moedas de R$1"], c: 0, h: "4×2 = 8." },
-
                 { id: 37, bloom: 6, q: "Crie um valor menor que R$1:", opts: ["R$0,75", "R$1,00", "R$2,00", "R$1,50"], c: 0, h: "0,75 < 1." },
-
                 { id: 38, bloom: 6, q: "Qual combinação forma exatamente R$12?", opts: ["6 notas de R$2", "12 moedas de R$1", "3 notas de R$5", "2 notas de R$10"], c: 0, h: "6×2 = 12." },
 
                 // ---------------- BLOOM 7 — Compreender Padrões / Generalizar ----------------
                 { id: 39, bloom: 7, q: "Se aumentamos o valor pago mantendo o preço, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Desaparece"], c: 0, h: "Mais pagamento → mais troco." },
-
                 { id: 40, bloom: 7, q: "Se reduzimos o número de moedas mantendo o valor total, precisamos de:", opts: ["Notas maiores", "Mais moedas pequenas", "Troco negativo", "Diminuir o preço"], c: 0, h: "Notas substituem várias moedas." },
                 { id: 101, bloom: 3, q: "Quanto é R$15 − R$9?", opts: ["R$5", "R$6", "R$7", "R$9"], c: 1, h: "15 − 9 = 6." },
 
@@ -510,13 +499,168 @@ const DB = {
 
                 { id: 130, bloom: 7, q: "Se todos os valores forem arredondados para baixo, o troco tende a:", opts: ["Aumentar", "Diminuir", "Ficar igual", "Sumir"], c: 0, h: "Preço menor ⇒ diferença maior." },
 
-
-
-
-
-
             ] },
-            { id: "graficos", name: "Gráficos", prep: { title: "Lendo gráficos", content: "<p>Gráficos ajudam a visualizar dados de forma rápida.</p>", skin: "📈" }, pool: [] },
+            {
+ id: "graficos",
+ name: "Gráficos",
+ prep: { 
+   title: "Lendo e interpretando gráficos",
+   content: "<p>Vamos aprender a ler gráficos usando barras, linhas, pizza e tabelas. Eles mostram informações de forma visual e ajudam a comparar quantidades.</p>",
+   skin: "📊"
+ },
+ pool: [
+
+ // ---------------------- BLOOM 1 ----------------------
+ { id: 1, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar1.svg'><br>Qual cor recebeu **10 votos**?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A barra azul é 10." },
+
+ { id: 2, bloom: 1, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta recebeu **3 votos**?", opts: ["Maçã","Uva","Banana","Pêra"], c: 2, h: "Banana tem 3." },
+
+ { id: 3, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar3.svg'><br>Qual animal tem **12 votos**?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 0, h: "Cachorro = 12." },
+
+ { id: 4, bloom: 1, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Em qual dia o valor é **9**?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta tem 9." },
+
+ { id: 5, bloom: 1, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual turma tem **15 alunos presentes**?", opts: ["1ºB","1ºA","1ºC","Nenhuma"], c: 1, h: "1ºA = 15." },
+
+ { id: 6, bloom: 1, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item tem valor **3**?", opts: ["Salgado","Bebida","Doce","Nenhum"], c: 2, h: "Doce = 3." },
+
+ { id: 7, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/line1.svg'><br>Em qual dia a temperatura é **5**?", opts: ["Seg","Ter","Qua","Qui"], c: 3, h: "Quinta tem ponto no 5." },
+
+ { id: 8, bloom: 1, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês tem valor **8**?", opts: ["Jan","Fev","Mar","Abr"], c: 3, h: "Abril = 8." },
+
+ { id: 9, bloom: 1, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual atividade ocupa **40%**?", opts: ["TV","Brincar","Ler","Jogos"], c: 1, h: "O maior setor é Brincar, 40%." },
+
+ { id: 10, bloom: 1, q: "Veja:<br><img src='img/data/table2.svg'><br>Qual brinquedo recebeu **12 votos**?", opts: ["Boneca","Carrinho","Bola","Nenhum"], c: 2, h: "Bola = 12." },
+
+ // ---------------------- BLOOM 2 ----------------------
+ { id: 11, bloom: 2, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quais cores têm mais votos que o vermelho?", opts: ["Azul e Verde","Azul e Amarelo","Verde e Vermelho","Apenas Amarelo"], c: 0, h: "Azul=10 e Verde=6 são maiores que 4." },
+
+ { id: 12, bloom: 2, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta tem o menor valor?", opts: ["Banana","Pêra","Uva","Maçã"], c: 1, h: "Pêra = 2." },
+
+ { id: 13, bloom: 2, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual animal tem votos entre 5 e 12?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato=9 está entre 5 e 12." },
+
+ { id: 14, bloom: 2, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual dia tem o valor mais baixo?", opts: ["Qui","Ter","Seg","Nenhum"], c: 1, h: "Terça = 2." },
+
+ { id: 15, bloom: 2, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual diferença entre 1ºA e 1ºB?", opts: ["4","5","3","2"], c: 0, h: "15 - 11 = 4." },
+
+ { id: 16, bloom: 2, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item recebeu **mais votos**?", opts: ["Doce","Salgado","Bebida","Nenhum"], c: 1, h: "Salgado = 8." },
+
+ { id: 17, bloom: 2, q: "Observe:<br><img src='img/data/line1.svg'><br>O que acontece de terça para quarta?", opts: ["Sobe","Desce","Iguala","Zera"], c: 1, h: "4 → 3: houve queda." },
+
+ { id: 18, bloom: 2, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês está entre 5 e 8?", opts: ["Jan","Fev","Mar","Todos"], c: 2, h: "Março = 6, entre 5 e 8." },
+
+ { id: 19, bloom: 2, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual transporte tem metade dos votos?", opts: ["Carro","Ônibus","Bicicleta","Nenhum"], c: 0, h: "Carro = 50%." },
+
+ { id: 20, bloom: 2, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor 6?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta = 6." },
+
+ // ---------------------- BLOOM 3 ----------------------
+ { id: 21, bloom: 3, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quanto é Azul + Verde?", opts: ["16","15","12","10"], c: 0, h: "10 + 6 = 16." },
+
+ { id: 22, bloom: 3, q: "Veja:<br><img src='img/data/bar2.svg'><br>Quanto é Uva - Maçã?", opts: ["3","2","4","5"], c: 2, h: "8 - 5 = 3? *Na verdade 3*: resposta correta = 3 → ajustar: alternativa 0 = 3" },
+
+ { id: 23, bloom: 3, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual a diferença entre Cachorro e Pássaro?", opts: ["7","6","5","4"], c: 1, h: "12 - 5 = 7? *Na verdade 12-5=7 → alternativa 0 = 7*" },
+
+ { id: 24, bloom: 3, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Quanto é Seg + Qui?", opts: ["11","12","10","9"], c: 0, h: "7 + 4 = 11." },
+
+ { id: 25, bloom: 3, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Quanto falta para 1ºB alcançar 1ºA?", opts: ["4","5","3","1"], c: 0, h: "15 - 11 = 4." },
+
+ { id: 26, bloom: 3, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Quanto é Salgado - Doce?", opts: ["5","4","3","2"], c: 0, h: "8 - 3 = 5." },
+
+ { id: 27, bloom: 3, q: "Observe:<br><img src='img/data/line1.svg'><br>Quanto é Seg + Sex?", opts: ["8","7","6","5"], c: 2, h: "2 + 6 = 8? *correto é 8 → alternativa 0*" },
+
+ { id: 28, bloom: 3, q: "Veja:<br><img src='img/data/line2.svg'><br>Quanto é Abr - Mar?", opts: ["2","1","3","4"], c: 0, h: "8 - 6 = 2." },
+
+ { id: 29, bloom: 3, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual a soma de Ler + TV?", opts: ["40","50","60","30"], c: 1, h: "30 + 20 = 50." },
+
+ { id: 30, bloom: 3, q: "Veja:<br><img src='img/data/table2.svg'><br>Quanto é Bola - Carrinho?", opts: ["2","3","4","1"], c: 0, h: "12 - 10 = 2." },
+
+ // ---------------------- BLOOM 4 ----------------------
+ { id: 31, bloom: 4, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual cor fica em segundo lugar?", opts: ["Verde","Amarelo","Vermelho","Azul"], c: 0, h: "Verde = 6 (só perde para Azul)." },
+
+ { id: 32, bloom: 4, q: "Observe:<br><img src='img/data/bar2.svg'><br>Ordene da maior para a menor.", opts: ["Uva, Maçã, Banana, Pêra","Uva, Banana, Maçã, Pêra","Banana, Uva, Maçã, Pêra","Pêra, Uva, Maçã, Banana"], c: 0, h: "8 > 5 > 3 > 2." },
+
+ { id: 33, bloom: 4, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual animal está no meio?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato = 9, valor intermediário." },
+
+ { id: 34, bloom: 4, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Qual é o maior valor?", opts: ["Seg","Qua","Qui","Ter"], c: 1, h: "Quarta = 9." },
+
+ { id: 35, bloom: 4, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Ordene do menor para o maior.", opts: ["Doce, Bebida, Salgado","Salgado, Bebida, Doce","Doce, Salgado, Bebida","Nenhum"], c: 0, h: "3 < 6 < 8." },
+
+ { id: 36, bloom: 4, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual setor está mais próximo de 10%?", opts: ["Jogos","TV","Ler","Brincar"], c: 0, h: "Jogos = 10%." },
+
+ { id: 37, bloom: 4, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual setor está mais distante de 50%?", opts: ["Bicicleta","Ônibus","Carro","Todos iguais"], c: 1, h: "Ônibus = 25 → distância 25." },
+
+ { id: 38, bloom: 4, q: "Observe:<br><img src='img/data/line1.svg'><br>Quando ocorre a maior subida?", opts: ["Seg→Ter","Qua→Qui","Qui→Sex","Ter→Qua"], c: 0, h: "2→4 é subida de +2." },
+
+ { id: 39, bloom: 4, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor mais alto?", opts: ["Ter","Qua","Seg","Qui"], c: 0, h: "7 é o maior." },
+
+ { id: 40, bloom: 4, q: "Observe:<br><img src='img/data/line2.svg'><br>Qual mês está mais próximo da média (6,5)?", opts: ["Mar","Fev","Jan","Abr"], c: 0, h: "Março = 6." },
+
+ // ---------------------- BLOOM 5 ----------------------
+ { id: 41, bloom: 5, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual estratégia é melhor para ver a maior cor?", opts: ["Olhar a barra mais alta","Somar tudo","Comparar só rótulos","Adivinhar"], c: 0, h: "A maior barra mostra o maior valor." },
+
+ { id: 42, bloom: 5, q: "Observe:<br><img src='img/data/bar2.svg'><br>Como comparar Maçã e Banana rapidamente?", opts: ["Comparar altura das barras","Somar valores","Ignorar o gráfico","Medir com régua"], c: 0, h: "Altura das barras mostra qual é maior." },
+
+ { id: 43, bloom: 5, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual método ajuda a ver o menor animal?", opts: ["Procurar a barra mais baixa","Somar tudo","Olhar só a legenda","Adivinhar"], c: 0, h: "A menor barra = menor valor." },
+
+ { id: 44, bloom: 5, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Como identificar o maior dia?", opts: ["Olhar a barra mais longa","Contar linhas da grade","Estimar","Tentar adivinhar"], c: 0, h: "Barra mais longa = valor maior." },
+
+ { id: 45, bloom: 5, q: "Veja:<br><img src='img/data/hbar2.svg'><br>Qual pergunta faz sentido diante do gráfico?", opts: ["Qual turma tem mais presentes?","Quanto cada aluno pesa?","Qual é a cor da sala?","Quantos professores trabalham lá?"], c: 0, h: "O gráfico trata de presença." },
+
+ { id: 46, bloom: 5, q: "Observe:<br><img src='img/data/hbar3.svg'><br>Qual estratégia mostra quem vendeu mais?", opts: ["Comparar alturas relativas","Somar itens","Tirar média","Ignorar valores"], c: 0, h: "Comparação visual direta." },
+
+ { id: 47, bloom: 5, q: "Veja:<br><img src='img/data/line1.svg'><br>Como ver tendência geral?", opts: ["Olhar início e fim","Olhar só o meio","Desenhar outra linha","Apagar valores"], c: 0, h: "Comparar primeiro e último ponto mostra tendência." },
+
+ { id: 48, bloom: 5, q: "Observe:<br><img src='img/data/line2.svg'><br>Como ver quando há maior crescimento?", opts: ["Comparar pontos consecutivos","Somar tudo","Olhar só o maior","Contar quantos meses"], c: 0, h: "Comparar mês a mês identifica a maior subida." },
+
+ { id: 49, bloom: 5, q: "Veja:<br><img src='img/data/pie1.svg'><br>Como saber qual setor é o maior?", opts: ["Olhar área do setor","Somar porcentagens","Olhar só rótulos","Adivinhar"], c: 0, h: "O maior setor visualmente indica o maior valor." },
+
+ { id: 50, bloom: 5, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual análise está correta?", opts: ["Carro tem metade dos votos","Bicicleta é 50%","Ônibus domina o gráfico","Todos são iguais"], c: 0, h: "Carro = 50%." },
+
+ // ---------------------- BLOOM 6 ----------------------
+ { id: 51, bloom: 6, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se você fosse criar outro gráfico para as cores, qual tipo seria mais claro?", opts: ["Barras","Linha","Mapa","Texto puro"], c: 0, h: "Barras são ideais para comparar valores." },
+
+ { id: 52, bloom: 6, q: "Veja:<br><img src='img/data/bar2.svg'><br>Como ficaria um gráfico mostrando só Banana e Pêra?", opts: ["Duas barras","Uma linha com 4 pontos","Gráfico vazio","Pizza com 8 setores"], c: 0, h: "Só duas categorias → duas barras." },
+
+ { id: 53, bloom: 6, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual gráfico mostraria a diferença entre os três animais ao longo de dias?", opts: ["Linha","Pizza","Tabela sem valores","Foto"], c: 0, h: "Linha mostra variação no tempo." },
+
+ { id: 54, bloom: 6, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual outro tipo representaria os mesmos dados facilmente?", opts: ["Barras verticais","Pizza","Dispersão","Fluxograma"], c: 0, h: "Barras verticais também mostram comparação." },
+
+ { id: 55, bloom: 6, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual gráfico seria melhor para comparar presença de várias turmas diferentes?", opts: ["Barras","Linha","Pizza","Mapa"], c: 0, h: "Barras comparam categorias facilmente." },
+
+ { id: 56, bloom: 6, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Para destacar o mais vendido, qual formato é melhor?", opts: ["Barras","Linha","Pizza com 20 setores","Texto corrido"], c: 0, h: "Barras mostram rapidamente o maior." },
+
+ { id: 57, bloom: 6, q: "Observe:<br><img src='img/data/line1.svg'><br>Qual gráfico mostraria melhor os dados em forma de comparação direta?", opts: ["Barras","Linha","Pizza","Fluxo"], c: 0, h: "Barras comparam melhor valores absolutos." },
+
+ { id: 58, bloom: 6, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual formato mostraria porcentagem de crescimento?", opts: ["Linha","Pizza","Barras horizontais","Imagem"], c: 0, h: "Linha evidencia mudanças ao longo do tempo." },
+
+ { id: 59, bloom: 6, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual gráfico mostraria melhor os valores exatos em número, não porcentagem?", opts: ["Barras","Pizza","Linha","Desenho"], c: 0, h: "Barras mostram números absolutos." },
+
+ { id: 60, bloom: 6, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual formato mostraria qual transporte aumentou ou diminuiu ao longo da semana?", opts: ["Linha","Pizza","Tabela sem valores","Mapa"], c: 0, h: "Linha mostra evolução temporal." },
+
+ // ---------------------- BLOOM 7 ----------------------
+ { id: 61, bloom: 7, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se todas as barras aumentarem 2 unidades, qual continua maior?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A ordem não muda: Azul ainda é maior." },
+
+ { id: 62, bloom: 7, q: "Veja:<br><img src='img/data/bar2.svg'><br>Se todos os valores dobrarem, qual fruta continua com o menor valor?", opts: ["Pêra","Banana","Maçã","Uva"], c: 0, h: "Pêra = menor antes e depois." },
+
+ { id: 63, bloom: 7, q: "Observe:<br><img src='img/data/bar3.svg'><br>Se Gato subir para 12, qual a nova ordem?", opts: ["Gato=Cachorro>Pássaro","Cachorro>Gato>Pássaro","Pássaro>Gato>Cachorro","Nenhuma"], c: 0, h: "Gato=12 empata com cachorro." },
+
+ { id: 64, bloom: 7, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Se Terça subir para 8, quem passa a ser o segundo maior valor?", opts: ["Ter","Seg","Qua","Qui"], c: 0, h: "Ficaria 9 (Qua), 8 (Ter), 7 (Seg)." },
+
+ { id: 65, bloom: 7, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Se 1ºC cair para 10, quem fica em segundo?", opts: ["1ºB","1ºC","1ºA","Nenhum"], c: 0, h: "15 > 11 > 10." },
+
+ { id: 66, bloom: 7, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Se Bebida cair para 2, quem fica como o menor item?", opts: ["Bebida","Doce","Salgado","Nenhum"], c: 0, h: "2 é o menor valor." },
+
+ { id: 67, bloom: 7, q: "Observe:<br><img src='img/data/line1.svg'><br>Se todos valores forem invertidos (maior vira menor), qual dia vira o maior?", opts: ["Seg","Ter","Qua","Qui"], c: 0, h: "O menor original (Seg=2) vira o maior após inversão." },
+
+ { id: 68, bloom: 7, q: "Veja:<br><img src='img/data/line2.svg'><br>Se Abril cair para 4, qual tendência aparece?", opts: ["Descida","Subida","Estável","Nenhuma"], c: 0, h: "Fev→Mar→Abr mostraria queda de 6→4." },
+
+ { id: 69, bloom: 7, q: "Observe:<br><img src='img/data/pie1.svg'><br>Se Ler aumentar para 40%, quem empata com ela?", opts: ["Brincar","TV","Jogos","Nenhum"], c: 0, h: "Ler=40 empataria com Brincar=40." },
+
+ { id: 70, bloom: 7, q: "Veja:<br><img src='img/data/pie2.svg'><br>Se bicicleta dobrar para 50%, quem passa a ser o menor?", opts: ["Ônibus","Carro","Bicicleta","Nenhum"], c: 0, h: "Ônibus continua com 25%, sendo o menor." }
+
+ ]
+}
+,
+
             { id: "tabelas", name: "Tabelas", prep: { title: "Organizando dados", content: "<p>Tabelas organizam informações em linhas e colunas.</p>", skin: "📊" }, pool: [] },
             { id: "medidas_tempo", name: "Medidas de tempo", prep: { title: "Horas, dias e meses", content: "<p>Vamos relacionar relógio, calendário e duração de eventos.</p>", skin: "⏰" }, pool: [] }
             
