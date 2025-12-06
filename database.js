@@ -10,8 +10,7 @@ const DB = {
             color: "bg-blue-500",
             accent: "border-blue-600",
             categories: [
-                {
-                    id: "pronomes",
+                {id: "pronomes",
                     name: "Pronomes",
                     prep: {
                         title: "O Poder dos Pronomes",
@@ -139,8 +138,7 @@ const DB = {
                         { id: 105, bloom: 7, q: "Num texto reflexivo, você escreve: \"Aquele foi o dia em que percebi que minha escolha seria definitiva\". O pronome \"aquele\" reforça:", opts: ["Um dia qualquer", "Um dia muito próximo", "Um dia distante e marcante na memória", "A posse de um objeto"], c: 2, h: "Distância temporal + peso emocional." }
                     ]
                 },
-                {
-                    id: "verbos",
+                {id: "verbos",
                     name: "Verbos",
                     prep: {
                         title: "Verbos em Ação",
@@ -500,168 +498,231 @@ const DB = {
                 { id: 130, bloom: 7, q: "Se todos os valores forem arredondados para baixo, o troco tende a:", opts: ["Aumentar", "Diminuir", "Ficar igual", "Sumir"], c: 0, h: "Preço menor ⇒ diferença maior." },
 
             ] },
-            {
- id: "graficos",
- name: "Gráficos",
- prep: { 
-   title: "Lendo e interpretando gráficos",
-   content: "<p>Vamos aprender a ler gráficos usando barras, linhas, pizza e tabelas. Eles mostram informações de forma visual e ajudam a comparar quantidades.</p>",
-   skin: "📊"
- },
- pool: [
+            { id: "graficos",  name: "Gráficos",  prep: {    title: "Lendo e interpretando gráficos",   content: "<p>Vamos aprender a ler gráficos usando barras, linhas, pizza e tabelas. Eles mostram informações de forma visual e ajudam a comparar quantidades.</p>",    skin: "📊" },
+             pool: [
 
- // ---------------------- BLOOM 1 ----------------------
- { id: 1, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar1.svg'><br>Qual cor recebeu **10 votos**?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A barra azul é 10." },
+                // ---------------------- BLOOM 1 ----------------------
+                { id: 1, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar1.svg'><br>Qual cor recebeu **10 votos**?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A barra azul é 10." },
 
- { id: 2, bloom: 1, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta recebeu **3 votos**?", opts: ["Maçã","Uva","Banana","Pêra"], c: 2, h: "Banana tem 3." },
+                { id: 2, bloom: 1, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta recebeu **3 votos**?", opts: ["Maçã","Uva","Banana","Pêra"], c: 2, h: "Banana tem 3." },
 
- { id: 3, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar3.svg'><br>Qual animal tem **12 votos**?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 0, h: "Cachorro = 12." },
+                { id: 3, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar3.svg'><br>Qual animal tem **12 votos**?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 0, h: "Cachorro = 12." },
 
- { id: 4, bloom: 1, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Em qual dia o valor é **9**?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta tem 9." },
+                { id: 4, bloom: 1, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Em qual dia o valor é **9**?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta tem 9." },
 
- { id: 5, bloom: 1, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual turma tem **15 alunos presentes**?", opts: ["1ºB","1ºA","1ºC","Nenhuma"], c: 1, h: "1ºA = 15." },
+                { id: 5, bloom: 1, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual turma tem **15 alunos presentes**?", opts: ["1ºB","1ºA","1ºC","Nenhuma"], c: 1, h: "1ºA = 15." },
 
- { id: 6, bloom: 1, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item tem valor **3**?", opts: ["Salgado","Bebida","Doce","Nenhum"], c: 2, h: "Doce = 3." },
+                { id: 6, bloom: 1, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item tem valor **3**?", opts: ["Salgado","Bebida","Doce","Nenhum"], c: 2, h: "Doce = 3." },
 
- { id: 7, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/line1.svg'><br>Em qual dia a temperatura é **5**?", opts: ["Seg","Ter","Qua","Qui"], c: 3, h: "Quinta tem ponto no 5." },
+                { id: 7, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/line1.svg'><br>Em qual dia a temperatura é **5**?", opts: ["Seg","Ter","Qua","Qui"], c: 3, h: "Quinta tem ponto no 5." },
 
- { id: 8, bloom: 1, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês tem valor **8**?", opts: ["Jan","Fev","Mar","Abr"], c: 3, h: "Abril = 8." },
+                { id: 8, bloom: 1, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês tem valor **8**?", opts: ["Jan","Fev","Mar","Abr"], c: 3, h: "Abril = 8." },
 
- { id: 9, bloom: 1, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual atividade ocupa **40%**?", opts: ["TV","Brincar","Ler","Jogos"], c: 1, h: "O maior setor é Brincar, 40%." },
+                { id: 9, bloom: 1, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual atividade ocupa **40%**?", opts: ["TV","Brincar","Ler","Jogos"], c: 1, h: "O maior setor é Brincar, 40%." },
 
- { id: 10, bloom: 1, q: "Veja:<br><img src='img/data/table2.svg'><br>Qual brinquedo recebeu **12 votos**?", opts: ["Boneca","Carrinho","Bola","Nenhum"], c: 2, h: "Bola = 12." },
+                { id: 10, bloom: 1, q: "Veja:<br><img src='img/data/table2.svg'><br>Qual brinquedo recebeu **12 votos**?", opts: ["Boneca","Carrinho","Bola","Nenhum"], c: 2, h: "Bola = 12." },
 
- // ---------------------- BLOOM 2 ----------------------
- { id: 11, bloom: 2, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quais cores têm mais votos que o vermelho?", opts: ["Azul e Verde","Azul e Amarelo","Verde e Vermelho","Apenas Amarelo"], c: 0, h: "Azul=10 e Verde=6 são maiores que 4." },
+                // ---------------------- BLOOM 2 ----------------------
+                { id: 11, bloom: 2, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quais cores têm mais votos que o vermelho?", opts: ["Azul e Verde","Azul e Amarelo","Verde e Vermelho","Apenas Amarelo"], c: 0, h: "Azul=10 e Verde=6 são maiores que 4." },
 
- { id: 12, bloom: 2, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta tem o menor valor?", opts: ["Banana","Pêra","Uva","Maçã"], c: 1, h: "Pêra = 2." },
+                { id: 12, bloom: 2, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta tem o menor valor?", opts: ["Banana","Pêra","Uva","Maçã"], c: 1, h: "Pêra = 2." },
 
- { id: 13, bloom: 2, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual animal tem votos entre 5 e 12?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato=9 está entre 5 e 12." },
+                { id: 13, bloom: 2, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual animal tem votos entre 5 e 12?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato=9 está entre 5 e 12." },
 
- { id: 14, bloom: 2, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual dia tem o valor mais baixo?", opts: ["Qui","Ter","Seg","Nenhum"], c: 1, h: "Terça = 2." },
+                { id: 14, bloom: 2, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual dia tem o valor mais baixo?", opts: ["Qui","Ter","Seg","Nenhum"], c: 1, h: "Terça = 2." },
 
- { id: 15, bloom: 2, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual diferença entre 1ºA e 1ºB?", opts: ["4","5","3","2"], c: 0, h: "15 - 11 = 4." },
+                { id: 15, bloom: 2, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual diferença entre 1ºA e 1ºB?", opts: ["4","5","3","2"], c: 0, h: "15 - 11 = 4." },
 
- { id: 16, bloom: 2, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item recebeu **mais votos**?", opts: ["Doce","Salgado","Bebida","Nenhum"], c: 1, h: "Salgado = 8." },
+                { id: 16, bloom: 2, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item recebeu **mais votos**?", opts: ["Doce","Salgado","Bebida","Nenhum"], c: 1, h: "Salgado = 8." },
 
- { id: 17, bloom: 2, q: "Observe:<br><img src='img/data/line1.svg'><br>O que acontece de terça para quarta?", opts: ["Sobe","Desce","Iguala","Zera"], c: 1, h: "4 → 3: houve queda." },
+                { id: 17, bloom: 2, q: "Observe:<br><img src='img/data/line1.svg'><br>O que acontece de terça para quarta?", opts: ["Sobe","Desce","Iguala","Zera"], c: 1, h: "4 → 3: houve queda." },
 
- { id: 18, bloom: 2, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês está entre 5 e 8?", opts: ["Jan","Fev","Mar","Todos"], c: 2, h: "Março = 6, entre 5 e 8." },
+                { id: 18, bloom: 2, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês está entre 5 e 8?", opts: ["Jan","Fev","Mar","Todos"], c: 2, h: "Março = 6, entre 5 e 8." },
 
- { id: 19, bloom: 2, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual transporte tem metade dos votos?", opts: ["Carro","Ônibus","Bicicleta","Nenhum"], c: 0, h: "Carro = 50%." },
+                { id: 19, bloom: 2, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual transporte tem metade dos votos?", opts: ["Carro","Ônibus","Bicicleta","Nenhum"], c: 0, h: "Carro = 50%." },
 
- { id: 20, bloom: 2, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor 6?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta = 6." },
+                { id: 20, bloom: 2, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor 6?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta = 6." },
 
- // ---------------------- BLOOM 3 ----------------------
- { id: 21, bloom: 3, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quanto é Azul + Verde?", opts: ["16","15","12","10"], c: 0, h: "10 + 6 = 16." },
+                // ---------------------- BLOOM 3 ----------------------
+                { id: 21, bloom: 3, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quanto é Azul + Verde?", opts: ["16","15","12","10"], c: 0, h: "10 + 6 = 16." },
 
- { id: 22, bloom: 3, q: "Veja:<br><img src='img/data/bar2.svg'><br>Quanto é Uva - Maçã?", opts: ["3","2","4","5"], c: 2, h: "8 - 5 = 3? *Na verdade 3*: resposta correta = 3 → ajustar: alternativa 0 = 3" },
+                { id: 22, bloom: 3, q: "Veja:<br><img src='img/data/bar2.svg'><br>Quanto é Uva - Maçã?", opts: ["3","2","4","5"], c: 2, h: "8 - 5 = 3? *Na verdade 3*: resposta correta = 3 → ajustar: alternativa 0 = 3" },
 
- { id: 23, bloom: 3, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual a diferença entre Cachorro e Pássaro?", opts: ["7","6","5","4"], c: 1, h: "12 - 5 = 7? *Na verdade 12-5=7 → alternativa 0 = 7*" },
+                { id: 23, bloom: 3, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual a diferença entre Cachorro e Pássaro?", opts: ["7","6","5","4"], c: 1, h: "12 - 5 = 7? *Na verdade 12-5=7 → alternativa 0 = 7*" },
 
- { id: 24, bloom: 3, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Quanto é Seg + Qui?", opts: ["11","12","10","9"], c: 0, h: "7 + 4 = 11." },
+                { id: 24, bloom: 3, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Quanto é Seg + Qui?", opts: ["11","12","10","9"], c: 0, h: "7 + 4 = 11." },
 
- { id: 25, bloom: 3, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Quanto falta para 1ºB alcançar 1ºA?", opts: ["4","5","3","1"], c: 0, h: "15 - 11 = 4." },
+                { id: 25, bloom: 3, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Quanto falta para 1ºB alcançar 1ºA?", opts: ["4","5","3","1"], c: 0, h: "15 - 11 = 4." },
 
- { id: 26, bloom: 3, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Quanto é Salgado - Doce?", opts: ["5","4","3","2"], c: 0, h: "8 - 3 = 5." },
+                { id: 26, bloom: 3, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Quanto é Salgado - Doce?", opts: ["5","4","3","2"], c: 0, h: "8 - 3 = 5." },
 
- { id: 27, bloom: 3, q: "Observe:<br><img src='img/data/line1.svg'><br>Quanto é Seg + Sex?", opts: ["8","7","6","5"], c: 2, h: "2 + 6 = 8? *correto é 8 → alternativa 0*" },
+                { id: 27, bloom: 3, q: "Observe:<br><img src='img/data/line1.svg'><br>Quanto é Seg + Sex?", opts: ["8","7","6","5"], c: 2, h: "2 + 6 = 8? *correto é 8 → alternativa 0*" },
 
- { id: 28, bloom: 3, q: "Veja:<br><img src='img/data/line2.svg'><br>Quanto é Abr - Mar?", opts: ["2","1","3","4"], c: 0, h: "8 - 6 = 2." },
+                { id: 28, bloom: 3, q: "Veja:<br><img src='img/data/line2.svg'><br>Quanto é Abr - Mar?", opts: ["2","1","3","4"], c: 0, h: "8 - 6 = 2." },
 
- { id: 29, bloom: 3, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual a soma de Ler + TV?", opts: ["40","50","60","30"], c: 1, h: "30 + 20 = 50." },
+                { id: 29, bloom: 3, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual a soma de Ler + TV?", opts: ["40","50","60","30"], c: 1, h: "30 + 20 = 50." },
 
- { id: 30, bloom: 3, q: "Veja:<br><img src='img/data/table2.svg'><br>Quanto é Bola - Carrinho?", opts: ["2","3","4","1"], c: 0, h: "12 - 10 = 2." },
+                { id: 30, bloom: 3, q: "Veja:<br><img src='img/data/table2.svg'><br>Quanto é Bola - Carrinho?", opts: ["2","3","4","1"], c: 0, h: "12 - 10 = 2." },
 
- // ---------------------- BLOOM 4 ----------------------
- { id: 31, bloom: 4, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual cor fica em segundo lugar?", opts: ["Verde","Amarelo","Vermelho","Azul"], c: 0, h: "Verde = 6 (só perde para Azul)." },
+                // ---------------------- BLOOM 4 ----------------------
+                { id: 31, bloom: 4, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual cor fica em segundo lugar?", opts: ["Verde","Amarelo","Vermelho","Azul"], c: 0, h: "Verde = 6 (só perde para Azul)." },
 
- { id: 32, bloom: 4, q: "Observe:<br><img src='img/data/bar2.svg'><br>Ordene da maior para a menor.", opts: ["Uva, Maçã, Banana, Pêra","Uva, Banana, Maçã, Pêra","Banana, Uva, Maçã, Pêra","Pêra, Uva, Maçã, Banana"], c: 0, h: "8 > 5 > 3 > 2." },
+                { id: 32, bloom: 4, q: "Observe:<br><img src='img/data/bar2.svg'><br>Ordene da maior para a menor.", opts: ["Uva, Maçã, Banana, Pêra","Uva, Banana, Maçã, Pêra","Banana, Uva, Maçã, Pêra","Pêra, Uva, Maçã, Banana"], c: 0, h: "8 > 5 > 3 > 2." },
 
- { id: 33, bloom: 4, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual animal está no meio?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato = 9, valor intermediário." },
+                { id: 33, bloom: 4, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual animal está no meio?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato = 9, valor intermediário." },
 
- { id: 34, bloom: 4, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Qual é o maior valor?", opts: ["Seg","Qua","Qui","Ter"], c: 1, h: "Quarta = 9." },
+                { id: 34, bloom: 4, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Qual é o maior valor?", opts: ["Seg","Qua","Qui","Ter"], c: 1, h: "Quarta = 9." },
 
- { id: 35, bloom: 4, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Ordene do menor para o maior.", opts: ["Doce, Bebida, Salgado","Salgado, Bebida, Doce","Doce, Salgado, Bebida","Nenhum"], c: 0, h: "3 < 6 < 8." },
+                { id: 35, bloom: 4, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Ordene do menor para o maior.", opts: ["Doce, Bebida, Salgado","Salgado, Bebida, Doce","Doce, Salgado, Bebida","Nenhum"], c: 0, h: "3 < 6 < 8." },
 
- { id: 36, bloom: 4, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual setor está mais próximo de 10%?", opts: ["Jogos","TV","Ler","Brincar"], c: 0, h: "Jogos = 10%." },
+                { id: 36, bloom: 4, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual setor está mais próximo de 10%?", opts: ["Jogos","TV","Ler","Brincar"], c: 0, h: "Jogos = 10%." },
 
- { id: 37, bloom: 4, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual setor está mais distante de 50%?", opts: ["Bicicleta","Ônibus","Carro","Todos iguais"], c: 1, h: "Ônibus = 25 → distância 25." },
+                { id: 37, bloom: 4, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual setor está mais distante de 50%?", opts: ["Bicicleta","Ônibus","Carro","Todos iguais"], c: 1, h: "Ônibus = 25 → distância 25." },
 
- { id: 38, bloom: 4, q: "Observe:<br><img src='img/data/line1.svg'><br>Quando ocorre a maior subida?", opts: ["Seg→Ter","Qua→Qui","Qui→Sex","Ter→Qua"], c: 0, h: "2→4 é subida de +2." },
+                { id: 38, bloom: 4, q: "Observe:<br><img src='img/data/line1.svg'><br>Quando ocorre a maior subida?", opts: ["Seg→Ter","Qua→Qui","Qui→Sex","Ter→Qua"], c: 0, h: "2→4 é subida de +2." },
 
- { id: 39, bloom: 4, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor mais alto?", opts: ["Ter","Qua","Seg","Qui"], c: 0, h: "7 é o maior." },
+                { id: 39, bloom: 4, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor mais alto?", opts: ["Ter","Qua","Seg","Qui"], c: 0, h: "7 é o maior." },
 
- { id: 40, bloom: 4, q: "Observe:<br><img src='img/data/line2.svg'><br>Qual mês está mais próximo da média (6,5)?", opts: ["Mar","Fev","Jan","Abr"], c: 0, h: "Março = 6." },
+                { id: 40, bloom: 4, q: "Observe:<br><img src='img/data/line2.svg'><br>Qual mês está mais próximo da média (6,5)?", opts: ["Mar","Fev","Jan","Abr"], c: 0, h: "Março = 6." },
 
- // ---------------------- BLOOM 5 ----------------------
- { id: 41, bloom: 5, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual estratégia é melhor para ver a maior cor?", opts: ["Olhar a barra mais alta","Somar tudo","Comparar só rótulos","Adivinhar"], c: 0, h: "A maior barra mostra o maior valor." },
+                // ---------------------- BLOOM 5 ----------------------
+                { id: 41, bloom: 5, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual estratégia é melhor para ver a maior cor?", opts: ["Olhar a barra mais alta","Somar tudo","Comparar só rótulos","Adivinhar"], c: 0, h: "A maior barra mostra o maior valor." },
 
- { id: 42, bloom: 5, q: "Observe:<br><img src='img/data/bar2.svg'><br>Como comparar Maçã e Banana rapidamente?", opts: ["Comparar altura das barras","Somar valores","Ignorar o gráfico","Medir com régua"], c: 0, h: "Altura das barras mostra qual é maior." },
+                { id: 42, bloom: 5, q: "Observe:<br><img src='img/data/bar2.svg'><br>Como comparar Maçã e Banana rapidamente?", opts: ["Comparar altura das barras","Somar valores","Ignorar o gráfico","Medir com régua"], c: 0, h: "Altura das barras mostra qual é maior." },
 
- { id: 43, bloom: 5, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual método ajuda a ver o menor animal?", opts: ["Procurar a barra mais baixa","Somar tudo","Olhar só a legenda","Adivinhar"], c: 0, h: "A menor barra = menor valor." },
+                { id: 43, bloom: 5, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual método ajuda a ver o menor animal?", opts: ["Procurar a barra mais baixa","Somar tudo","Olhar só a legenda","Adivinhar"], c: 0, h: "A menor barra = menor valor." },
 
- { id: 44, bloom: 5, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Como identificar o maior dia?", opts: ["Olhar a barra mais longa","Contar linhas da grade","Estimar","Tentar adivinhar"], c: 0, h: "Barra mais longa = valor maior." },
+                { id: 44, bloom: 5, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Como identificar o maior dia?", opts: ["Olhar a barra mais longa","Contar linhas da grade","Estimar","Tentar adivinhar"], c: 0, h: "Barra mais longa = valor maior." },
 
- { id: 45, bloom: 5, q: "Veja:<br><img src='img/data/hbar2.svg'><br>Qual pergunta faz sentido diante do gráfico?", opts: ["Qual turma tem mais presentes?","Quanto cada aluno pesa?","Qual é a cor da sala?","Quantos professores trabalham lá?"], c: 0, h: "O gráfico trata de presença." },
+                { id: 45, bloom: 5, q: "Veja:<br><img src='img/data/hbar2.svg'><br>Qual pergunta faz sentido diante do gráfico?", opts: ["Qual turma tem mais presentes?","Quanto cada aluno pesa?","Qual é a cor da sala?","Quantos professores trabalham lá?"], c: 0, h: "O gráfico trata de presença." },
 
- { id: 46, bloom: 5, q: "Observe:<br><img src='img/data/hbar3.svg'><br>Qual estratégia mostra quem vendeu mais?", opts: ["Comparar alturas relativas","Somar itens","Tirar média","Ignorar valores"], c: 0, h: "Comparação visual direta." },
+                { id: 46, bloom: 5, q: "Observe:<br><img src='img/data/hbar3.svg'><br>Qual estratégia mostra quem vendeu mais?", opts: ["Comparar alturas relativas","Somar itens","Tirar média","Ignorar valores"], c: 0, h: "Comparação visual direta." },
 
- { id: 47, bloom: 5, q: "Veja:<br><img src='img/data/line1.svg'><br>Como ver tendência geral?", opts: ["Olhar início e fim","Olhar só o meio","Desenhar outra linha","Apagar valores"], c: 0, h: "Comparar primeiro e último ponto mostra tendência." },
-
- { id: 48, bloom: 5, q: "Observe:<br><img src='img/data/line2.svg'><br>Como ver quando há maior crescimento?", opts: ["Comparar pontos consecutivos","Somar tudo","Olhar só o maior","Contar quantos meses"], c: 0, h: "Comparar mês a mês identifica a maior subida." },
-
- { id: 49, bloom: 5, q: "Veja:<br><img src='img/data/pie1.svg'><br>Como saber qual setor é o maior?", opts: ["Olhar área do setor","Somar porcentagens","Olhar só rótulos","Adivinhar"], c: 0, h: "O maior setor visualmente indica o maior valor." },
-
- { id: 50, bloom: 5, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual análise está correta?", opts: ["Carro tem metade dos votos","Bicicleta é 50%","Ônibus domina o gráfico","Todos são iguais"], c: 0, h: "Carro = 50%." },
-
- // ---------------------- BLOOM 6 ----------------------
- { id: 51, bloom: 6, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se você fosse criar outro gráfico para as cores, qual tipo seria mais claro?", opts: ["Barras","Linha","Mapa","Texto puro"], c: 0, h: "Barras são ideais para comparar valores." },
-
- { id: 52, bloom: 6, q: "Veja:<br><img src='img/data/bar2.svg'><br>Como ficaria um gráfico mostrando só Banana e Pêra?", opts: ["Duas barras","Uma linha com 4 pontos","Gráfico vazio","Pizza com 8 setores"], c: 0, h: "Só duas categorias → duas barras." },
-
- { id: 53, bloom: 6, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual gráfico mostraria a diferença entre os três animais ao longo de dias?", opts: ["Linha","Pizza","Tabela sem valores","Foto"], c: 0, h: "Linha mostra variação no tempo." },
-
- { id: 54, bloom: 6, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual outro tipo representaria os mesmos dados facilmente?", opts: ["Barras verticais","Pizza","Dispersão","Fluxograma"], c: 0, h: "Barras verticais também mostram comparação." },
-
- { id: 55, bloom: 6, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual gráfico seria melhor para comparar presença de várias turmas diferentes?", opts: ["Barras","Linha","Pizza","Mapa"], c: 0, h: "Barras comparam categorias facilmente." },
-
- { id: 56, bloom: 6, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Para destacar o mais vendido, qual formato é melhor?", opts: ["Barras","Linha","Pizza com 20 setores","Texto corrido"], c: 0, h: "Barras mostram rapidamente o maior." },
-
- { id: 57, bloom: 6, q: "Observe:<br><img src='img/data/line1.svg'><br>Qual gráfico mostraria melhor os dados em forma de comparação direta?", opts: ["Barras","Linha","Pizza","Fluxo"], c: 0, h: "Barras comparam melhor valores absolutos." },
-
- { id: 58, bloom: 6, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual formato mostraria porcentagem de crescimento?", opts: ["Linha","Pizza","Barras horizontais","Imagem"], c: 0, h: "Linha evidencia mudanças ao longo do tempo." },
-
- { id: 59, bloom: 6, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual gráfico mostraria melhor os valores exatos em número, não porcentagem?", opts: ["Barras","Pizza","Linha","Desenho"], c: 0, h: "Barras mostram números absolutos." },
-
- { id: 60, bloom: 6, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual formato mostraria qual transporte aumentou ou diminuiu ao longo da semana?", opts: ["Linha","Pizza","Tabela sem valores","Mapa"], c: 0, h: "Linha mostra evolução temporal." },
-
- // ---------------------- BLOOM 7 ----------------------
- { id: 61, bloom: 7, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se todas as barras aumentarem 2 unidades, qual continua maior?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A ordem não muda: Azul ainda é maior." },
-
- { id: 62, bloom: 7, q: "Veja:<br><img src='img/data/bar2.svg'><br>Se todos os valores dobrarem, qual fruta continua com o menor valor?", opts: ["Pêra","Banana","Maçã","Uva"], c: 0, h: "Pêra = menor antes e depois." },
-
- { id: 63, bloom: 7, q: "Observe:<br><img src='img/data/bar3.svg'><br>Se Gato subir para 12, qual a nova ordem?", opts: ["Gato=Cachorro>Pássaro","Cachorro>Gato>Pássaro","Pássaro>Gato>Cachorro","Nenhuma"], c: 0, h: "Gato=12 empata com cachorro." },
-
- { id: 64, bloom: 7, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Se Terça subir para 8, quem passa a ser o segundo maior valor?", opts: ["Ter","Seg","Qua","Qui"], c: 0, h: "Ficaria 9 (Qua), 8 (Ter), 7 (Seg)." },
-
- { id: 65, bloom: 7, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Se 1ºC cair para 10, quem fica em segundo?", opts: ["1ºB","1ºC","1ºA","Nenhum"], c: 0, h: "15 > 11 > 10." },
-
- { id: 66, bloom: 7, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Se Bebida cair para 2, quem fica como o menor item?", opts: ["Bebida","Doce","Salgado","Nenhum"], c: 0, h: "2 é o menor valor." },
-
- { id: 67, bloom: 7, q: "Observe:<br><img src='img/data/line1.svg'><br>Se todos valores forem invertidos (maior vira menor), qual dia vira o maior?", opts: ["Seg","Ter","Qua","Qui"], c: 0, h: "O menor original (Seg=2) vira o maior após inversão." },
-
- { id: 68, bloom: 7, q: "Veja:<br><img src='img/data/line2.svg'><br>Se Abril cair para 4, qual tendência aparece?", opts: ["Descida","Subida","Estável","Nenhuma"], c: 0, h: "Fev→Mar→Abr mostraria queda de 6→4." },
-
- { id: 69, bloom: 7, q: "Observe:<br><img src='img/data/pie1.svg'><br>Se Ler aumentar para 40%, quem empata com ela?", opts: ["Brincar","TV","Jogos","Nenhum"], c: 0, h: "Ler=40 empataria com Brincar=40." },
-
- { id: 70, bloom: 7, q: "Veja:<br><img src='img/data/pie2.svg'><br>Se bicicleta dobrar para 50%, quem passa a ser o menor?", opts: ["Ônibus","Carro","Bicicleta","Nenhum"], c: 0, h: "Ônibus continua com 25%, sendo o menor." }
-
- ]
-}
-,
-
-            { id: "tabelas", name: "Tabelas", prep: { title: "Organizando dados", content: "<p>Tabelas organizam informações em linhas e colunas.</p>", skin: "📊" }, pool: [] },
+                { id: 47, bloom: 5, q: "Veja:<br><img src='img/data/line1.svg'><br>Como ver tendência geral?", opts: ["Olhar início e fim","Olhar só o meio","Desenhar outra linha","Apagar valores"], c: 0, h: "Comparar primeiro e último ponto mostra tendência." },
+
+                { id: 48, bloom: 5, q: "Observe:<br><img src='img/data/line2.svg'><br>Como ver quando há maior crescimento?", opts: ["Comparar pontos consecutivos","Somar tudo","Olhar só o maior","Contar quantos meses"], c: 0, h: "Comparar mês a mês identifica a maior subida." },
+
+                { id: 49, bloom: 5, q: "Veja:<br><img src='img/data/pie1.svg'><br>Como saber qual setor é o maior?", opts: ["Olhar área do setor","Somar porcentagens","Olhar só rótulos","Adivinhar"], c: 0, h: "O maior setor visualmente indica o maior valor." },
+
+                { id: 50, bloom: 5, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual análise está correta?", opts: ["Carro tem metade dos votos","Bicicleta é 50%","Ônibus domina o gráfico","Todos são iguais"], c: 0, h: "Carro = 50%." },
+
+                // ---------------------- BLOOM 6 ----------------------
+                { id: 51, bloom: 6, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se você fosse criar outro gráfico para as cores, qual tipo seria mais claro?", opts: ["Barras","Linha","Mapa","Texto puro"], c: 0, h: "Barras são ideais para comparar valores." },
+
+                { id: 52, bloom: 6, q: "Veja:<br><img src='img/data/bar2.svg'><br>Como ficaria um gráfico mostrando só Banana e Pêra?", opts: ["Duas barras","Uma linha com 4 pontos","Gráfico vazio","Pizza com 8 setores"], c: 0, h: "Só duas categorias → duas barras." },
+
+                { id: 53, bloom: 6, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual gráfico mostraria a diferença entre os três animais ao longo de dias?", opts: ["Linha","Pizza","Tabela sem valores","Foto"], c: 0, h: "Linha mostra variação no tempo." },
+
+                { id: 54, bloom: 6, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual outro tipo representaria os mesmos dados facilmente?", opts: ["Barras verticais","Pizza","Dispersão","Fluxograma"], c: 0, h: "Barras verticais também mostram comparação." },
+
+                { id: 55, bloom: 6, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual gráfico seria melhor para comparar presença de várias turmas diferentes?", opts: ["Barras","Linha","Pizza","Mapa"], c: 0, h: "Barras comparam categorias facilmente." },
+
+                { id: 56, bloom: 6, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Para destacar o mais vendido, qual formato é melhor?", opts: ["Barras","Linha","Pizza com 20 setores","Texto corrido"], c: 0, h: "Barras mostram rapidamente o maior." },
+
+                { id: 57, bloom: 6, q: "Observe:<br><img src='img/data/line1.svg'><br>Qual gráfico mostraria melhor os dados em forma de comparação direta?", opts: ["Barras","Linha","Pizza","Fluxo"], c: 0, h: "Barras comparam melhor valores absolutos." },
+
+                { id: 58, bloom: 6, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual formato mostraria porcentagem de crescimento?", opts: ["Linha","Pizza","Barras horizontais","Imagem"], c: 0, h: "Linha evidencia mudanças ao longo do tempo." },
+
+                { id: 59, bloom: 6, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual gráfico mostraria melhor os valores exatos em número, não porcentagem?", opts: ["Barras","Pizza","Linha","Desenho"], c: 0, h: "Barras mostram números absolutos." },
+
+                { id: 60, bloom: 6, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual formato mostraria qual transporte aumentou ou diminuiu ao longo da semana?", opts: ["Linha","Pizza","Tabela sem valores","Mapa"], c: 0, h: "Linha mostra evolução temporal." },
+
+                // ---------------------- BLOOM 7 ----------------------
+                { id: 61, bloom: 7, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se todas as barras aumentarem 2 unidades, qual continua maior?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A ordem não muda: Azul ainda é maior." },
+
+                { id: 62, bloom: 7, q: "Veja:<br><img src='img/data/bar2.svg'><br>Se todos os valores dobrarem, qual fruta continua com o menor valor?", opts: ["Pêra","Banana","Maçã","Uva"], c: 0, h: "Pêra = menor antes e depois." },
+
+                { id: 63, bloom: 7, q: "Observe:<br><img src='img/data/bar3.svg'><br>Se Gato subir para 12, qual a nova ordem?", opts: ["Gato=Cachorro>Pássaro","Cachorro>Gato>Pássaro","Pássaro>Gato>Cachorro","Nenhuma"], c: 0, h: "Gato=12 empata com cachorro." },
+
+                { id: 64, bloom: 7, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Se Terça subir para 8, quem passa a ser o segundo maior valor?", opts: ["Ter","Seg","Qua","Qui"], c: 0, h: "Ficaria 9 (Qua), 8 (Ter), 7 (Seg)." },
+
+                { id: 65, bloom: 7, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Se 1ºC cair para 10, quem fica em segundo?", opts: ["1ºB","1ºC","1ºA","Nenhum"], c: 0, h: "15 > 11 > 10." },
+
+                { id: 66, bloom: 7, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Se Bebida cair para 2, quem fica como o menor item?", opts: ["Bebida","Doce","Salgado","Nenhum"], c: 0, h: "2 é o menor valor." },
+
+                { id: 67, bloom: 7, q: "Observe:<br><img src='img/data/line1.svg'><br>Se todos valores forem invertidos (maior vira menor), qual dia vira o maior?", opts: ["Seg","Ter","Qua","Qui"], c: 0, h: "O menor original (Seg=2) vira o maior após inversão." },
+
+                { id: 68, bloom: 7, q: "Veja:<br><img src='img/data/line2.svg'><br>Se Abril cair para 4, qual tendência aparece?", opts: ["Descida","Subida","Estável","Nenhuma"], c: 0, h: "Fev→Mar→Abr mostraria queda de 6→4." },
+
+                { id: 69, bloom: 7, q: "Observe:<br><img src='img/data/pie1.svg'><br>Se Ler aumentar para 40%, quem empata com ela?", opts: ["Brincar","TV","Jogos","Nenhum"], c: 0, h: "Ler=40 empataria com Brincar=40." },
+
+                { id: 70, bloom: 7, q: "Veja:<br><img src='img/data/pie2.svg'><br>Se bicicleta dobrar para 50%, quem passa a ser o menor?", opts: ["Ônibus","Carro","Bicicleta","Nenhum"], c: 0, h: "Ônibus continua com 25%, sendo o menor." }
+
+                ]
+            },
+
+            { id: "tabelas", name: "Tabelas", prep: { title: "Organizando dados", content: "<p>Tabelas organizam informações em linhas e colunas.</p>", skin: "📊" }, pool: [
+                 {id: 1, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantas bolas foram vendidas?",opts: ["10", "8", "12", "6"],c: 2,h: "O valor na linha de Bola é 12."},
+                {id: 2, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantas pipas foram vendidas?",opts: ["8", "10", "12", "6"],c: 3,h: "O valor na linha de Pipa é 6." },
+                {id: 3, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Quantas bananas aparecem na tabela?",opts: ["4", "3", "7", "5"],c: 2,h: "O valor na linha de Banana é 7." },
+                {id: 4, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Quantas pêras aparecem na tabela?",opts: ["3", "4", "7", "5"],c: 0,h: "O valor na linha de Pêra é 3." },
+                {id: 5, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Quantos pontos Ana fez?",opts: ["6", "4", "12", "9"],c: 3,h: "O valor na linha de Ana é 9." },
+                {id: 6, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Quantos pontos Deco fez?",opts: ["4", "6", "9", "12"],c: 0,h: "O valor na linha de Deco é 4." },
+                {id: 7, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Quantos cachorros há na tabela?",opts: ["4", "3", "5", "6"],c: 3,h: "O valor na linha de Cachorros é 6." },
+                {id: 8, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Quantos pássaros há na tabela?",opts: ["5", "3", "4", "6"],c: 1,h: "O valor na linha de Pássaros é 3." },
+                {id: 9, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Quantos alunos estiveram presentes na quarta?",opts: ["22", "19", "18", "20"],c: 0,h: "O valor na linha de Quarta é 22." },
+                {id: 10, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Quantos alunos estiveram presentes na terça?",opts: ["18", "22", "19", "20"],c: 0,h: "O valor na linha de Terça é 18." },
+                {id: 11, bloom: 2,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Qual fruta foi comida em maior quantidade?",opts: ["Pêra", "Maçã", "Banana", "Uva"],c: 2,h: "A fruta com maior quantidade é Banana, com 7." },
+                {id: 12, bloom: 2,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Qual fruta foi comida em menor quantidade?",opts: ["Maçã", "Pêra", "Banana", "Uva"],c: 1,h: "A fruta com menor quantidade é Pêra, com 3." },
+                {id: 13, bloom: 2,q: "Veja a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Qual brinquedo foi menos vendido?",opts: ["Carrinho", "Bola", "Pipa", "Boneca"],c: 2,h: "O brinquedo com menor quantidade é Pipa, com 6." },
+                {id: 14, bloom: 2,q: "Veja a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Qual brinquedo foi mais vendido?",opts: ["Carrinho", "Boneca", "Pipa", "Bola"],c: 3,h: "O brinquedo com maior quantidade é Bola, com 12." },
+                {id: 15, bloom: 2,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Qual jogador fez mais pontos?",opts: ["Beto", "Deco", "Carol", "Ana"],c: 2,h: "O jogador com mais pontos é Carol, com 12." },
+                {id: 16, bloom: 2,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Qual jogador fez menos pontos?",opts: ["Ana", "Deco", "Carol", "Beto"],c: 1,h: "O jogador com menos pontos é Deco, com 4." },
+                {id: 17, bloom: 2,q: "Veja a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Qual animal tem quantidade igual a 5?",opts: ["Coelhos", "Gatos", "Pássaros", "Cachorros"],c: 0,h: "O animal Coelhos tem quantidade 5." },
+                {id: 18, bloom: 2,q: "Veja a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Qual animal tem quantidade maior que 5?",opts: ["Gatos", "Coelhos", "Pássaros", "Cachorros"],c: 3,h: "Apenas Cachorros tem quantidade maior que 5." },
+                {id: 19, bloom: 2,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Em qual dia houve mais alunos presentes?",opts: ["Quarta", "Segunda", "Terça", "Quinta"],c: 0,h: "O dia com mais alunos foi Quarta, com 22 alunos." },
+                {id: 20, bloom: 2,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Em qual dia houve menos alunos presentes?",opts: ["Quinta", "Terça", "Segunda", "Quarta"],c: 1,h: "O dia com menos alunos foi Terça, com 18." },
+                {id: 21, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantos brinquedos há no total se juntarmos Bola e Carrinho?",opts: ["22", "19", "20", "18"],c: 2,h: "Bola = 12 e Carrinho = 10. Resultado = 22." },
+                {id: 22, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantos brinquedos há se somarmos Boneca e Pipa?",opts: ["10", "16", "18", "14"],c: 1,h: "Boneca = 8 e Pipa = 6. Resultado = 14." },
+                {id: 23, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Quantas frutas são ao todo, somando Maçã e Banana?",opts: ["10", "11", "9", "12"],c: 1,h: "Maçã = 5 e Banana = 7. Resultado = 12." },
+                {id: 24, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Se tirarmos a quantidade de Pêra da de Banana, qual é a diferença?",opts: ["4", "3", "5", "2"],c: 0,h: "Banana = 7 e Pêra = 3. Resultado = 7 - 3 = 4." },
+                {id: 25, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Quantos pontos têm juntos Carol e Ana?",opts: ["19", "21", "20", "17"],c: 2,h: "Carol = 12 e Ana = 9. Resultado = 21." },
+                {id: 26, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Se subtrairmos os pontos de Beto dos pontos de Ana, qual é o resultado?",opts: ["2", "4", "3", "5"],c: 3,h: "Ana = 9 e Beto = 6. Resultado = 9 - 6 = 3." },
+                {id: 27, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Quantos animais há se juntarmos Cachorros e Gatos?",opts: ["9", "11", "8", "10"],c: 2,h: "Cachorros = 6 e Gatos = 4. Resultado = 10." },
+                {id: 28, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Quantos animais há se somarmos Coelhos e Pássaros?",opts: ["7", "10", "8", "9"],c: 0,h: "Coelhos = 5 e Pássaros = 3. Resultado = 8." },
+                {id: 29, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Quantos alunos estiveram presentes no total em Quarta e Segunda?",opts: ["42", "40", "41", "39"],c: 2,h: "Quarta = 22 e Segunda = 20. Resultado = 42." },
+                {id: 30, bloom: 3,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Qual é a diferença de alunos presentes entre Quarta e Terça?",opts: ["2", "3", "4", "5"],c: 3,h: "Quarta = 22 e Terça = 18. Resultado = 22 - 18 = 4." },
+                {id: 31, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Colocando as frutas em ordem da menor para a maior quantidade, qual vem primeiro?",opts: ["Uva", "Maçã", "Banana", "Pêra"],c: 3,h: "A resposta correta é Pêra." },
+                {id: 32, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Colocando as frutas em ordem da menor para a maior quantidade, qual vem por último?",opts: ["Maçã", "Banana", "Uva", "Pêra"],c: 1,h: "A resposta correta é Banana." },
+                {id: 33, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Se organizarmos os brinquedos do mais vendido para o menos vendido, qual fica em segundo lugar?",opts: ["Carrinho", "Boneca", "Pipa", "Bola"],c: 0,h: "A resposta correta é Carrinho." },
+                {id: 34, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Se colocarmos os jogadores em ordem do que fez menos pontos para o que fez mais, quem fica em terceiro lugar?",opts: ["Ana", "Beto", "Carol", "Deco"],c: 0,h: "A resposta correta é Ana." },
+                {id: 35, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Qual animal tem quantidade maior ou igual a 5, mas não é o que tem a maior quantidade?",opts: ["Gatos", "Coelhos", "Pássaros", "Cachorros"],c: 1,h: "A resposta correta é Coelhos." },
+                {id: 36, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Qual dia tem número de alunos presentes que está mais perto de 20, mas é um pouco menor que 20?",opts: ["Terça", "Quarta", "Segunda", "Quinta"],c: 3,h: "A resposta correta é Quinta." },
+                {id: 37, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Qual fruta tem quantidade entre 4 e 7, não sendo nem 4 nem 7?",opts: ["Maçã", "Banana", "Uva", "Pêra"],c: 0,h: "A resposta correta é Maçã." },
+                {id: 38, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Qual animal tem a menor quantidade na tabela?",opts: ["Pássaros", "Cachorros", "Coelhos", "Gatos"],c: 0,h: "A resposta correta é Pássaros." },
+                {id: 39, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Qual jogador não é nem o que fez mais pontos nem o que fez menos pontos?",opts: ["Beto", "Deco", "Carol", "Ana"],c: 3,h: "A resposta correta é Ana." },
+                {id: 40, bloom: 4,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Qual brinquedo tem quantidade mais próxima de 9 unidades?",opts: ["Carrinho", "Pipa", "Boneca", "Bola"],c: 0,h: "A resposta correta é Carrinho." },
+                {id: 41, bloom: 5,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Qual frase está CORRETA sobre a tabela?",opts: ["A fruta com a menor quantidade é a maçã.", "Banana tem mais unidades do que todas as outras frutas.", "Uva tem mais unidades do que a banana.", "Pêra tem mais unidades do que a maçã."],c: 1,h: "Banana tem 7, mais do que maçã (5), uva (4) e pêra (3)." },
+                {id: 42, bloom: 5,q: "Veja a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Qual conclusão é CORRETA?",opts: ["Bola é o brinquedo menos vendido.", "Pipa vendeu menos do que a boneca.", "Carrinho e boneca têm a mesma quantidade.", "Pipa é o brinquedo mais vendido."],c: 1,h: "Pipa tem 6, boneca tem 8; então pipa vendeu menos do que a boneca." },
+                {id: 43, bloom: 5,q: "Observe a tabela:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Qual frase está CORRETA?",opts: ["Ana fez menos pontos do que Deco.", "Carol fez mais pontos do que todos os outros jogadores.", "Beto e Deco fizeram a mesma quantidade de pontos.", "Beto fez mais pontos do que Carol."],c: 1,h: "Carol tem 12 pontos, maior valor da tabela." },
+                {id: 44, bloom: 5,q: "Veja a tabela:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Qual afirmação é VERDADEIRA?",opts: ["Cachorros são o animal com menor quantidade.", "Pássaros são o animal com maior quantidade.", "Coelhos têm mais unidades do que gatos.", "Gatos têm mais unidades do que cachorros."],c: 2,h: "Coelhos têm 5, gatos têm 4, então coelhos têm mais unidades do que gatos." },
+                {id: 45, bloom: 5,q: "Observe a tabela:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Qual conclusão está CORRETA?",opts: ["Segunda é o dia com menos alunos.", "Quarta é o dia com mais alunos.", "Terça é o dia com mais alunos.", "Quinta tem o mesmo número de alunos que terça."],c: 1,h: "Quarta tem 22 alunos, maior valor da tabela." },
+                {id: 46, bloom: 5,q: "Veja novamente a tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Qual frase faz MAIS sentido?",opts: ["Todas as frutas têm a mesma quantidade.", "Maçã tem mais unidades do que uva e pêra.", "Uva é a fruta com a maior quantidade.", "Banana é a fruta com a menor quantidade."],c: 1,h: "Maçã (5) é maior que uva (4) e pêra (3), mas menor que banana (7)." },
+                {id: 47, bloom: 5,q: "Observe a tabela de brinquedos:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Qual dessas frases está CORRETA?",opts: ["Se juntarmos boneca e pipa, teremos mais unidades do que bola.", "Se juntarmos boneca e pipa, teremos exatamente a mesma quantidade que a bola.", "Se juntarmos boneca e pipa, teremos menos unidades do que a bola.", "Boneca e pipa não aparecem na tabela."],c: 0,h: "Boneca (8) + pipa (6) = 14, que é mais do que bola (12)." },
+                {id: 48, bloom: 5,q: "Veja a tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Qual frase está CORRETA sobre as quantidades?",opts: ["A quantidade de uvas é maior do que a de bananas.", "Se somarmos uva e pêra, teremos 7 unidades.", "Se somarmos maçã e pêra, teremos 9 unidades.", "Maçã e banana aparecem com a mesma quantidade."],c: 1,h: "Uva (4) + pêra (3) = 7." },
+                {id: 49, bloom: 5,q: "Observe novamente a tabela de pontos:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Qual afirmação é VERDADEIRA?",opts: ["A soma dos pontos de Ana e Beto é menor que os pontos de Carol.", "A soma dos pontos de Ana e Beto é igual aos pontos de Carol.", "A soma dos pontos de Ana e Beto é maior que os pontos de Carol.", "Ana e Beto não aparecem na tabela."],c: 2,h: "Ana (9) + Beto (6) = 15, que é maior do que 12 pontos de Carol." },
+                {id: 50, bloom: 5,q: "Veja a tabela dos dias:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Qual frase está CORRETA sobre o total de alunos?",opts: ["Se somarmos todos os dias, teremos mais de 70 alunos no total.", "Se somarmos todos os dias, teremos menos de 50 alunos no total.", "Se somarmos todos os dias, teremos exatamente 60 alunos no total.", "Não é possível somar os valores da tabela."],c: 0,h: "20 + 18 + 22 + 19 = 79, que é maior do que 70." },
+                {id: 51, bloom: 6,q: "Observe a tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Vamos adicionar uma nova fruta chamada <b>Melancia</b>. Queremos que a banana continue sendo a fruta com a MAIOR quantidade. Qual quantidade a melancia pode ter?",opts: ["8", "10", "6", "7"],c: 2,h: "Banana tem 7 unidades. Para ela continuar sendo a maior, a melancia precisa ter menos que 7, como 6." },
+                {id: 52, bloom: 6,q: "Ainda na tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Queremos adicionar uma nova fruta para que o TOTAL de frutas seja 25. Hoje o total é 19. Quantas frutas essa nova linha deve ter?",opts: ["4", "5", "6", "7"],c: 2,h: "19 + 6 = 25. As outras opções não chegam a 25." },
+                {id: 53, bloom: 6,q: "Veja a tabela de brinquedos:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Queremos criar um novo brinquedo que seja o MAIS vendido de todos. Qual quantidade ele pode ter?",opts: ["11", "9", "13", "12"],c: 2,h: "O maior valor atual é 12. Para ser o mais vendido, o novo brinquedo precisa ter um número maior, como 13." },
+                {id: 54, bloom: 6,q: "Observe a tabela de pontos:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Queremos mudar a pontuação de Deco para que TODOS os jogadores tenham pelo menos 6 pontos. Quantos pontos Deco deve ter?",opts: ["4", "5", "6", "3"],c: 2,h: "Se Deco ficar com 6 pontos, todos terão 6 ou mais." },
+                {id: 55, bloom: 6,q: "Veja a tabela dos dias:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Vamos criar um novo dia chamado <b>Sexta</b>. Queremos que o número de alunos de Sexta fique ENTRE o valor de Segunda (20) e Quarta (22). Qual valor podemos escolher?",opts: ["18", "19", "21", "23"],c: 2,h: "Entre 20 e 22 o único número inteiro possível é 21." },
+                {id: 56, bloom: 6,q: "Observe a tabela de animais:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Queremos fazer uma mudança para que DOIS animais fiquem empatados com a maior quantidade. Qual opção funciona?",opts: ["Aumentar os gatos para 6.", "Diminuir os cachorros para 4.", "Aumentar os coelhos para 6.", "Diminuir os pássaros para 1."],c: 2,h: "Se coelhos forem para 6, teremos cachorros = 6 e coelhos = 6, empatando na maior quantidade." },
+                {id: 57, bloom: 6,q: "Na tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>A média das quantidades é próxima de 5. Se criarmos uma nova fruta, qual quantidade deixaria essa fruta parecida com a média?",opts: ["3", "4", "5", "8"],c: 2,h: "A média é por volta de 5, então 5 é o valor mais próximo." },
+                {id: 58, bloom: 6,q: "Veja a tabela de brinquedos:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Bola tem 12 unidades. Queremos escolher uma nova quantidade para a pipa de forma que a bola tenha o DOBRO da quantidade de pipas. Qual quantidade a pipa deve ter?",opts: ["4", "5", "6", "8"],c: 2,h: "Se a pipa tiver 6 unidades, 12 será o dobro de 6." },
+                {id: 59, bloom: 6,q: "Observe a tabela dos dias:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Queremos fazer uma mudança para que TODOS os dias tenham pelo menos 19 alunos. Qual mudança funciona?",opts: ["Aumentar terça para 19 alunos.", "Diminuir quarta para 19 alunos.", "Diminuir segunda para 18 alunos.", "Diminuir quinta para 18 alunos."],c: 0,h: "Terça é o único dia com menos de 19 (18). Se ela subir para 19, todos terão 19 ou mais." },
+                {id: 60, bloom: 6,q: "Veja a tabela de pontos:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Vamos adicionar um novo jogador. Queremos que Carol continue sendo a que tem MAIS pontos. Qual quantidade esse novo jogador pode ter?",opts: ["10", "12", "15", "13"],c: 0,h: "Carol tem 12 pontos. Para ela continuar na frente, o novo jogador precisa ter menos que 12, como 10." },
+                {id: 61, bloom: 7,q: "Observe a tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Queremos fazer uma mudança para que DUAS frutas fiquem empatadas com a maior quantidade. Hoje a banana tem 7 e é a maior. O que podemos fazer?",opts: ["Aumentar a maçã para 7.", "Diminuir a banana para 3.", "Aumentar a uva para 5.", "Diminuir a pêra para 1."],c: 0,h: "Se a maçã também tiver 7, maçã e banana ficarão empatadas com a maior quantidade." },
+                {id: 62, bloom: 7,q: "Veja a tabela de brinquedos:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Vamos criar um novo brinquedo. Queremos que a bola DEIXE de ser a mais vendida e fique em SEGUNDO lugar. Qual quantidade o novo brinquedo deve ter?",opts: ["10", "12", "13", "8"],c: 2,h: "Se o novo brinquedo tiver 13, ele será o primeiro. A bola, com 12, ficará em segundo lugar." },
+                {id: 63, bloom: 7,q: "Observe a tabela de pontos:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Queremos ajustar apenas UM jogador para que a média dos pontos fique mais perto de 8. Qual mudança ajuda nisso?",opts: ["Aumentar Beto para 7 pontos.", "Diminuir Carol para 10 pontos.", "Diminuir Ana para 8 pontos.", "Diminuir Deco para 3 pontos."],c: 0,h: "Se Beto passar de 6 para 7, somamos +1 ponto no total, aproximando a média de 8." },
+                {id: 64, bloom: 7,q: "Veja a tabela de animais:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Queremos que o total de animais somados seja exatamente 20. Hoje o total é 18. Qual mudança funciona?",opts: ["Diminuir cachorros para 4.", "Aumentar coelhos para 7.", "Diminuir pássaros para 2.", "Aumentar gatos para 5."],c: 1,h: "Se coelhos passarem de 5 para 7, somamos +2 e o total vai de 18 para 20." },
+                {id: 65, bloom: 7,q: "Observe a tabela dos dias:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>Queremos planejar mudanças para que TODOS os dias tenham o mesmo número de alunos presentes. Qual plano poderia funcionar?",opts: ["Aumentar terça para 20, diminuir quarta para 20 e aumentar quinta para 20.", "Diminuir todos os dias para 18 alunos.", "Aumentar todos os dias para 22 alunos sem mexer em terça.", "Não é possível mudar os valores da tabela."],c: 0,h: "Se ajustarmos terça para 20, quarta para 20 e quinta para 20, todos os dias ficam com 20 alunos." },
+                {id: 66, bloom: 7,q: "Veja a tabela de frutas:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Maçã tem 5 unidades. Queremos criar uma nova fruta com 5 unidades e também mudar uma fruta que tem 4 unidades para 5, para ter TRÊS frutas com 5 unidades. Qual fruta devemos mudar?",opts: ["Banana", "Uva", "Pêra", "Nenhuma, já existem três frutas com 5."],c: 1,h: "Se criarmos uma fruta nova com 5 e mudarmos a uva de 4 para 5, teremos maçã, uva e a nova fruta com 5 unidades." },
+                {id: 67, bloom: 7,q: "Observe a tabela de brinquedos:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Pipa é o brinquedo menos vendido. O que podemos fazer para que ela deixe de ser a menor, sem mexer nos outros brinquedos?",opts: ["Diminuir a quantidade de bola.", "Aumentar a quantidade de pipa para 9.", "Diminuir a quantidade de boneca.", "Aumentar a quantidade de carrinho."],c: 1,h: "Se pipa passar de 6 para 9, ela ficará maior do que boneca (8)." },
+                {id: 68, bloom: 7,q: "Veja a tabela de pontos:<br><table border='1'><tr><th>Jogador</th><th>Pontos</th></tr><tr><td>Ana</td><td>9</td></tr><tr><td>Beto</td><td>6</td></tr><tr><td>Carol</td><td>12</td></tr><tr><td>Deco</td><td>4</td></tr></table><br>Queremos mudar apenas a pontuação de Carol para que ela fique empatada em PRIMEIRO lugar com Ana. Quantos pontos Carol deve ter?",opts: ["9", "8", "7", "6"],c: 0,h: "Ana tem 9 pontos. Se Carol ficar com 9, as duas ficam empatadas em primeiro lugar." },
+                {id: 69, bloom: 7,q: "Observe a tabela dos dias:<br><table border='1'><tr><th>Dia</th><th>Alunos presentes</th></tr><tr><td>Segunda</td><td>20</td></tr><tr><td>Terça</td><td>18</td></tr><tr><td>Quarta</td><td>22</td></tr><tr><td>Quinta</td><td>19</td></tr></table><br>O total de alunos na semana é 79. Vamos criar o dia <b>Sexta</b> e queremos que o total continue MAIOR que 79. Qual é o MENOR número de alunos que podemos colocar em Sexta para isso acontecer?",opts: ["0", "1", "2", "5"],c: 1,h: "Com 1 aluno na sexta, o total passa a ser 80, que ainda é maior que 79." },
+                {id: 70, bloom: 7,q: "Veja a tabela de animais:<br><table border='1'><tr><th>Animal</th><th>Quantidade</th></tr><tr><td>Gatos</td><td>4</td></tr><tr><td>Cachorros</td><td>6</td></tr><tr><td>Pássaros</td><td>3</td></tr><tr><td>Coelhos</td><td>5</td></tr></table><br>Queremos fazer uma mudança para que APENAS os gatos tenham a maior quantidade na tabela. O que podemos fazer?",opts: ["Diminuir cachorros para 5.", "Aumentar gatos para 7.", "Aumentar coelhos para 7.", "Diminuir pássaros para 2."],c: 1,h: "Se aumentarmos os gatos para 7, eles terão mais unidades do que todos os outros animais." }
+            ] },
             { id: "medidas_tempo", name: "Medidas de tempo", prep: { title: "Horas, dias e meses", content: "<p>Vamos relacionar relógio, calendário e duração de eventos.</p>", skin: "⏰" }, pool: [] }
             
         ] },
@@ -690,8 +751,7 @@ const DB = {
             
         ] },
         { id: "ing", name: "Inglês", icon: "💂", color: "bg-pink-500", accent: "border-pink-600", categories: [
-            {
-                    id: "fruits",
+            {id: "fruits",
                     name: "Fruits",
                     prep: {
                         title: "Yummy fruits!",

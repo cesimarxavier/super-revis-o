@@ -87,6 +87,52 @@
             opacity: 0.6;
             cursor: not-allowed;
         }
+
+        /* estilo.css */
+
+        /* Define que as bordas de células adjacentes se fundam em uma única borda */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+            /* Espaçamento acima da tabela */
+            background-color: #fff;
+        }
+
+        /* Estilo padrão para todas as células de cabeçalho e corpo */
+        th,
+        td {
+            padding: 12px 24px;
+            /* Espaçamento interno */
+            text-align: left;
+            border: 1px solid #383b42;
+            /* Borda fina e cinza clara */
+            vertical-align: middle;
+        }
+
+        /* Estilo específico para o cabeçalho (<thead>) */
+        thead th {
+            background-color: #f9fafb;
+            /* Fundo cinza claro */
+            font-size: 0.75rem;
+            /* Tamanho de fonte pequeno */
+            font-weight: 500;
+            color: #6b7280;
+            /* Cor do texto */
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        /* Linhas do corpo (<tbody>) */
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+            /* Apenas borda inferior para divisória */
+        }
+
+        /* Efeito de hover nas linhas (mudar cor de fundo ao passar o mouse) */
+        tbody tr:hover {
+            background-color: #f9fafb;
+        }
     </style>
 </head>
 
