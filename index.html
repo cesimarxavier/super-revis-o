@@ -98,7 +98,230 @@
             <div class="flex items-center gap-2 bg-white rounded-full p-1 pr-4 border border-gray-100 shadow-sm cursor-pointer"
                 onclick="UI.showProfile()">
                 <div class="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center text-xl border-2 border-white avatar-glow"
-                    id="header-avatar">🧙‍♂️</div>
+                    id="header-avatar"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Gradientes para dar profundidade -->
+                            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6B5DD3;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4A3B9F;stop-opacity:1" />
+                            </linearGradient>
+
+                            <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E8D5F2;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#C9A8DC;stop-opacity:1" />
+                            </linearGradient>
+
+                            <linearGradient id="roofGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#D44A7A;stop-opacity:1" />
+                            </linearGradient>
+
+                            <linearGradient id="doorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6B4AC9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4A2F8A;stop-opacity:1" />
+                            </linearGradient>
+
+                            <!-- Animações -->
+                            <style>
+                                @keyframes float {
+
+                                    0%,
+                                    100% {
+                                        transform: translateY(0px);
+                                    }
+
+                                    50% {
+                                        transform: translateY(-8px);
+                                    }
+                                }
+
+                                @keyframes wave {
+
+                                    0%,
+                                    100% {
+                                        transform: rotate(0deg);
+                                    }
+
+                                    25% {
+                                        transform: rotate(5deg);
+                                    }
+
+                                    75% {
+                                        transform: rotate(-5deg);
+                                    }
+                                }
+
+                                @keyframes sparkle {
+
+                                    0%,
+                                    100% {
+                                        opacity: 1;
+                                        transform: scale(1);
+                                    }
+
+                                    50% {
+                                        opacity: 0.4;
+                                        transform: scale(0.8);
+                                    }
+                                }
+
+                                @keyframes glow {
+
+                                    0%,
+                                    100% {
+                                        opacity: 0.6;
+                                    }
+
+                                    50% {
+                                        opacity: 1;
+                                    }
+                                }
+
+                                .castle-main {
+                                    animation: float 3s ease-in-out infinite;
+                                }
+
+                                .flag {
+                                    animation: wave 2s ease-in-out infinite;
+                                    transform-origin: bottom left;
+                                }
+
+                                .sparkle {
+                                    animation: sparkle 1.5s ease-in-out infinite;
+                                }
+
+                                .window-glow {
+                                    animation: glow 2s ease-in-out infinite;
+                                }
+                            </style>
+                        </defs>
+
+                        <!-- Fundo céu -->
+                        <rect width="300" height="300" fill="url(#skyGrad)" />
+
+                        <!-- Estrelas decorativas -->
+                        <circle class="sparkle" cx="40" cy="40" r="2" fill="#FFD700" style="animation-delay: 0s;" />
+                        <circle class="sparkle" cx="260" cy="60" r="2.5" fill="#FFD700"
+                            style="animation-delay: 0.5s;" />
+                        <circle class="sparkle" cx="80" cy="80" r="1.5" fill="#FFF" style="animation-delay: 1s;" />
+                        <circle class="sparkle" cx="240" cy="100" r="2" fill="#FFF" style="animation-delay: 0.3s;" />
+
+                        <!-- Castelo principal -->
+                        <g class="castle-main">
+                            <!-- Torres laterais -->
+                            <!-- Torre esquerda -->
+                            <g>
+                                <!-- Corpo da torre -->
+                                <rect x="40" y="140" width="50" height="90" fill="url(#wallGrad)" stroke="#9D7BB8"
+                                    stroke-width="2" />
+                                <rect x="42" y="142" width="46" height="10" fill="#F5E6FF" opacity="0.5" />
+
+                                <!-- Telhado cônico -->
+                                <path d="M 35 140 L 65 100 L 95 140 Z" fill="url(#roofGrad)" stroke="#B83870"
+                                    stroke-width="2" />
+                                <ellipse cx="65" cy="140" rx="30" ry="8" fill="#D4568A" />
+
+                                <!-- Decoração topo -->
+                                <circle cx="65" cy="95" r="6" fill="#FFD700" stroke="#FFA500" stroke-width="2" />
+
+                                <!-- Janela -->
+                                <rect x="55" y="170" width="20" height="25" rx="10" fill="url(#doorGrad)"
+                                    stroke="#8A5CC6" stroke-width="2" />
+                                <rect class="window-glow" x="57" y="172" width="16" height="21" rx="8" fill="#A78BFA"
+                                    opacity="0.6" />
+                            </g>
+
+                            <!-- Torre direita -->
+                            <g>
+                                <!-- Corpo da torre -->
+                                <rect x="210" y="140" width="50" height="90" fill="url(#wallGrad)" stroke="#9D7BB8"
+                                    stroke-width="2" />
+                                <rect x="212" y="142" width="46" height="10" fill="#F5E6FF" opacity="0.5" />
+
+                                <!-- Telhado cônico -->
+                                <path d="M 205 140 L 235 100 L 265 140 Z" fill="url(#roofGrad)" stroke="#B83870"
+                                    stroke-width="2" />
+                                <ellipse cx="235" cy="140" rx="30" ry="8" fill="#D4568A" />
+
+                                <!-- Decoração topo -->
+                                <circle cx="235" cy="95" r="6" fill="#FFD700" stroke="#FFA500" stroke-width="2" />
+
+                                <!-- Janela -->
+                                <rect x="225" y="170" width="20" height="25" rx="10" fill="url(#doorGrad)"
+                                    stroke="#8A5CC6" stroke-width="2" />
+                                <rect class="window-glow" x="227" y="172" width="16" height="21" rx="8" fill="#A78BFA"
+                                    opacity="0.6" />
+                            </g>
+
+                            <!-- Torre central (principal) -->
+                            <g>
+                                <!-- Corpo principal -->
+                                <rect x="100" y="120" width="100" height="110" fill="url(#wallGrad)" stroke="#9D7BB8"
+                                    stroke-width="3" />
+                                <rect x="103" y="123" width="94" height="15" fill="#F5E6FF" opacity="0.5" />
+
+                                <!-- Ameias decorativas -->
+                                <rect x="100" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
+                                    stroke-width="2" />
+                                <rect x="125" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
+                                    stroke-width="2" />
+                                <rect x="160" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
+                                    stroke-width="2" />
+                                <rect x="185" y="120" width="15" height="20" fill="#D4B3E8" stroke="#9D7BB8"
+                                    stroke-width="2" />
+
+                                <!-- Telhado principal -->
+                                <path d="M 90 120 L 150 60 L 210 120 Z" fill="url(#roofGrad)" stroke="#B83870"
+                                    stroke-width="3" />
+                                <ellipse cx="150" cy="120" rx="60" ry="10" fill="#D4568A" />
+
+                                <!-- Bandeira no topo -->
+                                <line x1="150" y1="60" x2="150" y2="30" stroke="#8B5CF6" stroke-width="3" />
+                                <path class="flag" d="M 150 35 L 180 40 L 150 45 Z" fill="#FF6B9D" stroke="#D4568A"
+                                    stroke-width="1.5" />
+
+                                <!-- Estrela no topo da bandeira -->
+                                <circle cx="150" cy="28" r="5" fill="#FFD700" stroke="#FFA500" stroke-width="2" />
+
+                                <!-- Porta principal -->
+                                <path d="M 130 180 Q 130 160 150 160 Q 170 160 170 180 L 170 230 L 130 230 Z"
+                                    fill="url(#doorGrad)" stroke="#6B4AC9" stroke-width="3" />
+                                <ellipse cx="150" cy="180" rx="20" ry="8" fill="#4A2F8A" />
+
+                                <!-- Detalhes da porta -->
+                                <circle cx="160" cy="205" r="3" fill="#FFD700" />
+                                <rect x="148" y="165" width="4" height="60" fill="#5B3BA0" opacity="0.5" />
+
+                                <!-- Janelas laterais -->
+                                <rect x="110" y="160" width="15" height="20" rx="7" fill="url(#doorGrad)"
+                                    stroke="#8A5CC6" stroke-width="2" />
+                                <rect class="window-glow" x="112" y="162" width="11" height="16" rx="5" fill="#A78BFA"
+                                    opacity="0.6" />
+
+                                <rect x="175" y="160" width="15" height="20" rx="7" fill="url(#doorGrad)"
+                                    stroke="#8A5CC6" stroke-width="2" />
+                                <rect class="window-glow" x="177" y="162" width="11" height="16" rx="5" fill="#A78BFA"
+                                    opacity="0.6" />
+                            </g>
+
+                            <!-- Decorações adicionais -->
+                            <!-- Bandeiras nas torres laterais -->
+                            <g>
+                                <line x1="65" y1="95" x2="65" y2="75" stroke="#8B5CF6" stroke-width="2" />
+                                <path class="flag" d="M 65 78 L 85 82 L 65 86 Z" fill="#4ADEEF" stroke="#2CB8CC"
+                                    stroke-width="1" style="animation-delay: 0.5s;" />
+                            </g>
+
+                            <g>
+                                <line x1="235" y1="95" x2="235" y2="75" stroke="#8B5CF6" stroke-width="2" />
+                                <path class="flag" d="M 235 78 L 255 82 L 235 86 Z" fill="#4ADEEF" stroke="#2CB8CC"
+                                    stroke-width="1" style="animation-delay: 0.7s;" />
+                            </g>
+                        </g>
+
+                        <!-- Sombra -->
+                        <ellipse cx="150" cy="235" rx="110" ry="10" fill="#000" opacity="0.15" />
+                    </svg></div>
                 <div class="flex flex-col leading-none">
                     <span class="text-[10px] font-bold text-gray-400 uppercase">Guardião</span>
                     <span class="text-sm font-bold text-brand-dark truncate w-20" id="header-nick">Jogador</span>

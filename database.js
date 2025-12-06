@@ -320,85 +320,202 @@ const DB = {
             ] },
             { id: "fracao", name: "Fração", prep: { title: "Partes de um inteiro", content: "<p>Frações representam partes de um todo: 1/2, 1/3, 3/4.</p>", skin: "🍕" }, pool: [
                 { id: 1, bloom: 1, q: "Qual fração representa metade?", opts: ["1/2", "1/3", "2/3", "1/4"], c: 0, h: "Metade é 1/2." },
-{ id: 2, bloom: 1, q: "Qual fração representa um quarto?", opts: ["1/2", "1/3", "1/4", "2/4"], c: 2, h: "Um quarto = 1/4." },
-{ id: 3, bloom: 1, q: "Qual fração representa três quartos?", opts: ["3/2", "3/3", "3/4", "1/3"], c: 2, h: "Três quartos = 3/4." },
-{ id: 4, bloom: 1, q: "Qual é a fração que representa um terço?", opts: ["1/3", "3/1", "3/3", "2/3"], c: 0, h: "Um terço = 1/3." },
-{ id: 5, bloom: 1, q: "Qual fração indica 2 partes de um total de 5?", opts: ["2/4", "2/3", "2/5", "5/2"], c: 2, h: "2 partes de 5 = 2/5." },
-{ id: 6, bloom: 1, q: "Na fração 3/8, o número 3 é:", opts: ["Numerador", "Denominador", "Produto", "Resto"], c: 0, h: "Numerador = parte de cima." },
-{ id: 7, bloom: 1, q: "Na fração 5/6, o número 6 é:", opts: ["Numerador", "Denominador", "Quociente", "Expoente"], c: 1, h: "Denominador = partes totais." },
-{ id: 8, bloom: 1, q: "Qual fração representa 4 partes de 4?", opts: ["4/4", "4/3", "1/4", "2/4"], c: 0, h: "4/4 = inteiro." },
-{ id: 9, bloom: 1, q: "Qual dessas frações representa um inteiro?", opts: ["2/3", "4/4", "3/5", "1/4"], c: 1, h: "Frações iguais no topo e fundo valem 1." },
-{ id: 10, bloom: 1, q: "Qual fração é menor?", opts: ["1/2", "1/3", "1/4", "1/1"], c: 2, h: "Com mesmo numerador, maior denominador → menor valor." },
+                { id: 2, bloom: 1, q: "Qual fração representa um quarto?", opts: ["1/2", "1/3", "1/4", "2/4"], c: 2, h: "Um quarto = 1/4." },
+                { id: 3, bloom: 1, q: "Qual fração representa três quartos?", opts: ["3/2", "3/3", "3/4", "1/3"], c: 2, h: "Três quartos = 3/4." },
+                { id: 4, bloom: 1, q: "Qual é a fração que representa um terço?", opts: ["1/3", "3/1", "3/3", "2/3"], c: 0, h: "Um terço = 1/3." },
+                { id: 5, bloom: 1, q: "Qual fração indica 2 partes de um total de 5?", opts: ["2/4", "2/3", "2/5", "5/2"], c: 2, h: "2 partes de 5 = 2/5." },
+                { id: 6, bloom: 1, q: "Na fração 3/8, o número 3 é:", opts: ["Numerador", "Denominador", "Produto", "Resto"], c: 0, h: "Numerador = parte de cima." },
+                { id: 7, bloom: 1, q: "Na fração 5/6, o número 6 é:", opts: ["Numerador", "Denominador", "Quociente", "Expoente"], c: 1, h: "Denominador = partes totais." },
+                { id: 8, bloom: 1, q: "Qual fração representa 4 partes de 4?", opts: ["4/4", "4/3", "1/4", "2/4"], c: 0, h: "4/4 = inteiro." },
+                { id: 9, bloom: 1, q: "Qual dessas frações representa um inteiro?", opts: ["2/3", "4/4", "3/5", "1/4"], c: 1, h: "Frações iguais no topo e fundo valem 1." },
+                { id: 10, bloom: 1, q: "Qual fração é menor?", opts: ["1/2", "1/3", "1/4", "1/1"], c: 2, h: "Com mesmo numerador, maior denominador → menor valor." },
 
-{ id: 11, bloom: 2, q: "Se uma pizza foi dividida em 8 pedaços e João comeu 3, ele comeu:", opts: ["3/8", "3/6", "3/4", "1/3"], c: 0, h: "3 de 8 partes = 3/8." },
-{ id: 12, bloom: 2, q: "Em uma turma com 10 alunos, 5 são meninas. A fração de meninas é:", opts: ["5/10", "1/10", "5/5", "10/5"], c: 0, h: "5 de 10 = 5/10." },
-{ id: 13, bloom: 2, q: "A fração 2/4 representa:", opts: ["Duas partes de quatro", "Quatro partes de duas", "Metade", "Nada"], c: 2, h: "2/4 = 1/2." },
-{ id: 14, bloom: 2, q: "Se você bebeu metade do copo, qual fração bebeu?", opts: ["1/2", "2/1", "1/3", "1/4"], c: 0, h: "Metade = 1/2." },
-{ id: 15, bloom: 2, q: "A fração 3/6 significa:", opts: ["3 copos", "3 partes do total de 6", "3 inteiros", "6 de 3"], c: 1, h: "3 partes de 6." },
-{ id: 16, bloom: 2, q: "Qual fração representa 6 de 12 partes?", opts: ["6/10", "6/12", "12/6", "1/6"], c: 1, h: "6 partes do total = 6/12." },
-{ id: 17, bloom: 2, q: "Se um chocolate tem 4 pedaços e você come 1, comeu:", opts: ["1/4", "1/3", "1/2", "2/4"], c: 0, h: "1 de 4 = 1/4." },
-{ id: 18, bloom: 2, q: "Se 8/8 representa um inteiro, então 4/8 representa:", opts: ["Meio", "Um inteiro", "Quatro inteiros", "O dobro"], c: 0, h: "4/8 = 1/2." },
-{ id: 19, bloom: 2, q: "Quantas partes iguais formam a fração 1/5?", opts: ["5", "1", "4", "10"], c: 0, h: "Denominador define total." },
-{ id: 20, bloom: 2, q: "Qual fração representa ¾ de um litro?", opts: ["1/4", "4/4", "3/4", "2/3"], c: 2, h: "Três quartos = 3/4." },
+                { id: 11, bloom: 2, q: "Se uma pizza foi dividida em 8 pedaços e João comeu 3, ele comeu:", opts: ["3/8", "3/6", "3/4", "1/3"], c: 0, h: "3 de 8 partes = 3/8." },
+                { id: 12, bloom: 2, q: "Em uma turma com 10 alunos, 5 são meninas. A fração de meninas é:", opts: ["5/10", "1/10", "5/5", "10/5"], c: 0, h: "5 de 10 = 5/10." },
+                { id: 13, bloom: 2, q: "A fração 2/4 representa:", opts: ["Duas partes de quatro", "Quatro partes de duas", "Metade", "Nada"], c: 2, h: "2/4 = 1/2." },
+                { id: 14, bloom: 2, q: "Se você bebeu metade do copo, qual fração bebeu?", opts: ["1/2", "2/1", "1/3", "1/4"], c: 0, h: "Metade = 1/2." },
+                { id: 15, bloom: 2, q: "A fração 3/6 significa:", opts: ["3 copos", "3 partes do total de 6", "3 inteiros", "6 de 3"], c: 1, h: "3 partes de 6." },
+                { id: 16, bloom: 2, q: "Qual fração representa 6 de 12 partes?", opts: ["6/10", "6/12", "12/6", "1/6"], c: 1, h: "6 partes do total = 6/12." },
+                { id: 17, bloom: 2, q: "Se um chocolate tem 4 pedaços e você come 1, comeu:", opts: ["1/4", "1/3", "1/2", "2/4"], c: 0, h: "1 de 4 = 1/4." },
+                { id: 18, bloom: 2, q: "Se 8/8 representa um inteiro, então 4/8 representa:", opts: ["Meio", "Um inteiro", "Quatro inteiros", "O dobro"], c: 0, h: "4/8 = 1/2." },
+                { id: 19, bloom: 2, q: "Quantas partes iguais formam a fração 1/5?", opts: ["5", "1", "4", "10"], c: 0, h: "Denominador define total." },
+                { id: 20, bloom: 2, q: "Qual fração representa ¾ de um litro?", opts: ["1/4", "4/4", "3/4", "2/3"], c: 2, h: "Três quartos = 3/4." },
 
-{ id: 21, bloom: 3, q: "Se você comeu 2 dos 8 pedaços de pizza, quanto comeu?", opts: ["2/4", "1/2", "2/8", "3/8"], c: 2, h: "2 de 8 = 2/8." },
-{ id: 22, bloom: 3, q: "Quanto é 1/2 de 10?", opts: ["2", "4", "5", "8"], c: 2, h: "Metade de 10 = 5." },
-{ id: 23, bloom: 3, q: "Qual é 1/3 de 9?", opts: ["2", "3", "4", "5"], c: 1, h: "9 dividido em 3 partes → 3." },
-{ id: 24, bloom: 3, q: "Quanto é 1/4 de 20?", opts: ["4", "5", "10", "20"], c: 1, h: "20 ÷ 4 = 5." },
-{ id: 25, bloom: 3, q: "2/6 da turma são 5 alunos. Quantos alunos há?", opts: ["12", "15", "20", "30"], c: 1, h: "2/6 = 1/3 → 5 é 1/3 → total = 15." },
-{ id: 26, bloom: 3, q: "Se 1/5 de um saco são 4 balas, quantas balas há no saco?", opts: ["10", "15", "20", "25"], c: 2, h: "4 × 5 = 20." },
-{ id: 27, bloom: 3, q: "Qual fração representa 6 de 9?", opts: ["6/3", "6/9", "9/6", "2/3"], c: 1, h: "6 partes do total de 9." },
-{ id: 28, bloom: 3, q: "Qual é 3/4 de 16?", opts: ["12", "10", "8", "14"], c: 0, h: "16 × 3/4 = 12." },
-{ id: 29, bloom: 3, q: "Se uma barra tem 12 partes e você comeu 9, comeu:", opts: ["9/10", "9/12", "3/12", "3/4"], c: 1, h: "9 de 12 = 9/12." },
-{ id: 30, bloom: 3, q: "Quanto é 2/3 de 15?", opts: ["8", "9", "10", "12"], c: 2, h: "2/3 de 15 = (15 ÷ 3) × 2 = 10." },
+                { id: 21, bloom: 3, q: "Se você comeu 2 dos 8 pedaços de pizza, quanto comeu?", opts: ["2/4", "1/2", "2/8", "3/8"], c: 2, h: "2 de 8 = 2/8." },
+                { id: 22, bloom: 3, q: "Quanto é 1/2 de 10?", opts: ["2", "4", "5", "8"], c: 2, h: "Metade de 10 = 5." },
+                { id: 23, bloom: 3, q: "Qual é 1/3 de 9?", opts: ["2", "3", "4", "5"], c: 1, h: "9 dividido em 3 partes → 3." },
+                { id: 24, bloom: 3, q: "Quanto é 1/4 de 20?", opts: ["4", "5", "10", "20"], c: 1, h: "20 ÷ 4 = 5." },
+                { id: 25, bloom: 3, q: "2/6 da turma são 5 alunos. Quantos alunos há?", opts: ["12", "15", "20", "30"], c: 1, h: "2/6 = 1/3 → 5 é 1/3 → total = 15." },
+                { id: 26, bloom: 3, q: "Se 1/5 de um saco são 4 balas, quantas balas há no saco?", opts: ["10", "15", "20", "25"], c: 2, h: "4 × 5 = 20." },
+                { id: 27, bloom: 3, q: "Qual fração representa 6 de 9?", opts: ["6/3", "6/9", "9/6", "2/3"], c: 1, h: "6 partes do total de 9." },
+                { id: 28, bloom: 3, q: "Qual é 3/4 de 16?", opts: ["12", "10", "8", "14"], c: 0, h: "16 × 3/4 = 12." },
+                { id: 29, bloom: 3, q: "Se uma barra tem 12 partes e você comeu 9, comeu:", opts: ["9/10", "9/12", "3/12", "3/4"], c: 1, h: "9 de 12 = 9/12." },
+                { id: 30, bloom: 3, q: "Quanto é 2/3 de 15?", opts: ["8", "9", "10", "12"], c: 2, h: "2/3 de 15 = (15 ÷ 3) × 2 = 10." },
 
-{ id: 31, bloom: 4, q: "Qual fração é equivalente a 1/2?", opts: ["2/4", "3/6", "4/8", "Todas"], c: 3, h: "Todas representam metade." },
-{ id: 32, bloom: 4, q: "Qual fração é MAIOR?", opts: ["1/4", "1/3", "1/2", "1/5"], c: 2, h: "Com numerador igual, denominador menor → fração maior." },
-{ id: 33, bloom: 4, q: "Qual fração é MENOR?", opts: ["3/4", "2/3", "1/2", "1/3"], c: 3, h: "1/3 é a menor." },
-{ id: 34, bloom: 4, q: "Qual fração representa um valor maior que 1?", opts: ["4/4", "5/4", "3/4", "2/4"], c: 1, h: "Numerador maior que denominador → >1." },
-{ id: 35, bloom: 4, q: "Qual par representa frações equivalentes?", opts: ["1/2 e 2/3", "2/4 e 1/2", "3/5 e 6/5", "1/3 e 3/4"], c: 1, h: "2/4 = 1/2." },
-{ id: 36, bloom: 4, q: "Qual fração é igual a 3/6?", opts: ["1/3", "1/2", "2/3", "3/3"], c: 1, h: "3/6 = metade." },
-{ id: 37, bloom: 4, q: "Qual conjunto está em ordem crescente?", opts: ["1/2, 1/3, 1/4", "1/4, 1/3, 1/2", "1/3, 1/4, 1/2", "1/4, 1/2, 1/3"], c: 1, h: "Do menor denominador para o maior." },
-{ id: 38, bloom: 4, q: "Qual é maior: 2/3 ou 3/5?", opts: ["2/3", "3/5", "Iguais", "Impossível"], c: 0, h: "2/3 ≈ 0,66, 3/5 = 0,6." },
-{ id: 39, bloom: 4, q: "Qual fração está mais próxima de 1?", opts: ["4/5", "3/4", "5/6", "2/3"], c: 2, h: "5/6 ≈ 0,83." },
-{ id: 40, bloom: 4, q: "Qual fração representa maior parte de um todo?", opts: ["1/6", "2/6", "3/6", "4/6"], c: 3, h: "Maior numerador com mesmo denominador." },
+                { id: 31, bloom: 4, q: "Qual fração é equivalente a 1/2?", opts: ["2/4", "3/6", "4/8", "Todas"], c: 3, h: "Todas representam metade." },
+                { id: 32, bloom: 4, q: "Qual fração é MAIOR?", opts: ["1/4", "1/3", "1/2", "1/5"], c: 2, h: "Com numerador igual, denominador menor → fração maior." },
+                { id: 33, bloom: 4, q: "Qual fração é MENOR?", opts: ["3/4", "2/3", "1/2", "1/3"], c: 3, h: "1/3 é a menor." },
+                { id: 34, bloom: 4, q: "Qual fração representa um valor maior que 1?", opts: ["4/4", "5/4", "3/4", "2/4"], c: 1, h: "Numerador maior que denominador → >1." },
+                { id: 35, bloom: 4, q: "Qual par representa frações equivalentes?", opts: ["1/2 e 2/3", "2/4 e 1/2", "3/5 e 6/5", "1/3 e 3/4"], c: 1, h: "2/4 = 1/2." },
+                { id: 36, bloom: 4, q: "Qual fração é igual a 3/6?", opts: ["1/3", "1/2", "2/3", "3/3"], c: 1, h: "3/6 = metade." },
+                { id: 37, bloom: 4, q: "Qual conjunto está em ordem crescente?", opts: ["1/2, 1/3, 1/4", "1/4, 1/3, 1/2", "1/3, 1/4, 1/2", "1/4, 1/2, 1/3"], c: 1, h: "Do menor denominador para o maior." },
+                { id: 38, bloom: 4, q: "Qual é maior: 2/3 ou 3/5?", opts: ["2/3", "3/5", "Iguais", "Impossível"], c: 0, h: "2/3 ≈ 0,66, 3/5 = 0,6." },
+                { id: 39, bloom: 4, q: "Qual fração está mais próxima de 1?", opts: ["4/5", "3/4", "5/6", "2/3"], c: 2, h: "5/6 ≈ 0,83." },
+                { id: 40, bloom: 4, q: "Qual fração representa maior parte de um todo?", opts: ["1/6", "2/6", "3/6", "4/6"], c: 3, h: "Maior numerador com mesmo denominador." },
 
-{ id: 41, bloom: 5, q: "Qual é a melhor forma de comparar 5/8 e 3/4?", opts: ["Transformar em décimos", "Transformar em frações equivalentes", "Dividir diretamente", "Adivinhar"], c: 1, h: "Comparar denominadores iguais facilita." },
-{ id: 42, bloom: 5, q: "Para saber qual é maior, 7/12 ou 6/10, é melhor:", opts: ["Converter em equivalentes", "Somar os numeradores", "Comparar só denominadores", "Multiplicar tudo"], c: 0, h: "Traga ambas ao mesmo denominador." },
-{ id: 43, bloom: 5, q: "Qual fração está mais próxima de 1/2?", opts: ["3/5", "4/8", "2/3", "5/6"], c: 1, h: "4/8 = 1/2 totalmente igual." },
-{ id: 44, bloom: 5, q: "Qual fração representa maior parte?", opts: ["3/8", "4/8", "5/8", "6/8"], c: 3, h: "Denominadores iguais → maior numerador vence." },
-{ id: 45, bloom: 5, q: "Se 1/3 ≈ 0,33 e 1/4 = 0,25, qual é maior?", opts: ["1/3", "1/4", "São iguais", "Depende"], c: 0, h: "0,33 > 0,25." },
-{ id: 46, bloom: 5, q: "Qual fração é mais próxima de 0,5?", opts: ["1/3", "2/5", "5/9", "7/15"], c: 2, h: "5/9 ≈ 0,55." },
-{ id: 47, bloom: 5, q: "Comparando 2/7 e 3/10, qual é maior?", opts: ["2/7", "3/10", "Iguais", "Não sei"], c: 1, h: "2/7 ≈ 0,285; 3/10 = 0,3." },
-{ id: 48, bloom: 5, q: "Qual fração está mais perto de 1?", opts: ["7/8", "6/7", "8/9", "9/10"], c: 3, h: "9/10 = 0,9." },
-{ id: 49, bloom: 5, q: "Qual estratégia facilita comparar 4/9 e 5/12?", opts: ["Multiplicar cruzado", "Adivinhar", "Somar os termos", "Subtrair os denominadores"], c: 0, h: "Regra do produto cruzado." },
-{ id: 50, bloom: 5, q: "Qual fração representa MAIOR quantidade?", opts: ["5/12", "6/15", "4/10", "3/6"], c: 3, h: "3/6 = 1/2 = 0,5, maior entre elas." },
+                { id: 41, bloom: 5, q: "Qual é a melhor forma de comparar 5/8 e 3/4?", opts: ["Transformar em décimos", "Transformar em frações equivalentes", "Dividir diretamente", "Adivinhar"], c: 1, h: "Comparar denominadores iguais facilita." },
+                { id: 42, bloom: 5, q: "Para saber qual é maior, 7/12 ou 6/10, é melhor:", opts: ["Converter em equivalentes", "Somar os numeradores", "Comparar só denominadores", "Multiplicar tudo"], c: 0, h: "Traga ambas ao mesmo denominador." },
+                { id: 43, bloom: 5, q: "Qual fração está mais próxima de 1/2?", opts: ["3/5", "4/8", "2/3", "5/6"], c: 1, h: "4/8 = 1/2 totalmente igual." },
+                { id: 44, bloom: 5, q: "Qual fração representa maior parte?", opts: ["3/8", "4/8", "5/8", "6/8"], c: 3, h: "Denominadores iguais → maior numerador vence." },
+                { id: 45, bloom: 5, q: "Se 1/3 ≈ 0,33 e 1/4 = 0,25, qual é maior?", opts: ["1/3", "1/4", "São iguais", "Depende"], c: 0, h: "0,33 > 0,25." },
+                { id: 46, bloom: 5, q: "Qual fração é mais próxima de 0,5?", opts: ["1/3", "2/5", "5/9", "7/15"], c: 2, h: "5/9 ≈ 0,55." },
+                { id: 47, bloom: 5, q: "Comparando 2/7 e 3/10, qual é maior?", opts: ["2/7", "3/10", "Iguais", "Não sei"], c: 1, h: "2/7 ≈ 0,285; 3/10 = 0,3." },
+                { id: 48, bloom: 5, q: "Qual fração está mais perto de 1?", opts: ["7/8", "6/7", "8/9", "9/10"], c: 3, h: "9/10 = 0,9." },
+                { id: 49, bloom: 5, q: "Qual estratégia facilita comparar 4/9 e 5/12?", opts: ["Multiplicar cruzado", "Adivinhar", "Somar os termos", "Subtrair os denominadores"], c: 0, h: "Regra do produto cruzado." },
+                { id: 50, bloom: 5, q: "Qual fração representa MAIOR quantidade?", opts: ["5/12", "6/15", "4/10", "3/6"], c: 3, h: "3/6 = 1/2 = 0,5, maior entre elas." },
 
-{ id: 51, bloom: 6, q: "Escolha uma fração equivalente a 2/3:", opts: ["3/4", "4/6", "5/8", "6/10"], c: 1, h: "4/6 = 2/3." },
-{ id: 52, bloom: 6, q: "Crie uma fração maior que 1:", opts: ["3/4", "4/5", "5/4", "6/7"], c: 2, h: "Numerador maior que denominador." },
-{ id: 53, bloom: 6, q: "Escolha uma fração menor que 1/3:", opts: ["2/6", "1/4", "2/5", "3/8"], c: 1, h: "1/4 ≈ 0,25 < 0,33." },
-{ id: 54, bloom: 6, q: "Crie uma fração equivalente a 3/9:", opts: ["1/3", "2/6", "3/6", "Todas"], c: 3, h: "Todas simplificam para 1/3." },
-{ id: 55, bloom: 6, q: "Escolha um total que permite formar 1/4 de um grupo:", opts: ["5", "10", "12", "16"], c: 3, h: "16 ÷ 4 = 4 partes iguais." },
-{ id: 56, bloom: 6, q: "Escolha a fração que representa 2 inteiros:", opts: ["2/1", "2/2", "4/3", "3/4"], c: 0, h: "2/1 = 2 inteiros." },
-{ id: 57, bloom: 6, q: "Qual fração representa a mesma quantidade que 4/8?", opts: ["3/8", "2/4", "1/8", "4/4"], c: 1, h: "2/4 = 1/2 = 4/8." },
-{ id: 58, bloom: 6, q: "Crie uma fração maior que 1/2:", opts: ["1/6", "2/4", "2/3", "3/10"], c: 2, h: "2/3 ≈ 0,66." },
-{ id: 59, bloom: 6, q: "Escolha uma fração equivalente a 6/12:", opts: ["2/8", "3/6", "4/10", "5/15"], c: 1, h: "3/6 = 1/2." },
-{ id: 60, bloom: 6, q: "Crie uma fração que seja exatamente 1 inteiro:", opts: ["2/1", "3/3", "4/2", "5/4"], c: 1, h: "3/3 = 1." },
+                { id: 51, bloom: 6, q: "Escolha uma fração equivalente a 2/3:", opts: ["3/4", "4/6", "5/8", "6/10"], c: 1, h: "4/6 = 2/3." },
+                { id: 52, bloom: 6, q: "Crie uma fração maior que 1:", opts: ["3/4", "4/5", "5/4", "6/7"], c: 2, h: "Numerador maior que denominador." },
+                { id: 53, bloom: 6, q: "Escolha uma fração menor que 1/3:", opts: ["2/6", "1/4", "2/5", "3/8"], c: 1, h: "1/4 ≈ 0,25 < 0,33." },
+                { id: 54, bloom: 6, q: "Crie uma fração equivalente a 3/9:", opts: ["1/3", "2/6", "3/6", "Todas"], c: 3, h: "Todas simplificam para 1/3." },
+                { id: 55, bloom: 6, q: "Escolha um total que permite formar 1/4 de um grupo:", opts: ["5", "10", "12", "16"], c: 3, h: "16 ÷ 4 = 4 partes iguais." },
+                { id: 56, bloom: 6, q: "Escolha a fração que representa 2 inteiros:", opts: ["2/1", "2/2", "4/3", "3/4"], c: 0, h: "2/1 = 2 inteiros." },
+                { id: 57, bloom: 6, q: "Qual fração representa a mesma quantidade que 4/8?", opts: ["3/8", "2/4", "1/8", "4/4"], c: 1, h: "2/4 = 1/2 = 4/8." },
+                { id: 58, bloom: 6, q: "Crie uma fração maior que 1/2:", opts: ["1/6", "2/4", "2/3", "3/10"], c: 2, h: "2/3 ≈ 0,66." },
+                { id: 59, bloom: 6, q: "Escolha uma fração equivalente a 6/12:", opts: ["2/8", "3/6", "4/10", "5/15"], c: 1, h: "3/6 = 1/2." },
+                { id: 60, bloom: 6, q: "Crie uma fração que seja exatamente 1 inteiro:", opts: ["2/1", "3/3", "4/2", "5/4"], c: 1, h: "3/3 = 1." },
 
-{ id: 61, bloom: 7, q: "Se aumentar o denominador sem mudar o numerador, o valor da fração:", opts: ["Aumenta", "Diminui", "Fica igual", "Dobra"], c: 1, h: "Mais partes → menor valor." },
-{ id: 62, bloom: 7, q: "Se dobramos numerador e denominador, o valor da fração:", opts: ["Dobra", "Diminui", "Se mantém", "Cai pela metade"], c: 2, h: "Multiplicar ambos mantém a razão." },
-{ id: 63, bloom: 7, q: "Qual fração é equivalente a 3/9?", opts: ["1/3", "2/3", "3/6", "1/2"], c: 0, h: "3/9 = 1/3." },
-{ id: 64, bloom: 7, q: "Se 1/4 é menor que 1/3, qual é menor que 1/4?", opts: ["1/5", "1/3", "1/2", "2/4"], c: 0, h: "Maior denominador → menor valor." },
-{ id: 65, bloom: 7, q: "Qual fração é equivalente a 4/12?", opts: ["1/4", "2/6", "3/9", "1/3"], c: 3, h: "4/12 simplifica para 1/3." },
-{ id: 66, bloom: 7, q: "A fração mais próxima de 1 é:", opts: ["7/8", "6/7", "8/9", "10/11"], c: 3, h: "10/11 ≈ 0,90." },
-{ id: 67, bloom: 7, q: "Qual fração representa maior valor?", opts: ["7/10", "4/5", "3/4", "5/8"], c: 1, h: "4/5 = 0,8." },
-{ id: 68, bloom: 7, q: "Se uma fração tem numerador fixo e o denominador cresce, o valor:", opts: ["Cresce", "Diminui", "Fica igual", "Aumenta e depois diminui"], c: 1, h: "Mais partes → menor valor." },
-{ id: 69, bloom: 7, q: "Qual fração NÃO é equivalente a 1/2?", opts: ["2/4", "3/6", "4/8", "3/5"], c: 3, h: "3/5 = 0,6 ≠ 0,5." },
-{ id: 70, bloom: 7, q: "Qual fração é maior que 4/6?", opts: ["2/3", "3/4", "4/8", "5/10"], c: 1, h: "3/4 ≈ 0,75 > 0,66." },
+                { id: 61, bloom: 7, q: "Se aumentar o denominador sem mudar o numerador, o valor da fração:", opts: ["Aumenta", "Diminui", "Fica igual", "Dobra"], c: 1, h: "Mais partes → menor valor." },
+                { id: 62, bloom: 7, q: "Se dobramos numerador e denominador, o valor da fração:", opts: ["Dobra", "Diminui", "Se mantém", "Cai pela metade"], c: 2, h: "Multiplicar ambos mantém a razão." },
+                { id: 63, bloom: 7, q: "Qual fração é equivalente a 3/9?", opts: ["1/3", "2/3", "3/6", "1/2"], c: 0, h: "3/9 = 1/3." },
+                { id: 64, bloom: 7, q: "Se 1/4 é menor que 1/3, qual é menor que 1/4?", opts: ["1/5", "1/3", "1/2", "2/4"], c: 0, h: "Maior denominador → menor valor." },
+                { id: 65, bloom: 7, q: "Qual fração é equivalente a 4/12?", opts: ["1/4", "2/6", "3/9", "1/3"], c: 3, h: "4/12 simplifica para 1/3." },
+                { id: 66, bloom: 7, q: "A fração mais próxima de 1 é:", opts: ["7/8", "6/7", "8/9", "10/11"], c: 3, h: "10/11 ≈ 0,90." },
+                { id: 67, bloom: 7, q: "Qual fração representa maior valor?", opts: ["7/10", "4/5", "3/4", "5/8"], c: 1, h: "4/5 = 0,8." },
+                { id: 68, bloom: 7, q: "Se uma fração tem numerador fixo e o denominador cresce, o valor:", opts: ["Cresce", "Diminui", "Fica igual", "Aumenta e depois diminui"], c: 1, h: "Mais partes → menor valor." },
+                { id: 69, bloom: 7, q: "Qual fração NÃO é equivalente a 1/2?", opts: ["2/4", "3/6", "4/8", "3/5"], c: 3, h: "3/5 = 0,6 ≠ 0,5." },
+                { id: 70, bloom: 7, q: "Qual fração é maior que 4/6?", opts: ["2/3", "3/4", "4/8", "5/10"], c: 1, h: "3/4 ≈ 0,75 > 0,66." },
 
 
             ] },
-            { id: "sistema_monetario", name: "Sistema monetário", prep: { title: "Dinheiro em jogo", content: "<p>Vamos trabalhar com reais, notas, moedas e troco.</p>", skin: "💰" }, pool: [] },
+            { id: "sistema_monetario", name: "Sistema monetário", prep: { title: "Dinheiro em jogo", content: "<p>Vamos trabalhar com reais, notas, moedas e troco.</p>", skin: "💰" }, pool: [
+                
+               // ---------------- BLOOM 1 — Lembrar ----------------
+                { id: 1, bloom: 1, q: "Qual é o valor da moeda de um real?", opts: ["R$0,10", "R$0,50", "R$1,00", "R$2,00"], c: 2, h: "A moeda prateada com dourado vale R$1,00." },
+                { id: 2, bloom: 1, q: "Qual é a menor moeda em circulação?", opts: ["R$0,50", "R$0,25", "R$0,10", "R$0,05"], c: 3, h: "A moeda de cinco centavos é a menor." },
+                { id: 3, bloom: 1, q: "Qual dessas é uma nota?", opts: ["R$0,50", "R$1,00", "R$2,00", "R$0,25"], c: 2, h: "Notas começam em R$2,00." },
+                { id: 4, bloom: 1, q: "Qual nota é azul?", opts: ["R$2", "R$5", "R$10", "R$20"], c: 0, h: "R$2 é azul." },
+                { id: 5, bloom: 1, q: "Quanto vale a nota de R$5?", opts: ["Cinco reais", "Cinco centavos", "Meio real", "Cinco e cinquenta"], c: 0, h: "É simplesmente cinco reais." },
+                { id: 6, bloom: 1, q: "Qual moeda vale mais?", opts: ["R$0,10", "R$0,50", "R$0,25", "R$0,05"], c: 1, h: "Cinquenta centavos é a maior." },
+                { id: 7, bloom: 1, q: "Qual é o valor da nota verde?", opts: ["R$10", "R$5", "R$20", "R$100"], c: 1, h: "A nota de R$5 é verde." },
+                { id: 8, bloom: 1, q: "Quantos centavos há em um real?", opts: ["10", "50", "100", "25"], c: 2, h: "R$1,00 = 100 centavos." },
+                { id: 9, bloom: 1, q: "Qual é a nota de maior valor abaixo?", opts: ["R$10", "R$20", "R$50", "R$100"], c: 3, h: "R$100 é a maior entre elas." },
+                { id: 10, bloom: 1, q: "Qual dessas moedas é dourada?", opts: ["R$0,10", "R$0,25", "R$0,05", "R$1,00"], c: 3, h: "A moeda de R$1,00 tem aro dourado." },
+
+                // ---------------- BLOOM 2 — Compreender ----------------
+                { id: 11, bloom: 2, q: "Se João tem duas moedas de R$0,50, quanto ele tem?", opts: ["R$0,50", "R$1,00", "R$2,00", "R$0,75"], c: 1, h: "0,50 + 0,50 = 1,00." },
+                { id: 12, bloom: 2, q: "Maria tem R$2 e ganha mais R$2. Quanto ela tem?", opts: ["R$2", "R$4", "R$6", "R$8"], c: 1, h: "Soma simples: 2 + 2 = 4." },
+                { id: 13, bloom: 2, q: "Qual combinação forma R$1,00?", opts: ["4 moedas de 25 centavos", "2 moedas de 25 centavos", "3 moedas de 10 centavos", "1 moeda de 5 centavos"], c: 0, h: "4×0,25 = 1,00." },
+                { id: 14, bloom: 2, q: "Se algo custa R$3 e você paga com R$5, qual o troco?", opts: ["R$1", "R$2", "R$3", "R$5"], c: 1, h: "5 − 3 = 2." },
+                { id: 15, bloom: 2, q: "Qual opção representa cinco reais?", opts: ["Cinco moedas de R$1", "Uma moeda de R$5", "Cinco moedas de R$0,10", "Uma nota de R$3 e uma moeda de R$2"], c: 0, h: "Moedas de R$1 somam facilmente." },
+                { id: 16, bloom: 2, q: "Quanto valem duas moedas de R$0,25?", opts: ["R$0,25", "R$0,50", "R$1,00", "R$0,75"], c: 1, h: "0,25 + 0,25 = 0,5." },
+                { id: 17, bloom: 2, q: "Qual combinação forma R$2,00?", opts: ["4 moedas de 50 centavos", "2 notas de R$5", "8 moedas de 10 centavos", "2 moedas de 25 centavos"], c: 0, h: "4×0,50 = 2,00." },
+                { id: 18, bloom: 2, q: "Se você tem R$10 e gasta R$4, quanto sobra?", opts: ["R$4", "R$5", "R$6", "R$7"], c: 2, h: "10 − 4 = 6." },
+                { id: 19, bloom: 2, q: "Qual dessas opções representa 75 centavos?", opts: ["3 moedas de 25 centavos", "3 moedas de 10 centavos", "1 moeda de R$1", "5 moedas de R$0,50"], c: 0, h: "25+25+25 = 75." },
+                { id: 20, bloom: 2, q: "Se algo custa R$1,50 e você paga com R$2,00, o troco é:", opts: ["R$0,25", "R$0,50", "R$0,75", "R$1,00"], c: 1, h: "2,00 − 1,50 = 0,50." },
+
+                // ---------------- BLOOM 3 — Aplicar ----------------
+                { id: 21, bloom: 3, q: "Quanto é R$2 + R$3 + R$5?", opts: ["R$8", "R$10", "R$6", "R$9"], c: 1, h: "2+3+5 = 10." },
+                { id: 22, bloom: 3, q: "Você tem R$7 e compra algo por R$4. Quanto sobra?", opts: ["R$1", "R$2", "R$3", "R$4"], c: 2, h: "7 − 4 = 3." },
+                { id: 23, bloom: 3, q: "Qual combinação paga exatamente R$6?", opts: ["3 notas de R$2", "1 nota de R$5", "6 moedas de R$0,50", "2 notas de R$10"], c: 0, h: "3×2 = 6." },
+                { id: 24, bloom: 3, q: "Você tem 4 moedas de R$0,50. Quanto tem?", opts: ["R$1", "R$2", "R$3", "R$4"], c: 1, h: "0,50×4 = 2." },
+                { id: 25, bloom: 3, q: "Quanto é R$12 − R$7?", opts: ["R$3", "R$4", "R$5", "R$6"], c: 2, h: "12 − 7 = 5." },
+
+                // ---------------- BLOOM 4 — Analisar ----------------
+                { id: 26, bloom: 4, q: "Qual valor é maior?", opts: ["R$0,50", "R$0,75", "R$1,00", "R$0,25"], c: 2, h: "R$1 é o maior." },
+
+                { id: 27, bloom: 4, q: "Qual conjunto soma mais?", opts: ["R$2 + R$2", "R$1 + R$1 + R$1", "R$5", "R$3 + R$1"], c: 2, h: "R$5 é o maior." },
+
+                { id: 28, bloom: 4, q: "Qual valor é menor?", opts: ["R$0,10", "R$0,05", "R$0,50", "R$0,25"], c: 1, h: "Cinco centavos é o menor." },
+
+                { id: 29, bloom: 4, q: "Qual grupo soma R$4?", opts: ["2+2", "1+1+1+1+1", "3+3", "1+2"], c: 0, h: "2+2 = 4." },
+
+                { id: 30, bloom: 4, q: "Qual valor está mais próximo de R$1?", opts: ["R$0,90", "R$0,40", "R$0,10", "R$0,25"], c: 0, h: "0,90 é o mais próximo." },
+
+                // ---------------- BLOOM 5 — Avaliar ----------------
+                { id: 31, bloom: 5, q: "Qual estratégia é melhor para contar dinheiro?", opts: ["Começar pelas maiores notas", "Começar pelas menores moedas", "Adivinhar o total", "Somar só as moedas"], c: 0, h: "Notas maiores aceleram o cálculo." },
+
+                { id: 32, bloom: 5, q: "Para verificar se o troco está correto, você deve:", opts: ["Somar valor pago + valor do produto", "Somar troco + valor do produto", "Subtrair produto do valor pago", "Multiplicar tudo"], c: 2, h: "Troco = pago − produto." },
+
+                { id: 33, bloom: 5, q: "Em compras pequenas, qual moeda costuma facilitar o troco?", opts: ["R$1", "R$0,50", "R$0,10", "R$0,05"], c: 1, h: "50 centavos reduz combinações." },
+
+                { id: 34, bloom: 5, q: "Para comparar valores próximos, qual estratégia é melhor?", opts: ["Transformar em centavos", "Usar apenas notas", "Ignorar moedas", "Comparar cores das notas"], c: 0, h: "Centavos eliminam vírgulas." },
+
+                // ---------------- BLOOM 6 — Criar ----------------
+                { id: 35, bloom: 6, q: "Crie um valor igual a R$3 usando apenas moedas.", opts: ["6 moedas de 50 centavos", "3 moedas de 50 centavos", "10 moedas de 10 centavos", "1 moeda de R$3"], c: 0, h: "6×0,50 = 3." },
+
+                { id: 36, bloom: 6, q: "Escolha uma combinação que totalize R$8:", opts: ["4 notas de R$2", "1 nota de R$10", "3 notas de R$3", "8 moedas de R$1"], c: 0, h: "4×2 = 8." },
+
+                { id: 37, bloom: 6, q: "Crie um valor menor que R$1:", opts: ["R$0,75", "R$1,00", "R$2,00", "R$1,50"], c: 0, h: "0,75 < 1." },
+
+                { id: 38, bloom: 6, q: "Qual combinação forma exatamente R$12?", opts: ["6 notas de R$2", "12 moedas de R$1", "3 notas de R$5", "2 notas de R$10"], c: 0, h: "6×2 = 12." },
+
+                // ---------------- BLOOM 7 — Compreender Padrões / Generalizar ----------------
+                { id: 39, bloom: 7, q: "Se aumentamos o valor pago mantendo o preço, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Desaparece"], c: 0, h: "Mais pagamento → mais troco." },
+
+                { id: 40, bloom: 7, q: "Se reduzimos o número de moedas mantendo o valor total, precisamos de:", opts: ["Notas maiores", "Mais moedas pequenas", "Troco negativo", "Diminuir o preço"], c: 0, h: "Notas substituem várias moedas." },
+                { id: 101, bloom: 3, q: "Quanto é R$15 − R$9?", opts: ["R$5", "R$6", "R$7", "R$9"], c: 1, h: "15 − 9 = 6." },
+
+                { id: 102, bloom: 3, q: "Você tem R$3,50 e ganha mais R$2,00. Total?", opts: ["R$4,50", "R$5,00", "R$5,50", "R$6,00"], c: 2, h: "3,50 + 2,00 = 5,50." },
+
+                { id: 103, bloom: 3, q: "Qual combinação paga R$9 exatamente?", opts: ["4+4+1", "5+5", "3+3", "10"], c: 0, h: "4+4+1 = 9." },
+
+                { id: 104, bloom: 3, q: "Quanto é R$7,50 + R$1,50?", opts: ["R$8,00", "R$9,00", "R$10,00", "R$7,00"], c: 1, h: "7,5 + 1,5 = 9." },
+
+                { id: 105, bloom: 3, q: "Você paga R$20 com uma nota de R$50. Troco?", opts: ["R$20", "R$25", "R$30", "R$40"], c: 2, h: "50 − 20 = 30." },
+                { id: 111, bloom: 5, q: "Para garantir troco exato, a melhor estratégia é:", opts: ["Usar notas grandes", "Usar moedas combinadas", "Pagar com cartão", "Pedir para arredondar"], c: 1, h: "Moedas ajudam no acerto fino." },
+
+                { id: 112, bloom: 5, q: "Se o troco parece errado, a primeira ação é:", opts: ["Reclamar", "Contar novamente o valor pago e o preço", "Ignorar", "Somar só moedas"], c: 1, h: "Rever cálculo base." },
+
+                { id: 113, bloom: 5, q: "Para comparar R$0,48 e R$0,5, é melhor:", opts: ["Transformar em centavos", "Dobrar os valores", "Adivinhar", "Comparar só as moedas"], c: 0, h: "48 < 50 centavos." },
+
+                { id: 114, bloom: 5, q: "Para decidir qual combinação é mais eficiente para pagar, você deve:", opts: ["Usar o maior número de moedas possível", "Minimizar quantidade de itens", "Misturar moedas aleatórias", "Usar apenas moedas pequenas"], c: 1, h: "Menos itens → mais eficiência." },
+
+                { id: 115, bloom: 5, q: "Se o preço é R$9,99, qual estratégia facilita o troco?", opts: ["Pagar com R$10", "Pagar com R$20", "Pagar com R$50", "Usar moedas pequenas"], c: 0, h: "Troco direto: 0,01." },
+
+                { id: 116, bloom: 5, q: "Qual análise identifica melhor preço?", opts: ["Comparar só as notas", "Comparar valores totais", "Comparar apenas moedas", "Ignorar centavos"], c: 1, h: "Não basta cor da nota." },
+                { id: 117, bloom: 6, q: "Monte R$4 usando somente moedas de R$1:", opts: ["4 moedas de R$1", "2 moedas de R$1", "8 moedas de 50 centavos", "1 nota de R$4"], c: 0, h: "4×1 = 4." },
+
+                { id: 118, bloom: 6, q: "Crie um valor maior que R$5:", opts: ["R$4", "R$5", "R$6", "R$3"], c: 2, h: "6 é > 5." },
+
+                { id: 119, bloom: 6, q: "Qual combinação soma exatamente R$15?", opts: ["3×R$5", "2×R$10", "1×R$20", "5×R$2"], c: 0, h: "5+5+5 = 15." },
+
+                { id: 120, bloom: 6, q: "Crie um valor que seja menor que R$2:", opts: ["R$1,75", "R$2", "R$3", "R$2,50"], c: 0, h: "1,75 < 2." },
+                { id: 121, bloom: 6, q: "Monte R$9 usando notas de R$2 e moedas de R$1:", opts: ["2+2+2+1+1+1", "2+2+1+1+1", "2+1+1+1+1+1+1", "2×R$5"], c: 0, h: "2+2+2+1+1+1 = 9." },
+
+                { id: 122, bloom: 6, q: "Crie um valor equivalente a R$12 apenas com notas de R$3:", opts: ["3 notas", "4 notas", "5 notas", "2 notas"], c: 1, h: "3×4 = 12." },
+                { id: 123, bloom: 7, q: "Se o preço aumenta e o pagamento é o mesmo, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Dobra"], c: 1, h: "Menos diferença → menos troco." },
+
+                { id: 124, bloom: 7, q: "Se reduzimos as moedas e mantemos o valor, estamos:", opts: ["Usando notas equivalentes", "Perdendo valor", "Criando troco errado", "Aumentando centavos"], c: 0, h: "Notas substituem várias moedas." },
+
+                { id: 125, bloom: 7, q: "Se duplicamos todas as moedas mantendo a quantidade de notas, o valor:", opts: ["Aumenta", "Diminui", "Se mantém", "Desaparece"], c: 0, h: "Mais moedas → maior total." },
+
+                { id: 126, bloom: 7, q: "Se todos os valores forem convertidos para centavos, a comparação:", opts: ["Fica mais fácil", "Fica mais difícil", "Fica impossível", "Não muda nada"], c: 0, h: "Retira vírgulas → simplifica." },
+
+                { id: 127, bloom: 7, q: "Aumentar denominador e manter numerador em centavos implica:", opts: ["Maior precisão", "Maior valor", "Menor valor", "Valor dobrado"], c: 2, h: "Mais partes → valor menor." },
+
+                { id: 128, bloom: 7, q: "Se multiplicamos tudo por 10 (centavos → décimos), os valores:", opts: ["Mudam proporcionalmente", "Perdem sentido", "Aumentam descontroladamente", "Desaparecem"], c: 0, h: "Escala se mantém." },
+
+                { id: 129, bloom: 7, q: "Uma compra de R$7,90 paga com R$10 gera padrão de troco:", opts: ["Aproximado a R$2", "Aproximado a R$1", "Maior que R$5", "Zero"], c: 0, h: "10 − 7,90 = 2,10." },
+
+                { id: 130, bloom: 7, q: "Se todos os valores forem arredondados para baixo, o troco tende a:", opts: ["Aumentar", "Diminuir", "Ficar igual", "Sumir"], c: 0, h: "Preço menor ⇒ diferença maior." },
+
+
+
+
+
+
+            ] },
             { id: "graficos", name: "Gráficos", prep: { title: "Lendo gráficos", content: "<p>Gráficos ajudam a visualizar dados de forma rápida.</p>", skin: "📈" }, pool: [] },
             { id: "tabelas", name: "Tabelas", prep: { title: "Organizando dados", content: "<p>Tabelas organizam informações em linhas e colunas.</p>", skin: "📊" }, pool: [] },
             { id: "medidas_tempo", name: "Medidas de tempo", prep: { title: "Horas, dias e meses", content: "<p>Vamos relacionar relógio, calendário e duração de eventos.</p>", skin: "⏰" }, pool: [] }
