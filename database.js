@@ -233,89 +233,95 @@ const DB = {
 
 
             ] },
-            { id: "divisao_exata", name: "Divisão exata e não exata", prep: { title: "Sobra ou não sobra?", content: "<p>Na divisão exata, não sobra nada. Na não exata, temos resto.</p>", skin: "📊" }, pool: [
-                { id: 1, bloom: 1, q: "Quanto é 7 ÷ 2?", opts: ["3", "3 e resto 1", "4", "2"], c: 1, h: "7 ÷ 2 = 3 resto 1." },
-                { id: 2, bloom: 1, q: "Quanto é 9 ÷ 4?", opts: ["2", "2 r1", "3", "3 r2"], c: 1, h: "9 ÷ 4 = 2 r1." },
-                { id: 3, bloom: 1, q: "Dividir 10 por 3 resulta em:", opts: ["3", "3 r1", "4", "4 r2"], c: 1, h: "10 ÷ 3 = 3 r1." },
-                { id: 4, bloom: 1, q: "Quanto é 15 ÷ 4?", opts: ["3 r1", "4 r3", "3 r3", "5 r1"], c: 0, h: "15 ÷ 4 = 3 r3." },
-                { id: 5, bloom: 1, q: "Quanto é 13 ÷ 5?", opts: ["2", "2 r3", "3 r2", "4"], c: 1, h: "13 ÷ 5 = 2 r3." },
-                { id: 6, bloom: 1, q: "Quanto é 11 ÷ 2?", opts: ["5", "5 r1", "6 r1", "4 r3"], c: 1, h: "11 ÷ 2 = 5 r1." },
-                { id: 7, bloom: 1, q: "12 ÷ 5 resulta em:", opts: ["2", "2 r2", "3", "3 r1"], c: 1, h: "12 ÷ 5 = 2 r2." },
-                { id: 8, bloom: 1, q: "Dividir 8 por 3 resulta em:", opts: ["2 r1", "3 r2", "2 r2", "3"], c: 0, h: "8 ÷ 3 = 2 r1." },
-                { id: 9, bloom: 1, q: "Dividir 22 por 7:", opts: ["3 r1", "2 r5", "3 r2", "3 r7"], c: 2, h: "22 ÷ 7 = 3 r1." },
-                { id: 10, bloom: 1, q: "Dividir 14 por 4 resulta em:", opts: ["3 r2", "4 r1", "3 r1", "2 r3"], c: 0, h: "14 ÷ 4 = 3 r2." },
+            { id: "divisao_exata", name: "Divisão exata e não exata", prep: { title: "Sobra ou não sobra?", content: "<p>Na divisão exata, não sobra nada. Na não exata, temos resto.</p>", skin: "📊" }, 
+            pool: [
+                // ---------------- BLOOM 1 — Lembrar ----------------
+                    { id: 1, bloom: 1, q: "Quanto é 7 ÷ 2?", opts: ["3", "3 e resto 1", "4", "2"], c: 1, h: "7 ÷ 2 = 3 resto 1." },
+                    { id: 2, bloom: 1, q: "Quanto é 9 ÷ 4?", opts: ["2", "2 r1", "3", "3 r2"], c: 1, h: "9 ÷ 4 = 2 r1." },
+                    { id: 3, bloom: 1, q: "Dividir 10 por 3 resulta em:", opts: ["3", "3 r1", "4", "4 r2"], c: 1, h: "10 ÷ 3 = 3 r1." },
+                    { id: 4, bloom: 1, q: "Quanto é 15 ÷ 4?", opts: ["3 r1", "4 r3", "3 r3", "5 r1"], c: 2, h: "15 ÷ 4 = 3 r3." }, // Corrigido c de 0 para 2
+                    { id: 5, bloom: 1, q: "Quanto é 13 ÷ 5?", opts: ["2", "2 r3", "3 r2", "4"], c: 1, h: "13 ÷ 5 = 2 r3." },
+                    { id: 6, bloom: 1, q: "Quanto é 11 ÷ 2?", opts: ["5", "5 r1", "6 r1", "4 r3"], c: 1, h: "11 ÷ 2 = 5 r1." },
+                    { id: 7, bloom: 1, q: "12 ÷ 5 resulta em:", opts: ["2", "2 r2", "3", "3 r1"], c: 1, h: "12 ÷ 5 = 2 r2." },
+                    { id: 8, bloom: 1, q: "Dividir 8 por 3 resulta em:", opts: ["2 r1", "3 r2", "2 r2", "3"], c: 2, h: "8 ÷ 3 = 2 r2." }, // Corrigido c de 0 para 2
+                    { id: 9, bloom: 1, q: "Dividir 22 por 7:", opts: ["3 r1", "2 r5", "3 r2", "3 r7"], c: 0, h: "22 ÷ 7 = 3 r1." }, // Corrigido c de 2 para 0
+                    { id: 10, bloom: 1, q: "Dividir 14 por 4 resulta em:", opts: ["3 r2", "4 r1", "3 r1", "2 r3"], c: 0, h: "14 ÷ 4 = 3 r2." },
 
-                { id: 11, bloom: 2, q: "Uma divisão exata é aquela em que:", opts: ["O divisor é menor", "O resto é zero", "O quociente é grande", "O número é par"], c: 1, h: "Resto zero = divisão exata." },
-                { id: 12, bloom: 2, q: "Qual divisão é EXATA?", opts: ["9 ÷ 2", "12 ÷ 4", "14 ÷ 3", "22 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
-                { id: 13, bloom: 2, q: "Qual divisão NÃO é exata?", opts: ["20 ÷ 5", "18 ÷ 6", "15 ÷ 4", "28 ÷ 7"], c: 2, h: "15 ÷ 4 tem resto." },
-                { id: 14, bloom: 2, q: "Se sobrou resto, significa que:", opts: ["A conta está errada", "Não é possível dividir", "Os grupos não ficaram iguais", "O divisor é maior"], c: 2, h: "Resto indica sobra." },
-                { id: 15, bloom: 2, q: "Se uma divisão tem resto 0, então:", opts: ["É não exata", "É exata", "É impossível", "Não existe quociente"], c: 1, h: "R=0 → exata." },
-                { id: 16, bloom: 2, q: "Se 10 ÷ 4 = 2 r2, o 2 representa:", opts: ["Resto", "Dividendo", "Quociente", "Divisor"], c: 2, h: "Quociente = parte inteira." },
-                { id: 17, bloom: 2, q: "No cálculo 19 ÷ 3 = 6 r1, o 1 representa:", opts: ["Divisor", "Quociente", "Resto", "Dividendo"], c: 2, h: "Resto = o que sobra." },
-                { id: 18, bloom: 2, q: "Uma divisão com resto indica que:", opts: ["A conta está errada", "O total não foi suficiente para formar grupos iguais", "O divisor é zero", "O dividendo é ímpar"], c: 1, h: "Resto é sobra." },
-                { id: 19, bloom: 2, q: "Qual das divisões forma grupos iguais SEM sobrar?", opts: ["18 ÷ 4", "25 ÷ 6", "14 ÷ 2", "13 ÷ 5"], c: 2, h: "14 ÷ 2 = exata." },
-                { id: 20, bloom: 2, q: "Se uma divisão tem quociente 4 e resto 2, ela é:", opts: ["Exata", "Não exata", "Impossível", "Infinita"], c: 1, h: "Resto > 0 → não exata." },
+                    // ---------------- BLOOM 2 — Compreender ----------------
+                    
+                    { id: 11, bloom: 2, q: "Uma divisão exata é aquela em que:", opts: ["O divisor é menor", "O resto é zero", "O quociente é grande", "O número é par"], c: 1, h: "Resto zero = divisão exata." },
+                    { id: 12, bloom: 2, q: "Qual divisão é EXATA?", opts: ["9 ÷ 2", "12 ÷ 4", "14 ÷ 3", "22 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
+                    { id: 13, bloom: 2, q: "Qual divisão NÃO é exata?", opts: ["20 ÷ 5", "18 ÷ 6", "15 ÷ 4", "28 ÷ 7"], c: 2, h: "15 ÷ 4 tem resto." },
+                    { id: 14, bloom: 2, q: "Se sobrou resto, significa que:", opts: ["A conta está errada", "Não é possível dividir", "Os grupos não ficaram iguais", "O divisor é maior"], c: 2, h: "Resto indica sobra." },
+                    { id: 15, bloom: 2, q: "Se uma divisão tem resto 0, então:", opts: ["É não exata", "É exata", "É impossível", "Não existe quociente"], c: 1, h: "R=0 → exata." },
+                    { id: 16, bloom: 2, q: "Se 10 ÷ 4 = 2 r2, o 2 do resultado chama-se:", opts: ["Resto", "Dividendo", "Quociente", "Divisor"], c: 2, h: "Quociente = parte inteira." },
+                    { id: 17, bloom: 2, q: "No cálculo 19 ÷ 3 = 6 r1, o 1 representa:", opts: ["Divisor", "Quociente", "Resto", "Dividendo"], c: 2, h: "Resto = o que sobra." },
+                    { id: 18, bloom: 2, q: "Uma divisão com resto indica que:", opts: ["A conta está errada", "O total não foi suficiente para formar grupos iguais", "O divisor é zero", "O dividendo é ímpar"], c: 1, h: "Resto é sobra." },
+                    { id: 19, bloom: 2, q: "Qual das divisões forma grupos iguais SEM sobrar?", opts: ["18 ÷ 4", "25 ÷ 6", "14 ÷ 2", "13 ÷ 5"], c: 2, h: "14 ÷ 2 = exata." },
+                    { id: 20, bloom: 2, q: "Se uma divisão tem quociente 4 e resto 2, ela é:", opts: ["Exata", "Não exata", "Impossível", "Infinita"], c: 1, h: "Resto > 0 → não exata." },
 
-                { id: 21, bloom: 3, q: "Divida 25 em grupos de 4:", opts: ["6 r1", "6 r2", "5 r0", "7 r3"], c: 1, h: "25 ÷ 4 = 6 r1." },
-                { id: 22, bloom: 3, q: "27 ÷ 5 =", opts: ["5 r2", "5 r3", "6 r1", "4 r3"], c: 0, h: "27 ÷ 5 = 5 r2." },
-                { id: 23, bloom: 3, q: "44 ÷ 6 =", opts: ["7 r1", "7 r2", "8 r2", "6 r4"], c: 0, h: "6×7 = 42, sobra 2." },
-                { id: 24, bloom: 3, q: "36 alunos em grupos de 5. Quantos grupos completos?", opts: ["6 r0", "7 r1", "7 r0", "8 r2"], c: 1, h: "7 grupos completos, sobra 1 aluno." },
-                { id: 25, bloom: 3, q: "19 ÷ 6 =", opts: ["3 r1", "3 r2", "2 r3", "4 r1"], c: 1, h: "3×6 = 18, sobra 1." },
-                { id: 26, bloom: 3, q: "33 ÷ 7 =", opts: ["4 r5", "4 r3", "5 r2", "3 r4"], c: 1, h: "4×7 = 28, resto 5." },
-                { id: 27, bloom: 3, q: "50 ÷ 8 =", opts: ["6 r2", "6 r3", "7 r2", "5 r5"], c: 0, h: "6×8 = 48, resto 2." },
-                { id: 28, bloom: 3, q: "Se 31 balas são divididas entre 4 crianças, cada uma recebe:", opts: ["7 r3", "8 r1", "7 r2", "6 r3"], c: 2, h: "7 balas cada e sobram 3." },
-                { id: 29, bloom: 3, q: "42 ÷ 5 =", opts: ["8 r2", "7 r1", "6 r4", "9 r1"], c: 0, h: "8×5 = 40, resto 2." },
-                { id: 30, bloom: 3, q: "83 ÷ 9 =", opts: ["9 r2", "8 r5", "7 r6", "10 r3"], c: 1, h: "9×9 = 81, resta 2." },
+                    // ---------------- BLOOM 3 — Aplicar ----------------
+                    { id: 21, bloom: 3, q: "Divida 25 em grupos de 4:", opts: ["6 r1", "6 r2", "5 r0", "7 r3"], c: 0, h: "25 ÷ 4 = 6 r1." }, // Corrigido c de 1 para 0
+                    { id: 22, bloom: 3, q: "27 ÷ 5 =", opts: ["5 r2", "5 r3", "6 r1", "4 r3"], c: 0, h: "27 ÷ 5 = 5 r2." },
+                    { id: 23, bloom: 3, q: "44 ÷ 6 =", opts: ["7 r1", "7 r2", "8 r2", "6 r4"], c: 1, h: "6×7 = 42, sobra 2." }, // Corrigido c de 0 para 1
+                    { id: 24, bloom: 3, q: "36 alunos em grupos de 5. Quantos grupos completos?", opts: ["6 r0", "7 r1", "7 r0", "8 r2"], c: 1, h: "7 grupos completos, sobra 1 aluno." },
+                    { id: 25, bloom: 3, q: "19 ÷ 6 =", opts: ["3 r1", "3 r2", "2 r3", "4 r1"], c: 0, h: "3×6 = 18, sobra 1." }, // Corrigido c de 1 para 0
+                    { id: 26, bloom: 3, q: "33 ÷ 7 =", opts: ["4 r5", "4 r3", "5 r2", "3 r4"], c: 0, h: "4×7 = 28, resto 5." }, // Corrigido c de 1 para 0
+                    { id: 27, bloom: 3, q: "50 ÷ 8 =", opts: ["6 r2", "6 r3", "7 r2", "5 r5"], c: 0, h: "6×8 = 48, resto 2." },
+                    { id: 28, bloom: 3, q: "Se 31 balas são divididas entre 4 crianças, cada uma recebe:", opts: ["7 r3", "8 r1", "7 r2", "6 r3"], c: 0, h: "7 balas cada e sobram 3." }, // Corrigido c de 2 para 0
+                    { id: 29, bloom: 3, q: "42 ÷ 5 =", opts: ["8 r2", "7 r1", "6 r4", "9 r1"], c: 0, h: "8×5 = 40, resto 2." },
+                    { id: 30, bloom: 3, q: "83 ÷ 9 =", opts: ["9 r2", "8 r5", "7 r6", "10 r3"], c: 0, h: "9×9 = 81, resta 2." }, // Corrigido c de 1 para 0
 
-                { id: 31, bloom: 4, q: "Qual divisão tem MAIOR resto?", opts: ["20 ÷ 3", "19 ÷ 4", "22 ÷ 5", "25 ÷ 6"], c: 0, h: "20 ÷ 3 deixa resto 2; as outras deixam menores." },
-                { id: 32, bloom: 4, q: "Qual divisão é exata?", opts: ["21 ÷ 4", "30 ÷ 6", "34 ÷ 5", "47 ÷ 8"], c: 1, h: "30 ÷ 6 = 5." },
-                { id: 33, bloom: 4, q: "Qual divisão tem quociente maior?", opts: ["25 ÷ 4", "30 ÷ 5", "41 ÷ 7", "19 ÷ 3"], c: 1, h: "30 ÷ 5 = 6." },
-                { id: 34, bloom: 4, q: "Qual sobra mais?", opts: ["18 ÷ 4", "18 ÷ 5", "18 ÷ 6", "18 ÷ 7"], c: 1, h: "18 ÷ 5 sobra 3." },
-                { id: 35, bloom: 4, q: "Qual tem resto igual a 1?", opts: ["10 ÷ 3", "12 ÷ 5", "16 ÷ 3", "18 ÷ 4"], c: 0, h: "10 ÷ 3 = 3 r1." },
-                { id: 36, bloom: 4, q: "Qual divisão tem resto zero?", opts: ["40 ÷ 9", "42 ÷ 6", "33 ÷ 8", "29 ÷ 7"], c: 1, h: "42 ÷ 6 = exata." },
-                { id: 37, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "20 ÷ 5", "24 ÷ 6", "28 ÷ 7"], c: 0, h: "18 ÷ 4 = 4 r2." },
-                { id: 38, bloom: 4, q: "Qual divisão apresenta o MAIOR resto?", opts: ["22 ÷ 7", "25 ÷ 6", "29 ÷ 4", "17 ÷ 5"], c: 3, h: "17 ÷ 5 = resto 2, maior entre as opções." },
-                { id: 39, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "20 ÷ 5", "25 ÷ 6", "30 ÷ 7"], c: 2, h: "25 ÷ 6 = 4 r1." },
-                { id: 40, bloom: 4, q: "Qual divisão tem resto igual a 3?", opts: ["15 ÷ 4", "20 ÷ 6", "22 ÷ 7", "18 ÷ 5"], c: 0, h: "15 ÷ 4 = 3 r3." },
+                    // ---------------- BLOOM 4 — Analisar ----------------
+                    { id: 31, bloom: 4, q: "Qual divisão tem MAIOR resto?", opts: ["20 ÷ 3", "19 ÷ 4", "22 ÷ 5", "25 ÷ 6"], c: 1, h: "19 ÷ 4 tem resto 3 (os outros são 2, 2, 1)." }, // Corrigido c de 0 para 1
+                    { id: 32, bloom: 4, q: "Qual divisão é exata?", opts: ["21 ÷ 4", "30 ÷ 6", "34 ÷ 5", "47 ÷ 8"], c: 1, h: "30 ÷ 6 = 5." },
+                    { id: 33, bloom: 4, q: "Qual divisão tem quociente maior?", opts: ["20 ÷ 4", "30 ÷ 5", "21 ÷ 7", "12 ÷ 3"], c: 1, h: "30 ÷ 5 = 6 (maior que 5, 3, 4)." }, // Opções ajustadas para evitar empate
+                    { id: 34, bloom: 4, q: "Qual sobra mais?", opts: ["18 ÷ 4", "18 ÷ 5", "18 ÷ 6", "18 ÷ 7"], c: 3, h: "18 ÷ 7 sobra 4." }, // Corrigido c de 1 para 3
+                    { id: 35, bloom: 4, q: "Qual tem resto igual a 1?", opts: ["10 ÷ 3", "12 ÷ 5", "16 ÷ 3", "18 ÷ 4"], c: 0, h: "10 ÷ 3 = 3 r1." },
+                    { id: 36, bloom: 4, q: "Qual divisão tem resto zero?", opts: ["40 ÷ 9", "42 ÷ 6", "33 ÷ 8", "29 ÷ 7"], c: 1, h: "42 ÷ 6 = exata." },
+                    { id: 37, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "25 ÷ 5", "30 ÷ 6", "35 ÷ 7"], c: 0, h: "18 ÷ 4 = 4 r2 (os outros são 5)." }, // Opções ajustadas para evitar duplicidade
+                    { id: 38, bloom: 4, q: "Qual divisão apresenta o MAIOR resto?", opts: ["22 ÷ 7", "25 ÷ 6", "29 ÷ 4", "17 ÷ 5"], c: 3, h: "17 ÷ 5 = resto 2, maior entre as opções." },
+                    { id: 39, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 3", "20 ÷ 4", "25 ÷ 6", "35 ÷ 7"], c: 2, h: "25 ÷ 6 = 4 r1 (os outros são 6 ou 5)." }, // Opções ajustadas
+                    { id: 40, bloom: 4, q: "Qual divisão tem resto igual a 3?", opts: ["15 ÷ 4", "20 ÷ 6", "22 ÷ 7", "18 ÷ 4"], c: 0, h: "15 ÷ 4 = 3 r3." }, // Opção duplicada removida
 
-                { id: 41, bloom: 5, q: "Qual estratégia resolve melhor 59 ÷ 7?", opts: ["Ver 7×8=56", "Somar 7 repetidas vezes", "Adivinhar", "Testar números aleatórios"], c: 0, h: "Buscar múltiplo próximo." },
-                { id: 42, bloom: 5, q: "Para estimar 82 ÷ 9, qual aproximação usar?", opts: ["9×9=81", "9×8=70", "9×5=45", "9×12=108"], c: 0, h: "81 é o múltiplo mais próximo." },
-                { id: 43, bloom: 5, q: "Qual divisão é mais rápida de confirmar mentalmente?", opts: ["48 ÷ 6", "53 ÷ 7", "41 ÷ 8", "59 ÷ 9"], c: 0, h: "48 ÷ 6 é exata." },
-                { id: 44, bloom: 5, q: "Qual operação ajuda a conferir 34 ÷ 5?", opts: ["Subtração", "Multiplicação", "Soma", "Nenhuma"], c: 1, h: "Multiplicar quociente e divisor." },
-                { id: 45, bloom: 5, q: "Qual divisão tem quociente menor?", opts: ["40 ÷ 10", "40 ÷ 5", "40 ÷ 4", "40 ÷ 2"], c: 0, h: "Maior divisor → quociente menor." },
-                { id: 46, bloom: 5, q: "Para resolver 73 ÷ 6, a melhor abordagem é:", opts: ["Buscar 6×12", "Buscar 6×10", "Buscar 6×20", "Tentar adivinhar"], c: 1, h: "6×10=60 aproxima." },
-                { id: 47, bloom: 5, q: "Qual divisão é mais difícil mentalmente?", opts: ["60 ÷ 6", "50 ÷ 5", "73 ÷ 8", "40 ÷ 4"], c: 2, h: "Não é exata." },
-                { id: 48, bloom: 5, q: "Qual divisão deixa o MENOR resto?", opts: ["31 ÷ 5", "32 ÷ 6", "33 ÷ 7", "34 ÷ 5"], c: 0, h: "31 ÷ 5 = 6 r1 → resto 1, menor de todos." },
-                { id: 49, bloom: 5, q: "Qual divisão tem quociente mais próximo de 10?", opts: ["95 ÷ 9", "98 ÷ 8", "90 ÷ 7", "102 ÷ 10"], c: 3, h: "102 ÷ 10 = 10 r2." },
-                { id: 50, bloom: 5, q: "Qual divisão possui resto mais previsível?", opts: ["35 ÷ 6", "36 ÷ 6", "37 ÷ 6", "38 ÷ 6"], c: 1, h: "36 ÷ 6 = exata (resto 0)." },
+                    // ---------------- BLOOM 5 — Avaliar ----------------
+                    { id: 41, bloom: 5, q: "Qual estratégia resolve melhor 59 ÷ 7?", opts: ["Ver 7×8=56", "Somar 7 repetidas vezes", "Adivinhar", "Testar números aleatórios"], c: 0, h: "Buscar múltiplo próximo." },
+                    { id: 42, bloom: 5, q: "Para estimar 82 ÷ 9, qual aproximação usar?", opts: ["9×9=81", "9×8=70", "9×5=45", "9×12=108"], c: 0, h: "81 é o múltiplo mais próximo." },
+                    { id: 43, bloom: 5, q: "Qual divisão é mais rápida de confirmar mentalmente?", opts: ["48 ÷ 6", "53 ÷ 7", "41 ÷ 8", "59 ÷ 9"], c: 0, h: "48 ÷ 6 é exata e está na tabuada." },
+                    { id: 44, bloom: 5, q: "Qual operação ajuda a conferir 34 ÷ 5?", opts: ["Subtração", "Multiplicação", "Soma", "Nenhuma"], c: 1, h: "Multiplicar quociente e divisor." },
+                    { id: 45, bloom: 5, q: "Qual divisão tem quociente menor?", opts: ["40 ÷ 10", "40 ÷ 5", "40 ÷ 4", "40 ÷ 2"], c: 0, h: "Maior divisor → quociente menor." },
+                    { id: 46, bloom: 5, q: "Para resolver 73 ÷ 6, a melhor abordagem de estimativa é:", opts: ["Buscar 6×12", "Buscar 6×10", "Buscar 6×20", "Tentar adivinhar"], c: 0, h: "6×12=72 é muito próximo." },
+                    { id: 47, bloom: 5, q: "Qual divisão é mais difícil mentalmente (não exata)?", opts: ["60 ÷ 6", "50 ÷ 5", "73 ÷ 8", "40 ÷ 4"], c: 2, h: "Não é exata." },
+                    { id: 48, bloom: 5, q: "Qual divisão deixa o MENOR resto?", opts: ["31 ÷ 5", "32 ÷ 6", "33 ÷ 7", "34 ÷ 5"], c: 0, h: "31 ÷ 5 = 6 r1." },
+                    { id: 49, bloom: 5, q: "Qual divisão tem quociente mais próximo de 10?", opts: ["95 ÷ 9", "98 ÷ 8", "90 ÷ 7", "102 ÷ 10"], c: 3, h: "102 ÷ 10 = 10 r2." },
+                    { id: 50, bloom: 5, q: "Qual divisão possui resto mais previsível (zero)?", opts: ["35 ÷ 6", "36 ÷ 6", "37 ÷ 6", "38 ÷ 6"], c: 1, h: "36 ÷ 6 = exata." },
 
-                { id: 51, bloom: 6, q: "Crie um número que ao ser dividido por 5 deixe resto 3:", opts: ["13", "15", "18", "23"], c: 0, h: "13 ÷ 5 = 2 r3." },
-                { id: 52, bloom: 6, q: "Qual número dividido por 4 deixa resto 1?", opts: ["9", "10", "12", "14"], c: 0, h: "9 ÷ 4 = 2 r1." },
-                { id: 53, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 6 partes:", opts: ["18", "24", "30", "31"], c: 3, h: "31 não é múltiplo de 6." },
-                { id: 54, bloom: 6, q: "Crie uma divisão não exata:", opts: ["20 ÷ 5", "18 ÷ 6", "21 ÷ 4", "12 ÷ 3"], c: 2, h: "21 ÷ 4 tem resto." },
-                { id: 55, bloom: 6, q: "Escolha um número que seja múltiplo de 7:", opts: ["14", "15", "16", "17"], c: 0, h: "14 é múltiplo de 7." },
-                { id: 56, bloom: 6, q: "Crie um exemplo de resto igual a 2:", opts: ["10 ÷ 4", "9 ÷ 3", "8 ÷ 2", "14 ÷ 7"], c: 0, h: "10 ÷ 4 = 2 r2." },
-                { id: 57, bloom: 6, q: "Escolha um total que dividido por 8 resulte em resto 4:", opts: ["12", "20", "28", "36"], c: 1, h: "20 ÷ 8 = 2 r4." },
-                { id: 58, bloom: 6, q: "Escolha uma divisão com resto MAIOR que 3:", opts: ["25 ÷ 4", "27 ÷ 6", "19 ÷ 5", "22 ÷ 9"], c: 2, h: "19 ÷ 5 = 3 r4." },
+                    // ---------------- BLOOM 6 — Criar ----------------
+                    { id: 51, bloom: 6, q: "Qual número dividido por 5 deixa resto 3?", opts: ["13", "15", "19", "24"], c: 0, h: "13 ÷ 5 = 2 r3." }, // Opções ajustadas para ter só uma correta
+                    { id: 52, bloom: 6, q: "Qual número dividido por 4 deixa resto 1?", opts: ["9", "10", "12", "14"], c: 0, h: "9 ÷ 4 = 2 r1." },
+                    { id: 53, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 6 partes:", opts: ["18", "24", "30", "31"], c: 3, h: "31 não é múltiplo de 6." },
+                    { id: 54, bloom: 6, q: "Crie uma divisão não exata:", opts: ["20 ÷ 5", "18 ÷ 6", "21 ÷ 4", "12 ÷ 3"], c: 2, h: "21 ÷ 4 tem resto." },
+                    { id: 55, bloom: 6, q: "Escolha um número que seja múltiplo de 7:", opts: ["14", "15", "16", "17"], c: 0, h: "14 é múltiplo de 7." },
+                    { id: 56, bloom: 6, q: "Crie um exemplo de resto igual a 2:", opts: ["10 ÷ 4", "9 ÷ 3", "8 ÷ 2", "14 ÷ 7"], c: 0, h: "10 ÷ 4 = 2 r2." },
+                    { id: 57, bloom: 6, q: "Escolha um total que dividido por 8 resulte em resto 4:", opts: ["10", "20", "26", "34"], c: 1, h: "20 ÷ 8 = 2 r4." }, // Opções ajustadas para ter só uma correta
+                    { id: 58, bloom: 6, q: "Escolha uma divisão com resto MAIOR que 3:", opts: ["25 ÷ 4", "27 ÷ 6", "19 ÷ 5", "22 ÷ 10"], c: 2, h: "19 ÷ 5 = 3 r4." }, // Opções ajustadas
+                    { id: 59, bloom: 6, q: "Escolha um número que ao dividir por 3 resulte em quociente 9 exato:", opts: ["27", "30", "33", "36"], c: 0, h: "27 ÷ 3 = 9." }, // Corrigido c de 2 para 0
+                    { id: 60, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 4 partes:", opts: ["12", "16", "18", "20"], c: 2, h: "18 não é múltiplo de 4." },
 
-                { id: 59, bloom: 6, q: "Escolha um número que ao dividir por 3 resulte em quociente 9:", opts: ["27", "30", "33", "36"], c: 2, h: "33 ÷ 3 = 11 → errado. Melhor corrigir." },
-                { id: 60, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 4 partes:", opts: ["12", "16", "18", "20"], c: 2, h: "18 não é múltiplo de 4." },
-                { id: 61, bloom: 7, q: "Se 35 ÷ x deixa resto 5, qual valor NÃO pode ser x?", opts: ["5", "6", "7", "10"], c: 0, h: "35 ÷ 5 é exata, não deixa resto." },
-                { id: 62, bloom: 7, q: "Se o resto aumentou, é correto afirmar que:", opts: ["O quociente aumentou", "O divisor diminuiu", "O dividendo diminuiu", "A divisão virou exata"], c: 1, h: "Divisor menor → mais sobra." },
-                { id: 63, bloom: 7, q: "Se 50 ÷ 6 = 8 r2, então 100 ÷ 6 vale:", opts: ["16 r2", "16 r4", "20 r0", "18 r4"], c: 1, h: "Dobrou → resto dobra também." },
-                { id: 64, bloom: 7, q: "Se a divisão 43 ÷ x deixa resto 3, qual número pode ser x?", opts: ["4", "5", "6", "7"], c: 0, h: "43 = 4×10 + 3." },
-                { id: 65, bloom: 7, q: "Se 28 ÷ y = 4 r0, y deve ser:", opts: ["6", "7", "8", "5"], c: 1, h: "4×7 = 28." },
-                { id: 66, bloom: 7, q: "Qual afirmação é verdadeira?", opts: ["Divisor maior → resto maior", "Divisor menor → resto menor", "Divisor menor → resto maior", "Resto igual a zero indica erro"], c: 2, h: "Divisor pequeno cria mais sobras." },
-                { id: 67, bloom: 7, q: "Se 63 ÷ 8 = 7 r7, o dividendo possível para quociente 7 r1 seria:", opts: ["57", "58", "55", "65"], c: 1, h: "7×8 = 56 → +1 = 57. Ajustar: resposta = 57." },
-                { id: 68, bloom: 7, q: "Quanto é o resto em 29 ÷ 7?", opts: ["1", "2", "3", "4"], c: 0, h: "4×7 = 28 → sobra 1." },
-                { id: 69, bloom: 7, q: "Se duas divisões têm o mesmo divisor, qual fator torna o resto maior?", opts: ["Divisor maior", "Dividendo menor", "Dividendo maior", "Nenhum"], c: 2, h: "Maior total → maior sobra." },
-                { id: 70, bloom: 7, q: "Uma divisão deixa resto 0 apenas quando:", opts: ["O divisor é 1", "O dividendo é par", "O dividendo é múltiplo do divisor", "O divisor é par"], c: 2, h: "Múltiplos produzem divisões exatas." },
+                    // ---------------- BLOOM 7 — Raciocínio ----------------
+                    { id: 61, bloom: 7, q: "Se 35 ÷ x deixa resto 5, qual valor NÃO pode ser x?", opts: ["5", "6", "10", "15"], c: 0, h: "O resto (5) nunca pode ser igual ou maior que o divisor." }, // Opções ajustadas para lógica
+                    { id: 62, bloom: 7, q: "Em qualquer divisão, o resto deve ser sempre:", opts: ["Maior que o divisor", "Menor que o divisor", "Igual ao divisor", "Zero"], c: 1, h: "Regra básica: Resto < Divisor." }, // Questão reescrita para clareza
+                    { id: 63, bloom: 7, q: "Se 50 ÷ 6 = 8 r2, então 100 ÷ 6 vale:", opts: ["16 r2", "16 r4", "20 r0", "18 r4"], c: 1, h: "O dobro de 50 é 100, então dobra o quociente e o resto." },
+                    { id: 64, bloom: 7, q: "Se a divisão 43 ÷ x deixa resto 3, qual número pode ser x?", opts: ["4", "6", "7", "9"], c: 0, h: "43 ÷ 4 = 10 r3." }, // Opções ajustadas
+                    { id: 65, bloom: 7, q: "Se 28 ÷ y = 4 r0, y deve ser:", opts: ["6", "7", "8", "5"], c: 1, h: "4×7 = 28." },
+                    { id: 66, bloom: 7, q: "Qual afirmação é verdadeira sobre divisões?", opts: ["O resto pode ser maior que o divisor", "O resto deve ser sempre menor que o divisor", "O resto é sempre zero", "O resto é igual ao quociente"], c: 1, h: "O resto nunca pode ultrapassar o divisor." }, // Questão reescrita
+                    { id: 67, bloom: 7, q: "Se 63 ÷ 8 = 7 r7, o dividendo para ter quociente 7 e resto 1 (mantendo divisor 8) é:", opts: ["57", "58", "55", "65"], c: 0, h: "7×8 + 1 = 57." }, // Corrigido c
+                    { id: 68, bloom: 7, q: "Quanto é o resto em 29 ÷ 7?", opts: ["1", "2", "3", "4"], c: 0, h: "4×7 = 28 → sobra 1." },
+                    { id: 69, bloom: 7, q: "O resto da divisão 22 ÷ 7 é:", opts: ["0", "1", "2", "3"], c: 1, h: "22 = 3×7 + 1." }, // Questão simplificada
+                    { id: 70, bloom: 7, q: "Uma divisão deixa resto 0 apenas quando:", opts: ["O divisor é maior que o dividendo", "O dividendo é ímpar", "O dividendo é múltiplo do divisor", "O divisor é par"], c: 2, h: "Múltiplos produzem divisões exatas." }
 
-
-
-
-
-            ] },
+            ] 
+        },
             { id: "fracao", name: "Fração", prep: { title: "Partes de um inteiro", content: "<p>Frações representam partes de um todo: 1/2, 1/3, 3/4.</p>", skin: "🍕" }, pool: [
                 { id: 1, bloom: 1, q: "Qual fração representa metade?", opts: ["1/2", "1/3", "2/3", "1/4"], c: 0, h: "Metade é 1/2." },
                 { id: 2, bloom: 1, q: "Qual fração representa um quarto?", opts: ["1/2", "1/3", "1/4", "2/4"], c: 2, h: "Um quarto = 1/4." },
@@ -648,91 +654,76 @@ const DB = {
             { id: "medidas_tempo", name: "Medidas de tempo",
                 prep: { title: "Marcando o tempo", content: "<p>Vamos aprender a medir o tempo com segundos, minutos, horas, dias, semanas, meses e anos.</p>", skin: "⏰" },
                 pool: [
-                    // ---------------- BLOOM 1 — Lembrar ----------------
-                    { id: 1, bloom: 1, q: "Quanto é 7 ÷ 2?", opts: ["3", "3 e resto 1", "4", "2"], c: 1, h: "7 ÷ 2 = 3 resto 1." },
-                    { id: 2, bloom: 1, q: "Quanto é 9 ÷ 4?", opts: ["2", "2 r1", "3", "3 r2"], c: 1, h: "9 ÷ 4 = 2 r1." },
-                    { id: 3, bloom: 1, q: "Dividir 10 por 3 resulta em:", opts: ["3", "3 r1", "4", "4 r2"], c: 1, h: "10 ÷ 3 = 3 r1." },
-                    { id: 4, bloom: 1, q: "Quanto é 15 ÷ 4?", opts: ["3 r1", "4 r3", "3 r3", "5 r1"], c: 2, h: "15 ÷ 4 = 3 r3." }, // Corrigido c de 0 para 2
-                    { id: 5, bloom: 1, q: "Quanto é 13 ÷ 5?", opts: ["2", "2 r3", "3 r2", "4"], c: 1, h: "13 ÷ 5 = 2 r3." },
-                    { id: 6, bloom: 1, q: "Quanto é 11 ÷ 2?", opts: ["5", "5 r1", "6 r1", "4 r3"], c: 1, h: "11 ÷ 2 = 5 r1." },
-                    { id: 7, bloom: 1, q: "12 ÷ 5 resulta em:", opts: ["2", "2 r2", "3", "3 r1"], c: 1, h: "12 ÷ 5 = 2 r2." },
-                    { id: 8, bloom: 1, q: "Dividir 8 por 3 resulta em:", opts: ["2 r1", "3 r2", "2 r2", "3"], c: 2, h: "8 ÷ 3 = 2 r2." }, // Corrigido c de 0 para 2
-                    { id: 9, bloom: 1, q: "Dividir 22 por 7:", opts: ["3 r1", "2 r5", "3 r2", "3 r7"], c: 0, h: "22 ÷ 7 = 3 r1." }, // Corrigido c de 2 para 0
-                    { id: 10, bloom: 1, q: "Dividir 14 por 4 resulta em:", opts: ["3 r2", "4 r1", "3 r1", "2 r3"], c: 0, h: "14 ÷ 4 = 3 r2." },
-
-                    // ---------------- BLOOM 2 — Compreender ----------------
-                    
-                    { id: 11, bloom: 2, q: "Uma divisão exata é aquela em que:", opts: ["O divisor é menor", "O resto é zero", "O quociente é grande", "O número é par"], c: 1, h: "Resto zero = divisão exata." },
-                    { id: 12, bloom: 2, q: "Qual divisão é EXATA?", opts: ["9 ÷ 2", "12 ÷ 4", "14 ÷ 3", "22 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
-                    { id: 13, bloom: 2, q: "Qual divisão NÃO é exata?", opts: ["20 ÷ 5", "18 ÷ 6", "15 ÷ 4", "28 ÷ 7"], c: 2, h: "15 ÷ 4 tem resto." },
-                    { id: 14, bloom: 2, q: "Se sobrou resto, significa que:", opts: ["A conta está errada", "Não é possível dividir", "Os grupos não ficaram iguais", "O divisor é maior"], c: 2, h: "Resto indica sobra." },
-                    { id: 15, bloom: 2, q: "Se uma divisão tem resto 0, então:", opts: ["É não exata", "É exata", "É impossível", "Não existe quociente"], c: 1, h: "R=0 → exata." },
-                    { id: 16, bloom: 2, q: "Se 10 ÷ 4 = 2 r2, o 2 do resultado chama-se:", opts: ["Resto", "Dividendo", "Quociente", "Divisor"], c: 2, h: "Quociente = parte inteira." },
-                    { id: 17, bloom: 2, q: "No cálculo 19 ÷ 3 = 6 r1, o 1 representa:", opts: ["Divisor", "Quociente", "Resto", "Dividendo"], c: 2, h: "Resto = o que sobra." },
-                    { id: 18, bloom: 2, q: "Uma divisão com resto indica que:", opts: ["A conta está errada", "O total não foi suficiente para formar grupos iguais", "O divisor é zero", "O dividendo é ímpar"], c: 1, h: "Resto é sobra." },
-                    { id: 19, bloom: 2, q: "Qual das divisões forma grupos iguais SEM sobrar?", opts: ["18 ÷ 4", "25 ÷ 6", "14 ÷ 2", "13 ÷ 5"], c: 2, h: "14 ÷ 2 = exata." },
-                    { id: 20, bloom: 2, q: "Se uma divisão tem quociente 4 e resto 2, ela é:", opts: ["Exata", "Não exata", "Impossível", "Infinita"], c: 1, h: "Resto > 0 → não exata." },
-
-                    // ---------------- BLOOM 3 — Aplicar ----------------
-                    { id: 21, bloom: 3, q: "Divida 25 em grupos de 4:", opts: ["6 r1", "6 r2", "5 r0", "7 r3"], c: 0, h: "25 ÷ 4 = 6 r1." }, // Corrigido c de 1 para 0
-                    { id: 22, bloom: 3, q: "27 ÷ 5 =", opts: ["5 r2", "5 r3", "6 r1", "4 r3"], c: 0, h: "27 ÷ 5 = 5 r2." },
-                    { id: 23, bloom: 3, q: "44 ÷ 6 =", opts: ["7 r1", "7 r2", "8 r2", "6 r4"], c: 1, h: "6×7 = 42, sobra 2." }, // Corrigido c de 0 para 1
-                    { id: 24, bloom: 3, q: "36 alunos em grupos de 5. Quantos grupos completos?", opts: ["6 r0", "7 r1", "7 r0", "8 r2"], c: 1, h: "7 grupos completos, sobra 1 aluno." },
-                    { id: 25, bloom: 3, q: "19 ÷ 6 =", opts: ["3 r1", "3 r2", "2 r3", "4 r1"], c: 0, h: "3×6 = 18, sobra 1." }, // Corrigido c de 1 para 0
-                    { id: 26, bloom: 3, q: "33 ÷ 7 =", opts: ["4 r5", "4 r3", "5 r2", "3 r4"], c: 0, h: "4×7 = 28, resto 5." }, // Corrigido c de 1 para 0
-                    { id: 27, bloom: 3, q: "50 ÷ 8 =", opts: ["6 r2", "6 r3", "7 r2", "5 r5"], c: 0, h: "6×8 = 48, resto 2." },
-                    { id: 28, bloom: 3, q: "Se 31 balas são divididas entre 4 crianças, cada uma recebe:", opts: ["7 r3", "8 r1", "7 r2", "6 r3"], c: 0, h: "7 balas cada e sobram 3." }, // Corrigido c de 2 para 0
-                    { id: 29, bloom: 3, q: "42 ÷ 5 =", opts: ["8 r2", "7 r1", "6 r4", "9 r1"], c: 0, h: "8×5 = 40, resto 2." },
-                    { id: 30, bloom: 3, q: "83 ÷ 9 =", opts: ["9 r2", "8 r5", "7 r6", "10 r3"], c: 0, h: "9×9 = 81, resta 2." }, // Corrigido c de 1 para 0
-
-                    // ---------------- BLOOM 4 — Analisar ----------------
-                    { id: 31, bloom: 4, q: "Qual divisão tem MAIOR resto?", opts: ["20 ÷ 3", "19 ÷ 4", "22 ÷ 5", "25 ÷ 6"], c: 1, h: "19 ÷ 4 tem resto 3 (os outros são 2, 2, 1)." }, // Corrigido c de 0 para 1
-                    { id: 32, bloom: 4, q: "Qual divisão é exata?", opts: ["21 ÷ 4", "30 ÷ 6", "34 ÷ 5", "47 ÷ 8"], c: 1, h: "30 ÷ 6 = 5." },
-                    { id: 33, bloom: 4, q: "Qual divisão tem quociente maior?", opts: ["20 ÷ 4", "30 ÷ 5", "21 ÷ 7", "12 ÷ 3"], c: 1, h: "30 ÷ 5 = 6 (maior que 5, 3, 4)." }, // Opções ajustadas para evitar empate
-                    { id: 34, bloom: 4, q: "Qual sobra mais?", opts: ["18 ÷ 4", "18 ÷ 5", "18 ÷ 6", "18 ÷ 7"], c: 3, h: "18 ÷ 7 sobra 4." }, // Corrigido c de 1 para 3
-                    { id: 35, bloom: 4, q: "Qual tem resto igual a 1?", opts: ["10 ÷ 3", "12 ÷ 5", "16 ÷ 3", "18 ÷ 4"], c: 0, h: "10 ÷ 3 = 3 r1." },
-                    { id: 36, bloom: 4, q: "Qual divisão tem resto zero?", opts: ["40 ÷ 9", "42 ÷ 6", "33 ÷ 8", "29 ÷ 7"], c: 1, h: "42 ÷ 6 = exata." },
-                    { id: 37, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "25 ÷ 5", "30 ÷ 6", "35 ÷ 7"], c: 0, h: "18 ÷ 4 = 4 r2 (os outros são 5)." }, // Opções ajustadas para evitar duplicidade
-                    { id: 38, bloom: 4, q: "Qual divisão apresenta o MAIOR resto?", opts: ["22 ÷ 7", "25 ÷ 6", "29 ÷ 4", "17 ÷ 5"], c: 3, h: "17 ÷ 5 = resto 2, maior entre as opções." },
-                    { id: 39, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 3", "20 ÷ 4", "25 ÷ 6", "35 ÷ 7"], c: 2, h: "25 ÷ 6 = 4 r1 (os outros são 6 ou 5)." }, // Opções ajustadas
-                    { id: 40, bloom: 4, q: "Qual divisão tem resto igual a 3?", opts: ["15 ÷ 4", "20 ÷ 6", "22 ÷ 7", "18 ÷ 4"], c: 0, h: "15 ÷ 4 = 3 r3." }, // Opção duplicada removida
-
-                    // ---------------- BLOOM 5 — Avaliar ----------------
-                    { id: 41, bloom: 5, q: "Qual estratégia resolve melhor 59 ÷ 7?", opts: ["Ver 7×8=56", "Somar 7 repetidas vezes", "Adivinhar", "Testar números aleatórios"], c: 0, h: "Buscar múltiplo próximo." },
-                    { id: 42, bloom: 5, q: "Para estimar 82 ÷ 9, qual aproximação usar?", opts: ["9×9=81", "9×8=70", "9×5=45", "9×12=108"], c: 0, h: "81 é o múltiplo mais próximo." },
-                    { id: 43, bloom: 5, q: "Qual divisão é mais rápida de confirmar mentalmente?", opts: ["48 ÷ 6", "53 ÷ 7", "41 ÷ 8", "59 ÷ 9"], c: 0, h: "48 ÷ 6 é exata e está na tabuada." },
-                    { id: 44, bloom: 5, q: "Qual operação ajuda a conferir 34 ÷ 5?", opts: ["Subtração", "Multiplicação", "Soma", "Nenhuma"], c: 1, h: "Multiplicar quociente e divisor." },
-                    { id: 45, bloom: 5, q: "Qual divisão tem quociente menor?", opts: ["40 ÷ 10", "40 ÷ 5", "40 ÷ 4", "40 ÷ 2"], c: 0, h: "Maior divisor → quociente menor." },
-                    { id: 46, bloom: 5, q: "Para resolver 73 ÷ 6, a melhor abordagem de estimativa é:", opts: ["Buscar 6×12", "Buscar 6×10", "Buscar 6×20", "Tentar adivinhar"], c: 0, h: "6×12=72 é muito próximo." },
-                    { id: 47, bloom: 5, q: "Qual divisão é mais difícil mentalmente (não exata)?", opts: ["60 ÷ 6", "50 ÷ 5", "73 ÷ 8", "40 ÷ 4"], c: 2, h: "Não é exata." },
-                    { id: 48, bloom: 5, q: "Qual divisão deixa o MENOR resto?", opts: ["31 ÷ 5", "32 ÷ 6", "33 ÷ 7", "34 ÷ 5"], c: 0, h: "31 ÷ 5 = 6 r1." },
-                    { id: 49, bloom: 5, q: "Qual divisão tem quociente mais próximo de 10?", opts: ["95 ÷ 9", "98 ÷ 8", "90 ÷ 7", "102 ÷ 10"], c: 3, h: "102 ÷ 10 = 10 r2." },
-                    { id: 50, bloom: 5, q: "Qual divisão possui resto mais previsível (zero)?", opts: ["35 ÷ 6", "36 ÷ 6", "37 ÷ 6", "38 ÷ 6"], c: 1, h: "36 ÷ 6 = exata." },
-
-                    // ---------------- BLOOM 6 — Criar ----------------
-                    { id: 51, bloom: 6, q: "Qual número dividido por 5 deixa resto 3?", opts: ["13", "15", "19", "24"], c: 0, h: "13 ÷ 5 = 2 r3." }, // Opções ajustadas para ter só uma correta
-                    { id: 52, bloom: 6, q: "Qual número dividido por 4 deixa resto 1?", opts: ["9", "10", "12", "14"], c: 0, h: "9 ÷ 4 = 2 r1." },
-                    { id: 53, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 6 partes:", opts: ["18", "24", "30", "31"], c: 3, h: "31 não é múltiplo de 6." },
-                    { id: 54, bloom: 6, q: "Crie uma divisão não exata:", opts: ["20 ÷ 5", "18 ÷ 6", "21 ÷ 4", "12 ÷ 3"], c: 2, h: "21 ÷ 4 tem resto." },
-                    { id: 55, bloom: 6, q: "Escolha um número que seja múltiplo de 7:", opts: ["14", "15", "16", "17"], c: 0, h: "14 é múltiplo de 7." },
-                    { id: 56, bloom: 6, q: "Crie um exemplo de resto igual a 2:", opts: ["10 ÷ 4", "9 ÷ 3", "8 ÷ 2", "14 ÷ 7"], c: 0, h: "10 ÷ 4 = 2 r2." },
-                    { id: 57, bloom: 6, q: "Escolha um total que dividido por 8 resulte em resto 4:", opts: ["10", "20", "26", "34"], c: 1, h: "20 ÷ 8 = 2 r4." }, // Opções ajustadas para ter só uma correta
-                    { id: 58, bloom: 6, q: "Escolha uma divisão com resto MAIOR que 3:", opts: ["25 ÷ 4", "27 ÷ 6", "19 ÷ 5", "22 ÷ 10"], c: 2, h: "19 ÷ 5 = 3 r4." }, // Opções ajustadas
-                    { id: 59, bloom: 6, q: "Escolha um número que ao dividir por 3 resulte em quociente 9 exato:", opts: ["27", "30", "33", "36"], c: 0, h: "27 ÷ 3 = 9." }, // Corrigido c de 2 para 0
-                    { id: 60, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 4 partes:", opts: ["12", "16", "18", "20"], c: 2, h: "18 não é múltiplo de 4." },
-
-                    // ---------------- BLOOM 7 — Raciocínio ----------------
-                    { id: 61, bloom: 7, q: "Se 35 ÷ x deixa resto 5, qual valor NÃO pode ser x?", opts: ["5", "6", "10", "15"], c: 0, h: "O resto (5) nunca pode ser igual ou maior que o divisor." }, // Opções ajustadas para lógica
-                    { id: 62, bloom: 7, q: "Em qualquer divisão, o resto deve ser sempre:", opts: ["Maior que o divisor", "Menor que o divisor", "Igual ao divisor", "Zero"], c: 1, h: "Regra básica: Resto < Divisor." }, // Questão reescrita para clareza
-                    { id: 63, bloom: 7, q: "Se 50 ÷ 6 = 8 r2, então 100 ÷ 6 vale:", opts: ["16 r2", "16 r4", "20 r0", "18 r4"], c: 1, h: "O dobro de 50 é 100, então dobra o quociente e o resto." },
-                    { id: 64, bloom: 7, q: "Se a divisão 43 ÷ x deixa resto 3, qual número pode ser x?", opts: ["4", "6", "7", "9"], c: 0, h: "43 ÷ 4 = 10 r3." }, // Opções ajustadas
-                    { id: 65, bloom: 7, q: "Se 28 ÷ y = 4 r0, y deve ser:", opts: ["6", "7", "8", "5"], c: 1, h: "4×7 = 28." },
-                    { id: 66, bloom: 7, q: "Qual afirmação é verdadeira sobre divisões?", opts: ["O resto pode ser maior que o divisor", "O resto deve ser sempre menor que o divisor", "O resto é sempre zero", "O resto é igual ao quociente"], c: 1, h: "O resto nunca pode ultrapassar o divisor." }, // Questão reescrita
-                    { id: 67, bloom: 7, q: "Se 63 ÷ 8 = 7 r7, o dividendo para ter quociente 7 e resto 1 (mantendo divisor 8) é:", opts: ["57", "58", "55", "65"], c: 0, h: "7×8 + 1 = 57." }, // Corrigido c
-                    { id: 68, bloom: 7, q: "Quanto é o resto em 29 ÷ 7?", opts: ["1", "2", "3", "4"], c: 0, h: "4×7 = 28 → sobra 1." },
-                    { id: 69, bloom: 7, q: "O resto da divisão 22 ÷ 7 é:", opts: ["0", "1", "2", "3"], c: 1, h: "22 = 3×7 + 1." }, // Questão simplificada
-                    { id: 70, bloom: 7, q: "Uma divisão deixa resto 0 apenas quando:", opts: ["O divisor é maior que o dividendo", "O dividendo é ímpar", "O dividendo é múltiplo do divisor", "O divisor é par"], c: 2, h: "Múltiplos produzem divisões exatas." }
-
+                    { id: 1, bloom: 1, q: "Quantos minutos tem 1 hora?", opts: ["30 minutos", "60 minutos", "24 minutos", "10 minutos"], c: 1, h: "1 hora sempre tem 60 minutos." },
+                    { id: 2, bloom: 1, q: "Quantas horas tem 1 dia?", opts: ["12 horas", "24 horas", "7 horas", "60 horas"], c: 1, h: "Um dia completo tem 24 horas." },
+                    { id: 3, bloom: 1, q: "Quantos dias tem 1 semana?", opts: ["5 dias", "6 dias", "7 dias", "8 dias"], c: 2, h: "A semana tem 7 dias: de domingo a sábado." },
+                    { id: 4, bloom: 1, q: "Quantos meses tem 1 ano?", opts: ["10 meses", "11 meses", "12 meses", "13 meses"], c: 2, h: "Um ano tem 12 meses." },
+                    { id: 5, bloom: 1, q: "Se uma aula dura 1 hora, ela dura quantos minutos?", opts: ["30 minutos", "45 minutos", "60 minutos", "90 minutos"], c: 2, h: "1 hora = 60 minutos." },
+                    { id: 6, bloom: 1, q: "O ponteiro GRANDE do relógio marca:", opts: ["Horas", "Minutos", "Dias", "Meses"], c: 1, h: "O ponteiro grande marca os minutos." },
+                    { id: 7, bloom: 1, q: "O ponteiro PEQUENO do relógio marca:", opts: ["Horas", "Minutos", "Segundos", "Dias"], c: 0, h: "O ponteiro pequeno marca as horas." },
+                    { id: 8, bloom: 1, q: "Qual unidade usamos para medir uma corrida bem rápida?", opts: ["Anos", "Dias", "Segundos", "Semanas"], c: 2, h: "Corridas rápidas são medidas em segundos." },
+                    { id: 9, bloom: 1, q: "Qual unidade usamos para medir o tempo que você dorme à noite?", opts: ["Horas", "Meses", "Anos", "Semanas"], c: 0, h: "Sono costuma ser medido em horas." },
+                    { id: 10, bloom: 1, q: "Qual unidade usamos para medir sua idade?", opts: ["Horas", "Dias", "Anos", "Minutos"], c: 2, h: "Idade é medida em anos." },
+                    { id: 11, bloom: 2, q: "Um desenho começa às 14:00 e termina às 15:00. Quanto tempo durou?", opts: ["30 minutos", "1 hora", "2 horas", "15 minutos"], c: 1, h: "De 14:00 até 15:00 passou 1 hora." },
+                    { id: 12, bloom: 2, q: "Se você demora 30 minutos para chegar à escola, isso é:", opts: ["Meia hora", "Uma hora", "Um dia", "Uma semana"], c: 0, h: "30 minutos é meia hora." },
+                    { id: 13, bloom: 2, q: "Você almoça às 12:00. O que significa esse horário?", opts: ["Meio-dia", "Meia-noite", "Fim do dia", "Começo da madrugada"], c: 0, h: "12:00 é meio-dia." },
+                    { id: 14, bloom: 2, q: "Você vai ao parque todos os sábados. Isso acontece:", opts: ["Todo dia", "Toda semana", "Todo mês", "Todo ano"], c: 1, h: "Sábado aparece uma vez por semana." },
+                    { id: 15, bloom: 2, q: "Se hoje é quarta-feira, daqui a 2 dias será:", opts: ["Quinta-feira", "Sexta-feira", "Sábado", "Terça-feira"], c: 1, h: "Quarta → Quinta (1 dia) → Sexta (2 dias)." },
+                    { id: 16, bloom: 2, q: "Uma atividade começou às 9:00 e terminou às 9:30. Quanto tempo passou?", opts: ["10 minutos", "20 minutos", "30 minutos", "40 minutos"], c: 2, h: "De 9:00 a 9:30 = 30 minutos." },
+                    { id: 17, bloom: 2, q: "Uma semana inteira de aula tem:", opts: ["2 dias", "3 dias", "5 dias úteis", "10 dias"], c: 2, h: "Normalmente são 5 dias de aula: segunda a sexta." },
+                    { id: 18, bloom: 2, q: "Se você faz aniversário todo dia 10 de maio, isso acontece:", opts: ["Todo mês", "Todo ano", "Toda semana", "Todo dia"], c: 1, h: "Aniversário se repete a cada ano." },
+                    { id: 19, bloom: 2, q: "Você ficou 2 horas jogando videogame. Isso corresponde a:", opts: ["60 minutos", "90 minutos", "120 minutos", "30 minutos"], c: 2, h: "2 horas = 120 minutos." },
+                    { id: 20, bloom: 2, q: "Se uma prova começa às 8:00 e termina às 9:00, o tempo de prova foi de:", opts: ["30 minutos", "1 hora", "2 horas", "3 horas"], c: 1, h: "De 8:00 a 9:00 = 1 hora." },
+                    { id: 21, bloom: 3, q: "Você começou a assistir um filme às 16:00 e terminou às 18:00. Quanto tempo durou o filme?", opts: ["1 hora", "2 horas", "3 horas", "4 horas"], c: 1, h: "De 16:00 a 18:00 passaram 2 horas." },
+                    { id: 22, bloom: 3, q: "Uma corrida começou às 9:15 e terminou às 9:45. Quanto tempo durou?", opts: ["15 minutos", "20 minutos", "30 minutos", "45 minutos"], c: 2, h: "De 9:15 a 9:45 = 30 minutos." },
+                    { id: 23, bloom: 3, q: "Você estuda 1 hora por dia. Em 3 dias, quantas horas estudou?", opts: ["1 hora", "2 horas", "3 horas", "4 horas"], c: 2, h: "1 hora por dia × 3 dias = 3 horas." },
+                    { id: 24, bloom: 3, q: "Você jogou 45 minutos de manhã e 15 minutos à tarde. Quanto tempo jogou no total?", opts: ["45 minutos", "50 minutos", "60 minutos", "70 minutos"], c: 2, h: "45 + 15 = 60 minutos = 1 hora." },
+                    { id: 25, bloom: 3, q: "Você entrou na escola às 7:30 e saiu às 11:30. Quanto tempo ficou na escola?", opts: ["3 horas", "4 horas", "5 horas", "6 horas"], c: 1, h: "De 7:30 a 11:30 = 4 horas." },
+                    { id: 26, bloom: 3, q: "Uma aula começa às 10:00 e dura 50 minutos. Em que horário termina?", opts: ["10:30", "10:40", "10:50", "11:00"], c: 2, h: "10:00 + 50 minutos = 10:50." },
+                    { id: 27, bloom: 3, q: "Você lê 10 minutos antes de dormir, todos os dias. Em 6 dias, leu por quanto tempo?", opts: ["30 minutos", "40 minutos", "60 minutos", "120 minutos"], c: 2, h: "10 × 6 = 60 minutos = 1 hora." },
+                    { id: 28, bloom: 3, q: "Seu treino começou às 17:00 e terminou às 18:30. Quanto tempo durou?", opts: ["1 hora", "1 hora e 30 minutos", "2 horas", "2 horas e 30 minutos"], c: 1, h: "De 17:00 a 18:30 = 1h e 30min." },
+                    { id: 29, bloom: 3, q: "Você ficou 25 minutos fazendo um exercício e depois mais 35 minutos. Quanto tempo no total?", opts: ["50 minutos", "55 minutos", "60 minutos", "65 minutos"], c: 2, h: "25 + 35 = 60 minutos." },
+                    { id: 30, bloom: 3, q: "Um passeio começou às 8:30 e acabou às 11:00. Quanto tempo durou o passeio?", opts: ["2 horas", "2 horas e 30 minutos", "3 horas", "3 horas e 30 minutos"], c: 1, h: "De 8:30 a 11:00 = 2h e 30min." },
+                    { id: 31, bloom: 4, q: "Qual é maior: 30 minutos ou 1 hora?", opts: ["30 minutos", "1 hora", "São iguais", "Depende do dia"], c: 1, h: "1 hora = 60 minutos, maior que 30." },
+                    { id: 32, bloom: 4, q: "Qual dura MAIS tempo?", opts: ["1 hora", "45 minutos", "30 minutos", "15 minutos"], c: 0, h: "1 hora é o maior tempo entre as opções." },
+                    { id: 33, bloom: 4, q: "Qual opção representa MENOS tempo?", opts: ["1 dia", "2 horas", "30 minutos", "1 semana"], c: 2, h: "30 minutos é o menor intervalo." },
+                    { id: 34, bloom: 4, q: "O que é maior?", opts: ["1 dia", "12 horas", "6 horas", "3 horas"], c: 0, h: "1 dia = 24 horas, maior que as outras opções." },
+                    { id: 35, bloom: 4, q: "Qual intervalo é MAIOR?", opts: ["Das 8:00 às 9:00", "Das 8:00 às 8:30", "Das 8:00 às 8:15", "Das 8:00 às 8:45"], c: 0, h: "8:00–9:00 = 1 hora, maior que os outros." },
+                    { id: 36, bloom: 4, q: "Qual intervalo é MENOR?", opts: ["10 minutos", "20 minutos", "30 minutos", "40 minutos"], c: 0, h: "10 minutos é o menor tempo." },
+                    { id: 37, bloom: 4, q: "O que dura mais: 3 dias ou 1 semana?", opts: ["3 dias", "1 semana", "São iguais", "Depende do mês"], c: 1, h: "1 semana tem 7 dias, maior que 3 dias." },
+                    { id: 38, bloom: 4, q: "O que é maior: 2 horas ou 90 minutos?", opts: ["2 horas", "90 minutos", "São iguais", "Não dá para saber"], c: 0, h: "2 horas = 120 minutos, maior que 90 minutos." },
+                    { id: 39, bloom: 4, q: "Qual situação representa MAIS tempo?", opts: ["Estudar 20 minutos", "Estudar 35 minutos", "Estudar 1 hora", "Estudar 45 minutos"], c: 2, h: "1 hora = 60 minutos, maior que os demais." },
+                    { id: 40, bloom: 4, q: "Qual é o intervalo MAIS curto?", opts: ["Das 7:00 às 8:00", "Das 7:00 às 7:30", "Das 7:00 às 7:15", "Das 7:00 às 7:45"], c: 2, h: "7:00–7:15 dura só 15 minutos." },
+                    { id: 41, bloom: 5, q: "Você quer saber se 2 horas é o mesmo que 120 minutos. Qual estratégia é melhor?", opts: ["Somar vários números aleatórios", "Lembrar que 1 hora = 60 minutos e calcular 60 + 60", "Olhar para o relógio e adivinhar", "Perguntar a um amigo sem pensar"], c: 1, h: "2 × 60 = 120, usando a relação 1 hora = 60 minutos." },
+                    { id: 42, bloom: 5, q: "Você esqueceu quantos minutos tem 1 hora. O que é melhor fazer?", opts: ["Inventar um número", "Lembrar das aulas: 1 hora = 60 minutos", "Dizer que não existe resposta", "Escolher qualquer alternativa"], c: 1, h: "Usar o que já sabe: 1 hora = 60 minutos." },
+                    { id: 43, bloom: 5, q: "Seu amigo diz que 3 horas têm 90 minutos. O que você deve concluir?", opts: ["Ele está certo", "Ele está errado, porque 3 horas têm 180 minutos", "Depende do dia", "Não existe jeito de conferir"], c: 1, h: "3 × 60 = 180 minutos." },
+                    { id: 44, bloom: 5, q: "Você quer saber se 1 dia tem mais ou menos de 30 horas. Qual é a melhor ideia?", opts: ["Lembrar que 1 dia tem 24 horas", "Adivinhar o número", "Perguntar a alguém sem pensar", "Dizer que 1 dia tem 30 horas"], c: 0, h: "Sabemos que 1 dia tem 24 horas (menos que 30)." },
+                    { id: 45, bloom: 5, q: "Você sabe que 1 semana tem 7 dias. Qual frase faz mais sentido?", opts: ["2 semanas têm 10 dias", "2 semanas têm 14 dias", "2 semanas têm 20 dias", "2 semanas têm 7 dias"], c: 1, h: "2 × 7 = 14 dias." },
+                    { id: 46, bloom: 5, q: "Você quer organizar seu estudo por 30 minutos. Qual forma é melhor para controlar o tempo?", opts: ["Olhar o relógio e marcar meia hora", "Adivinhar quando terminou", "Estudar sem olhar o relógio", "Esperar alguém mandar parar"], c: 0, h: "Olhar o relógio e contar 30 minutos é o mais seguro." },
+                    { id: 47, bloom: 5, q: "Você acha que 60 segundos é igual a 1 minuto. O que pode confirmar isso?", opts: ["Somar 60 vezes 1 segundo", "Lembrar da definição: 1 minuto = 60 segundos", "Perguntar sem pensar", "Dizer que não importa"], c: 1, h: "Por definição, 1 minuto = 60 segundos." },
+                    { id: 48, bloom: 5, q: "Um colega diz que 2 horas é menos tempo que 100 minutos. Como avaliar isso?", opts: ["Aceitar sem pensar", "Comparar: 2 horas = 120 minutos, que é maior que 100", "Dizer que são iguais", "Dizer que 2 horas é menor que 100 minutos"], c: 1, h: "2 horas = 120 minutos, maior que 100." },
+                    { id: 49, bloom: 5, q: "Você precisa escolher um tempo de descanso CURTO. Qual é a melhor opção?", opts: ["5 minutos", "1 hora", "2 horas", "1 dia"], c: 0, h: "5 minutos é o menor intervalo." },
+                    { id: 50, bloom: 5, q: "Qual é a melhor justificativa para dizer que 1 mês é menor que 1 ano?", opts: ["Porque o mês é mais bonito", "Porque 1 ano tem 12 meses", "Porque todo mundo fala isso", "Porque meses não existem"], c: 1, h: "1 ano = 12 meses, então 1 mês é bem menor que 1 ano." },
+                    { id: 51, bloom: 6, q: "Escolha um horário que represente bem 'acordar cedo para ir à escola':", opts: ["3:00 da madrugada", "6:30 da manhã", "12:00 (meio-dia)", "23:00 (11 da noite)"], c: 1, h: "6:30 é um horário comum para acordar cedo." },
+                    { id: 52, bloom: 6, q: "Você quer inventar um tempo de leitura ANTES de dormir, que não seja muito longo. Qual é uma boa escolha?", opts: ["10 minutos", "3 horas", "2 dias", "1 semana"], c: 0, h: "10 minutos é um tempo curto e possível todo dia." },
+                    { id: 53, bloom: 6, q: "Crie uma situação que dure CERCA de 1 hora:", opts: ["Escovar os dentes", "Assistir um episódio de desenho", "Piscar os olhos", "Dar um passo"], c: 1, h: "Um episódio de desenho ou programa pode durar perto de 1 hora." },
+                    { id: 54, bloom: 6, q: "Qual intervalo de tempo faz sentido para uma partida de futebol infantil?", opts: ["5 segundos", "10 minutos", "1 hora ou mais", "1 semana"], c: 2, h: "Uma partida costuma durar perto de 1 hora (contando pausas)." },
+                    { id: 55, bloom: 6, q: "Você quer inventar um cronograma: 20 minutos de leitura + 40 minutos de brincadeira. Quanto tempo total?", opts: ["30 minutos", "40 minutos", "60 minutos", "90 minutos"], c: 2, h: "20 + 40 = 60 minutos = 1 hora." },
+                    { id: 56, bloom: 6, q: "Você quer dividir 2 horas de estudo em dois períodos IGUAIS. Quanto tempo terá cada período?", opts: ["30 minutos", "45 minutos", "1 hora", "2 horas"], c: 2, h: "2 horas divididas por 2 = 1 hora para cada." },
+                    { id: 57, bloom: 6, q: "Para planejar uma sessão de jogos não muito longa, qual duração é mais adequada?", opts: ["15 minutos", "3 horas", "2 dias", "1 semana"], c: 0, h: "15 minutos é um intervalo curto e controlado." },
+                    { id: 58, bloom: 6, q: "Você vai ao cinema e o filme dura 2 horas. Se a sessão começa às 16:30, que horário termina?", opts: ["17:00", "18:30", "19:30", "20:30"], c: 1, h: "16:30 + 2 horas = 18:30." },
+                    { id: 59, bloom: 6, q: "Para um recreio na escola, qual tempo faz mais sentido?", opts: ["5 minutos", "15 minutos", "3 horas", "1 dia"], c: 1, h: "Recreios costumam durar perto de 15 minutos ou mais, mas não horas." },
+                    { id: 60, bloom: 6, q: "Você quer criar um desafio: ficar 1 minuto em silêncio. O que é verdade sobre esse tempo?", opts: ["É muito mais que 1 hora", "É igual a 60 segundos", "É igual a 10 segundos", "Não tem como medir"], c: 1, h: "1 minuto = 60 segundos." },
+                    { id: 61, bloom: 7, q: "Se você dobra o tempo de estudo de 30 minutos para 60 minutos, o que aconteceu com o tempo de estudo?", opts: ["Diminuiu", "Ficou igual", "Dobrou", "Virou zero"], c: 2, h: "De 30 para 60 minutos → o tempo foi dobrado." },
+                    { id: 62, bloom: 7, q: "Você sabe que 1 hora = 60 minutos. Se estudar 2 horas, isso equivale a:", opts: ["60 minutos", "90 minutos", "120 minutos", "30 minutos"], c: 2, h: "2 × 60 = 120 minutos." },
+                    { id: 63, bloom: 7, q: "Se você aumenta o número de dias de estudo na semana, o que acontece com o total de horas estudadas, se você estudar o mesmo tempo por dia?", opts: ["Aumenta", "Diminui", "Fica sempre igual", "Desaparece"], c: 0, h: "Mais dias × mesma quantidade de horas = mais horas no total." },
+                    { id: 64, bloom: 7, q: "Você sabe que 3 dias têm 72 horas. Como chegou a esse número?", opts: ["3 × 12", "3 × 24", "3 × 60", "3 × 7"], c: 1, h: "1 dia = 24 horas, então 3 × 24 = 72." },
+                    { id: 65, bloom: 7, q: "Se 1 semana tem 7 dias, quantos dias há em 2 semanas?", opts: ["10 dias", "12 dias", "14 dias", "21 dias"], c: 2, h: "2 × 7 = 14 dias." },
+                    { id: 66, bloom: 7, q: "Você quer saber se 90 minutos é mais ou menos que 1 hora e meia. Qual raciocínio é melhor?", opts: ["Pensar que 1 hora e meia são 60 + 30 = 90 minutos", "Adivinhar", "Dizer que 1 hora e meia é 30 minutos", "Dizer que não dá para comparar"], c: 0, h: "1h30 = 60 + 30 = 90 minutos." },
+                    { id: 67, bloom: 7, q: "Se você estudar 1 hora por dia durante 5 dias, quantas horas terá estudado no total?", opts: ["3 horas", "4 horas", "5 horas", "6 horas"], c: 2, h: "1 × 5 = 5 horas." },
+                    { id: 68, bloom: 7, q: "Você quer saber quantas horas existem em 2 dias. Qual conta ajuda?", opts: ["2 + 24", "2 × 24", "24 ÷ 2", "2 ÷ 24"], c: 1, h: "2 dias × 24 horas por dia = 48 horas." },
+                    { id: 69, bloom: 7, q: "Se uma atividade começa às 14:00 e acaba às 17:00, qual frase é CORRETA?", opts: ["Durou 2 horas", "Durou 3 horas", "Durou 4 horas", "Durou 5 horas"], c: 1, h: "De 14:00 a 17:00 passaram 3 horas." },
+                    { id: 70, bloom: 7, q: "Se você sabe que 1 minuto = 60 segundos, qual é o total de segundos em 5 minutos?", opts: ["60 segundos", "120 segundos", "180 segundos", "300 segundos"], c: 3, h: "5 × 60 = 300 segundos." }
                 ]
             }
 

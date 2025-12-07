@@ -64,7 +64,7 @@
             border-radius: 10px;
         }
 
-        /* Estilo para a Tabuada */
+        /* Estilo Tabuada */
         .tabuada-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -160,12 +160,14 @@
         </section>
 
         <section id="screen-game" class="hidden-screen w-full pb-32">
-            <div class="flex items-center gap-3 mb-6 bg-base-100 p-2 rounded-2xl shadow-sm border border-base-200">
+            <div class="flex items-center gap-2 mb-6 bg-base-100 p-2 rounded-2xl shadow-sm border border-base-200">
 
                 <button onclick="Game.exitGame()"
                     class="btn btn-sm btn-error btn-outline bg-red-50 hover:bg-red-100 border-red-200 text-red-600 gap-1 flex-none">
                     ✕ <span class="hidden sm:inline">Sair</span>
                 </button>
+
+                <div id="game-tools-container"></div>
 
                 <div class="flex-grow flex flex-col justify-center px-2">
                     <progress class="progress progress-primary w-full h-3 transition-all duration-500" value="0"
@@ -198,21 +200,17 @@
                 onclick="tabuada_modal.close()">✕</button>
             <h3 class="font-black text-2xl text-center text-primary mb-4">🔢 Tabuada Mágica</h3>
 
-            <div class="flex flex-wrap gap-2 justify-center mb-6" id="tabuada-selector">
-            </div>
+            <div class="flex flex-wrap gap-2 justify-center mb-6" id="tabuada-selector"></div>
 
             <div id="tabuada-display" class="bg-base-200 rounded-2xl p-4 hidden">
                 <h4 class="text-center font-bold text-xl text-secondary mb-3" id="tabuada-current-title">Tabuada do 2
                 </h4>
-                <div class="tabuada-grid text-lg text-base-content/80" id="tabuada-content">
-                </div>
+                <div class="tabuada-grid text-lg text-base-content/80" id="tabuada-content"></div>
             </div>
 
             <p class="text-center text-xs text-gray-400 mt-4">Toque em um número para ver!</p>
         </div>
-        <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-        </form>
+        <form method="dialog" class="modal-backdrop"><button>close</button></form>
     </dialog>
 
     <dialog id="settings_modal" class="modal modal-bottom sm:modal-middle">
@@ -227,14 +225,13 @@
                 </div>
             </div>
             <label class="label"><span class="label-text font-bold">Estilo Visual</span></label>
-
             <div class="grid grid-cols-3 gap-2 mb-6">
                 <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
                     onclick="UI.changeTheme('cupcake')">
                     <span class="w-4 h-4 rounded-full bg-[#65c3c8]"></span>Cupcake
                 </button>
                 <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('bumblebee')">
+                    onclick="UI.changeTheme('cyberpunk')">
                     <span class="w-4 h-4 rounded-full bg-[#e0a82e]"></span>Abelha
                 </button>
                 <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
@@ -306,16 +303,11 @@
 
     <script src="database.js"></script>
     <script>
-        // --- CONFIG ---
-        const CURRENT_VERSION = 'mestres_save_v6';
-        const LEGACY_VERSIONS = ['mestres_save_v5'];
+        const CURRENT_VERSION = 'mestres_save_v7';
+        const LEGACY_VERSIONS = ['mestres_save_v6', 'mestres_save_v5'];
 
-        // --- STATE ---
         const State = {
             data: { nick: "", coins: 0, gems: 0, skins: ["🧙‍♂️"], currentSkin: "🧙‍♂️", progress: {}, attempts: {}, history: [], theme: "cupcake" },
-            // Vidas da Sessão (Não salvas no storage)
-            sessionLives: 3,
-
             load: function () {
                 let saved = localStorage.getItem(CURRENT_VERSION);
                 if (!saved) {
@@ -337,29 +329,10 @@
             save: function () { localStorage.setItem(CURRENT_VERSION, JSON.stringify(this.data)); UI.updateHeader(); },
             addToHistory: function (ids) { ids.forEach(id => { if (!this.data.history.includes(id)) this.data.history.push(id); }); this.save(); },
             cleanHistoryForPool: function (poolIds) { this.data.history = this.data.history.filter(id => !poolIds.includes(id)); this.save(); },
-            registerAttempt: function (catId, lvlIdx, passed) {
-                const key = `${catId}-lvl${lvlIdx}`;
-                if (!this.data.attempts[key]) this.data.attempts[key] = { count: 0, timestamp: 0 };
-                if (passed) this.data.attempts[key].count = 0;
-                else { this.data.attempts[key].count++; this.data.attempts[key].timestamp = Date.now(); }
-                this.save();
-            },
-            getAttemptStatus: function (catId, lvlIdx) {
-                const key = `${catId}-lvl${lvlIdx}`;
-                const att = this.data.attempts[key];
-                if (!att) return { locked: false };
-                if (att.count >= 2) {
-                    const diff = Date.now() - att.timestamp;
-                    if (diff < 86400000) return { locked: true, timeLeft: Math.ceil((86400000 - diff) / 3600000) };
-                    else { att.count = 0; this.save(); return { locked: false }; }
-                }
-                return { locked: false };
-            },
             unlockSkin: function (skin) { if (!this.data.skins.includes(skin)) { this.data.skins.push(skin); this.data.currentSkin = skin; this.save(); alert(`Nova Skin: ${skin}`); } },
             checkLevelUnlock: function (catId, lvlIdx) { if (lvlIdx === 0) return true; return this.data.progress[`${catId}-lvl${lvlIdx - 1}`] === true; }
         };
 
-        // --- UI ---
         const UI = {
             screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
 
@@ -367,19 +340,11 @@
                 this.screens.forEach(s => document.getElementById(s).classList.add('hidden-screen'));
                 const target = document.getElementById(id);
                 if (target) { target.classList.remove('hidden-screen'); target.classList.add('animate-slide-up'); }
-
                 const header = document.getElementById('main-header');
                 const footer = document.getElementById('footer-action');
-
-                if (id === 'screen-intro') {
-                    if (header) header.classList.add('hidden-screen');
-                    if (footer) footer.classList.add('hidden-screen');
-                } else {
-                    if (header) header.classList.remove('hidden-screen');
-                    this.updateHeader();
-                }
+                if (id === 'screen-intro') { if (header) header.classList.add('hidden-screen'); if (footer) footer.classList.add('hidden-screen'); }
+                else { if (header) header.classList.remove('hidden-screen'); this.updateHeader(); }
             },
-
             updateHeader: function () {
                 document.getElementById('header-nick').innerText = State.data.nick;
                 document.getElementById('header-avatar').innerText = State.data.currentSkin;
@@ -387,66 +352,41 @@
                 document.getElementById('header-gems').innerText = State.data.gems;
                 document.documentElement.setAttribute('data-theme', State.data.theme);
 
-                // Lógica de Coração no Header
+                // Vida
                 const heartBadge = document.getElementById('header-hearts-badge');
                 const heartCount = document.getElementById('header-hearts-count');
-
-                // Se estiver no jogo, mostra vidas da sessão. Se não, mostra 3 padrão.
                 const livesToShow = Game.currentSession ? Game.currentSession.lives : 3;
                 heartCount.innerText = livesToShow;
-
-                if (livesToShow === 0) {
-                    heartBadge.className = "badge badge-lg bg-gray-200 text-gray-400 border-gray-300 gap-1 font-black shadow-sm p-3 transition-colors";
-                } else {
-                    heartBadge.className = "badge badge-lg bg-red-100 text-red-600 border-red-200 gap-1 font-black shadow-sm p-3 transition-colors";
-                }
+                if (livesToShow === 0) heartBadge.className = "badge badge-lg bg-gray-200 text-gray-400 border-gray-300 gap-1 font-black shadow-sm p-3 transition-colors";
+                else heartBadge.className = "badge badge-lg bg-red-100 text-red-600 border-red-200 gap-1 font-black shadow-sm p-3 transition-colors";
             },
-
-            changeTheme: function (themeName) {
-                document.documentElement.setAttribute('data-theme', themeName);
-                State.data.theme = themeName; State.save();
-            },
-
-            // --- TABUADA UI ---
+            changeTheme: function (themeName) { document.documentElement.setAttribute('data-theme', themeName); State.data.theme = themeName; State.save(); },
             initTabuada: function () {
                 const selector = document.getElementById('tabuada-selector');
                 selector.innerHTML = '';
                 for (let i = 1; i <= 10; i++) {
-                    selector.innerHTML += `
-                        <button onclick="UI.showTabuadaTable(${i})" class="btn btn-circle btn-outline btn-primary font-bold text-lg hover:scale-110 transition-transform">${i}</button>
-                    `;
+                    selector.innerHTML += `<button onclick="UI.showTabuadaTable(${i})" class="btn btn-circle btn-outline btn-primary font-bold text-lg hover:scale-110 transition-transform">${i}</button>`;
                 }
             },
-
             showTabuadaTable: function (num) {
                 const display = document.getElementById('tabuada-display');
-                const title = document.getElementById('tabuada-current-title');
+                document.getElementById('tabuada-current-title').innerText = `Tabuada do ${num}`;
                 const content = document.getElementById('tabuada-content');
-
-                display.classList.remove('hidden');
-                display.classList.add('animate-pop');
-                title.innerText = `Tabuada do ${num}`;
-
+                display.classList.remove('hidden'); display.classList.add('animate-pop');
                 content.innerHTML = '';
-                for (let i = 1; i <= 10; i++) {
-                    content.innerHTML += `<div class="tabuada-item">${num} x ${i} = <span class="text-primary">${num * i}</span></div>`;
-                }
+                for (let i = 1; i <= 10; i++) content.innerHTML += `<div class="tabuada-item">${num} x ${i} = <span class="text-primary">${num * i}</span></div>`;
             },
-
             renderMap: function () {
                 const grid = document.getElementById('subjects-grid');
                 if (!grid) return; grid.innerHTML = '';
                 if (typeof DB === 'undefined') return console.error("Database Error");
-
                 DB.subjects.forEach(sub => {
                     grid.innerHTML += `
                     <div onclick="Game.openSubject('${sub.id}')" 
                         class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border-b-4 border-base-300 active:scale-95 group">
                         <div class="card-body p-4 items-center text-center relative overflow-hidden">
                             <div class="absolute top-0 right-0 p-2 opacity-10 text-6xl group-hover:scale-110 transition-transform select-none">${sub.icon}</div>
-                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl text-white shadow-lg mb-2 ${sub.color}">
-                                ${sub.icon}
-                            </div>
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl text-white shadow-lg mb-2 ${sub.color}">${sub.icon}</div>
                             <h3 class="card-title text-base leading-tight">${sub.name}</h3>
                             <div class="badge badge-ghost badge-sm font-bold mt-1">${sub.categories.length} AVENTURAS</div>
                         </div>
@@ -454,20 +394,12 @@
                 });
                 this.showScreen('screen-map');
             },
-
             renderSubject: function (subId) {
                 const sub = DB.subjects.find(s => s.id === subId);
                 const container = document.getElementById('categories-list');
                 const header = document.getElementById('subject-header');
 
-                // Botão Tabuada se for Matemática
-                let tabuadaBtn = '';
-                if (sub.id === 'mat') {
-                    tabuadaBtn = `
-                    <button onclick="document.getElementById('tabuada_modal').showModal()" class="btn btn-circle btn-primary btn-outline absolute right-4 top-4 shadow-md bg-white animate-bounce-slow tooltip tooltip-left" data-tip="Tabuada">
-                        🔢
-                    </button>`;
-                }
+                let tabuadaBtn = sub.id === 'mat' ? `<button onclick="document.getElementById('tabuada_modal').showModal()" class="btn btn-circle btn-primary btn-outline absolute right-4 top-4 shadow-md bg-white animate-bounce-slow">🔢</button>` : '';
 
                 header.innerHTML = `
                     <div class="card-body items-center text-center relative">
@@ -475,9 +407,7 @@
                         <div class="text-7xl animate-float filter drop-shadow-md">${sub.icon}</div>
                         <h2 class="card-title text-3xl font-black">${sub.name}</h2>
                         <p class="opacity-70">Complete os desafios!</p>
-                    </div>
-                `;
-
+                    </div>`;
                 container.innerHTML = '';
                 sub.categories.forEach(cat => {
                     let levelsHTML = '';
@@ -487,100 +417,61 @@
                         { name: "Titã", class: "btn-secondary", icon: "👹", bloomMax: 6 },
                         { name: "Mestre", class: "btn-warning", icon: "👑", bloomMax: 7 }
                     ];
-
                     levels.forEach((lvl, idx) => {
                         const isUnlocked = State.checkLevelUnlock(cat.id, idx);
                         const isDone = State.data.progress[`${cat.id}-lvl${idx}`];
-                        const attempt = State.getAttemptStatus(cat.id, idx);
-
                         let btnClass = isUnlocked ? `btn ${lvl.class} border-b-4` : "btn btn-disabled";
-                        if (attempt.locked) btnClass = "btn btn-disabled";
                         if (isDone) btnClass = "btn btn-outline border-b-4 btn-success";
-
-                        const icon = attempt.locked ? "⏳" : (isDone ? "✅" : lvl.icon);
-                        const action = isUnlocked && !attempt.locked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax}, '${lvl.name}')` : (attempt.locked ? `alert('Bloqueado por ${attempt.timeLeft}h')` : '');
-
-                        levelsHTML += `
-                            <button onclick="${action}" class="join-item flex-1 ${btnClass} flex-col gap-0 h-auto py-2">
-                                <span class="text-xl leading-none">${icon}</span>
-                                <span class="text-[10px] uppercase font-bold">${lvl.name}</span>
-                            </button>
-                        `;
+                        const icon = isDone ? "✅" : (isUnlocked ? lvl.icon : "🔒");
+                        const action = isUnlocked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax}, '${lvl.name}')` : '';
+                        levelsHTML += `<button onclick="${action}" class="join-item flex-1 ${btnClass} flex-col gap-0 h-auto py-2"><span class="text-xl leading-none">${icon}</span><span class="text-[10px] uppercase font-bold">${lvl.name}</span></button>`;
                     });
-
-                    container.innerHTML += `
-                    <div class="card bg-base-100 shadow-sm border border-base-200">
-                        <div class="card-body p-4">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-bold text-lg flex items-center gap-2">
-                                    <span class="w-2 h-6 rounded bg-primary"></span>
-                                    ${cat.name}
-                                </h3>
-                                <button onclick="Game.openPrep('${cat.id}')" class="btn btn-sm btn-ghost gap-2 text-warning">
-                                    📜 <span class="hidden sm:inline">Preparar</span>
-                                </button>
-                            </div>
-                            <div class="join w-full grid grid-cols-4 gap-1">
-                                ${levelsHTML}
-                            </div>
-                        </div>
-                    </div>`;
+                    container.innerHTML += `<div class="card bg-base-100 shadow-sm border border-base-200"><div class="card-body p-4"><div class="flex justify-between items-center mb-4"><h3 class="font-bold text-lg flex items-center gap-2"><span class="w-2 h-6 rounded bg-primary"></span>${cat.name}</h3><button onclick="Game.openPrep('${cat.id}')" class="btn btn-sm btn-ghost gap-2 text-warning">📜 <span class="hidden sm:inline">Preparar</span></button></div><div class="join w-full grid grid-cols-4 gap-1">${levelsHTML}</div></div></div>`;
                 });
                 this.showScreen('screen-subject');
             },
-
+            openPrepModal: function (content) {
+                document.getElementById('prep-icon').innerText = content.skin;
+                document.getElementById('prep-title').innerHTML = content.title;
+                document.getElementById('prep-content').innerHTML = content.content;
+                document.getElementById('prep-reward-text').innerText = `Skin: ${content.skin}`;
+                document.getElementById('prep_modal').showModal();
+            },
+            closePrep: function () { document.getElementById('prep_modal').close(); },
             renderGameScreen: function (q, total, current, lives, levelName) {
                 this.showScreen('screen-game');
                 const pct = ((current) / total) * 100;
                 document.getElementById('game-progress').value = pct;
                 document.getElementById('game-level-tag').innerText = levelName;
-
-                // Atualiza corações no Header
                 this.updateHeader();
 
-                // Pergunta
-                document.getElementById('game-question').innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary border-b-2 border-primary border-dashed">$1</span>').replace(/______/g, '<span class="inline-block w-16 border-b-2 border-base-content/50"></span>');
+                const toolsContainer = document.getElementById('game-tools-container');
+                if (Game.currentSession && Game.currentSession.subjectId === 'mat') {
+                    toolsContainer.innerHTML = `<button onclick="document.getElementById('tabuada_modal').showModal()" class="btn btn-sm btn-circle btn-primary btn-outline" title="Tabuada">🔢</button>`;
+                } else {
+                    toolsContainer.innerHTML = '';
+                }
 
+                document.getElementById('game-question').innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary border-b-2 border-primary border-dashed">$1</span>').replace(/______/g, '<span class="inline-block w-16 border-b-2 border-base-content/50"></span>');
                 const optsContainer = document.getElementById('game-options');
                 optsContainer.innerHTML = '';
                 q.opts.forEach((opt, idx) => {
-                    optsContainer.innerHTML += `
-                    <button onclick="Game.selectOption(${idx})" id="opt-${idx}" 
-                        class="btn btn-outline btn-lg w-full h-auto py-4 justify-start text-left normal-case border-b-4 hover:border-b-4">
-                        <span class="badge badge-ghost mr-2">${String.fromCharCode(65 + idx)}</span>
-                        ${opt}
-                    </button>`;
+                    optsContainer.innerHTML += `<button onclick="Game.selectOption(${idx})" id="opt-${idx}" class="btn btn-outline btn-lg w-full h-auto py-4 justify-start text-left normal-case border-b-4 hover:border-b-4"><span class="badge badge-ghost mr-2">${String.fromCharCode(65 + idx)}</span>${opt}</button>`;
                 });
-
                 const footer = document.getElementById('footer-action');
                 footer.classList.remove('hidden-screen');
                 footer.innerHTML = `<button class="btn btn-disabled btn-lg w-full rounded-2xl">Escolha uma resposta</button>`;
             },
-
             showFeedback: function (isCorrect, hint, nextFn) {
                 const footer = document.getElementById('footer-action');
                 const bgClass = isCorrect ? 'bg-success text-success-content' : 'bg-error text-error-content';
-                footer.innerHTML = `
-                    <div class="w-full max-w-xl mx-auto animate-slide-up">
-                        <div class="alert ${bgClass} shadow-lg mb-3 flex-row items-start">
-                            <span class="text-3xl">${isCorrect ? '🎉' : '🤔'}</span>
-                            <div>
-                                <h3 class="font-bold uppercase text-xs tracking-wider">${isCorrect ? 'Mandou Bem!' : 'Ops, correção:'}</h3>
-                                <div class="text-sm font-medium opacity-90">${hint}</div>
-                            </div>
-                        </div>
-                        <button onclick="${nextFn}" class="btn btn-lg w-full ${bgClass} border-b-4 border-black/20 hover:border-black/20">
-                            ${isCorrect ? 'CONTINUAR' : 'ENTENDI'}
-                        </button>
-                    </div>`;
+                footer.innerHTML = `<div class="w-full max-w-xl mx-auto animate-slide-up"><div class="alert ${bgClass} shadow-lg mb-3 flex-row items-start"><span class="text-3xl">${isCorrect ? '🎉' : '🤔'}</span><div><h3 class="font-bold uppercase text-xs tracking-wider">${isCorrect ? 'Mandou Bem!' : 'Ops, correção:'}</h3><div class="text-sm font-medium opacity-90">${hint}</div></div></div><button onclick="${nextFn}" class="btn btn-lg w-full ${bgClass} border-b-4 border-black/20 hover:border-black/20">${isCorrect ? 'CONTINUAR' : 'ENTENDI'}</button></div>`;
             },
-
             showResult: function (isVictory, score, totalQuestions, nextLevelFn, retryFn, subjectFn) {
                 const container = document.getElementById('result-container');
                 document.getElementById('footer-action').classList.add('hidden-screen');
                 const percentage = Math.round((score / (totalQuestions * 10)) * 100);
                 if (isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-
                 container.innerHTML = `
                 <div class="hero min-h-[60vh] animate-pop">
                     <div class="hero-content text-center">
@@ -588,14 +479,7 @@
                             <div class="text-9xl mb-4 animate-bounce">${isVictory ? '🏆' : '🐢'}</div>
                             <h1 class="text-4xl font-black mb-2">${isVictory ? 'Vitória Épica!' : 'Quase lá!'}</h1>
                             <p class="py-2 opacity-70 mb-6">${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}</p>
-                            <div class="stats shadow w-full mb-8 bg-base-100 border border-base-200">
-                                <div class="stat place-items-center">
-                                    <div class="stat-title uppercase font-bold text-xs">Sua Nota</div>
-                                    <div class="stat-value ${isVictory ? 'text-primary' : 'text-error'}">${percentage}%</div>
-                                    <div class="stat-desc font-bold">Mínimo: 70%</div>
-                                </div>
-                                ${isVictory ? `<div class="stat place-items-center"><div class="stat-title uppercase font-bold text-xs">Recompensa</div><div class="stat-value text-warning">20</div><div class="stat-desc font-bold text-warning">Moedas</div></div>` : ''}
-                            </div>
+                            <div class="stats shadow w-full mb-8 bg-base-100 border border-base-200"><div class="stat place-items-center"><div class="stat-title uppercase font-bold text-xs">Sua Nota</div><div class="stat-value ${isVictory ? 'text-primary' : 'text-error'}">${percentage}%</div><div class="stat-desc font-bold">Mínimo: 70%</div></div>${isVictory ? `<div class="stat place-items-center"><div class="stat-title uppercase font-bold text-xs">Recompensa</div><div class="stat-value text-warning">20</div><div class="stat-desc font-bold text-warning">Moedas</div></div>` : ''}</div>
                             <div class="flex flex-col gap-3">
                                 ${isVictory && nextLevelFn ? `<button onclick="${nextLevelFn}" class="btn btn-primary btn-lg shadow-lg border-b-4 border-primary-focus">Próximo Nível ➡️</button>` : ''}
                                 <button onclick="${retryFn}" class="btn btn-secondary btn-outline btn-lg">${isVictory ? 'Jogar Novamente' : 'Tentar Novamente'}</button>
@@ -605,18 +489,9 @@
                     </div>
                 </div>`;
                 this.showScreen('screen-result');
-            },
-
-            openPrepModal: function (content) {
-                document.getElementById('prep-icon').innerText = content.skin;
-                document.getElementById('prep-title').innerHTML = content.title;
-                document.getElementById('prep-content').innerHTML = content.content;
-                document.getElementById('prep-reward-text').innerText = `Skin Nova: ${content.skin}`;
-                document.getElementById('prep_modal').showModal();
             }
         };
 
-        // --- GAME LOGIC ---
         const Game = {
             currentSession: null,
             exitGame: function () {
@@ -624,7 +499,6 @@
                     const subjectId = this.currentSession ? this.currentSession.subjectId : 'pt';
                     this.currentSession = null;
                     UI.renderSubject(subjectId);
-                    // Reset do Header para padrão
                     UI.updateHeader();
                 }
             },
@@ -636,22 +510,19 @@
                 this.tempSkin = c.prep.skin; UI.openPrepModal(c.prep);
             },
             finishPrep: function () { State.unlockSkin(this.tempSkin); State.data.coins += 10; State.save(); document.getElementById('prep_modal').close(); try { confetti({ particleCount: 50, spread: 50 }); } catch (e) { } },
-
             startLevel: function (catId, levelIdx, bloomMax, levelName) {
                 let category = null; let subjectId = null;
                 DB.subjects.forEach(s => { const c = s.categories.find(k => k.id === catId); if (c) { category = c; subjectId = s.id; } });
-
+                if (!levelName) levelName = ["Fácil", "Médio", "Titã", "Mestre"][levelIdx];
                 let minBloom = bloomMax - 1; if (levelIdx === 0) minBloom = 1;
                 const pool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
                 let fresh = pool.filter(q => !State.data.history.includes(q.id));
                 if (fresh.length < 5) { State.cleanHistoryForPool(pool.map(q => q.id)); fresh = pool; }
                 const selected = fresh.sort(() => 0.5 - Math.random()).slice(0, 5);
                 if (selected.length === 0) return alert("Erro: Sem questões.");
-
                 this.currentSession = { subjectId, catId, levelIdx, questions: selected, questionIds: selected.map(q => q.id), idx: 0, lives: 3, score: 0, total: 5, correct: 0, levelName };
                 UI.renderGameScreen(selected[0], 5, 0, 3, levelName);
             },
-
             selectOption: function (optIdx) {
                 const btns = document.querySelectorAll('[id^="opt-"]');
                 btns.forEach(b => { b.classList.remove('btn-active', 'btn-primary'); b.classList.add('btn-outline'); });
@@ -661,24 +532,14 @@
                 const footer = document.getElementById('footer-action');
                 footer.innerHTML = `<button onclick="Game.checkAnswer()" class="btn btn-primary btn-lg w-full rounded-2xl shadow-lg border-b-4 border-primary-focus">CONFIRMAR</button>`;
             },
-
             checkAnswer: function () {
                 const s = this.currentSession; const q = s.questions[s.idx]; const isCorrect = s.selectedOpt === q.c;
                 const btns = document.querySelectorAll('[id^="opt-"]'); btns.forEach(b => b.disabled = true);
                 const selBtn = document.getElementById(`opt-${s.selectedOpt}`);
-
-                if (isCorrect) {
-                    selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-success', 'text-white');
-                    s.score += 10; s.correct++;
-                } else {
-                    selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-error', 'text-white');
-                    s.lives--;
-                    // Update Header Lives
-                    UI.updateHeader();
-                }
+                if (isCorrect) { selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-success', 'text-white'); s.score += 10; s.correct++; }
+                else { selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-error', 'text-white'); s.lives--; UI.updateHeader(); }
                 UI.showFeedback(isCorrect, q.h, 'Game.nextQuestion()');
             },
-
             nextQuestion: function () {
                 const s = this.currentSession;
                 if (s.lives <= 0) { this.finishLevel(); return; }
@@ -686,42 +547,33 @@
                 if (s.idx < s.questions.length) UI.renderGameScreen(s.questions[s.idx], s.total, s.idx, s.lives, s.levelName);
                 else this.finishLevel();
             },
-
             finishLevel: function () {
                 const s = this.currentSession;
                 State.addToHistory(s.questionIds);
                 const passed = (s.correct / s.total) * 100 >= 70;
-                State.registerAttempt(s.catId, s.levelIdx, passed);
 
                 const retryFn = `Game.startLevel('${s.catId}', ${s.levelIdx}, ${[2, 4, 6, 7][s.levelIdx]}, '${s.levelName}')`;
                 const subjectFn = `UI.renderSubject('${s.subjectId}')`;
                 let nextLevelFn = null;
-
                 if (passed && s.levelIdx < 3) {
                     const nextIdx = s.levelIdx + 1;
                     const nextNames = ["Fácil", "Médio", "Titã", "Mestre"];
                     const nextBlooms = [2, 4, 6, 7];
                     nextLevelFn = `Game.startLevel('${s.catId}', ${nextIdx}, ${nextBlooms[nextIdx]}, '${nextNames[nextIdx]}')`;
                 }
-
-                this.currentSession = null; // Limpa sessão
-                // Reseta header para estado padrão (3 vidas)
-                UI.updateHeader();
-
+                this.currentSession = null; UI.updateHeader();
                 if (passed) {
                     State.data.progress[`${s.catId}-lvl${s.levelIdx}`] = true;
                     State.data.coins += 20; State.save();
                     UI.showResult(true, s.score, s.total, nextLevelFn, retryFn, subjectFn);
                 } else {
-                    const st = State.getAttemptStatus(s.catId, s.levelIdx);
-                    if (st.locked) { alert("Bloqueado por 24h!"); UI.renderSubject(s.subjectId); }
-                    else UI.showResult(false, s.score, s.total, null, retryFn, subjectFn);
+                    UI.showResult(false, s.score, s.total, null, retryFn, subjectFn);
                 }
             }
         };
 
         window.onload = function () {
-            UI.initTabuada(); // Inicia Tabuada
+            UI.initTabuada();
             if (State.load()) {
                 UI.renderMap();
                 document.getElementById('screen-intro').classList.add('hidden-screen');
