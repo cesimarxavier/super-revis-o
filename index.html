@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="cupcake">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mestres do Saber - A Lenda de Cognitia</title>
+    <title>Mestres do Saber</title>
 
-    <meta name="theme-color" content="#4ECDC4">
+    <meta name="theme-color" content="#65C3C8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
@@ -21,583 +23,642 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Fredoka', 'sans-serif'] },
-                    colors: {
-                        'brand-purple': '#7C3AED',
-                        'brand-blue': '#4ECDC4',
-                        'brand-yellow': '#FFD166',
-                        'brand-red': '#EF476F',
-                        'brand-dark': '#1A535C',
-                        'ui-bg': '#F7F9FC',
-                    },
                     animation: {
-                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'float': 'float 4s ease-in-out infinite',
                         'pop': 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                        'slide-up': 'slideUp 0.5s ease-out forwards',
-                        'pulse-slow': 'pulse 3s infinite',
+                        'slide-up': 'slideUp 0.4s ease-out forwards',
                     },
                     keyframes: {
                         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
                         pop: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(50px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
                     }
                 }
-            }
+            },
+            // Configuração dos Temas do DaisyUI permitidos
+            daisyui: {
+                themes: ["cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter", "dim", "nord", "sunset"],
+            },
         }
     </script>
 
     <style>
         body {
-            background-color: #F7F9FC;
-            background-image: radial-gradient(#E2E8F0 2px, transparent 2px);
-            background-size: 24px 24px;
+            /* Padrão de fundo sutil para dar textura */
+            background-image: radial-gradient(hsla(var(--bc) / 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
-            padding-bottom: 120px;
+            padding-bottom: 100px;
         }
 
-        .btn-game {
-            transition: all 0.1s;
-            border-bottom-width: 5px;
-            transform: translateY(0);
-        }
-
-        .btn-game:active {
-            transform: translateY(5px);
-            border-bottom-width: 0px;
-            box-shadow: none !important;
-        }
-
+        /* Utilitários de Animação e UX */
         .hidden-screen {
             display: none !important;
         }
 
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+        .avatar-ring {
+            transition: transform 0.2s;
         }
 
-        .avatar-glow {
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+        .avatar-ring:active {
+            transform: scale(0.9);
         }
 
-        .locked-filter {
-            filter: grayscale(1);
-            opacity: 0.6;
-            cursor: not-allowed;
+        /* Scroll personalizado suave */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
         }
 
-        /* Define que as bordas de células adjacentes se fundam em uma única borda */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 1rem;
-            /* Espaçamento acima da tabela */
-            background-color: #fff;
-        }
-
-        /* Estilo padrão para todas as células de cabeçalho e corpo */
-        th,
-        td {
-            padding: 12px 24px;
-            /* Espaçamento interno */
-            text-align: left;
-            border: 1px solid #383b42;
-            /* Borda fina e cinza clara */
-            vertical-align: middle;
-        }
-
-        /* Estilo específico para o cabeçalho (<thead>) */
-        thead th {
-            background-color: #f9fafb;
-            /* Fundo cinza claro */
-            font-size: 0.75rem;
-            /* Tamanho de fonte pequeno */
-            font-weight: 500;
-            color: #6b7280;
-            /* Cor do texto */
-            text-transform: uppercase;
-            letter-spacing: 0.025em;
-        }
-
-        /* Linhas do corpo (<tbody>) */
-        tbody tr {
-            border-bottom: 1px solid #e5e7eb;
-            /* Apenas borda inferior para divisória */
-        }
-
-        /* Efeito de hover nas linhas (mudar cor de fundo ao passar o mouse) */
-        tbody tr:hover {
-            background-color: #f9fafb;
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: hsla(var(--p) / 0.5);
+            border-radius: 10px;
         }
     </style>
 </head>
 
-<body class="text-gray-700 min-h-screen flex flex-col items-center overflow-x-hidden">
+<body class="min-h-screen flex flex-col items-center overflow-x-hidden bg-base-200 text-base-content">
 
-    <header id="main-header"
-        class="fixed top-0 w-full z-50 glass-panel shadow-sm px-4 py-2 transition-transform duration-300 hidden-screen">
-        <div class="max-w-xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2 bg-white rounded-full p-1 pr-4 border border-gray-100 shadow-sm cursor-pointer"
-                onclick="UI.showProfile()">
-                <div class="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center text-xl border-2 border-white avatar-glow"
-                    id="header-avatar">🧙‍♂️</div>
-                <div class="flex flex-col leading-none">
-                    <span class="text-[10px] font-bold text-gray-400 uppercase">Guardião</span>
-                    <span class="text-sm font-bold text-brand-dark truncate w-20" id="header-nick">Jogador</span>
-                </div>
+    <div id="main-header" class="fixed top-0 z-40 w-full p-2 hidden-screen transition-all duration-300">
+        <div
+            class="navbar bg-base-100/90 backdrop-blur-md shadow-lg rounded-box max-w-xl mx-auto border-b-4 border-base-300">
+            <div class="flex-1">
+                <button class="btn btn-ghost gap-2 normal-case p-1 pr-3" onclick="settings_modal.showModal()">
+                    <div class="avatar placeholder">
+                        <div
+                            class="bg-neutral text-neutral-content rounded-full w-10 ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <span class="text-xl" id="header-avatar">🧙‍♂️</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-start leading-none">
+                        <span class="text-[10px] opacity-60 uppercase font-bold tracking-wider">Guardião</span>
+                        <span class="font-bold text-base truncate max-w-[100px]" id="header-nick">Jogador</span>
+                    </div>
+                </button>
             </div>
-            <div class="flex gap-2">
-                <div
-                    class="flex items-center gap-1 bg-brand-yellow/20 px-3 py-1 rounded-full border border-brand-yellow">
-                    <span>🪙</span>
-                    <span class="font-bold text-yellow-700 text-sm" id="header-coins">0</span>
+
+            <div class="flex-none gap-2">
+                <div class="badge badge-lg badge-primary gap-1 font-bold shadow-sm p-3">
+                    🪙 <span id="header-coins">0</span>
                 </div>
-                <div class="flex items-center gap-1 bg-brand-blue/20 px-3 py-1 rounded-full border border-brand-blue">
-                    <span>💎</span>
-                    <span class="font-bold text-teal-700 text-sm" id="header-gems">0</span>
+                <div class="badge badge-lg badge-secondary gap-1 font-bold shadow-sm p-3">
+                    💎 <span id="header-gems">0</span>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <main id="game-container" class="w-full max-w-xl flex-grow flex flex-col pt-20 px-4">
+    <main id="game-container" class="w-full max-w-xl flex-grow flex flex-col pt-24 px-4 gap-4">
 
-        <section id="screen-result" class="hidden-screen w-full pb-24">
-            <div id="result-container"></div>
-        </section>
-
-        <section id="screen-intro"
-            class="flex flex-col items-center justify-center min-h-[80vh] text-center animate-slide-up">
-            <div class="mb-8 relative">
-                <div class="absolute inset-0 bg-brand-purple blur-3xl opacity-20 rounded-full"></div>
-                <div class="text-8xl animate-float relative z-10">🏰</div>
-            </div>
-            <h1 class="text-4xl font-black text-brand-dark mb-2">Mestres do Saber</h1>
-            <p class="text-gray-500 mb-8 max-w-xs mx-auto">Salve o reino de Cognitia das Sombras do Esquecimento!</p>
-            <div class="bg-white p-6 rounded-3xl shadow-xl w-full border-b-8 border-gray-100">
-                <label class="block text-left text-sm font-bold text-gray-400 mb-2 uppercase">Como devo te
-                    chamar?</label>
-                <input type="text" id="input-nick" placeholder="Ex: Super Sofia" maxlength="12"
-                    class="w-full text-center text-2xl font-bold p-4 bg-gray-50 rounded-2xl border-2 border-gray-200 focus:border-brand-purple focus:outline-none text-brand-purple mb-4 transition-all">
-                <button onclick="Game.startAdventure()"
-                    class="w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg shadow-purple-200">
-                    Começar Aventura 🚀
-                </button>
-            </div>
-        </section>
-
-        <section id="screen-map" class="hidden-screen w-full pb-24">
-            <div class="text-center mb-6">
-                <span
-                    class="inline-block px-3 py-1 rounded-full bg-brand-dark text-white text-xs font-bold uppercase tracking-widest mb-2">Mapa
-                    Mundi</span>
-                <h2 class="text-2xl font-black text-gray-800">Escolha seu Destino</h2>
-            </div>
-            <div class="grid grid-cols-2 gap-4" id="subjects-grid"></div>
-        </section>
-
-        <section id="screen-subject" class="hidden-screen w-full pb-24">
-            <button onclick="UI.showScreen('screen-map')"
-                class="mb-4 text-sm font-bold text-gray-400 hover:text-gray-600 flex items-center gap-1">
-                ⬅ Voltar ao Mapa
-            </button>
-            <div id="subject-header"
-                class="mb-8 text-center p-6 bg-white rounded-3xl shadow-sm border-b-4 border-gray-100"></div>
-            <div class="space-y-4" id="categories-list"></div>
-        </section>
-
-        <section id="screen-prep"
-            class="hidden-screen w-full z-50 fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center">
-            <div
-                class="bg-white w-full max-w-lg h-[85vh] sm:h-auto sm:rounded-3xl rounded-t-3xl p-6 flex flex-col animate-slide-up relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-purple to-brand-blue"></div>
-                <button onclick="UI.closePrep()"
-                    class="absolute top-4 right-4 bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center font-bold text-gray-500">✕</button>
-                <div class="overflow-y-auto flex-grow pr-2 custom-scroll">
-                    <div class="text-center mt-4">
-                        <div class="text-6xl mb-4 animate-bounce" id="prep-icon">📜</div>
-                        <h2 class="text-2xl font-black text-gray-800 mb-2" id="prep-title">Título</h2>
-                        <div class="prose text-gray-600 leading-relaxed text-lg" id="prep-content"></div>
+        <section id="screen-intro" class="hero min-h-[80vh] animate-slide-up">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <div class="mb-6 relative inline-block">
+                        <div class="absolute inset-0 bg-primary blur-3xl opacity-40 rounded-full animate-pulse"></div>
+                        <div class="text-9xl animate-float relative z-10">🏰</div>
                     </div>
-                    <div class="mt-8 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex items-center gap-4">
-                        <div class="text-4xl">🎁</div>
-                        <div>
-                            <p class="text-xs font-bold text-yellow-600 uppercase">Recompensa de Estudo</p>
-                            <p class="font-bold text-yellow-800" id="prep-reward-text">Skin: Mago Sábio</p>
+                    <h1 class="text-5xl font-black text-primary mb-2 drop-shadow-sm">Mestres<br><span
+                            class="text-secondary">do Saber</span></h1>
+                    <p class="py-6 text-lg font-medium opacity-80">Restaure as cores de Cognitia e torne-se uma lenda!
+                    </p>
+
+                    <div class="card w-full bg-base-100 shadow-xl border-b-8 border-base-300">
+                        <div class="card-body">
+                            <label class="label">
+                                <span class="label-text font-bold uppercase text-xs opacity-60">Como devo te
+                                    chamar?</span>
+                            </label>
+                            <input type="text" id="input-nick" placeholder="Ex: Super Sofia" maxlength="12"
+                                class="input input-bordered input-primary w-full text-center text-xl font-bold mb-4 focus:scale-105 transition-transform" />
+
+                            <button onclick="Game.startAdventure()"
+                                class="btn btn-primary btn-lg w-full shadow-lg border-b-4 border-primary-focus active:border-b-0 active:translate-y-1">
+                                Começar Aventura 🚀
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="mt-6 pt-4 border-t border-gray-100">
-                    <button onclick="Game.finishPrep()"
-                        class="w-full bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg bg-green-500 border-green-600">
-                        Estou Pronto! ⚔️
-                    </button>
-                </div>
+            </div>
+        </section>
+
+        <section id="screen-map" class="hidden-screen w-full pb-20">
+            <div class="text-center mb-6 animate-slide-up">
+                <div class="badge badge-accent badge-outline font-bold mb-2">MUNDO 1</div>
+                <h2 class="text-3xl font-black">Mapa Mundi</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-4 animate-slide-up" id="subjects-grid">
+            </div>
+        </section>
+
+        <section id="screen-subject" class="hidden-screen w-full pb-20">
+            <button onclick="UI.showScreen('screen-map')" class="btn btn-sm btn-ghost mb-4 gap-2">
+                ⬅ Voltar ao Mapa
+            </button>
+            <div id="subject-header"
+                class="card bg-base-100 shadow-xl mb-6 border-b-4 border-base-300 text-center animate-slide-up">
+            </div>
+            <div class="flex flex-col gap-4 animate-slide-up" style="animation-delay: 0.1s" id="categories-list">
             </div>
         </section>
 
         <section id="screen-game" class="hidden-screen w-full pb-32">
-            <div class="flex justify-between items-center mb-6">
-                <button onclick="Game.exitGame()"
-                    class="bg-gray-100 hover:bg-red-100 hover:text-red-500 text-gray-500 px-4 py-2 rounded-xl font-bold text-sm transition-colors flex items-center gap-2">
-                    ✕ Sair
-                </button>
-                <div class="text-xs font-bold text-white bg-brand-purple/80 px-3 py-1 rounded-full uppercase tracking-wider"
-                    id="game-level-tag">NÍVEL 1</div>
+            <div class="flex justify-between items-center mb-4">
+                <button onclick="Game.exitGame()" class="btn btn-circle btn-sm btn-ghost text-error">✕</button>
+                <div class="badge badge-lg badge-neutral font-bold uppercase tracking-widest" id="game-level-tag">NÍVEL
+                    1</div>
             </div>
 
-            <div class="flex items-center gap-4 mb-6">
-                <div class="flex gap-1 text-2xl min-w-[80px]" id="game-hearts">❤️❤️❤️</div>
-                <div class="flex-grow bg-gray-200 rounded-full h-3">
-                    <div id="game-progress"
-                        class="bg-brand-purple h-3 rounded-full transition-all duration-500 shadow-sm"
-                        style="width: 0%"></div>
+            <div class="flex items-center gap-4 mb-6 bg-base-100 p-2 rounded-box shadow-sm">
+                <div class="flex gap-1 text-2xl px-2" id="game-hearts">❤️❤️❤️</div>
+                <progress class="progress progress-primary w-full h-3" value="0" max="100"
+                    id="game-progress"></progress>
+            </div>
+
+            <div class="card w-full bg-base-100 shadow-xl border-b-8 border-base-300 animate-pop">
+                <div class="card-body items-center text-center relative overflow-hidden">
+                    <div class="absolute -top-4 -right-4 text-8xl opacity-5 rotate-12 select-none">❓</div>
+                    <h2 class="card-title text-2xl md:text-3xl font-black mb-6 leading-snug z-10" id="game-question">...
+                    </h2>
+
+                    <div class="w-full grid gap-3 z-10" id="game-options">
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div
-                class="bg-white rounded-3xl p-6 shadow-lg border-b-8 border-gray-100 relative overflow-hidden min-h-[300px] flex flex-col justify-center">
-                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl rotate-12">❓</div>
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center leading-snug mb-6"
-                    id="game-question">...</h2>
-                <div class="grid gap-3" id="game-options"></div>
+        <section id="screen-result" class="hidden-screen w-full flex-grow flex items-center justify-center pb-20">
+            <div id="result-container" class="w-full">
             </div>
         </section>
     </main>
 
+    <dialog id="settings_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg mb-4 text-center">Configurações do Guardião</h3>
+
+            <div class="form-control w-full mb-6">
+                <label class="label"><span class="label-text font-bold">Seu Nome</span></label>
+                <div class="join w-full">
+                    <input type="text" id="settings-nick"
+                        class="input input-bordered input-primary join-item w-full font-bold" />
+                    <button class="btn btn-primary join-item" onclick="Game.updateSettings()">Salvar</button>
+                </div>
+            </div>
+
+            <label class="label"><span class="label-text font-bold">Estilo Visual (Tema)</span></label>
+            <div class="grid grid-cols-3 gap-2 mb-6">
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('cupcake')">
+                    <span class="w-4 h-4 rounded-full bg-[#65c3c8]"></span>Cupcake
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('bumblebee')">
+                    <span class="w-4 h-4 rounded-full bg-[#e0a82e]"></span>Abelha
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('emerald')">
+                    <span class="w-4 h-4 rounded-full bg-[#66cc8a]"></span>Esmeralda
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('fantasy')">
+                    <span class="w-4 h-4 rounded-full bg-[#6e0b75]"></span>Fantasia
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('dracula')">
+                    <span class="w-4 h-4 rounded-full bg-[#ff79c6]"></span>Noite
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('retro')">
+                    <span class="w-4 h-4 rounded-full bg-[#ef9995]"></span>Retro
+                </button>
+            </div>
+
+            <div class="modal-action justify-center">
+                <form method="dialog">
+                    <button class="btn btn-ghost">Fechar</button>
+                </form>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <dialog id="prep_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box p-0 relative overflow-hidden bg-base-100">
+            <div class="bg-primary text-primary-content p-6 text-center">
+                <div class="text-6xl mb-2 animate-bounce" id="prep-icon">📜</div>
+                <h3 class="font-black text-2xl uppercase" id="prep-title">Título</h3>
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white"
+                    onclick="prep_modal.close()">✕</button>
+            </div>
+
+            <div class="p-6 max-h-[60vh] overflow-y-auto custom-scroll">
+                <div class="prose prose-lg leading-snug text-base-content/80 text-center" id="prep-content">
+                </div>
+
+                <div class="alert alert-warning mt-6 shadow-sm">
+                    <div class="text-2xl">🎁</div>
+                    <div>
+                        <h3 class="font-bold text-xs uppercase">Recompensa</h3>
+                        <div class="text-sm font-bold" id="prep-reward-text">Skin: Mago</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 bg-base-200 border-t border-base-300">
+                <button onclick="Game.finishPrep()"
+                    class="btn btn-success btn-lg w-full shadow-lg border-b-4 border-success-content/20 active:border-b-0 active:translate-y-1">
+                    Estou Pronto! ⚔️
+                </button>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
     <div id="footer-action"
-        class="fixed bottom-0 left-0 w-full bg-white border-t-2 border-gray-100 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] p-4 z-40 hidden-screen">
-        <div class="max-w-xl mx-auto" id="footer-content"></div>
+        class="fixed bottom-0 left-0 w-full bg-base-100/90 backdrop-blur-md border-t border-base-200 p-4 z-40 hidden-screen transition-all duration-300">
+        <div class="max-w-xl mx-auto" id="footer-content">
+        </div>
     </div>
 
     <script src="database.js"></script>
 
     <script>
-        // --- STATE MANAGEMENT ---
+        /* MESTRES DO SABER - ENGINE V3.1 (Fixed) */
+
         const State = {
-            data: { nick: "", coins: 0, gems: 0, skins: ["🧙‍♂️"], currentSkin: "🧙‍♂️", progress: {}, attempts: {}, history: [] },
+            data: { nick: "", coins: 0, gems: 0, skins: ["🧙‍♂️"], currentSkin: "🧙‍♂️", progress: {}, attempts: {}, history: [], theme: "cupcake" },
             load: function () {
-                const saved = localStorage.getItem('mestres_save_v4');
-                if (saved) { this.data = JSON.parse(saved); if (!this.data.history) this.data.history = []; return true; }
+                const saved = localStorage.getItem('mestres_save_v5');
+                if (saved) {
+                    this.data = JSON.parse(saved);
+                    if (!this.data.history) this.data.history = [];
+                    if (!this.data.theme) this.data.theme = "cupcake";
+                    return true;
+                }
                 return false;
             },
-            save: function () { localStorage.setItem('mestres_save_v4', JSON.stringify(this.data)); UI.updateHeader(); },
-            addToHistory: function (questionIds) { questionIds.forEach(id => { if (!this.data.history.includes(id)) this.data.history.push(id); }); this.save(); },
+            save: function () { localStorage.setItem('mestres_save_v5', JSON.stringify(this.data)); UI.updateHeader(); },
+            addToHistory: function (ids) { ids.forEach(id => { if (!this.data.history.includes(id)) this.data.history.push(id); }); this.save(); },
             cleanHistoryForPool: function (poolIds) { this.data.history = this.data.history.filter(id => !poolIds.includes(id)); this.save(); },
             registerAttempt: function (catId, lvlIdx, passed) {
                 const key = `${catId}-lvl${lvlIdx}`;
                 if (!this.data.attempts[key]) this.data.attempts[key] = { count: 0, timestamp: 0 };
-                if (passed) { this.data.attempts[key].count = 0; } else { this.data.attempts[key].count++; this.data.attempts[key].timestamp = Date.now(); }
+                if (passed) this.data.attempts[key].count = 0;
+                else { this.data.attempts[key].count++; this.data.attempts[key].timestamp = Date.now(); }
                 this.save();
             },
             getAttemptStatus: function (catId, lvlIdx) {
                 const key = `${catId}-lvl${lvlIdx}`;
                 const att = this.data.attempts[key];
-                if (!att) return { locked: false, count: 0 };
+                if (!att) return { locked: false };
                 if (att.count >= 2) {
-                    const now = Date.now();
-                    const diff = now - att.timestamp;
-                    const hours24 = 24 * 60 * 60 * 1000;
-                    if (diff < hours24) { return { locked: true, timeLeft: Math.ceil((hours24 - diff) / (3600000)) }; }
-                    else { att.count = 0; this.save(); return { locked: false, count: 0 }; }
+                    const diff = Date.now() - att.timestamp;
+                    if (diff < 86400000) return { locked: true, timeLeft: Math.ceil((86400000 - diff) / 3600000) };
+                    else { att.count = 0; this.save(); return { locked: false }; }
                 }
-                return { locked: false, count: att.count };
+                return { locked: false };
             },
-            unlockSkin: function (skin) { if (!this.data.skins.includes(skin)) { this.data.skins.push(skin); this.data.currentSkin = skin; this.save(); alert(`Nova Skin Desbloqueada: ${skin}`); } },
-            checkLevelUnlock: function (catId, levelIdx) { if (levelIdx === 0) return true; return this.data.progress[`${catId}-lvl${levelIdx - 1}`] === true; }
+            unlockSkin: function (skin) {
+                if (!this.data.skins.includes(skin)) {
+                    this.data.skins.push(skin);
+                    this.data.currentSkin = skin;
+                    this.save();
+                    alert(`Nova Skin Desbloqueada: ${skin}`);
+                }
+            },
+            checkLevelUnlock: function (catId, lvlIdx) { if (lvlIdx === 0) return true; return this.data.progress[`${catId}-lvl${lvlIdx - 1}`] === true; }
         };
 
-        // --- UI MANAGER ---
         const UI = {
             screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
+
             showScreen: function (id) {
-                this.screens.forEach(s => { const el = document.getElementById(s); if (el) el.classList.add('hidden-screen'); });
+                this.screens.forEach(s => document.getElementById(s).classList.add('hidden-screen'));
                 const target = document.getElementById(id);
-                if (target) { target.classList.remove('hidden-screen'); target.classList.add('animate-slide-up'); }
+                if (target) {
+                    target.classList.remove('hidden-screen');
+                    target.classList.add('animate-slide-up');
+                }
+
                 const header = document.getElementById('main-header');
                 const footer = document.getElementById('footer-action');
-                if (id === 'screen-intro') { if (header) header.classList.add('hidden-screen'); if (footer) footer.classList.add('hidden-screen'); }
-                else { if (header) header.classList.remove('hidden-screen'); this.updateHeader(); }
+
+                if (id === 'screen-intro') {
+                    if (header) header.classList.add('hidden-screen');
+                    if (footer) footer.classList.add('hidden-screen');
+                } else {
+                    if (header) header.classList.remove('hidden-screen');
+                    this.updateHeader();
+                }
             },
+
             updateHeader: function () {
                 document.getElementById('header-nick').innerText = State.data.nick;
                 document.getElementById('header-avatar').innerText = State.data.currentSkin;
                 document.getElementById('header-coins').innerText = State.data.coins;
                 document.getElementById('header-gems').innerText = State.data.gems;
+                document.documentElement.setAttribute('data-theme', State.data.theme);
+                document.getElementById('settings-nick').value = State.data.nick;
             },
+
+            changeTheme: function (themeName) {
+                document.documentElement.setAttribute('data-theme', themeName);
+                State.data.theme = themeName;
+                State.save();
+            },
+
             renderMap: function () {
                 const grid = document.getElementById('subjects-grid');
                 if (!grid) return;
                 grid.innerHTML = '';
-                if (typeof DB === 'undefined') return console.error("Database não carregado. Verifique o arquivo database.js");
+                if (typeof DB === 'undefined') return console.error("Database não carregado.");
 
                 DB.subjects.forEach(sub => {
                     grid.innerHTML += `
                     <div onclick="Game.openSubject('${sub.id}')" 
-                        class="bg-white p-4 rounded-3xl shadow-sm border-b-4 border-gray-100 active:scale-95 transition-transform cursor-pointer relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 p-2 opacity-10 text-6xl group-hover:scale-110 transition-transform">${sub.icon}</div>
-                        <div class="${sub.color} w-12 h-12 rounded-2xl flex items-center justify-center text-2xl text-white shadow-md mb-3">${sub.icon}</div>
-                        <h3 class="font-bold text-gray-700 leading-tight">${sub.name}</h3>
-                        <p class="text-xs text-gray-400 font-bold uppercase mt-1">${sub.categories.length} Aventuras</p>
+                        class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border-b-4 border-base-300 active:scale-95 group">
+                        <div class="card-body p-4 items-center text-center relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-2 opacity-10 text-6xl group-hover:scale-110 transition-transform select-none">${sub.icon}</div>
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl text-white shadow-lg mb-2 ${sub.color}">
+                                ${sub.icon}
+                            </div>
+                            <h3 class="card-title text-base leading-tight">${sub.name}</h3>
+                            <div class="badge badge-ghost badge-sm font-bold mt-1">${sub.categories.length} AVENTURAS</div>
+                        </div>
                     </div>`;
                 });
                 this.showScreen('screen-map');
             },
+
             renderSubject: function (subId) {
                 const sub = DB.subjects.find(s => s.id === subId);
                 const container = document.getElementById('categories-list');
                 const header = document.getElementById('subject-header');
-                header.innerHTML = `<div class="text-6xl mb-2 animate-float">${sub.icon}</div><h2 class="text-3xl font-black text-gray-800">${sub.name}</h2><p class="text-gray-500">Complete os desafios!</p>`;
+
+                header.innerHTML = `
+                    <div class="card-body items-center text-center">
+                        <div class="text-7xl animate-float filter drop-shadow-md">${sub.icon}</div>
+                        <h2 class="card-title text-3xl font-black">${sub.name}</h2>
+                        <p class="opacity-70">Complete os desafios!</p>
+                    </div>
+                `;
+
                 container.innerHTML = '';
                 sub.categories.forEach(cat => {
                     let levelsHTML = '';
                     const levels = [
-                        { name: "Iniciante", class: "bg-blue-100 text-blue-700 border-blue-200", icon: "🐣", bloomMax: 2 },
-                        { name: "Aventureiro", class: "bg-green-100 text-green-700 border-green-200", icon: "⚔️", bloomMax: 4 },
-                        { name: "Titã", class: "bg-purple-100 text-purple-700 border-purple-200", icon: "👹", bloomMax: 6 },
-                        { name: "Mestre", class: "bg-yellow-100 text-yellow-700 border-yellow-200", icon: "👑", bloomMax: 7 }
+                        { name: "Fácil", class: "btn-info", icon: "🐣", bloomMax: 2 },
+                        { name: "Médio", class: "btn-success", icon: "⚔️", bloomMax: 4 },
+                        { name: "Titã", class: "btn-secondary", icon: "👹", bloomMax: 6 },
+                        { name: "Mestre", class: "btn-warning", icon: "👑", bloomMax: 7 }
                     ];
+
                     levels.forEach((lvl, idx) => {
                         const isUnlocked = State.checkLevelUnlock(cat.id, idx);
                         const isDone = State.data.progress[`${cat.id}-lvl${idx}`];
-                        const attemptStatus = State.getAttemptStatus(cat.id, idx);
-                        let statusIcon = isUnlocked ? (isDone ? "✅" : lvl.icon) : "🔒";
-                        let btnStyle = isUnlocked ? lvl.class : "bg-gray-100 text-gray-400 border-gray-200 opacity-60";
-                        if (attemptStatus.locked) { statusIcon = "⏳"; btnStyle = "bg-gray-200 text-gray-500 border-gray-300 locked-filter"; }
-                        levelsHTML += `<button onclick="${isUnlocked && !attemptStatus.locked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax}, '${lvl.name}')` : `Game.showLockMessage(${attemptStatus.locked}, ${attemptStatus.timeLeft})`}" class="flex-1 py-3 rounded-xl border-b-4 text-xs font-bold transition-transform active:scale-95 ${btnStyle}"><div class="text-lg mb-1">${statusIcon}</div>${lvl.name}</button>`;
+                        const attempt = State.getAttemptStatus(cat.id, idx);
+
+                        let btnClass = isUnlocked ? `btn ${lvl.class} border-b-4` : "btn btn-disabled";
+                        if (attempt.locked) btnClass = "btn btn-disabled";
+                        if (isDone) btnClass = "btn btn-outline border-b-4 btn-success";
+
+                        const icon = attempt.locked ? "⏳" : (isDone ? "✅" : lvl.icon);
+                        const action = isUnlocked && !attempt.locked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax}, '${lvl.name}')` : (attempt.locked ? `alert('Bloqueado por ${attempt.timeLeft}h')` : '');
+
+                        levelsHTML += `
+                            <button onclick="${action}" class="join-item flex-1 ${btnClass} flex-col gap-0 h-auto py-2">
+                                <span class="text-xl leading-none">${icon}</span>
+                                <span class="text-[10px] uppercase font-bold">${lvl.name}</span>
+                            </button>
+                        `;
                     });
-                    container.innerHTML += `<div class="bg-white rounded-3xl p-5 shadow-sm border-2 border-gray-100"><div class="flex justify-between items-center mb-4"><div><h3 class="font-bold text-lg text-gray-700">${cat.name}</h3></div><button onclick="Game.openPrep('${cat.id}')" class="bg-brand-yellow text-yellow-800 px-4 py-2 rounded-xl font-bold text-sm shadow-sm hover:bg-yellow-400"><span>📜</span> Preparar</button></div><div class="flex gap-2 w-full">${levelsHTML}</div></div>`;
+
+                    container.innerHTML += `
+                    <div class="card bg-base-100 shadow-sm border border-base-200">
+                        <div class="card-body p-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-bold text-lg flex items-center gap-2">
+                                    <span class="w-2 h-6 rounded bg-primary"></span>
+                                    ${cat.name}
+                                </h3>
+                                <button onclick="Game.openPrep('${cat.id}')" class="btn btn-sm btn-ghost gap-2 text-warning">
+                                    📜 <span class="hidden sm:inline">Preparar</span>
+                                </button>
+                            </div>
+                            <div class="join w-full grid grid-cols-4 gap-1">
+                                ${levelsHTML}
+                            </div>
+                        </div>
+                    </div>`;
                 });
                 this.showScreen('screen-subject');
             },
+
+            renderGameScreen: function (q, total, current, lives, levelName) {
+                this.showScreen('screen-game');
+                const pct = ((current) / total) * 100;
+                document.getElementById('game-progress').value = pct;
+                document.getElementById('game-level-tag').innerText = levelName;
+                document.getElementById('game-hearts').innerText = '❤️'.repeat(lives);
+
+                // --- CORREÇÃO VISUAL 1: Flex-col para quebrar linha da imagem ---
+                // Adicionei 'flex flex-col items-center gap-4' ao ID e substituí no innerHTML
+                const questionEl = document.getElementById('game-question');
+                questionEl.className = "card-title text-2xl md:text-3xl font-black mb-6 leading-snug z-10 flex flex-col items-center gap-4"; // Classes atualizadas
+
+                questionEl.innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary border-b-2 border-primary border-dashed">$1</span>').replace(/______/g, '<span class="inline-block w-16 border-b-2 border-base-content/50"></span>');
+
+                const optsContainer = document.getElementById('game-options');
+                optsContainer.innerHTML = '';
+                q.opts.forEach((opt, idx) => {
+                    optsContainer.innerHTML += `
+                    <button onclick="Game.selectOption(${idx})" id="opt-${idx}" 
+                        class="btn btn-outline btn-lg w-full h-auto py-4 justify-start text-left normal-case border-b-4 hover:border-b-4">
+                        <span class="badge badge-ghost mr-2">${String.fromCharCode(65 + idx)}</span>
+                        ${opt}
+                    </button>`;
+                });
+
+                const footer = document.getElementById('footer-action');
+                footer.classList.remove('hidden-screen');
+                footer.innerHTML = `<button class="btn btn-disabled btn-lg w-full rounded-2xl">Escolha uma resposta</button>`;
+            },
+
+            showFeedback: function (isCorrect, hint, nextFn) {
+                const footer = document.getElementById('footer-action');
+                const bgClass = isCorrect ? 'bg-success text-success-content' : 'bg-error text-error-content';
+                const btnClass = isCorrect ? 'btn-success border-base-100' : 'btn-error border-base-100';
+
+                footer.innerHTML = `
+                    <div class="w-full max-w-xl mx-auto animate-slide-up">
+                        <div class="alert ${bgClass} shadow-lg mb-3 flex-row items-start">
+                            <span class="text-3xl">${isCorrect ? '🎉' : '🤔'}</span>
+                            <div>
+                                <h3 class="font-bold uppercase text-xs tracking-wider">${isCorrect ? 'Mandou Bem!' : 'Ops, correção:'}</h3>
+                                <div class="text-sm font-medium opacity-90">${hint}</div>
+                            </div>
+                        </div>
+                        <button onclick="${nextFn}" class="btn btn-lg w-full ${bgClass} border-b-4 border-black/20 hover:border-black/20">
+                            ${isCorrect ? 'CONTINUAR' : 'ENTENDI'}
+                        </button>
+                    </div>`;
+            },
+
+            showResult: function (isVictory, score, totalQuestions, nextLevelFn, retryFn, subjectFn) {
+                const container = document.getElementById('result-container');
+                document.getElementById('footer-action').classList.add('hidden-screen');
+                const percentage = Math.round((score / (totalQuestions * 10)) * 100);
+
+                if (isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+
+                container.innerHTML = `
+                <div class="hero min-h-[60vh] animate-pop">
+                    <div class="hero-content text-center">
+                        <div class="max-w-md">
+                            <div class="text-9xl mb-4 animate-bounce">${isVictory ? '🏆' : '🐢'}</div>
+                            <h1 class="text-4xl font-black mb-2">${isVictory ? 'Vitória Épica!' : 'Quase lá!'}</h1>
+                            <p class="py-2 opacity-70 mb-6">${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}</p>
+                            
+                            <div class="stats shadow w-full mb-8 bg-base-100 border border-base-200">
+                                <div class="stat place-items-center">
+                                    <div class="stat-title uppercase font-bold text-xs">Sua Nota</div>
+                                    <div class="stat-value ${isVictory ? 'text-primary' : 'text-error'}">${percentage}%</div>
+                                    <div class="stat-desc font-bold">Mínimo: 70%</div>
+                                </div>
+                                ${isVictory ? `
+                                <div class="stat place-items-center">
+                                    <div class="stat-title uppercase font-bold text-xs">Recompensa</div>
+                                    <div class="stat-value text-warning">20</div>
+                                    <div class="stat-desc font-bold text-warning">Moedas</div>
+                                </div>` : ''}
+                            </div>
+
+                            <div class="flex flex-col gap-3">
+                                ${isVictory && nextLevelFn ? `<button onclick="${nextLevelFn}" class="btn btn-primary btn-lg shadow-lg border-b-4 border-primary-focus">Próximo Nível ➡️</button>` : ''}
+                                <button onclick="${retryFn}" class="btn btn-secondary btn-outline btn-lg">${isVictory ? 'Jogar Novamente' : 'Tentar Novamente'}</button>
+                                <button onclick="${subjectFn}" class="btn btn-ghost">Voltar para o Assunto</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+                this.showScreen('screen-result');
+            },
+
             openPrepModal: function (content) {
                 document.getElementById('prep-icon').innerText = content.skin;
                 document.getElementById('prep-title').innerHTML = content.title;
                 document.getElementById('prep-content').innerHTML = content.content;
-                document.getElementById('prep-reward-text').innerText = `Skin: ${content.skin}`;
-                document.getElementById('screen-prep').classList.remove('hidden-screen');
-            },
-            closePrep: function () { document.getElementById('screen-prep').classList.add('hidden-screen'); },
-            renderGameScreen: function (q, total, current, lives, levelName) {
-                this.showScreen('screen-game');
-                const pct = ((current) / total) * 100;
-                document.getElementById('game-progress').style.width = `${pct}%`;
-
-                // CORREÇÃO 2: Atualiza o nome do nível
-                document.getElementById('game-level-tag').innerText = levelName;
-
-                let hearts = '';
-                for (let i = 0; i < lives; i++) hearts += '❤️';
-                document.getElementById('game-hearts').innerText = hearts;
-                document.getElementById('game-question').innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-brand-purple">$1</span>').replace(/______/g, '<span class="border-b-4 border-gray-300 w-16 inline-block"></span>');
-                const optsContainer = document.getElementById('game-options');
-                optsContainer.innerHTML = '';
-                q.opts.forEach((opt, idx) => {
-                    optsContainer.innerHTML += `<button onclick="Game.selectOption(${idx})" id="opt-${idx}" class="w-full text-left p-4 rounded-2xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 btn-game">${opt}</button>`;
-                });
-                const footer = document.getElementById('footer-action');
-                footer.classList.remove('hidden-screen');
-                footer.innerHTML = `<div class="max-w-xl mx-auto"><button class="w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-2xl text-lg cursor-not-allowed" disabled>Escolha uma resposta</button></div>`;
-            },
-            showFeedback: function (isCorrect, hint, nextFn) {
-                const footer = document.getElementById('footer-action');
-                const color = isCorrect ? 'green' : 'red';
-                const title = isCorrect ? 'INCRÍVEL!' : 'CORREÇÃO:';
-                footer.innerHTML = `<div class="max-w-xl mx-auto flex flex-col gap-3 animate-slide-up"><div class="flex items-start gap-3 bg-${color}-50 p-4 rounded-2xl border border-${color}-100"><div class="text-3xl">${isCorrect ? '🎉' : '💡'}</div><div><p class="font-black text-${color}-600 uppercase text-sm">${title}</p><p class="text-gray-600 font-medium leading-tight">${hint}</p></div></div><button onclick="${nextFn}" class="w-full bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">${isCorrect ? 'CONTINUAR' : 'ENTENDI'}</button></div>`;
-            },
-            showResult: function (isVictory, score, totalQuestions, nextLevelFn, retryFn, subjectFn) {
-                const container = document.getElementById('result-container');
-                const footer = document.getElementById('footer-action');
-                if (footer) footer.classList.add('hidden-screen');
-                const percentage = Math.round((score / (totalQuestions * 10)) * 100);
-                try { if (typeof confetti === 'function' && isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } }); } catch (e) { }
-
-                // CORREÇÃO 1: Botão Voltar para o Assunto (Matéria)
-                container.innerHTML = `
-                <div class="flex flex-col items-center justify-center h-full pt-10 animate-pop px-4">
-                    <div class="text-8xl mb-4 animate-bounce">${isVictory ? '🏆' : '😿'}</div>
-                    <h2 class="text-3xl font-black text-gray-800 mb-2">${isVictory ? 'Vitória Épica!' : 'Não foi dessa vez!'}</h2>
-                    <p class="text-gray-500 mb-6 text-center">${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}</p>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-gray-100 w-full mb-6 text-center">
-                        <p class="text-sm font-bold text-gray-400 uppercase">Sua Nota</p>
-                        <p class="text-5xl font-black ${isVictory ? 'text-brand-purple' : 'text-brand-red'}">${percentage}%</p>
-                        <p class="text-xs text-gray-400 mt-2">Mínimo para passar: 70%</p>
-                    </div>
-                    ${isVictory ? `<div class="flex gap-4 w-full mb-8"><div class="flex-1 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex flex-col items-center"><span class="text-xl">🪙</span><span class="font-bold text-yellow-800 text-sm">+20 Coins</span></div></div>` : ''}
-                    <div class="w-full space-y-3">
-                        ${isVictory && nextLevelFn ? `<button onclick="${nextLevelFn}" class="w-full bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">Próximo Nível ➡️</button>` : ''}
-                        <button onclick="${retryFn}" class="w-full bg-brand-yellow text-yellow-900 font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">${isVictory ? 'Jogar Novamente 🔄' : 'Tentar Novamente 🔄'}</button>
-                        <button onclick="${subjectFn}" class="w-full bg-gray-200 text-gray-600 font-bold py-4 rounded-2xl text-xl btn-game">Voltar para o Assunto</button>
-                    </div>
-                </div>`;
-                this.showScreen('screen-result');
+                document.getElementById('prep-reward-text').innerText = `Skin Nova: ${content.skin}`;
+                document.getElementById('prep_modal').showModal();
             }
         };
 
-        // --- GAME ENGINE ---
+        // --- GAME LOGIC ---
         const Game = {
             currentSession: null,
 
-            // CORREÇÃO 3: Sair volta para a Matéria
+            // --- CORREÇÃO 2: Lógica de Sair (Fix Navigation Loop) ---
             exitGame: function () {
-                if (confirm("Tem certeza que quer sair? Todo o progresso desta fase será perdido! 🛡️")) {
-                    const subjectId = this.currentSession.subjectId;
+                if (confirm("Sair agora perde o progresso! 🛡️")) {
+                    // Salva o ID antes de destruir a sessão
+                    const subjectId = this.currentSession ? this.currentSession.subjectId : 'pt';
                     this.currentSession = null;
                     UI.renderSubject(subjectId);
                 }
             },
 
-            startAdventure: function () {
-                const nick = document.getElementById('input-nick').value;
-                if (nick.length < 3) return alert("O nome precisa ter pelo menos 3 letras!");
-                State.data.nick = nick; State.save(); UI.renderMap();
-            },
+            startAdventure: function () { const n = document.getElementById('input-nick').value; if (n.length < 3) return alert("Nome curto!"); State.data.nick = n; State.save(); UI.renderMap(); },
+            updateSettings: function () { State.data.nick = document.getElementById('settings-nick').value; State.save(); document.getElementById('settings_modal').close(); },
             openSubject: function (id) { UI.renderSubject(id); },
             openPrep: function (catId) {
-                let category = null;
-                DB.subjects.forEach(s => { const c = s.categories.find(k => k.id === catId); if (c) category = c; });
-                this.tempSkin = category.prep.skin; UI.openPrepModal(category.prep);
+                let c = null; DB.subjects.forEach(s => { const f = s.categories.find(k => k.id === catId); if (f) c = f; });
+                this.tempSkin = c.prep.skin; UI.openPrepModal(c.prep);
             },
-            finishPrep: function () {
-                State.unlockSkin(this.tempSkin); State.data.coins += 10; State.save(); UI.closePrep();
-                try { confetti({ particleCount: 50, spread: 50 }); } catch (e) { }
-            },
-            showLockMessage: function (locked, time) {
-                if (locked) { alert(`Você precisa descansar! Esse nível está bloqueado por mais ${time} horas.`); }
-                else { alert("Complete o nível anterior para desbloquear este."); }
-            },
+            finishPrep: function () { State.unlockSkin(this.tempSkin); State.data.coins += 10; State.save(); document.getElementById('prep_modal').close(); try { confetti({ particleCount: 50, spread: 50 }); } catch (e) { } },
 
-            // Atualização: startLevel recebe levelName para exibir
             startLevel: function (catId, levelIdx, bloomMax, levelName) {
-                // Descobre ID da matéria (subjectId) para poder voltar depois
-                const subject = DB.subjects.find(s => s.categories.find(c => c.id === catId));
-                const subjectId = subject ? subject.id : 'pt'; // Fallback
+                let category = null;
+                let subjectId = null;
+                DB.subjects.forEach(s => {
+                    const c = s.categories.find(k => k.id === catId);
+                    if (c) { category = c; subjectId = s.id; }
+                });
 
-                let category = subject.categories.find(k => k.id === catId);
+                let minBloom = bloomMax - 1; if (levelIdx === 0) minBloom = 1;
+                const pool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
+                let fresh = pool.filter(q => !State.data.history.includes(q.id));
 
-                // Se levelName não foi passado (retry), deduzir
-                if (!levelName) {
-                    const names = ["Iniciante", "Aventureiro", "Titã", "Mestre"];
-                    levelName = names[levelIdx];
+                if (fresh.length < 5) {
+                    State.cleanHistoryForPool(pool.map(q => q.id));
+                    fresh = pool;
                 }
 
-                let minBloom = bloomMax - 1;
-                if (levelIdx === 0) minBloom = 1;
+                const selected = fresh.sort(() => 0.5 - Math.random()).slice(0, 5);
+                if (selected.length === 0) return alert("Erro: Sem questões.");
 
-                const fullPool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
-                let freshQuestions = fullPool.filter(q => !State.data.history.includes(q.id));
-                if (freshQuestions.length < 5) {
-                    const poolIds = fullPool.map(q => q.id);
-                    State.cleanHistoryForPool(poolIds);
-                    freshQuestions = fullPool;
-                }
-                const shuffled = freshQuestions.sort(() => 0.5 - Math.random());
-                const selectedQuestions = shuffled.slice(0, 5);
-                if (selectedQuestions.length === 0) { return alert("Erro: Sem questões disponíveis no banco de dados."); }
-
-                this.currentSession = {
-                    subjectId: subjectId, // Salva para o botão Voltar
-                    catId: catId,
-                    levelIdx: levelIdx,
-                    questions: selectedQuestions,
-                    questionIds: selectedQuestions.map(q => q.id),
-                    idx: 0,
-                    lives: 3,
-                    score: 0,
-                    totalQuestions: 5,
-                    correctCount: 0,
-                    levelName: levelName // Salva para exibir
-                };
-                UI.renderGameScreen(selectedQuestions[0], 5, 0, 3, levelName);
+                this.currentSession = { subjectId, catId, levelIdx, questions: selected, questionIds: selected.map(q => q.id), idx: 0, lives: 3, score: 0, total: 5, correct: 0, levelName };
+                UI.renderGameScreen(selected[0], 5, 0, 3, levelName);
             },
 
             selectOption: function (optIdx) {
                 const btns = document.querySelectorAll('[id^="opt-"]');
-                btns.forEach(b => { b.classList.replace('border-brand-purple', 'border-gray-200'); b.classList.replace('bg-purple-50', 'bg-gray-50'); });
-                const selected = document.getElementById(`opt-${optIdx}`);
-                selected.classList.replace('border-gray-200', 'border-brand-purple');
-                selected.classList.replace('bg-gray-50', 'bg-purple-50');
+                btns.forEach(b => { b.classList.remove('btn-active', 'btn-primary'); b.classList.add('btn-outline'); });
+                const sel = document.getElementById(`opt-${optIdx}`);
+                sel.classList.remove('btn-outline'); sel.classList.add('btn-primary', 'border-b-4');
                 this.currentSession.selectedOpt = optIdx;
                 const footer = document.getElementById('footer-action');
-                footer.innerHTML = `<div class="max-w-xl mx-auto"><button onclick="Game.checkAnswer()" class="w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">CONFIRMAR</button></div>`;
+                footer.innerHTML = `<button onclick="Game.checkAnswer()" class="btn btn-primary btn-lg w-full rounded-2xl shadow-lg border-b-4 border-primary-focus">CONFIRMAR</button>`;
             },
 
             checkAnswer: function () {
-                const session = this.currentSession;
-                const q = session.questions[session.idx];
-                const isCorrect = session.selectedOpt === q.c;
-                const btns = document.querySelectorAll('[id^="opt-"]');
-                btns.forEach(b => b.disabled = true);
-                const selBtn = document.getElementById(`opt-${session.selectedOpt}`);
-                const corBtn = document.getElementById(`opt-${q.c}`);
-                if (isCorrect) {
-                    selBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
-                    session.score += 10; session.correctCount++;
-                } else {
-                    selBtn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
-                    corBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
-                    session.lives--;
-                }
+                const s = this.currentSession; const q = s.questions[s.idx]; const isCorrect = s.selectedOpt === q.c;
+                const btns = document.querySelectorAll('[id^="opt-"]'); btns.forEach(b => b.disabled = true);
+                const selBtn = document.getElementById(`opt-${s.selectedOpt}`);
+
+                if (isCorrect) { selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-success', 'text-white'); s.score += 10; s.correct++; }
+                else { selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-error', 'text-white'); s.lives--; }
                 UI.showFeedback(isCorrect, q.h, 'Game.nextQuestion()');
             },
 
             nextQuestion: function () {
-                const session = this.currentSession;
-                // CORREÇÃO 4: Se vidas acabarem, encerra imediatamente (Derrota)
-                if (session.lives <= 0) {
-                    this.finishLevel(); // Vai calcular nota baixa e mostrar tela de derrota
-                    return;
-                }
-
-                session.idx++;
-                if (session.idx < session.questions.length) {
-                    UI.renderGameScreen(session.questions[session.idx], session.totalQuestions, session.idx, session.lives, session.levelName);
-                } else {
-                    this.finishLevel();
-                }
+                const s = this.currentSession;
+                if (s.lives <= 0) { this.finishLevel(); return; }
+                s.idx++;
+                if (s.idx < s.questions.length) UI.renderGameScreen(s.questions[s.idx], s.total, s.idx, s.lives, s.levelName);
+                else this.finishLevel();
             },
 
             finishLevel: function () {
-                const session = this.currentSession;
-                State.addToHistory(session.questionIds);
-                const percent = (session.correctCount / session.totalQuestions) * 100;
-                const passed = percent >= 70;
-                State.registerAttempt(session.catId, session.levelIdx, passed);
+                const s = this.currentSession;
+                State.addToHistory(s.questionIds);
+                const passed = (s.correct / s.total) * 100 >= 70;
+                State.registerAttempt(s.catId, s.levelIdx, passed);
 
-                const retryFn = `Game.retryLevel('${session.catId}', ${session.levelIdx})`;
-                // Botão "Voltar para o Assunto" usa o subjectId salvo
-                const subjectFn = `UI.renderSubject('${session.subjectId}')`;
-
+                const retryFn = `Game.startLevel('${s.catId}', ${s.levelIdx}, ${[2, 4, 6, 7][s.levelIdx]}, '${s.levelName}')`;
+                const subjectFn = `UI.renderSubject('${s.subjectId}')`;
                 let nextLevelFn = null;
-                if (passed && session.levelIdx < 3) {
-                    const nextBloom = [2, 4, 6, 7][session.levelIdx + 1];
-                    const nextName = ["Iniciante", "Aventureiro", "Titã", "Mestre"][session.levelIdx + 1];
-                    nextLevelFn = `Game.startLevel('${session.catId}', ${session.levelIdx + 1}, ${nextBloom}, '${nextName}')`;
+
+                if (passed && s.levelIdx < 3) {
+                    const nextIdx = s.levelIdx + 1;
+                    const nextNames = ["Fácil", "Médio", "Titã", "Mestre"];
+                    const nextBlooms = [2, 4, 6, 7];
+                    nextLevelFn = `Game.startLevel('${s.catId}', ${nextIdx}, ${nextBlooms[nextIdx]}, '${nextNames[nextIdx]}')`;
                 }
 
                 if (passed) {
-                    State.data.progress[`${session.catId}-lvl${session.levelIdx}`] = true;
-                    State.data.coins += 20;
-                    State.save();
-                    UI.showResult(true, session.score, session.totalQuestions, nextLevelFn, retryFn, subjectFn);
+                    State.data.progress[`${s.catId}-lvl${s.levelIdx}`] = true;
+                    State.data.coins += 20; State.save();
+                    UI.showResult(true, s.score, s.total, nextLevelFn, retryFn, subjectFn);
                 } else {
-                    const status = State.getAttemptStatus(session.catId, session.levelIdx);
-                    if (status.locked) {
-                        alert(`Você falhou 2 vezes seguidas. O nível está bloqueado por 24h para você descansar.`);
-                        UI.renderSubject(session.subjectId);
-                    } else {
-                        UI.showResult(false, session.score, session.totalQuestions, null, retryFn, subjectFn);
-                    }
+                    const st = State.getAttemptStatus(s.catId, s.levelIdx);
+                    if (st.locked) { alert("Bloqueado por 24h!"); UI.renderSubject(s.subjectId); }
+                    else UI.showResult(false, s.score, s.total, null, retryFn, subjectFn);
                 }
-            },
-
-            retryLevel: function (catId, lvlIdx) {
-                const levels = [2, 4, 6, 7];
-                const names = ["Iniciante", "Aventureiro", "Titã", "Mestre"];
-                const bloomMax = levels[lvlIdx];
-                const levelName = names[lvlIdx];
-                this.startLevel(catId, lvlIdx, bloomMax, levelName);
             }
         };
 
@@ -605,12 +666,11 @@
             if (State.load()) {
                 UI.renderMap();
                 document.getElementById('screen-intro').classList.add('hidden-screen');
-                document.getElementById('screen-map').classList.remove('hidden-screen');
-                document.getElementById('main-header').classList.remove('hidden-screen');
-                UI.updateHeader();
             }
+            UI.updateHeader();
         };
     </script>
+
 </body>
 
 </html>
