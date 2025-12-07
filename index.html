@@ -147,7 +147,6 @@
                     <span class="text-sm font-bold text-brand-dark truncate w-20" id="header-nick">Jogador</span>
                 </div>
             </div>
-
             <div class="flex gap-2">
                 <div
                     class="flex items-center gap-1 bg-brand-yellow/20 px-3 py-1 rounded-full border border-brand-yellow">
@@ -176,13 +175,11 @@
             </div>
             <h1 class="text-4xl font-black text-brand-dark mb-2">Mestres do Saber</h1>
             <p class="text-gray-500 mb-8 max-w-xs mx-auto">Salve o reino de Cognitia das Sombras do Esquecimento!</p>
-
             <div class="bg-white p-6 rounded-3xl shadow-xl w-full border-b-8 border-gray-100">
                 <label class="block text-left text-sm font-bold text-gray-400 mb-2 uppercase">Como devo te
                     chamar?</label>
                 <input type="text" id="input-nick" placeholder="Ex: Super Sofia" maxlength="12"
                     class="w-full text-center text-2xl font-bold p-4 bg-gray-50 rounded-2xl border-2 border-gray-200 focus:border-brand-purple focus:outline-none text-brand-purple mb-4 transition-all">
-
                 <button onclick="Game.startAdventure()"
                     class="w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg shadow-purple-200">
                     Começar Aventura 🚀
@@ -217,7 +214,6 @@
                 <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-purple to-brand-blue"></div>
                 <button onclick="UI.closePrep()"
                     class="absolute top-4 right-4 bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center font-bold text-gray-500">✕</button>
-
                 <div class="overflow-y-auto flex-grow pr-2 custom-scroll">
                     <div class="text-center mt-4">
                         <div class="text-6xl mb-4 animate-bounce" id="prep-icon">📜</div>
@@ -232,10 +228,9 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-6 pt-4 border-t border-gray-100">
                     <button onclick="Game.finishPrep()"
-                        class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg bg-green-500 border-green-600">
+                        class="w-full bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg bg-green-500 border-green-600">
                         Estou Pronto! ⚔️
                     </button>
                 </div>
@@ -244,14 +239,21 @@
 
         <section id="screen-game" class="hidden-screen w-full pb-32">
             <div class="flex justify-between items-center mb-6">
-                <div class="flex gap-1 text-2xl" id="game-hearts">❤️❤️❤️</div>
-                <div class="text-xs font-bold text-gray-400 bg-gray-100 px-3 py-1 rounded-full uppercase"
+                <button onclick="Game.exitGame()"
+                    class="bg-gray-100 hover:bg-red-100 hover:text-red-500 text-gray-500 px-4 py-2 rounded-xl font-bold text-sm transition-colors flex items-center gap-2">
+                    ✕ Sair
+                </button>
+                <div class="text-xs font-bold text-white bg-brand-purple/80 px-3 py-1 rounded-full uppercase tracking-wider"
                     id="game-level-tag">NÍVEL 1</div>
             </div>
 
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
-                <div id="game-progress" class="bg-brand-purple h-2 rounded-full transition-all duration-500"
-                    style="width: 0%"></div>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="flex gap-1 text-2xl min-w-[80px]" id="game-hearts">❤️❤️❤️</div>
+                <div class="flex-grow bg-gray-200 rounded-full h-3">
+                    <div id="game-progress"
+                        class="bg-brand-purple h-3 rounded-full transition-all duration-500 shadow-sm"
+                        style="width: 0%"></div>
+                </div>
             </div>
 
             <div
@@ -272,167 +274,81 @@
     <script src="database.js"></script>
 
     <script>
-        /* MESTRES DO SABER - ENGINE V2.2 */
-
-        // --- 2. STATE MANAGEMENT ---
+        // --- STATE MANAGEMENT ---
         const State = {
-            data: {
-                nick: "",
-                coins: 0,
-                gems: 0,
-                skins: ["🧙‍♂️"],
-                currentSkin: "🧙‍♂️",
-                progress: {},
-                attempts: {},
-                history: []
-            },
-
+            data: { nick: "", coins: 0, gems: 0, skins: ["🧙‍♂️"], currentSkin: "🧙‍♂️", progress: {}, attempts: {}, history: [] },
             load: function () {
-                const saved = localStorage.getItem('mestres_save_v3');
-                if (saved) {
-                    this.data = JSON.parse(saved);
-                    if (!this.data.history) this.data.history = [];
-                    return true;
-                }
+                const saved = localStorage.getItem('mestres_save_v4');
+                if (saved) { this.data = JSON.parse(saved); if (!this.data.history) this.data.history = []; return true; }
                 return false;
             },
-
-            save: function () {
-                localStorage.setItem('mestres_save_v3', JSON.stringify(this.data));
-                UI.updateHeader();
-            },
-
-            addToHistory: function (questionIds) {
-                questionIds.forEach(id => {
-                    if (!this.data.history.includes(id)) {
-                        this.data.history.push(id);
-                    }
-                });
-                this.save();
-            },
-
-            cleanHistoryForPool: function (poolIds) {
-                this.data.history = this.data.history.filter(id => !poolIds.includes(id));
-                this.save();
-            },
-
+            save: function () { localStorage.setItem('mestres_save_v4', JSON.stringify(this.data)); UI.updateHeader(); },
+            addToHistory: function (questionIds) { questionIds.forEach(id => { if (!this.data.history.includes(id)) this.data.history.push(id); }); this.save(); },
+            cleanHistoryForPool: function (poolIds) { this.data.history = this.data.history.filter(id => !poolIds.includes(id)); this.save(); },
             registerAttempt: function (catId, lvlIdx, passed) {
                 const key = `${catId}-lvl${lvlIdx}`;
                 if (!this.data.attempts[key]) this.data.attempts[key] = { count: 0, timestamp: 0 };
-
-                if (passed) {
-                    this.data.attempts[key].count = 0;
-                } else {
-                    this.data.attempts[key].count++;
-                    this.data.attempts[key].timestamp = Date.now();
-                }
+                if (passed) { this.data.attempts[key].count = 0; } else { this.data.attempts[key].count++; this.data.attempts[key].timestamp = Date.now(); }
                 this.save();
             },
-
             getAttemptStatus: function (catId, lvlIdx) {
                 const key = `${catId}-lvl${lvlIdx}`;
                 const att = this.data.attempts[key];
                 if (!att) return { locked: false, count: 0 };
-
                 if (att.count >= 2) {
                     const now = Date.now();
                     const diff = now - att.timestamp;
                     const hours24 = 24 * 60 * 60 * 1000;
-
-                    if (diff < hours24) {
-                        const timeLeft = Math.ceil((hours24 - diff) / (60 * 60 * 1000));
-                        return { locked: true, timeLeft: timeLeft };
-                    } else {
-                        att.count = 0;
-                        this.save();
-                        return { locked: false, count: 0 };
-                    }
+                    if (diff < hours24) { return { locked: true, timeLeft: Math.ceil((hours24 - diff) / (3600000)) }; }
+                    else { att.count = 0; this.save(); return { locked: false, count: 0 }; }
                 }
                 return { locked: false, count: att.count };
             },
-
-            unlockSkin: function (skin) {
-                if (!this.data.skins.includes(skin)) {
-                    this.data.skins.push(skin);
-                    this.data.currentSkin = skin;
-                    this.save();
-                    alert(`Nova Skin Desbloqueada: ${skin}`);
-                }
-            },
-
-            checkLevelUnlock: function (catId, levelIdx) {
-                if (levelIdx === 0) return true;
-                return this.data.progress[`${catId}-lvl${levelIdx - 1}`] === true;
-            }
+            unlockSkin: function (skin) { if (!this.data.skins.includes(skin)) { this.data.skins.push(skin); this.data.currentSkin = skin; this.save(); alert(`Nova Skin Desbloqueada: ${skin}`); } },
+            checkLevelUnlock: function (catId, levelIdx) { if (levelIdx === 0) return true; return this.data.progress[`${catId}-lvl${levelIdx - 1}`] === true; }
         };
 
-        // --- 3. UI MANAGER ---
+        // --- UI MANAGER ---
         const UI = {
             screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
-
             showScreen: function (id) {
-                this.screens.forEach(s => {
-                    const el = document.getElementById(s);
-                    if (el) el.classList.add('hidden-screen');
-                });
+                this.screens.forEach(s => { const el = document.getElementById(s); if (el) el.classList.add('hidden-screen'); });
                 const target = document.getElementById(id);
-                if (target) {
-                    target.classList.remove('hidden-screen');
-                    target.classList.add('animate-slide-up');
-                }
+                if (target) { target.classList.remove('hidden-screen'); target.classList.add('animate-slide-up'); }
                 const header = document.getElementById('main-header');
                 const footer = document.getElementById('footer-action');
-
-                if (id === 'screen-intro') {
-                    if (header) header.classList.add('hidden-screen');
-                    if (footer) footer.classList.add('hidden-screen');
-                } else {
-                    if (header) header.classList.remove('hidden-screen');
-                    this.updateHeader();
-                }
+                if (id === 'screen-intro') { if (header) header.classList.add('hidden-screen'); if (footer) footer.classList.add('hidden-screen'); }
+                else { if (header) header.classList.remove('hidden-screen'); this.updateHeader(); }
             },
-
             updateHeader: function () {
                 document.getElementById('header-nick').innerText = State.data.nick;
                 document.getElementById('header-avatar').innerText = State.data.currentSkin;
                 document.getElementById('header-coins').innerText = State.data.coins;
                 document.getElementById('header-gems').innerText = State.data.gems;
             },
-
             renderMap: function () {
                 const grid = document.getElementById('subjects-grid');
                 if (!grid) return;
                 grid.innerHTML = '';
-                if (typeof DB === 'undefined') return console.error("Database não carregado.");
+                if (typeof DB === 'undefined') return console.error("Database não carregado. Verifique o arquivo database.js");
 
                 DB.subjects.forEach(sub => {
                     grid.innerHTML += `
-                <div onclick="Game.openSubject('${sub.id}')" 
-                    class="bg-white p-4 rounded-3xl shadow-sm border-b-4 border-gray-100 active:scale-95 transition-transform cursor-pointer relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-2 opacity-10 text-6xl group-hover:scale-110 transition-transform">${sub.icon}</div>
-                    <div class="${sub.color} w-12 h-12 rounded-2xl flex items-center justify-center text-2xl text-white shadow-md mb-3">
-                        ${sub.icon}
-                    </div>
-                    <h3 class="font-bold text-gray-700 leading-tight">${sub.name}</h3>
-                    <p class="text-xs text-gray-400 font-bold uppercase mt-1">
-                        ${sub.categories.length} Aventuras
-                    </p>
-                </div>`;
+                    <div onclick="Game.openSubject('${sub.id}')" 
+                        class="bg-white p-4 rounded-3xl shadow-sm border-b-4 border-gray-100 active:scale-95 transition-transform cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-2 opacity-10 text-6xl group-hover:scale-110 transition-transform">${sub.icon}</div>
+                        <div class="${sub.color} w-12 h-12 rounded-2xl flex items-center justify-center text-2xl text-white shadow-md mb-3">${sub.icon}</div>
+                        <h3 class="font-bold text-gray-700 leading-tight">${sub.name}</h3>
+                        <p class="text-xs text-gray-400 font-bold uppercase mt-1">${sub.categories.length} Aventuras</p>
+                    </div>`;
                 });
                 this.showScreen('screen-map');
             },
-
             renderSubject: function (subId) {
                 const sub = DB.subjects.find(s => s.id === subId);
                 const container = document.getElementById('categories-list');
                 const header = document.getElementById('subject-header');
-
-                header.innerHTML = `
-                <div class="text-6xl mb-2 animate-float">${sub.icon}</div>
-                <h2 class="text-3xl font-black text-gray-800">${sub.name}</h2>
-                <p class="text-gray-500">Complete os desafios!</p>
-            `;
-
+                header.innerHTML = `<div class="text-6xl mb-2 animate-float">${sub.icon}</div><h2 class="text-3xl font-black text-gray-800">${sub.name}</h2><p class="text-gray-500">Complete os desafios!</p>`;
                 container.innerHTML = '';
                 sub.categories.forEach(cat => {
                     let levelsHTML = '';
@@ -442,43 +358,19 @@
                         { name: "Titã", class: "bg-purple-100 text-purple-700 border-purple-200", icon: "👹", bloomMax: 6 },
                         { name: "Mestre", class: "bg-yellow-100 text-yellow-700 border-yellow-200", icon: "👑", bloomMax: 7 }
                     ];
-
                     levels.forEach((lvl, idx) => {
                         const isUnlocked = State.checkLevelUnlock(cat.id, idx);
                         const isDone = State.data.progress[`${cat.id}-lvl${idx}`];
                         const attemptStatus = State.getAttemptStatus(cat.id, idx);
-
                         let statusIcon = isUnlocked ? (isDone ? "✅" : lvl.icon) : "🔒";
                         let btnStyle = isUnlocked ? lvl.class : "bg-gray-100 text-gray-400 border-gray-200 opacity-60";
-
-                        if (attemptStatus.locked) {
-                            statusIcon = "⏳";
-                            btnStyle = "bg-gray-200 text-gray-500 border-gray-300 locked-filter";
-                        }
-
-                        levelsHTML += `
-                        <button onclick="${isUnlocked && !attemptStatus.locked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax})` : `Game.showLockMessage(${attemptStatus.locked}, ${attemptStatus.timeLeft})`}"
-                            class="flex-1 py-3 rounded-xl border-b-4 text-xs font-bold transition-transform active:scale-95 ${btnStyle}">
-                            <div class="text-lg mb-1">${statusIcon}</div>
-                            ${lvl.name}
-                        </button>
-                    `;
+                        if (attemptStatus.locked) { statusIcon = "⏳"; btnStyle = "bg-gray-200 text-gray-500 border-gray-300 locked-filter"; }
+                        levelsHTML += `<button onclick="${isUnlocked && !attemptStatus.locked ? `Game.startLevel('${cat.id}', ${idx}, ${lvl.bloomMax}, '${lvl.name}')` : `Game.showLockMessage(${attemptStatus.locked}, ${attemptStatus.timeLeft})`}" class="flex-1 py-3 rounded-xl border-b-4 text-xs font-bold transition-transform active:scale-95 ${btnStyle}"><div class="text-lg mb-1">${statusIcon}</div>${lvl.name}</button>`;
                     });
-
-                    container.innerHTML += `
-                    <div class="bg-white rounded-3xl p-5 shadow-sm border-2 border-gray-100">
-                        <div class="flex justify-between items-center mb-4">
-                            <div><h3 class="font-bold text-lg text-gray-700">${cat.name}</h3></div>
-                            <button onclick="Game.openPrep('${cat.id}')" class="bg-brand-yellow text-yellow-800 px-4 py-2 rounded-xl font-bold text-sm shadow-sm hover:bg-yellow-400">
-                                <span>📜</span> Preparar
-                            </button>
-                        </div>
-                        <div class="flex gap-2 w-full">${levelsHTML}</div>
-                    </div>`;
+                    container.innerHTML += `<div class="bg-white rounded-3xl p-5 shadow-sm border-2 border-gray-100"><div class="flex justify-between items-center mb-4"><div><h3 class="font-bold text-lg text-gray-700">${cat.name}</h3></div><button onclick="Game.openPrep('${cat.id}')" class="bg-brand-yellow text-yellow-800 px-4 py-2 rounded-xl font-bold text-sm shadow-sm hover:bg-yellow-400"><span>📜</span> Preparar</button></div><div class="flex gap-2 w-full">${levelsHTML}</div></div>`;
                 });
                 this.showScreen('screen-subject');
             },
-
             openPrepModal: function (content) {
                 document.getElementById('prep-icon').innerText = content.skin;
                 document.getElementById('prep-title').innerHTML = content.title;
@@ -486,182 +378,126 @@
                 document.getElementById('prep-reward-text').innerText = `Skin: ${content.skin}`;
                 document.getElementById('screen-prep').classList.remove('hidden-screen');
             },
-
-            closePrep: function () {
-                document.getElementById('screen-prep').classList.add('hidden-screen');
-            },
-
-            renderGameScreen: function (q, total, current, lives) {
+            closePrep: function () { document.getElementById('screen-prep').classList.add('hidden-screen'); },
+            renderGameScreen: function (q, total, current, lives, levelName) {
                 this.showScreen('screen-game');
                 const pct = ((current) / total) * 100;
                 document.getElementById('game-progress').style.width = `${pct}%`;
+
+                // CORREÇÃO 2: Atualiza o nome do nível
+                document.getElementById('game-level-tag').innerText = levelName;
+
                 let hearts = '';
                 for (let i = 0; i < lives; i++) hearts += '❤️';
                 document.getElementById('game-hearts').innerText = hearts;
                 document.getElementById('game-question').innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-brand-purple">$1</span>').replace(/______/g, '<span class="border-b-4 border-gray-300 w-16 inline-block"></span>');
-
                 const optsContainer = document.getElementById('game-options');
                 optsContainer.innerHTML = '';
                 q.opts.forEach((opt, idx) => {
-                    optsContainer.innerHTML += `
-                    <button onclick="Game.selectOption(${idx})" id="opt-${idx}"
-                        class="w-full text-left p-4 rounded-2xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 btn-game">
-                        ${opt}
-                    </button>`;
+                    optsContainer.innerHTML += `<button onclick="Game.selectOption(${idx})" id="opt-${idx}" class="w-full text-left p-4 rounded-2xl border-2 border-gray-200 bg-gray-50 font-bold text-gray-600 transition-all active:scale-95 btn-game">${opt}</button>`;
                 });
-
                 const footer = document.getElementById('footer-action');
                 footer.classList.remove('hidden-screen');
                 footer.innerHTML = `<div class="max-w-xl mx-auto"><button class="w-full bg-gray-200 text-gray-400 font-bold py-4 rounded-2xl text-lg cursor-not-allowed" disabled>Escolha uma resposta</button></div>`;
             },
-
             showFeedback: function (isCorrect, hint, nextFn) {
                 const footer = document.getElementById('footer-action');
                 const color = isCorrect ? 'green' : 'red';
                 const title = isCorrect ? 'INCRÍVEL!' : 'CORREÇÃO:';
-
-                footer.innerHTML = `
-                <div class="max-w-xl mx-auto flex flex-col gap-3 animate-slide-up">
-                    <div class="flex items-start gap-3 bg-${color}-50 p-4 rounded-2xl border border-${color}-100">
-                        <div class="text-3xl">${isCorrect ? '🎉' : '💡'}</div>
-                        <div>
-                            <p class="font-black text-${color}-600 uppercase text-sm">${title}</p>
-                            <p class="text-gray-600 font-medium leading-tight">${hint}</p>
-                        </div>
-                    </div>
-                    <button onclick="${nextFn}" class="w-full bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
-                        ${isCorrect ? 'CONTINUAR' : 'ENTENDI'}
-                    </button>
-                </div>`;
+                footer.innerHTML = `<div class="max-w-xl mx-auto flex flex-col gap-3 animate-slide-up"><div class="flex items-start gap-3 bg-${color}-50 p-4 rounded-2xl border border-${color}-100"><div class="text-3xl">${isCorrect ? '🎉' : '💡'}</div><div><p class="font-black text-${color}-600 uppercase text-sm">${title}</p><p class="text-gray-600 font-medium leading-tight">${hint}</p></div></div><button onclick="${nextFn}" class="w-full bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">${isCorrect ? 'CONTINUAR' : 'ENTENDI'}</button></div>`;
             },
-
-            // --- ATUALIZAÇÃO: TELA DE VITÓRIA COM OPÇÃO "PRÓXIMO" OU "REPETIR" ---
-            showResult: function (isVictory, score, totalQuestions, nextLevelFn, retryFn, mapFn) {
+            showResult: function (isVictory, score, totalQuestions, nextLevelFn, retryFn, subjectFn) {
                 const container = document.getElementById('result-container');
                 const footer = document.getElementById('footer-action');
                 if (footer) footer.classList.add('hidden-screen');
-
                 const percentage = Math.round((score / (totalQuestions * 10)) * 100);
-
                 try { if (typeof confetti === 'function' && isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } }); } catch (e) { }
 
+                // CORREÇÃO 1: Botão Voltar para o Assunto (Matéria)
                 container.innerHTML = `
-            <div class="flex flex-col items-center justify-center h-full pt-10 animate-pop px-4">
-                <div class="text-8xl mb-4 animate-bounce">${isVictory ? '🏆' : '🐢'}</div>
-                <h2 class="text-3xl font-black text-gray-800 mb-2">${isVictory ? 'Vitória Épica!' : 'Não desista!'}</h2>
-                <p class="text-gray-500 mb-6 text-center">
-                    ${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}
-                </p>
-                
-                <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-gray-100 w-full mb-6 text-center">
-                    <p class="text-sm font-bold text-gray-400 uppercase">Sua Nota</p>
-                    <p class="text-5xl font-black ${isVictory ? 'text-brand-purple' : 'text-brand-red'}">${percentage}%</p>
-                    <p class="text-xs text-gray-400 mt-2">Mínimo para passar: 70%</p>
-                </div>
-
-                ${isVictory ? `
-                    <div class="flex gap-4 w-full mb-8">
-                        <div class="flex-1 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex flex-col items-center">
-                            <span class="text-xl">🪙</span>
-                            <span class="font-bold text-yellow-800 text-sm">+20 Coins</span>
-                        </div>
-                    </div>` : ''
-                    }
-
-                <div class="w-full space-y-3">
-                    ${isVictory && nextLevelFn ? `
-                    <button onclick="${nextLevelFn}" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
-                        Próximo Nível ➡️
-                    </button>` : ''}
-
-                    <button onclick="${retryFn}" class="w-full bg-brand-yellow text-yellow-900 font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">
-                        ${isVictory ? 'Jogar Novamente 🔄' : 'Tentar Novamente 🔄'}
-                    </button>
-                    
-                    <button onclick="${mapFn}" class="w-full bg-gray-200 text-gray-600 font-bold py-4 rounded-2xl text-xl btn-game">
-                        Voltar ao Mapa
-                    </button>
-                </div>
-            </div>`;
-
+                <div class="flex flex-col items-center justify-center h-full pt-10 animate-pop px-4">
+                    <div class="text-8xl mb-4 animate-bounce">${isVictory ? '🏆' : '😿'}</div>
+                    <h2 class="text-3xl font-black text-gray-800 mb-2">${isVictory ? 'Vitória Épica!' : 'Não foi dessa vez!'}</h2>
+                    <p class="text-gray-500 mb-6 text-center">${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}</p>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border-b-4 border-gray-100 w-full mb-6 text-center">
+                        <p class="text-sm font-bold text-gray-400 uppercase">Sua Nota</p>
+                        <p class="text-5xl font-black ${isVictory ? 'text-brand-purple' : 'text-brand-red'}">${percentage}%</p>
+                        <p class="text-xs text-gray-400 mt-2">Mínimo para passar: 70%</p>
+                    </div>
+                    ${isVictory ? `<div class="flex gap-4 w-full mb-8"><div class="flex-1 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 flex flex-col items-center"><span class="text-xl">🪙</span><span class="font-bold text-yellow-800 text-sm">+20 Coins</span></div></div>` : ''}
+                    <div class="w-full space-y-3">
+                        ${isVictory && nextLevelFn ? `<button onclick="${nextLevelFn}" class="w-full bg-brand-green hover:bg-green-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">Próximo Nível ➡️</button>` : ''}
+                        <button onclick="${retryFn}" class="w-full bg-brand-yellow text-yellow-900 font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">${isVictory ? 'Jogar Novamente 🔄' : 'Tentar Novamente 🔄'}</button>
+                        <button onclick="${subjectFn}" class="w-full bg-gray-200 text-gray-600 font-bold py-4 rounded-2xl text-xl btn-game">Voltar para o Assunto</button>
+                    </div>
+                </div>`;
                 this.showScreen('screen-result');
             }
         };
 
-        // --- 4. GAME ENGINE LOGIC ---
+        // --- GAME ENGINE ---
         const Game = {
             currentSession: null,
 
+            // CORREÇÃO 3: Sair volta para a Matéria
             exitGame: function () {
                 if (confirm("Tem certeza que quer sair? Todo o progresso desta fase será perdido! 🛡️")) {
+                    const subjectId = this.currentSession.subjectId;
                     this.currentSession = null;
-                    UI.renderMap();
+                    UI.renderSubject(subjectId);
                 }
             },
 
             startAdventure: function () {
                 const nick = document.getElementById('input-nick').value;
                 if (nick.length < 3) return alert("O nome precisa ter pelo menos 3 letras!");
-                State.data.nick = nick;
-                State.save();
-                UI.renderMap();
+                State.data.nick = nick; State.save(); UI.renderMap();
             },
-
             openSubject: function (id) { UI.renderSubject(id); },
-
             openPrep: function (catId) {
                 let category = null;
-                DB.subjects.forEach(s => {
-                    const c = s.categories.find(k => k.id === catId);
-                    if (c) category = c;
-                });
-                this.tempSkin = category.prep.skin;
-                UI.openPrepModal(category.prep);
+                DB.subjects.forEach(s => { const c = s.categories.find(k => k.id === catId); if (c) category = c; });
+                this.tempSkin = category.prep.skin; UI.openPrepModal(category.prep);
             },
-
             finishPrep: function () {
-                State.unlockSkin(this.tempSkin);
-                State.data.coins += 10;
-                State.save();
-                UI.closePrep();
+                State.unlockSkin(this.tempSkin); State.data.coins += 10; State.save(); UI.closePrep();
                 try { confetti({ particleCount: 50, spread: 50 }); } catch (e) { }
             },
-
             showLockMessage: function (locked, time) {
-                if (locked) {
-                    alert(`Você precisa descansar! Esse nível está bloqueado por mais ${time} horas.`);
-                } else {
-                    alert("Complete o nível anterior para desbloquear este.");
-                }
+                if (locked) { alert(`Você precisa descansar! Esse nível está bloqueado por mais ${time} horas.`); }
+                else { alert("Complete o nível anterior para desbloquear este."); }
             },
 
-            startLevel: function (catId, levelIdx, bloomMax) {
-                let category = null;
-                DB.subjects.forEach(s => {
-                    const c = s.categories.find(k => k.id === catId);
-                    if (c) category = c;
-                });
+            // Atualização: startLevel recebe levelName para exibir
+            startLevel: function (catId, levelIdx, bloomMax, levelName) {
+                // Descobre ID da matéria (subjectId) para poder voltar depois
+                const subject = DB.subjects.find(s => s.categories.find(c => c.id === catId));
+                const subjectId = subject ? subject.id : 'pt'; // Fallback
+
+                let category = subject.categories.find(k => k.id === catId);
+
+                // Se levelName não foi passado (retry), deduzir
+                if (!levelName) {
+                    const names = ["Iniciante", "Aventureiro", "Titã", "Mestre"];
+                    levelName = names[levelIdx];
+                }
 
                 let minBloom = bloomMax - 1;
                 if (levelIdx === 0) minBloom = 1;
 
                 const fullPool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
                 let freshQuestions = fullPool.filter(q => !State.data.history.includes(q.id));
-
                 if (freshQuestions.length < 5) {
                     const poolIds = fullPool.map(q => q.id);
                     State.cleanHistoryForPool(poolIds);
                     freshQuestions = fullPool;
                 }
-
                 const shuffled = freshQuestions.sort(() => 0.5 - Math.random());
                 const selectedQuestions = shuffled.slice(0, 5);
-
-                if (selectedQuestions.length === 0) {
-                    return alert("Erro: Sem questões disponíveis no banco de dados.");
-                }
+                if (selectedQuestions.length === 0) { return alert("Erro: Sem questões disponíveis no banco de dados."); }
 
                 this.currentSession = {
+                    subjectId: subjectId, // Salva para o botão Voltar
                     catId: catId,
                     levelIdx: levelIdx,
                     questions: selectedQuestions,
@@ -670,23 +506,19 @@
                     lives: 3,
                     score: 0,
                     totalQuestions: 5,
-                    correctCount: 0
+                    correctCount: 0,
+                    levelName: levelName // Salva para exibir
                 };
-
-                UI.renderGameScreen(selectedQuestions[0], 5, 0, 3);
+                UI.renderGameScreen(selectedQuestions[0], 5, 0, 3, levelName);
             },
 
             selectOption: function (optIdx) {
                 const btns = document.querySelectorAll('[id^="opt-"]');
-                btns.forEach(b => {
-                    b.classList.replace('border-brand-purple', 'border-gray-200');
-                    b.classList.replace('bg-purple-50', 'bg-gray-50');
-                });
+                btns.forEach(b => { b.classList.replace('border-brand-purple', 'border-gray-200'); b.classList.replace('bg-purple-50', 'bg-gray-50'); });
                 const selected = document.getElementById(`opt-${optIdx}`);
                 selected.classList.replace('border-gray-200', 'border-brand-purple');
                 selected.classList.replace('bg-gray-50', 'bg-purple-50');
                 this.currentSession.selectedOpt = optIdx;
-
                 const footer = document.getElementById('footer-action');
                 footer.innerHTML = `<div class="max-w-xl mx-auto"><button onclick="Game.checkAnswer()" class="w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-4 rounded-2xl text-xl btn-game shadow-lg">CONFIRMAR</button></div>`;
             },
@@ -695,17 +527,13 @@
                 const session = this.currentSession;
                 const q = session.questions[session.idx];
                 const isCorrect = session.selectedOpt === q.c;
-
                 const btns = document.querySelectorAll('[id^="opt-"]');
                 btns.forEach(b => b.disabled = true);
-
                 const selBtn = document.getElementById(`opt-${session.selectedOpt}`);
                 const corBtn = document.getElementById(`opt-${q.c}`);
-
                 if (isCorrect) {
                     selBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
-                    session.score += 10;
-                    session.correctCount++;
+                    session.score += 10; session.correctCount++;
                 } else {
                     selBtn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
                     corBtn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
@@ -716,10 +544,15 @@
 
             nextQuestion: function () {
                 const session = this.currentSession;
-                session.idx++;
+                // CORREÇÃO 4: Se vidas acabarem, encerra imediatamente (Derrota)
+                if (session.lives <= 0) {
+                    this.finishLevel(); // Vai calcular nota baixa e mostrar tela de derrota
+                    return;
+                }
 
-                if (session.idx < session.questions.length && session.lives > 0) {
-                    UI.renderGameScreen(session.questions[session.idx], session.totalQuestions, session.idx, session.lives);
+                session.idx++;
+                if (session.idx < session.questions.length) {
+                    UI.renderGameScreen(session.questions[session.idx], session.totalQuestions, session.idx, session.lives, session.levelName);
                 } else {
                     this.finishLevel();
                 }
@@ -728,42 +561,43 @@
             finishLevel: function () {
                 const session = this.currentSession;
                 State.addToHistory(session.questionIds);
-
                 const percent = (session.correctCount / session.totalQuestions) * 100;
                 const passed = percent >= 70;
-
                 State.registerAttempt(session.catId, session.levelIdx, passed);
 
                 const retryFn = `Game.retryLevel('${session.catId}', ${session.levelIdx})`;
-                const mapFn = 'UI.renderMap()';
+                // Botão "Voltar para o Assunto" usa o subjectId salvo
+                const subjectFn = `UI.renderSubject('${session.subjectId}')`;
 
-                // Lógica do Próximo Nível (Se existir e for desbloqueado agora)
                 let nextLevelFn = null;
-                if (passed && session.levelIdx < 3) { // 3 é o índice máximo (Mestre)
-                    const nextBloom = [2, 4, 6, 7][session.levelIdx + 1]; // Próximo bloom
-                    nextLevelFn = `Game.startLevel('${session.catId}', ${session.levelIdx + 1}, ${nextBloom})`;
+                if (passed && session.levelIdx < 3) {
+                    const nextBloom = [2, 4, 6, 7][session.levelIdx + 1];
+                    const nextName = ["Iniciante", "Aventureiro", "Titã", "Mestre"][session.levelIdx + 1];
+                    nextLevelFn = `Game.startLevel('${session.catId}', ${session.levelIdx + 1}, ${nextBloom}, '${nextName}')`;
                 }
 
                 if (passed) {
                     State.data.progress[`${session.catId}-lvl${session.levelIdx}`] = true;
                     State.data.coins += 20;
                     State.save();
-                    UI.showResult(true, session.score, session.totalQuestions, nextLevelFn, retryFn, mapFn);
+                    UI.showResult(true, session.score, session.totalQuestions, nextLevelFn, retryFn, subjectFn);
                 } else {
                     const status = State.getAttemptStatus(session.catId, session.levelIdx);
                     if (status.locked) {
                         alert(`Você falhou 2 vezes seguidas. O nível está bloqueado por 24h para você descansar.`);
-                        UI.renderMap();
+                        UI.renderSubject(session.subjectId);
                     } else {
-                        UI.showResult(false, session.score, session.totalQuestions, null, retryFn, mapFn);
+                        UI.showResult(false, session.score, session.totalQuestions, null, retryFn, subjectFn);
                     }
                 }
             },
 
             retryLevel: function (catId, lvlIdx) {
-                const levels = [2, 4, 6, 7]; // BloomMax mapping
+                const levels = [2, 4, 6, 7];
+                const names = ["Iniciante", "Aventureiro", "Titã", "Mestre"];
                 const bloomMax = levels[lvlIdx];
-                this.startLevel(catId, lvlIdx, bloomMax);
+                const levelName = names[lvlIdx];
+                this.startLevel(catId, lvlIdx, bloomMax, levelName);
             }
         };
 

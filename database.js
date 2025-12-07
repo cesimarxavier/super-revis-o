@@ -155,161 +155,161 @@ const DB = {
         { id: "mat", name: "Matemática", icon: "📐", color: "bg-red-500", accent: "border-red-600", categories: [
             { id: "divisao", name: "Divisão", prep: { title: "Dividir é repartir", content: "<p>Dividir é repartir em partes iguais. Vamos praticar repartindo objetos e quantias.</p>", skin: "➗" }, pool: [
                 { id: 1, bloom: 1, q: "Quanto é 6 ÷ 2?", opts: ["2", "3", "4", "6"], c: 1, h: "6 dividido por 2 = 3." },
-{ id: 2, bloom: 1, q: "Quanto é 12 ÷ 3?", opts: ["3", "4", "6", "2"], c: 1, h: "12 ÷ 3 = 4." },
-{ id: 3, bloom: 1, q: "Quanto é 8 ÷ 4?", opts: ["1", "2", "4", "8"], c: 1, h: "8 ÷ 4 = 2." },
-{ id: 4, bloom: 1, q: "Quanto é 20 ÷ 5?", opts: ["4", "5", "2", "10"], c: 0, h: "20 ÷ 5 = 4." },
-{ id: 5, bloom: 1, q: "Quanto é 9 ÷ 3?", opts: ["3", "1", "9", "6"], c: 0, h: "9 ÷ 3 = 3." },
-{ id: 6, bloom: 1, q: "Quanto é 15 ÷ 3?", opts: ["3", "4", "5", "6"], c: 2, h: "15 ÷ 3 = 5." },
-{ id: 7, bloom: 1, q: "Quanto é 18 ÷ 6?", opts: ["2", "3", "6", "12"], c: 1, h: "18 ÷ 6 = 3." },
-{ id: 8, bloom: 1, q: "Quanto é 10 ÷ 2?", opts: ["4", "5", "3", "7"], c: 1, h: "10 ÷ 2 = 5." },
-{ id: 9, bloom: 1, q: "Quanto é 16 ÷ 4?", opts: ["2", "3", "4", "5"], c: 2, h: "16 ÷ 4 = 4." },
-{ id: 10, bloom: 1, q: "Quanto é 4 ÷ 2?", opts: ["1", "2", "3", "4"], c: 1, h: "4 ÷ 2 = 2." },
+                { id: 2, bloom: 1, q: "Quanto é 12 ÷ 3?", opts: ["3", "4", "6", "2"], c: 1, h: "12 ÷ 3 = 4." },
+                { id: 3, bloom: 1, q: "Quanto é 8 ÷ 4?", opts: ["1", "2", "4", "8"], c: 1, h: "8 ÷ 4 = 2." },
+                { id: 4, bloom: 1, q: "Quanto é 20 ÷ 5?", opts: ["4", "5", "2", "10"], c: 0, h: "20 ÷ 5 = 4." },
+                { id: 5, bloom: 1, q: "Quanto é 9 ÷ 3?", opts: ["3", "1", "9", "6"], c: 0, h: "9 ÷ 3 = 3." },
+                { id: 6, bloom: 1, q: "Quanto é 15 ÷ 3?", opts: ["3", "4", "5", "6"], c: 2, h: "15 ÷ 3 = 5." },
+                { id: 7, bloom: 1, q: "Quanto é 18 ÷ 6?", opts: ["2", "3", "6", "12"], c: 1, h: "18 ÷ 6 = 3." },
+                { id: 8, bloom: 1, q: "Quanto é 10 ÷ 2?", opts: ["4", "5", "3", "7"], c: 1, h: "10 ÷ 2 = 5." },
+                { id: 9, bloom: 1, q: "Quanto é 16 ÷ 4?", opts: ["2", "3", "4", "5"], c: 2, h: "16 ÷ 4 = 4." },
+                { id: 10, bloom: 1, q: "Quanto é 4 ÷ 2?", opts: ["1", "2", "3", "4"], c: 1, h: "4 ÷ 2 = 2." },
 
-{ id: 11, bloom: 2, q: "Dividir 12 chocolates entre 3 crianças significa que cada uma recebe:", opts: ["3", "4", "5", "6"], c: 1, h: "12 ÷ 3 = 4." },
-{ id: 12, bloom: 2, q: "Se você tem 15 balas e divide igualmente entre 5 amigos, cada um ganha:", opts: ["2", "3", "4", "5"], c: 1, h: "15 ÷ 5 = 3." },
-{ id: 13, bloom: 2, q: "Dividir é o oposto de:", opts: ["Somar", "Multiplicar", "Subtrair", "Contar"], c: 1, h: "Divisão é inversa da multiplicação." },
-{ id: 14, bloom: 2, q: "Dividir 20 adesivos por 4 significa:", opts: ["Repetir 4 vezes", "Juntar tudo", "Separar em 4 grupos iguais", "Nada"], c: 2, h: "Divisão = grupos iguais." },
-{ id: 15, bloom: 2, q: "Se Ana tem 8 lápis e divide com uma amiga igualmente, cada uma fica com:", opts: ["2", "3", "4", "8"], c: 2, h: "8 ÷ 2 = 4." },
-{ id: 16, bloom: 2, q: "20 ÷ 4 representa:", opts: ["Formar 4 grupos iguais", "Somar 20 vezes", "Multiplicar 4×20", "Nenhuma"], c: 0, h: "Divisão = distribuição igual." },
-{ id: 17, bloom: 2, q: "Se uma pizza tem 12 fatias e 6 pessoas, cada uma come:", opts: ["1", "2", "3", "6"], c: 1, h: "12 ÷ 6 = 2." },
-{ id: 18, bloom: 2, q: "Dividir 9 por 3 é igual a descobrir:", opts: ["Quantos grupos de 3 cabem em 9", "Quantos números existem", "Um número aleatório", "Nada"], c: 0, h: "Divisão é agrupamento." },
-{ id: 19, bloom: 2, q: "Se eu divido 18 em 3 partes iguais, cada parte vale:", opts: ["5", "6", "3", "9"], c: 1, h: "18 ÷ 3 = 6." },
-{ id: 20, bloom: 2, q: "Dividir 24 por 6 significa:", opts: ["Calcular 6 × 24", "Calcular 24 ÷ 6", "Adivinhar", "Subtrair 24"], c: 1, h: "Operação direta." },
+                { id: 11, bloom: 2, q: "Dividir 12 chocolates entre 3 crianças significa que cada uma recebe:", opts: ["3", "4", "5", "6"], c: 1, h: "12 ÷ 3 = 4." },
+                { id: 12, bloom: 2, q: "Se você tem 15 balas e divide igualmente entre 5 amigos, cada um ganha:", opts: ["2", "3", "4", "5"], c: 1, h: "15 ÷ 5 = 3." },
+                { id: 13, bloom: 2, q: "Dividir é o oposto de:", opts: ["Somar", "Multiplicar", "Subtrair", "Contar"], c: 1, h: "Divisão é inversa da multiplicação." },
+                { id: 14, bloom: 2, q: "Dividir 20 adesivos por 4 significa:", opts: ["Repetir 4 vezes", "Juntar tudo", "Separar em 4 grupos iguais", "Nada"], c: 2, h: "Divisão = grupos iguais." },
+                { id: 15, bloom: 2, q: "Se Ana tem 8 lápis e divide com uma amiga igualmente, cada uma fica com:", opts: ["2", "3", "4", "8"], c: 2, h: "8 ÷ 2 = 4." },
+                { id: 16, bloom: 2, q: "20 ÷ 4 representa:", opts: ["Formar 4 grupos iguais", "Somar 20 vezes", "Multiplicar 4×20", "Nenhuma"], c: 0, h: "Divisão = distribuição igual." },
+                { id: 17, bloom: 2, q: "Se uma pizza tem 12 fatias e 6 pessoas, cada uma come:", opts: ["1", "2", "3", "6"], c: 1, h: "12 ÷ 6 = 2." },
+                { id: 18, bloom: 2, q: "Dividir 9 por 3 é igual a descobrir:", opts: ["Quantos grupos de 3 cabem em 9", "Quantos números existem", "Um número aleatório", "Nada"], c: 0, h: "Divisão é agrupamento." },
+                { id: 19, bloom: 2, q: "Se eu divido 18 em 3 partes iguais, cada parte vale:", opts: ["5", "6", "3", "9"], c: 1, h: "18 ÷ 3 = 6." },
+                { id: 20, bloom: 2, q: "Dividir 24 por 6 significa:", opts: ["Calcular 6 × 24", "Calcular 24 ÷ 6", "Adivinhar", "Subtrair 24"], c: 1, h: "Operação direta." },
 
-{ id: 21, bloom: 3, q: "Você tem 30 figurinhas e quer dividir igualmente entre 5 amigos. Cada um recebe:", opts: ["4", "5", "6", "7"], c: 2, h: "30 ÷ 5 = 6." },
-{ id: 22, bloom: 3, q: "Uma caixa tem 24 doces e você quer fazer 4 pacotes iguais. Cada pacote terá:", opts: ["4", "6", "8", "10"], c: 1, h: "24 ÷ 4 = 6." },
-{ id: 23, bloom: 3, q: "Para dividir 35 por 5, pense: 5 × ____ = 35", opts: ["5", "6", "7", "8"], c: 2, h: "5 × 7 = 35." },
-{ id: 24, bloom: 3, q: "Você tem 18 moedas e vai guardar em potes com 3 cada. Quantos potes enche?", opts: ["3", "4", "5", "6"], c: 1, h: "18 ÷ 3 = 6." },
-{ id: 25, bloom: 3, q: "Se 40 alunos são divididos em 8 grupos iguais, cada grupo tem:", opts: ["4", "5", "6", "8"], c: 1, h: "40 ÷ 8 = 5." },
-{ id: 26, bloom: 3, q: "Quantos grupos de 4 cabem em 28?", opts: ["4", "5", "6", "7"], c: 1, h: "28 ÷ 4 = 7." },
-{ id: 27, bloom: 3, q: "Divida 27 brinquedos em 3 caixas:", opts: ["6", "7", "8", "9"], c: 3, h: "27 ÷ 3 = 9." },
-{ id: 28, bloom: 3, q: "Quanto é 45 ÷ 5?", opts: ["5", "7", "8", "9"], c: 3, h: "45 ÷ 5 = 9." },
-{ id: 29, bloom: 3, q: "Se 14 alunos formam 2 filas, cada fila terá:", opts: ["5", "6", "7", "8"], c: 2, h: "14 ÷ 2 = 7." },
-{ id: 30, bloom: 3, q: "Você tem 32 páginas para ler em 4 dias. Deve ler por dia:", opts: ["6", "7", "8", "10"], c: 2, h: "32 ÷ 4 = 8." },
+                { id: 21, bloom: 3, q: "Você tem 30 figurinhas e quer dividir igualmente entre 5 amigos. Cada um recebe:", opts: ["4", "5", "6", "7"], c: 2, h: "30 ÷ 5 = 6." },
+                { id: 22, bloom: 3, q: "Uma caixa tem 24 doces e você quer fazer 4 pacotes iguais. Cada pacote terá:", opts: ["4", "6", "8", "10"], c: 1, h: "24 ÷ 4 = 6." },
+                { id: 23, bloom: 3, q: "Para dividir 35 por 5, pense: 5 × ____ = 35", opts: ["5", "6", "7", "8"], c: 2, h: "5 × 7 = 35." },
+                { id: 24, bloom: 3, q: "Você tem 18 moedas e vai guardar em potes com 3 cada. Quantos potes enche?", opts: ["3", "4", "5", "6"], c: 1, h: "18 ÷ 3 = 6." },
+                { id: 25, bloom: 3, q: "Se 40 alunos são divididos em 8 grupos iguais, cada grupo tem:", opts: ["4", "5", "6", "8"], c: 1, h: "40 ÷ 8 = 5." },
+                { id: 26, bloom: 3, q: "Quantos grupos de 4 cabem em 28?", opts: ["4", "5", "6", "7"], c: 1, h: "28 ÷ 4 = 7." },
+                { id: 27, bloom: 3, q: "Divida 27 brinquedos em 3 caixas:", opts: ["6", "7", "8", "9"], c: 3, h: "27 ÷ 3 = 9." },
+                { id: 28, bloom: 3, q: "Quanto é 45 ÷ 5?", opts: ["5", "7", "8", "9"], c: 3, h: "45 ÷ 5 = 9." },
+                { id: 29, bloom: 3, q: "Se 14 alunos formam 2 filas, cada fila terá:", opts: ["5", "6", "7", "8"], c: 2, h: "14 ÷ 2 = 7." },
+                { id: 30, bloom: 3, q: "Você tem 32 páginas para ler em 4 dias. Deve ler por dia:", opts: ["6", "7", "8", "10"], c: 2, h: "32 ÷ 4 = 8." },
 
-{ id: 31, bloom: 4, q: "Qual divisão resulta no MAIOR valor?", opts: ["20 ÷ 5", "18 ÷ 3", "24 ÷ 6", "16 ÷ 4"], c: 1, h: "18 ÷ 3 = 6, maior entre as opções." },
-{ id: 32, bloom: 4, q: "Qual divisão tem resultado 4?", opts: ["16 ÷ 4", "12 ÷ 3", "20 ÷ 5", "24 ÷ 6"], c: 0, h: "16 ÷ 4 = 4." },
-{ id: 33, bloom: 4, q: "Qual número precisa ser dividido por 6 para resultar em 5?", opts: ["20", "25", "30", "35"], c: 2, h: "30 ÷ 6 = 5." },
-{ id: 34, bloom: 4, q: "Qual divisão é igual a 2?", opts: ["8 ÷ 4", "6 ÷ 2", "10 ÷ 4", "12 ÷ 6"], c: 0, h: "8 ÷ 4 = 2." },
-{ id: 35, bloom: 4, q: "Qual operação NÃO tem resultado igual a 3?", opts: ["9 ÷ 3", "12 ÷ 4", "15 ÷ 5", "18 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
-{ id: 36, bloom: 4, q: "Qual divisão dá o MENOR resultado?", opts: ["12 ÷ 3", "14 ÷ 2", "16 ÷ 4", "20 ÷ 5"], c: 2, h: "16 ÷ 4 = 4 (menor)." },
-{ id: 37, bloom: 4, q: "Qual divisão tem resultado 8?", opts: ["64 ÷ 8", "48 ÷ 6", "24 ÷ 3", "40 ÷ 5"], c: 1, h: "48 ÷ 6 = 8." },
-{ id: 38, bloom: 4, q: "Qual é maior: 20 ÷ 4 ou 18 ÷ 3?", opts: ["20 ÷ 4", "18 ÷ 3", "Iguais", "Nenhum"], c: 1, h: "18 ÷ 3 = 6; 20 ÷ 4 = 5." },
-{ id: 39, bloom: 4, q: "Se 30 ÷ 5 = 6, então 60 ÷ 5 vale:", opts: ["8", "10", "12", "6"], c: 2, h: "Dobrou o numerador → dobra o resultado." },
-{ id: 40, bloom: 4, q: "Qual divisão resulta em número par?", opts: ["21 ÷ 3", "27 ÷ 3", "18 ÷ 3", "15 ÷ 3"], c: 2, h: "18 ÷ 3 = 6 (par)." },
+                { id: 31, bloom: 4, q: "Qual divisão resulta no MAIOR valor?", opts: ["20 ÷ 5", "18 ÷ 3", "24 ÷ 6", "16 ÷ 4"], c: 1, h: "18 ÷ 3 = 6, maior entre as opções." },
+                { id: 32, bloom: 4, q: "Qual divisão tem resultado 4?", opts: ["16 ÷ 4", "12 ÷ 3", "20 ÷ 5", "24 ÷ 6"], c: 0, h: "16 ÷ 4 = 4." },
+                { id: 33, bloom: 4, q: "Qual número precisa ser dividido por 6 para resultar em 5?", opts: ["20", "25", "30", "35"], c: 2, h: "30 ÷ 6 = 5." },
+                { id: 34, bloom: 4, q: "Qual divisão é igual a 2?", opts: ["8 ÷ 4", "6 ÷ 2", "10 ÷ 4", "12 ÷ 6"], c: 0, h: "8 ÷ 4 = 2." },
+                { id: 35, bloom: 4, q: "Qual operação NÃO tem resultado igual a 3?", opts: ["9 ÷ 3", "12 ÷ 4", "15 ÷ 5", "18 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
+                { id: 36, bloom: 4, q: "Qual divisão dá o MENOR resultado?", opts: ["12 ÷ 3", "14 ÷ 2", "16 ÷ 4", "20 ÷ 5"], c: 2, h: "16 ÷ 4 = 4 (menor)." },
+                { id: 37, bloom: 4, q: "Qual divisão tem resultado 8?", opts: ["64 ÷ 8", "48 ÷ 6", "24 ÷ 3", "40 ÷ 5"], c: 1, h: "48 ÷ 6 = 8." },
+                { id: 38, bloom: 4, q: "Qual é maior: 20 ÷ 4 ou 18 ÷ 3?", opts: ["20 ÷ 4", "18 ÷ 3", "Iguais", "Nenhum"], c: 1, h: "18 ÷ 3 = 6; 20 ÷ 4 = 5." },
+                { id: 39, bloom: 4, q: "Se 30 ÷ 5 = 6, então 60 ÷ 5 vale:", opts: ["8", "10", "12", "6"], c: 2, h: "Dobrou o numerador → dobra o resultado." },
+                { id: 40, bloom: 4, q: "Qual divisão resulta em número par?", opts: ["21 ÷ 3", "27 ÷ 3", "18 ÷ 3", "15 ÷ 3"], c: 2, h: "18 ÷ 3 = 6 (par)." },
 
-{ id: 41, bloom: 5, q: "Para resolver 48 ÷ 6, qual estratégia é mais eficiente?", opts: ["Somar 6 repetidas vezes", "Pensar: 6 × 8 = 48", "Adivinhar", "Subtrair valores aleatórios"], c: 1, h: "Divisão = inverso da multiplicação." },
-{ id: 42, bloom: 5, q: "Qual divisão é mais fácil de resolver mentalmente?", opts: ["30 ÷ 5", "34 ÷ 6", "27 ÷ 8", "22 ÷ 7"], c: 0, h: "30 ÷ 5 = divisão exata simples." },
-{ id: 43, bloom: 5, q: "Se você sabe que 9 × 4 = 36, então 36 ÷ 4 deve ser:", opts: ["6", "7", "8", "9"], c: 3, h: "Inversas." },
-{ id: 44, bloom: 5, q: "Para dividir 72 por 8, o melhor raciocínio é:", opts: ["Multiplicar 8 por um número até dar 72", "Tentar qualquer número", "Somar 8 muitas vezes", "Desenhar o resultado"], c: 0, h: "Pensar pelo produto ajuda." },
-{ id: 45, bloom: 5, q: "Qual operação é mais útil para conferir um resultado de divisão?", opts: ["Soma", "Subtração", "Multiplicação", "Nenhuma"], c: 2, h: "Multiplicação confirma o quociente." },
-{ id: 46, bloom: 5, q: "Qual divisão você resolveria primeiro sem papel?", opts: ["100 ÷ 10", "87 ÷ 9", "73 ÷ 4", "51 ÷ 7"], c: 0, h: "Divisão por 10 é imediata." },
-{ id: 47, bloom: 5, q: "Se você precisa separar 40 itens, qual divisor facilita?", opts: ["5", "7", "9", "11"], c: 0, h: "40 ÷ 5 = divisão limpa." },
-{ id: 48, bloom: 5, q: "Para dividir 56 por 7, a melhor referência é:", opts: ["7 × 8", "7 × 5", "7 × 4", "7 × 6"], c: 0, h: "7 × 8 = 56." },
-{ id: 49, bloom: 5, q: "Qual divisão resulta em número menor?", opts: ["50 ÷ 10", "50 ÷ 5", "50 ÷ 2", "50 ÷ 1"], c: 0, h: "Divisor maior → quociente menor." },
-{ id: 50, bloom: 5, q: "Para dividir 90 por 3, o método mais rápido é:", opts: ["Pensar: 3 × 30 = 90", "Adivinhar", "Somar 90 vezes", "Desenhar 90 círculos"], c: 0, h: "Mult inversa." },
+                { id: 41, bloom: 5, q: "Para resolver 48 ÷ 6, qual estratégia é mais eficiente?", opts: ["Somar 6 repetidas vezes", "Pensar: 6 × 8 = 48", "Adivinhar", "Subtrair valores aleatórios"], c: 1, h: "Divisão = inverso da multiplicação." },
+                { id: 42, bloom: 5, q: "Qual divisão é mais fácil de resolver mentalmente?", opts: ["30 ÷ 5", "34 ÷ 6", "27 ÷ 8", "22 ÷ 7"], c: 0, h: "30 ÷ 5 = divisão exata simples." },
+                { id: 43, bloom: 5, q: "Se você sabe que 9 × 4 = 36, então 36 ÷ 4 deve ser:", opts: ["6", "7", "8", "9"], c: 3, h: "Inversas." },
+                { id: 44, bloom: 5, q: "Para dividir 72 por 8, o melhor raciocínio é:", opts: ["Multiplicar 8 por um número até dar 72", "Tentar qualquer número", "Somar 8 muitas vezes", "Desenhar o resultado"], c: 0, h: "Pensar pelo produto ajuda." },
+                { id: 45, bloom: 5, q: "Qual operação é mais útil para conferir um resultado de divisão?", opts: ["Soma", "Subtração", "Multiplicação", "Nenhuma"], c: 2, h: "Multiplicação confirma o quociente." },
+                { id: 46, bloom: 5, q: "Qual divisão você resolveria primeiro sem papel?", opts: ["100 ÷ 10", "87 ÷ 9", "73 ÷ 4", "51 ÷ 7"], c: 0, h: "Divisão por 10 é imediata." },
+                { id: 47, bloom: 5, q: "Se você precisa separar 40 itens, qual divisor facilita?", opts: ["5", "7", "9", "11"], c: 0, h: "40 ÷ 5 = divisão limpa." },
+                { id: 48, bloom: 5, q: "Para dividir 56 por 7, a melhor referência é:", opts: ["7 × 8", "7 × 5", "7 × 4", "7 × 6"], c: 0, h: "7 × 8 = 56." },
+                { id: 49, bloom: 5, q: "Qual divisão resulta em número menor?", opts: ["50 ÷ 10", "50 ÷ 5", "50 ÷ 2", "50 ÷ 1"], c: 0, h: "Divisor maior → quociente menor." },
+                { id: 50, bloom: 5, q: "Para dividir 90 por 3, o método mais rápido é:", opts: ["Pensar: 3 × 30 = 90", "Adivinhar", "Somar 90 vezes", "Desenhar 90 círculos"], c: 0, h: "Mult inversa." },
 
-{ id: 51, bloom: 6, q: "Escolha um número que, dividido por 4, resulte em 6:", opts: ["18", "20", "24", "30"], c: 2, h: "24 ÷ 4 = 6." },
-{ id: 52, bloom: 6, q: "Crie uma divisão que dê resultado 9:", opts: ["81 ÷ 9", "45 ÷ 5", "63 ÷ 7", "90 ÷ 9"], c: 0, h: "81 ÷ 9 = 9." },
-{ id: 53, bloom: 6, q: "Qual número pode ser dividido igualmente entre 8 pessoas?", opts: ["30", "32", "34", "36"], c: 1, h: "32 ÷ 8 = 4." },
-{ id: 54, bloom: 6, q: "Você quer uma divisão com quociente 7. Qual escolher?", opts: ["35 ÷ 5", "42 ÷ 6", "49 ÷ 7", "56 ÷ 8"], c: 2, h: "49 ÷ 7 = 7." },
-{ id: 55, bloom: 6, q: "Crie uma divisão simples que resulta em 4:", opts: ["20 ÷ 5", "24 ÷ 6", "12 ÷ 3", "Todas"], c: 3, h: "Todas resultam em 4." },
-{ id: 56, bloom: 6, q: "Para montar um grupo de 3, escolha o total coerente:", opts: ["10", "11", "12", "14"], c: 2, h: "12 ÷ 3 = 4." },
-{ id: 57, bloom: 6, q: "Escolha um problema que represente divisão:", opts: ["Repartir 18 doces entre 6 amigos", "Comprar um bolo", "Escolher uma cor", "Medir um lápis"], c: 0, h: "Repartir = dividir." },
-{ id: 58, bloom: 6, q: "Crie uma divisão que dê resultado 5:", opts: ["20 ÷ 4", "25 ÷ 5", "15 ÷ 3", "30 ÷ 3"], c: 1, h: "25 ÷ 5 = 5." },
-{ id: 59, bloom: 6, q: "Escolha um total que pode ser dividido em 7 grupos iguais:", opts: ["21", "22", "23", "25"], c: 0, h: "21 ÷ 7 = 3." },
-{ id: 60, bloom: 6, q: "Para criar 6 grupos iguais, escolha o número correto:", opts: ["24", "25", "27", "29"], c: 0, h: "24 ÷ 6 = 4." },
+                { id: 51, bloom: 6, q: "Escolha um número que, dividido por 4, resulte em 6:", opts: ["18", "20", "24", "30"], c: 2, h: "24 ÷ 4 = 6." },
+                { id: 52, bloom: 6, q: "Crie uma divisão que dê resultado 9:", opts: ["81 ÷ 9", "45 ÷ 5", "63 ÷ 7", "90 ÷ 9"], c: 0, h: "81 ÷ 9 = 9." },
+                { id: 53, bloom: 6, q: "Qual número pode ser dividido igualmente entre 8 pessoas?", opts: ["30", "32", "34", "36"], c: 1, h: "32 ÷ 8 = 4." },
+                { id: 54, bloom: 6, q: "Você quer uma divisão com quociente 7. Qual escolher?", opts: ["35 ÷ 5", "42 ÷ 6", "49 ÷ 7", "56 ÷ 8"], c: 2, h: "49 ÷ 7 = 7." },
+                { id: 55, bloom: 6, q: "Crie uma divisão simples que resulta em 4:", opts: ["20 ÷ 5", "24 ÷ 6", "12 ÷ 3", "Todas"], c: 3, h: "Todas resultam em 4." },
+                { id: 56, bloom: 6, q: "Para montar um grupo de 3, escolha o total coerente:", opts: ["10", "11", "12", "14"], c: 2, h: "12 ÷ 3 = 4." },
+                { id: 57, bloom: 6, q: "Escolha um problema que represente divisão:", opts: ["Repartir 18 doces entre 6 amigos", "Comprar um bolo", "Escolher uma cor", "Medir um lápis"], c: 0, h: "Repartir = dividir." },
+                { id: 58, bloom: 6, q: "Crie uma divisão que dê resultado 5:", opts: ["20 ÷ 4", "25 ÷ 5", "15 ÷ 3", "30 ÷ 3"], c: 1, h: "25 ÷ 5 = 5." },
+                { id: 59, bloom: 6, q: "Escolha um total que pode ser dividido em 7 grupos iguais:", opts: ["21", "22", "23", "25"], c: 0, h: "21 ÷ 7 = 3." },
+                { id: 60, bloom: 6, q: "Para criar 6 grupos iguais, escolha o número correto:", opts: ["24", "25", "27", "29"], c: 0, h: "24 ÷ 6 = 4." },
 
-{ id: 61, bloom: 7, q: "Se dobramos o dividendo de uma divisão exata (ex.: 12 ÷ 3), o que acontece com o quociente?", opts: ["Dobra", "Diminui", "Fica igual", "Zera"], c: 0, h: "24 ÷ 3 = 8 (dobrou)." },
-{ id: 62, bloom: 7, q: "Se 4 grupos têm 6 itens cada, quantos itens há ao todo?", opts: ["12", "18", "20", "24"], c: 3, h: "Divisão invertida → multiplicação: 4×6=24." },
-{ id: 63, bloom: 7, q: "Qual divisão representa MELHOR a ideia de 'metade'?", opts: ["12 ÷ 2", "12 ÷ 3", "12 ÷ 4", "12 ÷ 6"], c: 0, h: "Dividir por 2 = metade." },
-{ id: 64, bloom: 7, q: "Se 3 × 7 = 21, qual divisão NÃO está correta?", opts: ["21 ÷ 3 = 7", "21 ÷ 7 = 3", "21 ÷ 1 = 21", "21 ÷ 21 = 7"], c: 3, h: "21 ÷ 21 = 1, não 7." },
-{ id: 65, bloom: 7, q: "Se 36 ÷ 4 = 9, então 72 ÷ 4 vale:", opts: ["18", "9", "12", "15"], c: 0, h: "Dividendo duplicado → quociente duplica." },
-{ id: 66, bloom: 7, q: "Se o quociente aumenta, o divisor provavelmente:", opts: ["Aumentou", "Diminuiu", "Ficou igual", "Virou zero"], c: 1, h: "Divisor menor → quociente maior." },
-{ id: 67, bloom: 7, q: "Se dividir por 1 mantém o número, então dividir por 2 faz o quê?", opts: ["Multiplica por 2", "Reduz pela metade", "Deixa igual", "Zera"], c: 1, h: "Dividir por 2 → metade." },
-{ id: 68, bloom: 7, q: "Qual divisão representa um crescimento quando invertida para multiplicação?", opts: ["8 ÷ 2", "9 ÷ 3", "7 ÷ 1", "12 ÷ 6"], c: 2, h: "7 ÷ 1 = 7 → multiplicação mantém o número." },
-{ id: 69, bloom: 7, q: "Se a divisão 30 ÷ x = 5, qual é x?", opts: ["3", "5", "6", "2"], c: 2, h: "30 ÷ 6 = 5." },
-{ id: 70, bloom: 7, q: "Se aumentar o divisor, o quociente tende a:", opts: ["Aumentar", "Diminuir", "Ficar igual", "Explodir"], c: 1, h: "Divisor maior → quociente menor." },
+                { id: 61, bloom: 7, q: "Se dobramos o dividendo de uma divisão exata (ex.: 12 ÷ 3), o que acontece com o quociente?", opts: ["Dobra", "Diminui", "Fica igual", "Zera"], c: 0, h: "24 ÷ 3 = 8 (dobrou)." },
+                { id: 62, bloom: 7, q: "Se 4 grupos têm 6 itens cada, quantos itens há ao todo?", opts: ["12", "18", "20", "24"], c: 3, h: "Divisão invertida → multiplicação: 4×6=24." },
+                { id: 63, bloom: 7, q: "Qual divisão representa MELHOR a ideia de 'metade'?", opts: ["12 ÷ 2", "12 ÷ 3", "12 ÷ 4", "12 ÷ 6"], c: 0, h: "Dividir por 2 = metade." },
+                { id: 64, bloom: 7, q: "Se 3 × 7 = 21, qual divisão NÃO está correta?", opts: ["21 ÷ 3 = 7", "21 ÷ 7 = 3", "21 ÷ 1 = 21", "21 ÷ 21 = 7"], c: 3, h: "21 ÷ 21 = 1, não 7." },
+                { id: 65, bloom: 7, q: "Se 36 ÷ 4 = 9, então 72 ÷ 4 vale:", opts: ["18", "9", "12", "15"], c: 0, h: "Dividendo duplicado → quociente duplica." },
+                { id: 66, bloom: 7, q: "Se o quociente aumenta, o divisor provavelmente:", opts: ["Aumentou", "Diminuiu", "Ficou igual", "Virou zero"], c: 1, h: "Divisor menor → quociente maior." },
+                { id: 67, bloom: 7, q: "Se dividir por 1 mantém o número, então dividir por 2 faz o quê?", opts: ["Multiplica por 2", "Reduz pela metade", "Deixa igual", "Zera"], c: 1, h: "Dividir por 2 → metade." },
+                { id: 68, bloom: 7, q: "Qual divisão representa um crescimento quando invertida para multiplicação?", opts: ["8 ÷ 2", "9 ÷ 3", "7 ÷ 1", "12 ÷ 6"], c: 2, h: "7 ÷ 1 = 7 → multiplicação mantém o número." },
+                { id: 69, bloom: 7, q: "Se a divisão 30 ÷ x = 5, qual é x?", opts: ["3", "5", "6", "2"], c: 2, h: "30 ÷ 6 = 5." },
+                { id: 70, bloom: 7, q: "Se aumentar o divisor, o quociente tende a:", opts: ["Aumentar", "Diminuir", "Ficar igual", "Explodir"], c: 1, h: "Divisor maior → quociente menor." },
 
 
             ] },
             { id: "divisao_exata", name: "Divisão exata e não exata", prep: { title: "Sobra ou não sobra?", content: "<p>Na divisão exata, não sobra nada. Na não exata, temos resto.</p>", skin: "📊" }, pool: [
                 { id: 1, bloom: 1, q: "Quanto é 7 ÷ 2?", opts: ["3", "3 e resto 1", "4", "2"], c: 1, h: "7 ÷ 2 = 3 resto 1." },
-{ id: 2, bloom: 1, q: "Quanto é 9 ÷ 4?", opts: ["2", "2 r1", "3", "3 r2"], c: 1, h: "9 ÷ 4 = 2 r1." },
-{ id: 3, bloom: 1, q: "Dividir 10 por 3 resulta em:", opts: ["3", "3 r1", "4", "4 r2"], c: 1, h: "10 ÷ 3 = 3 r1." },
-{ id: 4, bloom: 1, q: "Quanto é 15 ÷ 4?", opts: ["3 r1", "4 r3", "3 r3", "5 r1"], c: 0, h: "15 ÷ 4 = 3 r3." },
-{ id: 5, bloom: 1, q: "Quanto é 13 ÷ 5?", opts: ["2", "2 r3", "3 r2", "4"], c: 1, h: "13 ÷ 5 = 2 r3." },
-{ id: 6, bloom: 1, q: "Quanto é 11 ÷ 2?", opts: ["5", "5 r1", "6 r1", "4 r3"], c: 1, h: "11 ÷ 2 = 5 r1." },
-{ id: 7, bloom: 1, q: "12 ÷ 5 resulta em:", opts: ["2", "2 r2", "3", "3 r1"], c: 1, h: "12 ÷ 5 = 2 r2." },
-{ id: 8, bloom: 1, q: "Dividir 8 por 3 resulta em:", opts: ["2 r1", "3 r2", "2 r2", "3"], c: 0, h: "8 ÷ 3 = 2 r1." },
-{ id: 9, bloom: 1, q: "Dividir 22 por 7:", opts: ["3 r1", "2 r5", "3 r2", "3 r7"], c: 2, h: "22 ÷ 7 = 3 r1." },
-{ id: 10, bloom: 1, q: "Dividir 14 por 4 resulta em:", opts: ["3 r2", "4 r1", "3 r1", "2 r3"], c: 0, h: "14 ÷ 4 = 3 r2." },
+                { id: 2, bloom: 1, q: "Quanto é 9 ÷ 4?", opts: ["2", "2 r1", "3", "3 r2"], c: 1, h: "9 ÷ 4 = 2 r1." },
+                { id: 3, bloom: 1, q: "Dividir 10 por 3 resulta em:", opts: ["3", "3 r1", "4", "4 r2"], c: 1, h: "10 ÷ 3 = 3 r1." },
+                { id: 4, bloom: 1, q: "Quanto é 15 ÷ 4?", opts: ["3 r1", "4 r3", "3 r3", "5 r1"], c: 0, h: "15 ÷ 4 = 3 r3." },
+                { id: 5, bloom: 1, q: "Quanto é 13 ÷ 5?", opts: ["2", "2 r3", "3 r2", "4"], c: 1, h: "13 ÷ 5 = 2 r3." },
+                { id: 6, bloom: 1, q: "Quanto é 11 ÷ 2?", opts: ["5", "5 r1", "6 r1", "4 r3"], c: 1, h: "11 ÷ 2 = 5 r1." },
+                { id: 7, bloom: 1, q: "12 ÷ 5 resulta em:", opts: ["2", "2 r2", "3", "3 r1"], c: 1, h: "12 ÷ 5 = 2 r2." },
+                { id: 8, bloom: 1, q: "Dividir 8 por 3 resulta em:", opts: ["2 r1", "3 r2", "2 r2", "3"], c: 0, h: "8 ÷ 3 = 2 r1." },
+                { id: 9, bloom: 1, q: "Dividir 22 por 7:", opts: ["3 r1", "2 r5", "3 r2", "3 r7"], c: 2, h: "22 ÷ 7 = 3 r1." },
+                { id: 10, bloom: 1, q: "Dividir 14 por 4 resulta em:", opts: ["3 r2", "4 r1", "3 r1", "2 r3"], c: 0, h: "14 ÷ 4 = 3 r2." },
 
-{ id: 11, bloom: 2, q: "Uma divisão exata é aquela em que:", opts: ["O divisor é menor", "O resto é zero", "O quociente é grande", "O número é par"], c: 1, h: "Resto zero = divisão exata." },
-{ id: 12, bloom: 2, q: "Qual divisão é EXATA?", opts: ["9 ÷ 2", "12 ÷ 4", "14 ÷ 3", "22 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
-{ id: 13, bloom: 2, q: "Qual divisão NÃO é exata?", opts: ["20 ÷ 5", "18 ÷ 6", "15 ÷ 4", "28 ÷ 7"], c: 2, h: "15 ÷ 4 tem resto." },
-{ id: 14, bloom: 2, q: "Se sobrou resto, significa que:", opts: ["A conta está errada", "Não é possível dividir", "Os grupos não ficaram iguais", "O divisor é maior"], c: 2, h: "Resto indica sobra." },
-{ id: 15, bloom: 2, q: "Se uma divisão tem resto 0, então:", opts: ["É não exata", "É exata", "É impossível", "Não existe quociente"], c: 1, h: "R=0 → exata." },
-{ id: 16, bloom: 2, q: "Se 10 ÷ 4 = 2 r2, o 2 representa:", opts: ["Resto", "Dividendo", "Quociente", "Divisor"], c: 2, h: "Quociente = parte inteira." },
-{ id: 17, bloom: 2, q: "No cálculo 19 ÷ 3 = 6 r1, o 1 representa:", opts: ["Divisor", "Quociente", "Resto", "Dividendo"], c: 2, h: "Resto = o que sobra." },
-{ id: 18, bloom: 2, q: "Uma divisão com resto indica que:", opts: ["A conta está errada", "O total não foi suficiente para formar grupos iguais", "O divisor é zero", "O dividendo é ímpar"], c: 1, h: "Resto é sobra." },
-{ id: 19, bloom: 2, q: "Qual das divisões forma grupos iguais SEM sobrar?", opts: ["18 ÷ 4", "25 ÷ 6", "14 ÷ 2", "13 ÷ 5"], c: 2, h: "14 ÷ 2 = exata." },
-{ id: 20, bloom: 2, q: "Se uma divisão tem quociente 4 e resto 2, ela é:", opts: ["Exata", "Não exata", "Impossível", "Infinita"], c: 1, h: "Resto > 0 → não exata." },
+                { id: 11, bloom: 2, q: "Uma divisão exata é aquela em que:", opts: ["O divisor é menor", "O resto é zero", "O quociente é grande", "O número é par"], c: 1, h: "Resto zero = divisão exata." },
+                { id: 12, bloom: 2, q: "Qual divisão é EXATA?", opts: ["9 ÷ 2", "12 ÷ 4", "14 ÷ 3", "22 ÷ 6"], c: 1, h: "12 ÷ 4 = 3." },
+                { id: 13, bloom: 2, q: "Qual divisão NÃO é exata?", opts: ["20 ÷ 5", "18 ÷ 6", "15 ÷ 4", "28 ÷ 7"], c: 2, h: "15 ÷ 4 tem resto." },
+                { id: 14, bloom: 2, q: "Se sobrou resto, significa que:", opts: ["A conta está errada", "Não é possível dividir", "Os grupos não ficaram iguais", "O divisor é maior"], c: 2, h: "Resto indica sobra." },
+                { id: 15, bloom: 2, q: "Se uma divisão tem resto 0, então:", opts: ["É não exata", "É exata", "É impossível", "Não existe quociente"], c: 1, h: "R=0 → exata." },
+                { id: 16, bloom: 2, q: "Se 10 ÷ 4 = 2 r2, o 2 representa:", opts: ["Resto", "Dividendo", "Quociente", "Divisor"], c: 2, h: "Quociente = parte inteira." },
+                { id: 17, bloom: 2, q: "No cálculo 19 ÷ 3 = 6 r1, o 1 representa:", opts: ["Divisor", "Quociente", "Resto", "Dividendo"], c: 2, h: "Resto = o que sobra." },
+                { id: 18, bloom: 2, q: "Uma divisão com resto indica que:", opts: ["A conta está errada", "O total não foi suficiente para formar grupos iguais", "O divisor é zero", "O dividendo é ímpar"], c: 1, h: "Resto é sobra." },
+                { id: 19, bloom: 2, q: "Qual das divisões forma grupos iguais SEM sobrar?", opts: ["18 ÷ 4", "25 ÷ 6", "14 ÷ 2", "13 ÷ 5"], c: 2, h: "14 ÷ 2 = exata." },
+                { id: 20, bloom: 2, q: "Se uma divisão tem quociente 4 e resto 2, ela é:", opts: ["Exata", "Não exata", "Impossível", "Infinita"], c: 1, h: "Resto > 0 → não exata." },
 
-{ id: 21, bloom: 3, q: "Divida 25 em grupos de 4:", opts: ["6 r1", "6 r2", "5 r0", "7 r3"], c: 1, h: "25 ÷ 4 = 6 r1." },
-{ id: 22, bloom: 3, q: "27 ÷ 5 =", opts: ["5 r2", "5 r3", "6 r1", "4 r3"], c: 0, h: "27 ÷ 5 = 5 r2." },
-{ id: 23, bloom: 3, q: "44 ÷ 6 =", opts: ["7 r1", "7 r2", "8 r2", "6 r4"], c: 0, h: "6×7 = 42, sobra 2." },
-{ id: 24, bloom: 3, q: "36 alunos em grupos de 5. Quantos grupos completos?", opts: ["6 r0", "7 r1", "7 r0", "8 r2"], c: 1, h: "7 grupos completos, sobra 1 aluno." },
-{ id: 25, bloom: 3, q: "19 ÷ 6 =", opts: ["3 r1", "3 r2", "2 r3", "4 r1"], c: 1, h: "3×6 = 18, sobra 1." },
-{ id: 26, bloom: 3, q: "33 ÷ 7 =", opts: ["4 r5", "4 r3", "5 r2", "3 r4"], c: 1, h: "4×7 = 28, resto 5." },
-{ id: 27, bloom: 3, q: "50 ÷ 8 =", opts: ["6 r2", "6 r3", "7 r2", "5 r5"], c: 0, h: "6×8 = 48, resto 2." },
-{ id: 28, bloom: 3, q: "Se 31 balas são divididas entre 4 crianças, cada uma recebe:", opts: ["7 r3", "8 r1", "7 r2", "6 r3"], c: 2, h: "7 balas cada e sobram 3." },
-{ id: 29, bloom: 3, q: "42 ÷ 5 =", opts: ["8 r2", "7 r1", "6 r4", "9 r1"], c: 0, h: "8×5 = 40, resto 2." },
-{ id: 30, bloom: 3, q: "83 ÷ 9 =", opts: ["9 r2", "8 r5", "7 r6", "10 r3"], c: 1, h: "9×9 = 81, resta 2." },
+                { id: 21, bloom: 3, q: "Divida 25 em grupos de 4:", opts: ["6 r1", "6 r2", "5 r0", "7 r3"], c: 1, h: "25 ÷ 4 = 6 r1." },
+                { id: 22, bloom: 3, q: "27 ÷ 5 =", opts: ["5 r2", "5 r3", "6 r1", "4 r3"], c: 0, h: "27 ÷ 5 = 5 r2." },
+                { id: 23, bloom: 3, q: "44 ÷ 6 =", opts: ["7 r1", "7 r2", "8 r2", "6 r4"], c: 0, h: "6×7 = 42, sobra 2." },
+                { id: 24, bloom: 3, q: "36 alunos em grupos de 5. Quantos grupos completos?", opts: ["6 r0", "7 r1", "7 r0", "8 r2"], c: 1, h: "7 grupos completos, sobra 1 aluno." },
+                { id: 25, bloom: 3, q: "19 ÷ 6 =", opts: ["3 r1", "3 r2", "2 r3", "4 r1"], c: 1, h: "3×6 = 18, sobra 1." },
+                { id: 26, bloom: 3, q: "33 ÷ 7 =", opts: ["4 r5", "4 r3", "5 r2", "3 r4"], c: 1, h: "4×7 = 28, resto 5." },
+                { id: 27, bloom: 3, q: "50 ÷ 8 =", opts: ["6 r2", "6 r3", "7 r2", "5 r5"], c: 0, h: "6×8 = 48, resto 2." },
+                { id: 28, bloom: 3, q: "Se 31 balas são divididas entre 4 crianças, cada uma recebe:", opts: ["7 r3", "8 r1", "7 r2", "6 r3"], c: 2, h: "7 balas cada e sobram 3." },
+                { id: 29, bloom: 3, q: "42 ÷ 5 =", opts: ["8 r2", "7 r1", "6 r4", "9 r1"], c: 0, h: "8×5 = 40, resto 2." },
+                { id: 30, bloom: 3, q: "83 ÷ 9 =", opts: ["9 r2", "8 r5", "7 r6", "10 r3"], c: 1, h: "9×9 = 81, resta 2." },
 
-{ id: 31, bloom: 4, q: "Qual divisão tem MAIOR resto?", opts: ["20 ÷ 3", "19 ÷ 4", "22 ÷ 5", "25 ÷ 6"], c: 0, h: "20 ÷ 3 deixa resto 2; as outras deixam menores." },
-{ id: 32, bloom: 4, q: "Qual divisão é exata?", opts: ["21 ÷ 4", "30 ÷ 6", "34 ÷ 5", "47 ÷ 8"], c: 1, h: "30 ÷ 6 = 5." },
-{ id: 33, bloom: 4, q: "Qual divisão tem quociente maior?", opts: ["25 ÷ 4", "30 ÷ 5", "41 ÷ 7", "19 ÷ 3"], c: 1, h: "30 ÷ 5 = 6." },
-{ id: 34, bloom: 4, q: "Qual sobra mais?", opts: ["18 ÷ 4", "18 ÷ 5", "18 ÷ 6", "18 ÷ 7"], c: 1, h: "18 ÷ 5 sobra 3." },
-{ id: 35, bloom: 4, q: "Qual tem resto igual a 1?", opts: ["10 ÷ 3", "12 ÷ 5", "16 ÷ 3", "18 ÷ 4"], c: 0, h: "10 ÷ 3 = 3 r1." },
-{ id: 36, bloom: 4, q: "Qual divisão tem resto zero?", opts: ["40 ÷ 9", "42 ÷ 6", "33 ÷ 8", "29 ÷ 7"], c: 1, h: "42 ÷ 6 = exata." },
-{ id: 37, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "20 ÷ 5", "24 ÷ 6", "28 ÷ 7"], c: 0, h: "18 ÷ 4 = 4 r2." },
-{ id: 38, bloom: 4, q: "Qual divisão apresenta o MAIOR resto?", opts: ["22 ÷ 7", "25 ÷ 6", "29 ÷ 4", "17 ÷ 5"], c: 3, h: "17 ÷ 5 = resto 2, maior entre as opções." },
-{ id: 39, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "20 ÷ 5", "25 ÷ 6", "30 ÷ 7"], c: 2, h: "25 ÷ 6 = 4 r1." },
-{ id: 40, bloom: 4, q: "Qual divisão tem resto igual a 3?", opts: ["15 ÷ 4", "20 ÷ 6", "22 ÷ 7", "18 ÷ 5"], c: 0, h: "15 ÷ 4 = 3 r3." },
+                { id: 31, bloom: 4, q: "Qual divisão tem MAIOR resto?", opts: ["20 ÷ 3", "19 ÷ 4", "22 ÷ 5", "25 ÷ 6"], c: 0, h: "20 ÷ 3 deixa resto 2; as outras deixam menores." },
+                { id: 32, bloom: 4, q: "Qual divisão é exata?", opts: ["21 ÷ 4", "30 ÷ 6", "34 ÷ 5", "47 ÷ 8"], c: 1, h: "30 ÷ 6 = 5." },
+                { id: 33, bloom: 4, q: "Qual divisão tem quociente maior?", opts: ["25 ÷ 4", "30 ÷ 5", "41 ÷ 7", "19 ÷ 3"], c: 1, h: "30 ÷ 5 = 6." },
+                { id: 34, bloom: 4, q: "Qual sobra mais?", opts: ["18 ÷ 4", "18 ÷ 5", "18 ÷ 6", "18 ÷ 7"], c: 1, h: "18 ÷ 5 sobra 3." },
+                { id: 35, bloom: 4, q: "Qual tem resto igual a 1?", opts: ["10 ÷ 3", "12 ÷ 5", "16 ÷ 3", "18 ÷ 4"], c: 0, h: "10 ÷ 3 = 3 r1." },
+                { id: 36, bloom: 4, q: "Qual divisão tem resto zero?", opts: ["40 ÷ 9", "42 ÷ 6", "33 ÷ 8", "29 ÷ 7"], c: 1, h: "42 ÷ 6 = exata." },
+                { id: 37, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "20 ÷ 5", "24 ÷ 6", "28 ÷ 7"], c: 0, h: "18 ÷ 4 = 4 r2." },
+                { id: 38, bloom: 4, q: "Qual divisão apresenta o MAIOR resto?", opts: ["22 ÷ 7", "25 ÷ 6", "29 ÷ 4", "17 ÷ 5"], c: 3, h: "17 ÷ 5 = resto 2, maior entre as opções." },
+                { id: 39, bloom: 4, q: "Qual divisão resulta em quociente 4?", opts: ["18 ÷ 4", "20 ÷ 5", "25 ÷ 6", "30 ÷ 7"], c: 2, h: "25 ÷ 6 = 4 r1." },
+                { id: 40, bloom: 4, q: "Qual divisão tem resto igual a 3?", opts: ["15 ÷ 4", "20 ÷ 6", "22 ÷ 7", "18 ÷ 5"], c: 0, h: "15 ÷ 4 = 3 r3." },
 
-{ id: 41, bloom: 5, q: "Qual estratégia resolve melhor 59 ÷ 7?", opts: ["Ver 7×8=56", "Somar 7 repetidas vezes", "Adivinhar", "Testar números aleatórios"], c: 0, h: "Buscar múltiplo próximo." },
-{ id: 42, bloom: 5, q: "Para estimar 82 ÷ 9, qual aproximação usar?", opts: ["9×9=81", "9×8=70", "9×5=45", "9×12=108"], c: 0, h: "81 é o múltiplo mais próximo." },
-{ id: 43, bloom: 5, q: "Qual divisão é mais rápida de confirmar mentalmente?", opts: ["48 ÷ 6", "53 ÷ 7", "41 ÷ 8", "59 ÷ 9"], c: 0, h: "48 ÷ 6 é exata." },
-{ id: 44, bloom: 5, q: "Qual operação ajuda a conferir 34 ÷ 5?", opts: ["Subtração", "Multiplicação", "Soma", "Nenhuma"], c: 1, h: "Multiplicar quociente e divisor." },
-{ id: 45, bloom: 5, q: "Qual divisão tem quociente menor?", opts: ["40 ÷ 10", "40 ÷ 5", "40 ÷ 4", "40 ÷ 2"], c: 0, h: "Maior divisor → quociente menor." },
-{ id: 46, bloom: 5, q: "Para resolver 73 ÷ 6, a melhor abordagem é:", opts: ["Buscar 6×12", "Buscar 6×10", "Buscar 6×20", "Tentar adivinhar"], c: 1, h: "6×10=60 aproxima." },
-{ id: 47, bloom: 5, q: "Qual divisão é mais difícil mentalmente?", opts: ["60 ÷ 6", "50 ÷ 5", "73 ÷ 8", "40 ÷ 4"], c: 2, h: "Não é exata." },
-{ id: 48, bloom: 5, q: "Qual divisão deixa o MENOR resto?", opts: ["31 ÷ 5", "32 ÷ 6", "33 ÷ 7", "34 ÷ 5"], c: 0, h: "31 ÷ 5 = 6 r1 → resto 1, menor de todos." },
-{ id: 49, bloom: 5, q: "Qual divisão tem quociente mais próximo de 10?", opts: ["95 ÷ 9", "98 ÷ 8", "90 ÷ 7", "102 ÷ 10"], c: 3, h: "102 ÷ 10 = 10 r2." },
-{ id: 50, bloom: 5, q: "Qual divisão possui resto mais previsível?", opts: ["35 ÷ 6", "36 ÷ 6", "37 ÷ 6", "38 ÷ 6"], c: 1, h: "36 ÷ 6 = exata (resto 0)." },
+                { id: 41, bloom: 5, q: "Qual estratégia resolve melhor 59 ÷ 7?", opts: ["Ver 7×8=56", "Somar 7 repetidas vezes", "Adivinhar", "Testar números aleatórios"], c: 0, h: "Buscar múltiplo próximo." },
+                { id: 42, bloom: 5, q: "Para estimar 82 ÷ 9, qual aproximação usar?", opts: ["9×9=81", "9×8=70", "9×5=45", "9×12=108"], c: 0, h: "81 é o múltiplo mais próximo." },
+                { id: 43, bloom: 5, q: "Qual divisão é mais rápida de confirmar mentalmente?", opts: ["48 ÷ 6", "53 ÷ 7", "41 ÷ 8", "59 ÷ 9"], c: 0, h: "48 ÷ 6 é exata." },
+                { id: 44, bloom: 5, q: "Qual operação ajuda a conferir 34 ÷ 5?", opts: ["Subtração", "Multiplicação", "Soma", "Nenhuma"], c: 1, h: "Multiplicar quociente e divisor." },
+                { id: 45, bloom: 5, q: "Qual divisão tem quociente menor?", opts: ["40 ÷ 10", "40 ÷ 5", "40 ÷ 4", "40 ÷ 2"], c: 0, h: "Maior divisor → quociente menor." },
+                { id: 46, bloom: 5, q: "Para resolver 73 ÷ 6, a melhor abordagem é:", opts: ["Buscar 6×12", "Buscar 6×10", "Buscar 6×20", "Tentar adivinhar"], c: 1, h: "6×10=60 aproxima." },
+                { id: 47, bloom: 5, q: "Qual divisão é mais difícil mentalmente?", opts: ["60 ÷ 6", "50 ÷ 5", "73 ÷ 8", "40 ÷ 4"], c: 2, h: "Não é exata." },
+                { id: 48, bloom: 5, q: "Qual divisão deixa o MENOR resto?", opts: ["31 ÷ 5", "32 ÷ 6", "33 ÷ 7", "34 ÷ 5"], c: 0, h: "31 ÷ 5 = 6 r1 → resto 1, menor de todos." },
+                { id: 49, bloom: 5, q: "Qual divisão tem quociente mais próximo de 10?", opts: ["95 ÷ 9", "98 ÷ 8", "90 ÷ 7", "102 ÷ 10"], c: 3, h: "102 ÷ 10 = 10 r2." },
+                { id: 50, bloom: 5, q: "Qual divisão possui resto mais previsível?", opts: ["35 ÷ 6", "36 ÷ 6", "37 ÷ 6", "38 ÷ 6"], c: 1, h: "36 ÷ 6 = exata (resto 0)." },
 
-{ id: 51, bloom: 6, q: "Crie um número que ao ser dividido por 5 deixe resto 3:", opts: ["13", "15", "18", "23"], c: 0, h: "13 ÷ 5 = 2 r3." },
-{ id: 52, bloom: 6, q: "Qual número dividido por 4 deixa resto 1?", opts: ["9", "10", "12", "14"], c: 0, h: "9 ÷ 4 = 2 r1." },
-{ id: 53, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 6 partes:", opts: ["18", "24", "30", "31"], c: 3, h: "31 não é múltiplo de 6." },
-{ id: 54, bloom: 6, q: "Crie uma divisão não exata:", opts: ["20 ÷ 5", "18 ÷ 6", "21 ÷ 4", "12 ÷ 3"], c: 2, h: "21 ÷ 4 tem resto." },
-{ id: 55, bloom: 6, q: "Escolha um número que seja múltiplo de 7:", opts: ["14", "15", "16", "17"], c: 0, h: "14 é múltiplo de 7." },
-{ id: 56, bloom: 6, q: "Crie um exemplo de resto igual a 2:", opts: ["10 ÷ 4", "9 ÷ 3", "8 ÷ 2", "14 ÷ 7"], c: 0, h: "10 ÷ 4 = 2 r2." },
-{ id: 57, bloom: 6, q: "Escolha um total que dividido por 8 resulte em resto 4:", opts: ["12", "20", "28", "36"], c: 1, h: "20 ÷ 8 = 2 r4." },
-{ id: 58, bloom: 6, q: "Escolha uma divisão com resto MAIOR que 3:", opts: ["25 ÷ 4", "27 ÷ 6", "19 ÷ 5", "22 ÷ 9"], c: 2, h: "19 ÷ 5 = 3 r4." },
+                { id: 51, bloom: 6, q: "Crie um número que ao ser dividido por 5 deixe resto 3:", opts: ["13", "15", "18", "23"], c: 0, h: "13 ÷ 5 = 2 r3." },
+                { id: 52, bloom: 6, q: "Qual número dividido por 4 deixa resto 1?", opts: ["9", "10", "12", "14"], c: 0, h: "9 ÷ 4 = 2 r1." },
+                { id: 53, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 6 partes:", opts: ["18", "24", "30", "31"], c: 3, h: "31 não é múltiplo de 6." },
+                { id: 54, bloom: 6, q: "Crie uma divisão não exata:", opts: ["20 ÷ 5", "18 ÷ 6", "21 ÷ 4", "12 ÷ 3"], c: 2, h: "21 ÷ 4 tem resto." },
+                { id: 55, bloom: 6, q: "Escolha um número que seja múltiplo de 7:", opts: ["14", "15", "16", "17"], c: 0, h: "14 é múltiplo de 7." },
+                { id: 56, bloom: 6, q: "Crie um exemplo de resto igual a 2:", opts: ["10 ÷ 4", "9 ÷ 3", "8 ÷ 2", "14 ÷ 7"], c: 0, h: "10 ÷ 4 = 2 r2." },
+                { id: 57, bloom: 6, q: "Escolha um total que dividido por 8 resulte em resto 4:", opts: ["12", "20", "28", "36"], c: 1, h: "20 ÷ 8 = 2 r4." },
+                { id: 58, bloom: 6, q: "Escolha uma divisão com resto MAIOR que 3:", opts: ["25 ÷ 4", "27 ÷ 6", "19 ÷ 5", "22 ÷ 9"], c: 2, h: "19 ÷ 5 = 3 r4." },
 
-{ id: 59, bloom: 6, q: "Escolha um número que ao dividir por 3 resulte em quociente 9:", opts: ["27", "30", "33", "36"], c: 2, h: "33 ÷ 3 = 11 → errado. Melhor corrigir." },
-{ id: 60, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 4 partes:", opts: ["12", "16", "18", "20"], c: 2, h: "18 não é múltiplo de 4." },
-{ id: 61, bloom: 7, q: "Se 35 ÷ x deixa resto 5, qual valor NÃO pode ser x?", opts: ["5", "6", "7", "10"], c: 0, h: "35 ÷ 5 é exata, não deixa resto." },
-{ id: 62, bloom: 7, q: "Se o resto aumentou, é correto afirmar que:", opts: ["O quociente aumentou", "O divisor diminuiu", "O dividendo diminuiu", "A divisão virou exata"], c: 1, h: "Divisor menor → mais sobra." },
-{ id: 63, bloom: 7, q: "Se 50 ÷ 6 = 8 r2, então 100 ÷ 6 vale:", opts: ["16 r2", "16 r4", "20 r0", "18 r4"], c: 1, h: "Dobrou → resto dobra também." },
-{ id: 64, bloom: 7, q: "Se a divisão 43 ÷ x deixa resto 3, qual número pode ser x?", opts: ["4", "5", "6", "7"], c: 0, h: "43 = 4×10 + 3." },
-{ id: 65, bloom: 7, q: "Se 28 ÷ y = 4 r0, y deve ser:", opts: ["6", "7", "8", "5"], c: 1, h: "4×7 = 28." },
-{ id: 66, bloom: 7, q: "Qual afirmação é verdadeira?", opts: ["Divisor maior → resto maior", "Divisor menor → resto menor", "Divisor menor → resto maior", "Resto igual a zero indica erro"], c: 2, h: "Divisor pequeno cria mais sobras." },
-{ id: 67, bloom: 7, q: "Se 63 ÷ 8 = 7 r7, o dividendo possível para quociente 7 r1 seria:", opts: ["57", "58", "55", "65"], c: 1, h: "7×8 = 56 → +1 = 57. Ajustar: resposta = 57." },
-{ id: 68, bloom: 7, q: "Quanto é o resto em 29 ÷ 7?", opts: ["1", "2", "3", "4"], c: 0, h: "4×7 = 28 → sobra 1." },
-{ id: 69, bloom: 7, q: "Se duas divisões têm o mesmo divisor, qual fator torna o resto maior?", opts: ["Divisor maior", "Dividendo menor", "Dividendo maior", "Nenhum"], c: 2, h: "Maior total → maior sobra." },
-{ id: 70, bloom: 7, q: "Uma divisão deixa resto 0 apenas quando:", opts: ["O divisor é 1", "O dividendo é par", "O dividendo é múltiplo do divisor", "O divisor é par"], c: 2, h: "Múltiplos produzem divisões exatas." },
+                { id: 59, bloom: 6, q: "Escolha um número que ao dividir por 3 resulte em quociente 9:", opts: ["27", "30", "33", "36"], c: 2, h: "33 ÷ 3 = 11 → errado. Melhor corrigir." },
+                { id: 60, bloom: 6, q: "Escolha um total que NÃO pode ser dividido igualmente em 4 partes:", opts: ["12", "16", "18", "20"], c: 2, h: "18 não é múltiplo de 4." },
+                { id: 61, bloom: 7, q: "Se 35 ÷ x deixa resto 5, qual valor NÃO pode ser x?", opts: ["5", "6", "7", "10"], c: 0, h: "35 ÷ 5 é exata, não deixa resto." },
+                { id: 62, bloom: 7, q: "Se o resto aumentou, é correto afirmar que:", opts: ["O quociente aumentou", "O divisor diminuiu", "O dividendo diminuiu", "A divisão virou exata"], c: 1, h: "Divisor menor → mais sobra." },
+                { id: 63, bloom: 7, q: "Se 50 ÷ 6 = 8 r2, então 100 ÷ 6 vale:", opts: ["16 r2", "16 r4", "20 r0", "18 r4"], c: 1, h: "Dobrou → resto dobra também." },
+                { id: 64, bloom: 7, q: "Se a divisão 43 ÷ x deixa resto 3, qual número pode ser x?", opts: ["4", "5", "6", "7"], c: 0, h: "43 = 4×10 + 3." },
+                { id: 65, bloom: 7, q: "Se 28 ÷ y = 4 r0, y deve ser:", opts: ["6", "7", "8", "5"], c: 1, h: "4×7 = 28." },
+                { id: 66, bloom: 7, q: "Qual afirmação é verdadeira?", opts: ["Divisor maior → resto maior", "Divisor menor → resto menor", "Divisor menor → resto maior", "Resto igual a zero indica erro"], c: 2, h: "Divisor pequeno cria mais sobras." },
+                { id: 67, bloom: 7, q: "Se 63 ÷ 8 = 7 r7, o dividendo possível para quociente 7 r1 seria:", opts: ["57", "58", "55", "65"], c: 1, h: "7×8 = 56 → +1 = 57. Ajustar: resposta = 57." },
+                { id: 68, bloom: 7, q: "Quanto é o resto em 29 ÷ 7?", opts: ["1", "2", "3", "4"], c: 0, h: "4×7 = 28 → sobra 1." },
+                { id: 69, bloom: 7, q: "Se duas divisões têm o mesmo divisor, qual fator torna o resto maior?", opts: ["Divisor maior", "Dividendo menor", "Dividendo maior", "Nenhum"], c: 2, h: "Maior total → maior sobra." },
+                { id: 70, bloom: 7, q: "Uma divisão deixa resto 0 apenas quando:", opts: ["O divisor é 1", "O dividendo é par", "O dividendo é múltiplo do divisor", "O divisor é par"], c: 2, h: "Múltiplos produzem divisões exatas." },
 
 
 
@@ -396,263 +396,185 @@ const DB = {
 
 
             ] },
-            { id: "sistema_monetario", name: "Sistema monetário", prep: { title: "Dinheiro em jogo", content: "<p>Vamos trabalhar com reais, notas, moedas e troco.</p>", skin: "💰" }, pool: [
-                
-               // ---------------- BLOOM 1 — Lembrar ----------------
-                { id: 1, bloom: 1, q: "Qual é o valor da moeda de um real?", opts: ["R$0,10", "R$0,50", "R$1,00", "R$2,00"], c: 2, h: "A moeda prateada com dourado vale R$1,00." },
-                { id: 2, bloom: 1, q: "Qual é a menor moeda em circulação?", opts: ["R$0,50", "R$0,25", "R$0,10", "R$0,05"], c: 3, h: "A moeda de cinco centavos é a menor." },
-                { id: 3, bloom: 1, q: "Qual dessas é uma nota?", opts: ["R$0,50", "R$1,00", "R$2,00", "R$0,25"], c: 2, h: "Notas começam em R$2,00." },
-                { id: 4, bloom: 1, q: "Qual nota é azul?", opts: ["R$2", "R$5", "R$10", "R$20"], c: 0, h: "R$2 é azul." },
-                { id: 5, bloom: 1, q: "Quanto vale a nota de R$5?", opts: ["Cinco reais", "Cinco centavos", "Meio real", "Cinco e cinquenta"], c: 0, h: "É simplesmente cinco reais." },
-                { id: 6, bloom: 1, q: "Qual moeda vale mais?", opts: ["R$0,10", "R$0,50", "R$0,25", "R$0,05"], c: 1, h: "Cinquenta centavos é a maior." },
-                { id: 7, bloom: 1, q: "Qual é o valor da nota verde?", opts: ["R$10", "R$5", "R$20", "R$100"], c: 1, h: "A nota de R$5 é verde." },
-                { id: 8, bloom: 1, q: "Quantos centavos há em um real?", opts: ["10", "50", "100", "25"], c: 2, h: "R$1,00 = 100 centavos." },
-                { id: 9, bloom: 1, q: "Qual é a nota de maior valor abaixo?", opts: ["R$10", "R$20", "R$50", "R$100"], c: 3, h: "R$100 é a maior entre elas." },
-                { id: 10, bloom: 1, q: "Qual dessas moedas é dourada?", opts: ["R$0,10", "R$0,25", "R$0,05", "R$1,00"], c: 3, h: "A moeda de R$1,00 tem aro dourado." },
+            { id: "sistema_monetario", name: "Sistema monetário", prep: { title: "Dinheiro em jogo", content: "<p>Vamos trabalhar com reais, notas, moedas e troco.</p>", skin: "💰" },
+            
+            pool: [
+                    // ---------------- BLOOM 1 — Lembrar ----------------
+                    { id: 1, bloom: 1, q: "Qual é o valor da moeda de um real?", opts: ["R$0,10", "R$0,50", "R$1,00", "R$2,00"], c: 2, h: "A moeda prateada com dourado vale R$1,00." },
+                    { id: 2, bloom: 1, q: "Qual é a menor moeda em circulação?", opts: ["R$0,50", "R$0,25", "R$0,10", "R$0,05"], c: 3, h: "A moeda de cinco centavos é a menor." },
+                    { id: 3, bloom: 1, q: "Qual dessas é uma nota (cédula)?", opts: ["R$0,50", "R$1,00", "R$2,00", "R$0,25"], c: 2, h: "Notas começam em R$2,00 atualmente." },
+                    { id: 4, bloom: 1, q: "Qual nota tem detalhes na cor azul?", opts: ["R$2", "R$5", "R$10", "R$20"], c: 0, h: "A nota de R$2 possui tons de azul." },
+                    { id: 5, bloom: 1, q: "Quanto vale a nota de R$5?", opts: ["Cinco reais", "Cinco centavos", "Meio real", "Cinco e cinquenta"], c: 0, h: "É simplesmente cinco reais." },
+                    { id: 6, bloom: 1, q: "Qual moeda vale mais?", opts: ["R$0,10", "R$0,50", "R$0,25", "R$0,05"], c: 1, h: "Cinquenta centavos é a maior." },
+                    { id: 7, bloom: 1, q: "Qual é o valor da nota lilás (roxa)?", opts: ["R$10", "R$5", "R$20", "R$100"], c: 1, h: "A nota de R$5 é lilás." },
+                    { id: 8, bloom: 1, q: "Quantos centavos há em um real?", opts: ["10", "50", "100", "25"], c: 2, h: "R$1,00 = 100 centavos." },
+                    { id: 9, bloom: 1, q: "Qual é a nota de maior valor abaixo?", opts: ["R$10", "R$20", "R$50", "R$100"], c: 3, h: "R$100 é a maior entre elas." },
+                    // AJUSTE ID 10: Especifiquei "bicolor" para evitar confusão com a de 25 centavos que também é dourada/bronze
+                    { id: 10, bloom: 1, q: "Qual moeda é bicolor (prata e dourada)?", opts: ["R$0,10", "R$0,25", "R$0,05", "R$1,00"], c: 3, h: "A moeda de R$1,00 tem aro dourado e centro prata." },
 
-                // ---------------- BLOOM 2 — Compreender ----------------
-                { id: 11, bloom: 2, q: "Se João tem duas moedas de R$0,50, quanto ele tem?", opts: ["R$0,50", "R$1,00", "R$2,00", "R$0,75"], c: 1, h: "0,50 + 0,50 = 1,00." },
-                { id: 12, bloom: 2, q: "Maria tem R$2 e ganha mais R$2. Quanto ela tem?", opts: ["R$2", "R$4", "R$6", "R$8"], c: 1, h: "Soma simples: 2 + 2 = 4." },
-                { id: 13, bloom: 2, q: "Qual combinação forma R$1,00?", opts: ["4 moedas de 25 centavos", "2 moedas de 25 centavos", "3 moedas de 10 centavos", "1 moeda de 5 centavos"], c: 0, h: "4×0,25 = 1,00." },
-                { id: 14, bloom: 2, q: "Se algo custa R$3 e você paga com R$5, qual o troco?", opts: ["R$1", "R$2", "R$3", "R$5"], c: 1, h: "5 − 3 = 2." },
-                { id: 15, bloom: 2, q: "Qual opção representa cinco reais?", opts: ["Cinco moedas de R$1", "Uma moeda de R$5", "Cinco moedas de R$0,10", "Uma nota de R$3 e uma moeda de R$2"], c: 0, h: "Moedas de R$1 somam facilmente." },
-                { id: 16, bloom: 2, q: "Quanto valem duas moedas de R$0,25?", opts: ["R$0,25", "R$0,50", "R$1,00", "R$0,75"], c: 1, h: "0,25 + 0,25 = 0,5." },
-                { id: 17, bloom: 2, q: "Qual combinação forma R$2,00?", opts: ["4 moedas de 50 centavos", "2 notas de R$5", "8 moedas de 10 centavos", "2 moedas de 25 centavos"], c: 0, h: "4×0,50 = 2,00." },
-                { id: 18, bloom: 2, q: "Se você tem R$10 e gasta R$4, quanto sobra?", opts: ["R$4", "R$5", "R$6", "R$7"], c: 2, h: "10 − 4 = 6." },
-                { id: 19, bloom: 2, q: "Qual dessas opções representa 75 centavos?", opts: ["3 moedas de 25 centavos", "3 moedas de 10 centavos", "1 moeda de R$1", "5 moedas de R$0,50"], c: 0, h: "25+25+25 = 75." },
-                { id: 20, bloom: 2, q: "Se algo custa R$1,50 e você paga com R$2,00, o troco é:", opts: ["R$0,25", "R$0,50", "R$0,75", "R$1,00"], c: 1, h: "2,00 − 1,50 = 0,50." },
+                    // ---------------- BLOOM 2 — Compreender ----------------
+                    { id: 11, bloom: 2, q: "Se João tem duas moedas de R$0,50, quanto ele tem?", opts: ["R$0,50", "R$1,00", "R$2,00", "R$0,75"], c: 1, h: "0,50 + 0,50 = 1,00." },
+                    { id: 12, bloom: 2, q: "Maria tem R$2 e ganha mais R$2. Quanto ela tem?", opts: ["R$2", "R$4", "R$6", "R$8"], c: 1, h: "Soma simples: 2 + 2 = 4." },
+                    { id: 13, bloom: 2, q: "Qual combinação forma R$1,00?", opts: ["4 moedas de 25 centavos", "2 moedas de 25 centavos", "3 moedas de 10 centavos", "1 moeda de 5 centavos"], c: 0, h: "4×0,25 = 1,00." },
+                    { id: 14, bloom: 2, q: "Se algo custa R$3 e você paga com R$5, qual o troco?", opts: ["R$1", "R$2", "R$3", "R$5"], c: 1, h: "5 − 3 = 2." },
+                    { id: 15, bloom: 2, q: "Qual opção representa cinco reais?", opts: ["Cinco moedas de R$1", "Uma moeda de R$5", "Cinco moedas de R$0,10", "Uma nota de R$3 e uma moeda de R$2"], c: 0, h: "Moedas de R$1 somam facilmente." },
+                    { id: 16, bloom: 2, q: "Quanto valem duas moedas de R$0,25?", opts: ["R$0,25", "R$0,50", "R$1,00", "R$0,75"], c: 1, h: "0,25 + 0,25 = 0,5." },
+                    { id: 17, bloom: 2, q: "Qual combinação forma R$2,00?", opts: ["4 moedas de 50 centavos", "2 notas de R$5", "8 moedas de 10 centavos", "2 moedas de 25 centavos"], c: 0, h: "4×0,50 = 2,00." },
+                    { id: 18, bloom: 2, q: "Se você tem R$10 e gasta R$4, quanto sobra?", opts: ["R$4", "R$5", "R$6", "R$7"], c: 2, h: "10 − 4 = 6." },
+                    { id: 19, bloom: 2, q: "Qual dessas opções representa 75 centavos?", opts: ["3 moedas de 25 centavos", "3 moedas de 10 centavos", "1 moeda de R$1", "5 moedas de R$0,50"], c: 0, h: "25+25+25 = 75." },
+                    { id: 20, bloom: 2, q: "Se algo custa R$1,50 e você paga com R$2,00, o troco é:", opts: ["R$0,25", "R$0,50", "R$0,75", "R$1,00"], c: 1, h: "2,00 − 1,50 = 0,50." },
 
-                // ---------------- BLOOM 3 — Aplicar ----------------
-                { id: 21, bloom: 3, q: "Quanto é R$2 + R$3 + R$5?", opts: ["R$8", "R$10", "R$6", "R$9"], c: 1, h: "2+3+5 = 10." },
-                { id: 22, bloom: 3, q: "Você tem R$7 e compra algo por R$4. Quanto sobra?", opts: ["R$1", "R$2", "R$3", "R$4"], c: 2, h: "7 − 4 = 3." },
-                { id: 23, bloom: 3, q: "Qual combinação paga exatamente R$6?", opts: ["3 notas de R$2", "1 nota de R$5", "6 moedas de R$0,50", "2 notas de R$10"], c: 0, h: "3×2 = 6." },
-                { id: 24, bloom: 3, q: "Você tem 4 moedas de R$0,50. Quanto tem?", opts: ["R$1", "R$2", "R$3", "R$4"], c: 1, h: "0,50×4 = 2." },
-                { id: 25, bloom: 3, q: "Quanto é R$12 − R$7?", opts: ["R$3", "R$4", "R$5", "R$6"], c: 2, h: "12 − 7 = 5." },
+                    // ---------------- BLOOM 3 — Aplicar ----------------
+                    { id: 21, bloom: 3, q: "Quanto é R$2 + R$3 + R$5?", opts: ["R$8", "R$10", "R$6", "R$9"], c: 1, h: "2+3+5 = 10." },
+                    { id: 22, bloom: 3, q: "Você tem R$7 e compra algo por R$4. Quanto sobra?", opts: ["R$1", "R$2", "R$3", "R$4"], c: 2, h: "7 − 4 = 3." },
+                    { id: 23, bloom: 3, q: "Qual combinação paga exatamente R$6?", opts: ["3 notas de R$2", "1 nota de R$5", "6 moedas de R$0,50", "2 notas de R$10"], c: 0, h: "3×2 = 6." },
+                    { id: 24, bloom: 3, q: "Você tem 4 moedas de R$0,50. Quanto tem?", opts: ["R$1", "R$2", "R$3", "R$4"], c: 1, h: "0,50×4 = 2." },
+                    { id: 25, bloom: 3, q: "Quanto é R$12 − R$7?", opts: ["R$3", "R$4", "R$5", "R$6"], c: 2, h: "12 − 7 = 5." },
+                    { id: 101, bloom: 3, q: "Quanto é R$15 − R$9?", opts: ["R$5", "R$6", "R$7", "R$9"], c: 1, h: "15 − 9 = 6." },
+                    { id: 102, bloom: 3, q: "Você tem R$3,50 e ganha mais R$2,00. Total?", opts: ["R$4,50", "R$5,00", "R$5,50", "R$6,00"], c: 2, h: "3,50 + 2,00 = 5,50." },
+                    // AJUSTE ID 103: A opção correta usava "4+4+1". Notas de 4 não existem.
+                    { id: 103, bloom: 3, q: "Qual combinação paga R$9 exatamente?", opts: ["R$5 + R$2 + R$2", "R$5 + R$5", "R$3 + R$3 + R$3", "R$10"], c: 0, h: "5+2+2 = 9." },
+                    { id: 104, bloom: 3, q: "Quanto é R$7,50 + R$1,50?", opts: ["R$8,00", "R$9,00", "R$10,00", "R$7,00"], c: 1, h: "7,5 + 1,5 = 9." },
+                    { id: 105, bloom: 3, q: "Você paga R$20 com uma nota de R$50. Troco?", opts: ["R$20", "R$25", "R$30", "R$40"], c: 2, h: "50 − 20 = 30." },
 
-                // ---------------- BLOOM 4 — Analisar ----------------
-                { id: 26, bloom: 4, q: "Qual valor é maior?", opts: ["R$0,50", "R$0,75", "R$1,00", "R$0,25"], c: 2, h: "R$1 é o maior." },
-                { id: 27, bloom: 4, q: "Qual conjunto soma mais?", opts: ["R$2 + R$2", "R$1 + R$1 + R$1", "R$5", "R$3 + R$1"], c: 2, h: "R$5 é o maior." },
-                { id: 28, bloom: 4, q: "Qual valor é menor?", opts: ["R$0,10", "R$0,05", "R$0,50", "R$0,25"], c: 1, h: "Cinco centavos é o menor." },
-                { id: 29, bloom: 4, q: "Qual grupo soma R$4?", opts: ["2+2", "1+1+1+1+1", "3+3", "1+2"], c: 0, h: "2+2 = 4." },
-                { id: 30, bloom: 4, q: "Qual valor está mais próximo de R$1?", opts: ["R$0,90", "R$0,40", "R$0,10", "R$0,25"], c: 0, h: "0,90 é o mais próximo." },
+                    // ---------------- BLOOM 4 — Analisar ----------------
+                    { id: 26, bloom: 4, q: "Qual valor é maior?", opts: ["R$0,50", "R$0,75", "R$1,00", "R$0,25"], c: 2, h: "R$1 é o maior." },
+                    // AJUSTE ID 27: Opção 3+1 inválida (nota de 3). Substituí por valores reais.
+                    { id: 27, bloom: 4, q: "Qual conjunto soma mais?", opts: ["R$2 + R$2", "R$1 + R$1 + R$1", "R$5", "R$2 + R$1"], c: 2, h: "R$5 é o maior." },
+                    { id: 28, bloom: 4, q: "Qual valor é menor?", opts: ["R$0,10", "R$0,05", "R$0,50", "R$0,25"], c: 1, h: "Cinco centavos é o menor." },
+                    { id: 29, bloom: 4, q: "Qual grupo soma R$4?", opts: ["2+2", "1+1+1+1+1", "3+1", "1+2"], c: 0, h: "2+2 = 4." },
+                    { id: 30, bloom: 4, q: "Qual valor está mais próximo de R$1?", opts: ["R$0,90", "R$0,40", "R$0,10", "R$0,25"], c: 0, h: "0,90 é o mais próximo." },
 
-                // ---------------- BLOOM 5 — Avaliar ----------------
-                { id: 31, bloom: 5, q: "Qual estratégia é melhor para contar dinheiro?", opts: ["Começar pelas maiores notas", "Começar pelas menores moedas", "Adivinhar o total", "Somar só as moedas"], c: 0, h: "Notas maiores aceleram o cálculo." },
-                { id: 32, bloom: 5, q: "Para verificar se o troco está correto, você deve:", opts: ["Somar valor pago + valor do produto", "Somar troco + valor do produto", "Subtrair produto do valor pago", "Multiplicar tudo"], c: 2, h: "Troco = pago − produto." },
-                { id: 33, bloom: 5, q: "Em compras pequenas, qual moeda costuma facilitar o troco?", opts: ["R$1", "R$0,50", "R$0,10", "R$0,05"], c: 1, h: "50 centavos reduz combinações." },
-                { id: 34, bloom: 5, q: "Para comparar valores próximos, qual estratégia é melhor?", opts: ["Transformar em centavos", "Usar apenas notas", "Ignorar moedas", "Comparar cores das notas"], c: 0, h: "Centavos eliminam vírgulas." },
+                    // ---------------- BLOOM 5 — Avaliar ----------------
+                    { id: 31, bloom: 5, q: "Qual estratégia é melhor para contar dinheiro?", opts: ["Começar pelas maiores notas", "Começar pelas menores moedas", "Adivinhar o total", "Somar só as moedas"], c: 0, h: "Notas maiores aceleram o cálculo." },
+                    { id: 32, bloom: 5, q: "Para verificar se o troco está correto, você deve:", opts: ["Somar valor pago + valor do produto", "Somar troco + valor do produto", "Subtrair produto do valor pago", "Multiplicar tudo"], c: 2, h: "Troco = pago − produto." },
+                    { id: 33, bloom: 5, q: "Em compras pequenas, qual moeda costuma facilitar o troco?", opts: ["R$1", "R$0,50", "R$0,10", "R$0,05"], c: 1, h: "50 centavos reduz combinações." },
+                    { id: 34, bloom: 5, q: "Para comparar valores próximos, qual estratégia é melhor?", opts: ["Transformar em centavos", "Usar apenas notas", "Ignorar moedas", "Comparar cores das notas"], c: 0, h: "Centavos eliminam vírgulas." },
+                    { id: 111, bloom: 5, q: "Para garantir troco exato, a melhor estratégia é:", opts: ["Usar notas grandes", "Usar moedas combinadas", "Pagar com cartão", "Pedir para arredondar"], c: 1, h: "Moedas ajudam no acerto fino." },
+                    { id: 112, bloom: 5, q: "Se o troco parece errado, a primeira ação é:", opts: ["Reclamar", "Contar novamente o valor pago e o preço", "Ignorar", "Somar só moedas"], c: 1, h: "Rever cálculo base." },
+                    { id: 113, bloom: 5, q: "Para comparar R$0,48 e R$0,50, é melhor:", opts: ["Transformar em centavos (48 e 50)", "Dobrar os valores", "Adivinhar", "Comparar só as moedas"], c: 0, h: "48 < 50 centavos." },
+                    { id: 114, bloom: 5, q: "Para decidir qual combinação é mais eficiente para pagar, você deve:", opts: ["Usar o maior número de moedas possível", "Minimizar quantidade de itens (notas/moedas)", "Misturar moedas aleatórias", "Usar apenas moedas pequenas"], c: 1, h: "Menos itens → mais eficiência." },
+                    { id: 115, bloom: 5, q: "Se o preço é R$9,99, qual estratégia facilita o troco?", opts: ["Pagar com R$10", "Pagar com R$20", "Pagar com R$50", "Usar moedas pequenas"], c: 0, h: "Troco direto: 0,01." },
+                    { id: 116, bloom: 5, q: "Qual análise identifica melhor preço?", opts: ["Comparar só as notas", "Comparar valores totais", "Comparar apenas moedas", "Ignorar centavos"], c: 1, h: "Não basta cor da nota." },
 
-                // ---------------- BLOOM 6 — Criar ----------------
-                { id: 35, bloom: 6, q: "Crie um valor igual a R$3 usando apenas moedas.", opts: ["6 moedas de 50 centavos", "3 moedas de 50 centavos", "10 moedas de 10 centavos", "1 moeda de R$3"], c: 0, h: "6×0,50 = 3." },
-                { id: 36, bloom: 6, q: "Escolha uma combinação que totalize R$8:", opts: ["4 notas de R$2", "1 nota de R$10", "3 notas de R$3", "8 moedas de R$1"], c: 0, h: "4×2 = 8." },
-                { id: 37, bloom: 6, q: "Crie um valor menor que R$1:", opts: ["R$0,75", "R$1,00", "R$2,00", "R$1,50"], c: 0, h: "0,75 < 1." },
-                { id: 38, bloom: 6, q: "Qual combinação forma exatamente R$12?", opts: ["6 notas de R$2", "12 moedas de R$1", "3 notas de R$5", "2 notas de R$10"], c: 0, h: "6×2 = 12." },
+                    // ---------------- BLOOM 6 — Criar ----------------
+                    { id: 35, bloom: 6, q: "Crie um valor igual a R$3 usando apenas moedas.", opts: ["6 moedas de 50 centavos", "3 moedas de 50 centavos", "10 moedas de 10 centavos", "1 moeda de R$3"], c: 0, h: "6×0,50 = 3." },
+                    // AJUSTE ID 36: Opção "3 notas de R$3" era inválida. Substituída por distrator válido.
+                    { id: 36, bloom: 6, q: "Escolha uma combinação válida que totalize R$8:", opts: ["4 notas de R$2", "1 nota de R$10", "3 notas de R$2", "8 moedas de R$1"], c: 0, h: "4×2 = 8." },
+                    { id: 37, bloom: 6, q: "Crie um valor menor que R$1:", opts: ["R$0,75", "R$1,00", "R$2,00", "R$1,50"], c: 0, h: "0,75 < 1." },
+                    { id: 38, bloom: 6, q: "Qual combinação forma exatamente R$12?", opts: ["6 notas de R$2", "12 moedas de R$1", "3 notas de R$5", "2 notas de R$10"], c: 0, h: "6×2 = 12." },
+                    { id: 117, bloom: 6, q: "Monte R$4 usando somente moedas de R$1:", opts: ["4 moedas de R$1", "2 moedas de R$1", "8 moedas de 50 centavos", "1 nota de R$4"], c: 0, h: "4×1 = 4." },
+                    { id: 118, bloom: 6, q: "Crie um valor maior que R$5:", opts: ["R$4", "R$5", "R$6", "R$3"], c: 2, h: "6 é > 5." },
+                    { id: 119, bloom: 6, q: "Qual combinação soma exatamente R$15?", opts: ["3×R$5", "2×R$10", "1×R$20", "5×R$2"], c: 0, h: "5+5+5 = 15." },
+                    { id: 120, bloom: 6, q: "Crie um valor que seja menor que R$2:", opts: ["R$1,75", "R$2", "R$3", "R$2,50"], c: 0, h: "1,75 < 2." },
+                    { id: 121, bloom: 6, q: "Monte R$9 usando notas de R$2 e moedas de R$1:", opts: ["2+2+2+1+1+1", "2+2+1+1+1", "2+1+1+1+1+1+1", "2×R$5"], c: 0, h: "2+2+2+1+1+1 = 9." },
+                    // AJUSTE ID 122: A pergunta pedia para usar "notas de R$3". Alterado para "notas de R$2".
+                    { id: 122, bloom: 6, q: "Crie um valor equivalente a R$12 apenas com notas de R$2:", opts: ["6 notas", "4 notas", "5 notas", "2 notas"], c: 0, h: "6×2 = 12." },
 
-                // ---------------- BLOOM 7 — Compreender Padrões / Generalizar ----------------
-                { id: 39, bloom: 7, q: "Se aumentamos o valor pago mantendo o preço, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Desaparece"], c: 0, h: "Mais pagamento → mais troco." },
-                { id: 40, bloom: 7, q: "Se reduzimos o número de moedas mantendo o valor total, precisamos de:", opts: ["Notas maiores", "Mais moedas pequenas", "Troco negativo", "Diminuir o preço"], c: 0, h: "Notas substituem várias moedas." },
-                { id: 101, bloom: 3, q: "Quanto é R$15 − R$9?", opts: ["R$5", "R$6", "R$7", "R$9"], c: 1, h: "15 − 9 = 6." },
-
-                { id: 102, bloom: 3, q: "Você tem R$3,50 e ganha mais R$2,00. Total?", opts: ["R$4,50", "R$5,00", "R$5,50", "R$6,00"], c: 2, h: "3,50 + 2,00 = 5,50." },
-
-                { id: 103, bloom: 3, q: "Qual combinação paga R$9 exatamente?", opts: ["4+4+1", "5+5", "3+3", "10"], c: 0, h: "4+4+1 = 9." },
-
-                { id: 104, bloom: 3, q: "Quanto é R$7,50 + R$1,50?", opts: ["R$8,00", "R$9,00", "R$10,00", "R$7,00"], c: 1, h: "7,5 + 1,5 = 9." },
-
-                { id: 105, bloom: 3, q: "Você paga R$20 com uma nota de R$50. Troco?", opts: ["R$20", "R$25", "R$30", "R$40"], c: 2, h: "50 − 20 = 30." },
-                { id: 111, bloom: 5, q: "Para garantir troco exato, a melhor estratégia é:", opts: ["Usar notas grandes", "Usar moedas combinadas", "Pagar com cartão", "Pedir para arredondar"], c: 1, h: "Moedas ajudam no acerto fino." },
-
-                { id: 112, bloom: 5, q: "Se o troco parece errado, a primeira ação é:", opts: ["Reclamar", "Contar novamente o valor pago e o preço", "Ignorar", "Somar só moedas"], c: 1, h: "Rever cálculo base." },
-
-                { id: 113, bloom: 5, q: "Para comparar R$0,48 e R$0,5, é melhor:", opts: ["Transformar em centavos", "Dobrar os valores", "Adivinhar", "Comparar só as moedas"], c: 0, h: "48 < 50 centavos." },
-
-                { id: 114, bloom: 5, q: "Para decidir qual combinação é mais eficiente para pagar, você deve:", opts: ["Usar o maior número de moedas possível", "Minimizar quantidade de itens", "Misturar moedas aleatórias", "Usar apenas moedas pequenas"], c: 1, h: "Menos itens → mais eficiência." },
-
-                { id: 115, bloom: 5, q: "Se o preço é R$9,99, qual estratégia facilita o troco?", opts: ["Pagar com R$10", "Pagar com R$20", "Pagar com R$50", "Usar moedas pequenas"], c: 0, h: "Troco direto: 0,01." },
-
-                { id: 116, bloom: 5, q: "Qual análise identifica melhor preço?", opts: ["Comparar só as notas", "Comparar valores totais", "Comparar apenas moedas", "Ignorar centavos"], c: 1, h: "Não basta cor da nota." },
-                { id: 117, bloom: 6, q: "Monte R$4 usando somente moedas de R$1:", opts: ["4 moedas de R$1", "2 moedas de R$1", "8 moedas de 50 centavos", "1 nota de R$4"], c: 0, h: "4×1 = 4." },
-
-                { id: 118, bloom: 6, q: "Crie um valor maior que R$5:", opts: ["R$4", "R$5", "R$6", "R$3"], c: 2, h: "6 é > 5." },
-
-                { id: 119, bloom: 6, q: "Qual combinação soma exatamente R$15?", opts: ["3×R$5", "2×R$10", "1×R$20", "5×R$2"], c: 0, h: "5+5+5 = 15." },
-
-                { id: 120, bloom: 6, q: "Crie um valor que seja menor que R$2:", opts: ["R$1,75", "R$2", "R$3", "R$2,50"], c: 0, h: "1,75 < 2." },
-                { id: 121, bloom: 6, q: "Monte R$9 usando notas de R$2 e moedas de R$1:", opts: ["2+2+2+1+1+1", "2+2+1+1+1", "2+1+1+1+1+1+1", "2×R$5"], c: 0, h: "2+2+2+1+1+1 = 9." },
-
-                { id: 122, bloom: 6, q: "Crie um valor equivalente a R$12 apenas com notas de R$3:", opts: ["3 notas", "4 notas", "5 notas", "2 notas"], c: 1, h: "3×4 = 12." },
-                { id: 123, bloom: 7, q: "Se o preço aumenta e o pagamento é o mesmo, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Dobra"], c: 1, h: "Menos diferença → menos troco." },
-
-                { id: 124, bloom: 7, q: "Se reduzimos as moedas e mantemos o valor, estamos:", opts: ["Usando notas equivalentes", "Perdendo valor", "Criando troco errado", "Aumentando centavos"], c: 0, h: "Notas substituem várias moedas." },
-
-                { id: 125, bloom: 7, q: "Se duplicamos todas as moedas mantendo a quantidade de notas, o valor:", opts: ["Aumenta", "Diminui", "Se mantém", "Desaparece"], c: 0, h: "Mais moedas → maior total." },
-
-                { id: 126, bloom: 7, q: "Se todos os valores forem convertidos para centavos, a comparação:", opts: ["Fica mais fácil", "Fica mais difícil", "Fica impossível", "Não muda nada"], c: 0, h: "Retira vírgulas → simplifica." },
-
-                { id: 127, bloom: 7, q: "Aumentar denominador e manter numerador em centavos implica:", opts: ["Maior precisão", "Maior valor", "Menor valor", "Valor dobrado"], c: 2, h: "Mais partes → valor menor." },
-
-                { id: 128, bloom: 7, q: "Se multiplicamos tudo por 10 (centavos → décimos), os valores:", opts: ["Mudam proporcionalmente", "Perdem sentido", "Aumentam descontroladamente", "Desaparecem"], c: 0, h: "Escala se mantém." },
-
-                { id: 129, bloom: 7, q: "Uma compra de R$7,90 paga com R$10 gera padrão de troco:", opts: ["Aproximado a R$2", "Aproximado a R$1", "Maior que R$5", "Zero"], c: 0, h: "10 − 7,90 = 2,10." },
-
-                { id: 130, bloom: 7, q: "Se todos os valores forem arredondados para baixo, o troco tende a:", opts: ["Aumentar", "Diminuir", "Ficar igual", "Sumir"], c: 0, h: "Preço menor ⇒ diferença maior." },
-
-            ] },
+                    // ---------------- BLOOM 7 — Compreender Padrões / Generalizar ----------------
+                    { id: 39, bloom: 7, q: "Se aumentamos o valor pago mantendo o preço, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Desaparece"], c: 0, h: "Mais pagamento → mais troco." },
+                    { id: 40, bloom: 7, q: "Se reduzimos o número de moedas mantendo o valor total, precisamos de:", opts: ["Notas ou moedas de maior valor", "Mais moedas pequenas", "Troco negativo", "Diminuir o preço"], c: 0, h: "Notas substituem várias moedas." },
+                    { id: 123, bloom: 7, q: "Se o preço aumenta e o pagamento é o mesmo, o troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Dobra"], c: 1, h: "Menos diferença → menos troco." },
+                    { id: 124, bloom: 7, q: "Se trocamos várias moedas pequenas por uma nota de mesmo valor, estamos:", opts: ["Simplificando o dinheiro físico", "Perdendo valor", "Criando troco errado", "Aumentando centavos"], c: 0, h: "Valor igual, menos itens." },
+                    { id: 125, bloom: 7, q: "Se você ganhar o dobro das moedas que tem hoje, o valor total:", opts: ["Aumenta", "Diminui", "Se mantém", "Desaparece"], c: 0, h: "Mais moedas → maior total." },
+                    { id: 126, bloom: 7, q: "Se todos os valores forem convertidos para centavos, a comparação:", opts: ["Fica mais fácil (sem vírgula)", "Fica mais difícil", "Fica impossível", "Não muda nada"], c: 0, h: "Retira vírgulas → simplifica." },
+                    // AJUSTE ID 127: Questão sobre denominador era muito abstrata e confusa para o tema. Substituída por lógica de troca.
+                    { id: 127, bloom: 7, q: "Se trocamos uma nota de R$10 por notas de R$2, quantas notas teremos?", opts: ["5 notas", "2 notas", "10 notas", "4 notas"], c: 0, h: "10 dividido por 2 = 5." },
+                    { id: 128, bloom: 7, q: "Se multiplicamos o preço e o dinheiro que você tem por 10, o poder de compra:", opts: ["Continua o mesmo", "Diminui muito", "Aumenta descontroladamente", "Desaparece"], c: 0, h: "A proporção se mantém." },
+                    { id: 129, bloom: 7, q: "Uma compra de R$7,90 paga com R$10 gera um troco próximo de:", opts: ["R$2,00", "R$1,00", "R$5,00", "Zero"], c: 0, h: "10 − 7,90 = 2,10." },
+                    { id: 130, bloom: 7, q: "Se o caixa arredondar o preço para baixo, o seu troco:", opts: ["Aumenta", "Diminui", "Fica igual", "Some"], c: 0, h: "Preço menor ⇒ sobra mais dinheiro." },
+                ]
+            },
             { id: "graficos",  name: "Gráficos",  prep: {    title: "Lendo e interpretando gráficos",   content: "<p>Vamos aprender a ler gráficos usando barras, linhas, pizza e tabelas. Eles mostram informações de forma visual e ajudam a comparar quantidades.</p>",    skin: "📊" },
              pool: [
-
-                // ---------------------- BLOOM 1 ----------------------
+                 // ---------------------- BLOOM 1 ----------------------
                 { id: 1, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar1.svg'><br>Qual cor recebeu **10 votos**?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A barra azul é 10." },
-
                 { id: 2, bloom: 1, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta recebeu **3 votos**?", opts: ["Maçã","Uva","Banana","Pêra"], c: 2, h: "Banana tem 3." },
-
                 { id: 3, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/bar3.svg'><br>Qual animal tem **12 votos**?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 0, h: "Cachorro = 12." },
-
                 { id: 4, bloom: 1, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Em qual dia o valor é **9**?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta tem 9." },
-
                 { id: 5, bloom: 1, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual turma tem **15 alunos presentes**?", opts: ["1ºB","1ºA","1ºC","Nenhuma"], c: 1, h: "1ºA = 15." },
-
                 { id: 6, bloom: 1, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item tem valor **3**?", opts: ["Salgado","Bebida","Doce","Nenhum"], c: 2, h: "Doce = 3." },
-
                 { id: 7, bloom: 1, q: "Observe o gráfico:<br><img src='img/data/line1.svg'><br>Em qual dia a temperatura é **5**?", opts: ["Seg","Ter","Qua","Qui"], c: 3, h: "Quinta tem ponto no 5." },
-
                 { id: 8, bloom: 1, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês tem valor **8**?", opts: ["Jan","Fev","Mar","Abr"], c: 3, h: "Abril = 8." },
-
                 { id: 9, bloom: 1, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual atividade ocupa **40%**?", opts: ["TV","Brincar","Ler","Jogos"], c: 1, h: "O maior setor é Brincar, 40%." },
-
-                { id: 10, bloom: 1, q: "Veja:<br><img src='img/data/table2.svg'><br>Qual brinquedo recebeu **12 votos**?", opts: ["Boneca","Carrinho","Bola","Nenhum"], c: 2, h: "Bola = 12." },
+                { id: 10, bloom: 1, q: "Veja:<br><img src='img/data/line1.svg'><br>Qual dia a temperatura é igual a 3?", opts: ["Qua","Ter","Seg","Nenhum"], c: 0, h: "Quarta = 3." },
 
                 // ---------------------- BLOOM 2 ----------------------
                 { id: 11, bloom: 2, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quais cores têm mais votos que o vermelho?", opts: ["Azul e Verde","Azul e Amarelo","Verde e Vermelho","Apenas Amarelo"], c: 0, h: "Azul=10 e Verde=6 são maiores que 4." },
-
                 { id: 12, bloom: 2, q: "Veja:<br><img src='img/data/bar2.svg'><br>Qual fruta tem o menor valor?", opts: ["Banana","Pêra","Uva","Maçã"], c: 1, h: "Pêra = 2." },
-
                 { id: 13, bloom: 2, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual animal tem votos entre 5 e 12?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato=9 está entre 5 e 12." },
-
                 { id: 14, bloom: 2, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual dia tem o valor mais baixo?", opts: ["Qui","Ter","Seg","Nenhum"], c: 1, h: "Terça = 2." },
-
                 { id: 15, bloom: 2, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual diferença entre 1ºA e 1ºB?", opts: ["4","5","3","2"], c: 0, h: "15 - 11 = 4." },
-
                 { id: 16, bloom: 2, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Qual item recebeu **mais votos**?", opts: ["Doce","Salgado","Bebida","Nenhum"], c: 1, h: "Salgado = 8." },
-
                 { id: 17, bloom: 2, q: "Observe:<br><img src='img/data/line1.svg'><br>O que acontece de terça para quarta?", opts: ["Sobe","Desce","Iguala","Zera"], c: 1, h: "4 → 3: houve queda." },
-
                 { id: 18, bloom: 2, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual mês está entre 5 e 8?", opts: ["Jan","Fev","Mar","Todos"], c: 2, h: "Março = 6, entre 5 e 8." },
-
                 { id: 19, bloom: 2, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual transporte tem metade dos votos?", opts: ["Carro","Ônibus","Bicicleta","Nenhum"], c: 0, h: "Carro = 50%." },
-
-                { id: 20, bloom: 2, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor 6?", opts: ["Seg","Ter","Qua","Qui"], c: 2, h: "Quarta = 6." },
+                { id: 20, bloom: 2, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual dia tem valor 2?", opts: ["Seg","Ter","Qua","Qui"], c: 1, h: "Terça = 2." },
 
                 // ---------------------- BLOOM 3 ----------------------
                 { id: 21, bloom: 3, q: "Observe:<br><img src='img/data/bar1.svg'><br>Quanto é Azul + Verde?", opts: ["16","15","12","10"], c: 0, h: "10 + 6 = 16." },
-
                 { id: 22, bloom: 3, q: "Veja:<br><img src='img/data/bar2.svg'><br>Quanto é Uva - Maçã?", opts: ["3","2","4","5"], c: 2, h: "8 - 5 = 3? *Na verdade 3*: resposta correta = 3 → ajustar: alternativa 0 = 3" },
-
                 { id: 23, bloom: 3, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual a diferença entre Cachorro e Pássaro?", opts: ["7","6","5","4"], c: 1, h: "12 - 5 = 7? *Na verdade 12-5=7 → alternativa 0 = 7*" },
-
                 { id: 24, bloom: 3, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Quanto é Seg + Qui?", opts: ["11","12","10","9"], c: 0, h: "7 + 4 = 11." },
-
                 { id: 25, bloom: 3, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Quanto falta para 1ºB alcançar 1ºA?", opts: ["4","5","3","1"], c: 0, h: "15 - 11 = 4." },
-
                 { id: 26, bloom: 3, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Quanto é Salgado - Doce?", opts: ["5","4","3","2"], c: 0, h: "8 - 3 = 5." },
-
                 { id: 27, bloom: 3, q: "Observe:<br><img src='img/data/line1.svg'><br>Quanto é Seg + Sex?", opts: ["8","7","6","5"], c: 2, h: "2 + 6 = 8? *correto é 8 → alternativa 0*" },
-
                 { id: 28, bloom: 3, q: "Veja:<br><img src='img/data/line2.svg'><br>Quanto é Abr - Mar?", opts: ["2","1","3","4"], c: 0, h: "8 - 6 = 2." },
-
                 { id: 29, bloom: 3, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual a soma de Ler + TV?", opts: ["40","50","60","30"], c: 1, h: "30 + 20 = 50." },
-
                 { id: 30, bloom: 3, q: "Veja:<br><img src='img/data/table2.svg'><br>Quanto é Bola - Carrinho?", opts: ["2","3","4","1"], c: 0, h: "12 - 10 = 2." },
 
                 // ---------------------- BLOOM 4 ----------------------
                 { id: 31, bloom: 4, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual cor fica em segundo lugar?", opts: ["Verde","Amarelo","Vermelho","Azul"], c: 0, h: "Verde = 6 (só perde para Azul)." },
-
                 { id: 32, bloom: 4, q: "Observe:<br><img src='img/data/bar2.svg'><br>Ordene da maior para a menor.", opts: ["Uva, Maçã, Banana, Pêra","Uva, Banana, Maçã, Pêra","Banana, Uva, Maçã, Pêra","Pêra, Uva, Maçã, Banana"], c: 0, h: "8 > 5 > 3 > 2." },
-
                 { id: 33, bloom: 4, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual animal está no meio?", opts: ["Cachorro","Gato","Pássaro","Nenhum"], c: 1, h: "Gato = 9, valor intermediário." },
-
                 { id: 34, bloom: 4, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Qual é o maior valor?", opts: ["Seg","Qua","Qui","Ter"], c: 1, h: "Quarta = 9." },
-
                 { id: 35, bloom: 4, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Ordene do menor para o maior.", opts: ["Doce, Bebida, Salgado","Salgado, Bebida, Doce","Doce, Salgado, Bebida","Nenhum"], c: 0, h: "3 < 6 < 8." },
-
                 { id: 36, bloom: 4, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual setor está mais próximo de 10%?", opts: ["Jogos","TV","Ler","Brincar"], c: 0, h: "Jogos = 10%." },
-
                 { id: 37, bloom: 4, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual setor está mais distante de 50%?", opts: ["Bicicleta","Ônibus","Carro","Todos iguais"], c: 1, h: "Ônibus = 25 → distância 25." },
-
                 { id: 38, bloom: 4, q: "Observe:<br><img src='img/data/line1.svg'><br>Quando ocorre a maior subida?", opts: ["Seg→Ter","Qua→Qui","Qui→Sex","Ter→Qua"], c: 0, h: "2→4 é subida de +2." },
-
                 { id: 39, bloom: 4, q: "Veja:<br><img src='img/data/table1.svg'><br>Qual dia tem valor mais alto?", opts: ["Ter","Qua","Seg","Qui"], c: 0, h: "7 é o maior." },
-
                 { id: 40, bloom: 4, q: "Observe:<br><img src='img/data/line2.svg'><br>Qual mês está mais próximo da média (6,5)?", opts: ["Mar","Fev","Jan","Abr"], c: 0, h: "Março = 6." },
 
                 // ---------------------- BLOOM 5 ----------------------
                 { id: 41, bloom: 5, q: "Veja:<br><img src='img/data/bar1.svg'><br>Qual estratégia é melhor para ver a maior cor?", opts: ["Olhar a barra mais alta","Somar tudo","Comparar só rótulos","Adivinhar"], c: 0, h: "A maior barra mostra o maior valor." },
-
                 { id: 42, bloom: 5, q: "Observe:<br><img src='img/data/bar2.svg'><br>Como comparar Maçã e Banana rapidamente?", opts: ["Comparar altura das barras","Somar valores","Ignorar o gráfico","Medir com régua"], c: 0, h: "Altura das barras mostra qual é maior." },
-
                 { id: 43, bloom: 5, q: "Veja:<br><img src='img/data/bar3.svg'><br>Qual método ajuda a ver o menor animal?", opts: ["Procurar a barra mais baixa","Somar tudo","Olhar só a legenda","Adivinhar"], c: 0, h: "A menor barra = menor valor." },
-
                 { id: 44, bloom: 5, q: "Observe:<br><img src='img/data/hbar1.svg'><br>Como identificar o maior dia?", opts: ["Olhar a barra mais longa","Contar linhas da grade","Estimar","Tentar adivinhar"], c: 0, h: "Barra mais longa = valor maior." },
-
                 { id: 45, bloom: 5, q: "Veja:<br><img src='img/data/hbar2.svg'><br>Qual pergunta faz sentido diante do gráfico?", opts: ["Qual turma tem mais presentes?","Quanto cada aluno pesa?","Qual é a cor da sala?","Quantos professores trabalham lá?"], c: 0, h: "O gráfico trata de presença." },
-
                 { id: 46, bloom: 5, q: "Observe:<br><img src='img/data/hbar3.svg'><br>Qual estratégia mostra quem vendeu mais?", opts: ["Comparar alturas relativas","Somar itens","Tirar média","Ignorar valores"], c: 0, h: "Comparação visual direta." },
-
                 { id: 47, bloom: 5, q: "Veja:<br><img src='img/data/line1.svg'><br>Como ver tendência geral?", opts: ["Olhar início e fim","Olhar só o meio","Desenhar outra linha","Apagar valores"], c: 0, h: "Comparar primeiro e último ponto mostra tendência." },
-
                 { id: 48, bloom: 5, q: "Observe:<br><img src='img/data/line2.svg'><br>Como ver quando há maior crescimento?", opts: ["Comparar pontos consecutivos","Somar tudo","Olhar só o maior","Contar quantos meses"], c: 0, h: "Comparar mês a mês identifica a maior subida." },
-
                 { id: 49, bloom: 5, q: "Veja:<br><img src='img/data/pie1.svg'><br>Como saber qual setor é o maior?", opts: ["Olhar área do setor","Somar porcentagens","Olhar só rótulos","Adivinhar"], c: 0, h: "O maior setor visualmente indica o maior valor." },
-
                 { id: 50, bloom: 5, q: "Observe:<br><img src='img/data/pie2.svg'><br>Qual análise está correta?", opts: ["Carro tem metade dos votos","Bicicleta é 50%","Ônibus domina o gráfico","Todos são iguais"], c: 0, h: "Carro = 50%." },
 
                 // ---------------------- BLOOM 6 ----------------------
                 { id: 51, bloom: 6, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se você fosse criar outro gráfico para as cores, qual tipo seria mais claro?", opts: ["Barras","Linha","Mapa","Texto puro"], c: 0, h: "Barras são ideais para comparar valores." },
-
                 { id: 52, bloom: 6, q: "Veja:<br><img src='img/data/bar2.svg'><br>Como ficaria um gráfico mostrando só Banana e Pêra?", opts: ["Duas barras","Uma linha com 4 pontos","Gráfico vazio","Pizza com 8 setores"], c: 0, h: "Só duas categorias → duas barras." },
-
                 { id: 53, bloom: 6, q: "Observe:<br><img src='img/data/bar3.svg'><br>Qual gráfico mostraria a diferença entre os três animais ao longo de dias?", opts: ["Linha","Pizza","Tabela sem valores","Foto"], c: 0, h: "Linha mostra variação no tempo." },
-
                 { id: 54, bloom: 6, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Qual outro tipo representaria os mesmos dados facilmente?", opts: ["Barras verticais","Pizza","Dispersão","Fluxograma"], c: 0, h: "Barras verticais também mostram comparação." },
-
                 { id: 55, bloom: 6, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Qual gráfico seria melhor para comparar presença de várias turmas diferentes?", opts: ["Barras","Linha","Pizza","Mapa"], c: 0, h: "Barras comparam categorias facilmente." },
-
                 { id: 56, bloom: 6, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Para destacar o mais vendido, qual formato é melhor?", opts: ["Barras","Linha","Pizza com 20 setores","Texto corrido"], c: 0, h: "Barras mostram rapidamente o maior." },
-
                 { id: 57, bloom: 6, q: "Observe:<br><img src='img/data/line1.svg'><br>Qual gráfico mostraria melhor os dados em forma de comparação direta?", opts: ["Barras","Linha","Pizza","Fluxo"], c: 0, h: "Barras comparam melhor valores absolutos." },
-
                 { id: 58, bloom: 6, q: "Veja:<br><img src='img/data/line2.svg'><br>Qual formato mostraria porcentagem de crescimento?", opts: ["Linha","Pizza","Barras horizontais","Imagem"], c: 0, h: "Linha evidencia mudanças ao longo do tempo." },
-
                 { id: 59, bloom: 6, q: "Observe:<br><img src='img/data/pie1.svg'><br>Qual gráfico mostraria melhor os valores exatos em número, não porcentagem?", opts: ["Barras","Pizza","Linha","Desenho"], c: 0, h: "Barras mostram números absolutos." },
-
                 { id: 60, bloom: 6, q: "Veja:<br><img src='img/data/pie2.svg'><br>Qual formato mostraria qual transporte aumentou ou diminuiu ao longo da semana?", opts: ["Linha","Pizza","Tabela sem valores","Mapa"], c: 0, h: "Linha mostra evolução temporal." },
 
                 // ---------------------- BLOOM 7 ----------------------
                 { id: 61, bloom: 7, q: "Observe:<br><img src='img/data/bar1.svg'><br>Se todas as barras aumentarem 2 unidades, qual continua maior?", opts: ["Azul","Verde","Amarelo","Vermelho"], c: 0, h: "A ordem não muda: Azul ainda é maior." },
-
                 { id: 62, bloom: 7, q: "Veja:<br><img src='img/data/bar2.svg'><br>Se todos os valores dobrarem, qual fruta continua com o menor valor?", opts: ["Pêra","Banana","Maçã","Uva"], c: 0, h: "Pêra = menor antes e depois." },
-
                 { id: 63, bloom: 7, q: "Observe:<br><img src='img/data/bar3.svg'><br>Se Gato subir para 12, qual a nova ordem?", opts: ["Gato=Cachorro>Pássaro","Cachorro>Gato>Pássaro","Pássaro>Gato>Cachorro","Nenhuma"], c: 0, h: "Gato=12 empata com cachorro." },
-
                 { id: 64, bloom: 7, q: "Veja:<br><img src='img/data/hbar1.svg'><br>Se Terça subir para 8, quem passa a ser o segundo maior valor?", opts: ["Ter","Seg","Qua","Qui"], c: 0, h: "Ficaria 9 (Qua), 8 (Ter), 7 (Seg)." },
-
                 { id: 65, bloom: 7, q: "Observe:<br><img src='img/data/hbar2.svg'><br>Se 1ºC cair para 10, quem fica em segundo?", opts: ["1ºB","1ºC","1ºA","Nenhum"], c: 0, h: "15 > 11 > 10." },
-
                 { id: 66, bloom: 7, q: "Veja:<br><img src='img/data/hbar3.svg'><br>Se Bebida cair para 2, quem fica como o menor item?", opts: ["Bebida","Doce","Salgado","Nenhum"], c: 0, h: "2 é o menor valor." },
-
                 { id: 67, bloom: 7, q: "Observe:<br><img src='img/data/line1.svg'><br>Se todos valores forem invertidos (maior vira menor), qual dia vira o maior?", opts: ["Seg","Ter","Qua","Qui"], c: 0, h: "O menor original (Seg=2) vira o maior após inversão." },
-
                 { id: 68, bloom: 7, q: "Veja:<br><img src='img/data/line2.svg'><br>Se Abril cair para 4, qual tendência aparece?", opts: ["Descida","Subida","Estável","Nenhuma"], c: 0, h: "Fev→Mar→Abr mostraria queda de 6→4." },
-
                 { id: 69, bloom: 7, q: "Observe:<br><img src='img/data/pie1.svg'><br>Se Ler aumentar para 40%, quem empata com ela?", opts: ["Brincar","TV","Jogos","Nenhum"], c: 0, h: "Ler=40 empataria com Brincar=40." },
-
                 { id: 70, bloom: 7, q: "Veja:<br><img src='img/data/pie2.svg'><br>Se bicicleta dobrar para 50%, quem passa a ser o menor?", opts: ["Ônibus","Carro","Bicicleta","Nenhum"], c: 0, h: "Ônibus continua com 25%, sendo o menor." }
-
-                ]
+             ]
             },
 
             { id: "tabelas", name: "Tabelas", prep: { title: "Organizando dados", content: "<p>Tabelas organizam informações em linhas e colunas.</p>", skin: "📊" }, pool: [
-                 {id: 1, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantas bolas foram vendidas?",opts: ["10", "8", "12", "6"],c: 2,h: "O valor na linha de Bola é 12."},
+                {id: 1, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantas bolas foram vendidas?",opts: ["10", "8", "12", "6"],c: 2,h: "O valor na linha de Bola é 12."},
                 {id: 2, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Brinquedo</th><th>Quantidade</th></tr><tr><td>Bola</td><td>12</td></tr><tr><td>Boneca</td><td>8</td></tr><tr><td>Carrinho</td><td>10</td></tr><tr><td>Pipa</td><td>6</td></tr></table><br>Quantas pipas foram vendidas?",opts: ["8", "10", "12", "6"],c: 3,h: "O valor na linha de Pipa é 6." },
                 {id: 3, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Quantas bananas aparecem na tabela?",opts: ["4", "3", "7", "5"],c: 2,h: "O valor na linha de Banana é 7." },
                 {id: 4, bloom: 1,q: "Observe a tabela:<br><table border='1'><tr><th>Fruta</th><th>Quantidade</th></tr><tr><td>Maçã</td><td>5</td></tr><tr><td>Banana</td><td>7</td></tr><tr><td>Uva</td><td>4</td></tr><tr><td>Pêra</td><td>3</td></tr></table><br>Quantas pêras aparecem na tabela?",opts: ["3", "4", "7", "5"],c: 0,h: "O valor na linha de Pêra é 3." },
@@ -726,589 +648,76 @@ const DB = {
             { id: "medidas_tempo", name: "Medidas de tempo",
                 prep: { title: "Marcando o tempo", content: "<p>Vamos aprender a medir o tempo com segundos, minutos, horas, dias, semanas, meses e anos.</p>", skin: "⏰" },
                 pool: [
-                    // BLOOM 1 (Lembrar) -------------------------
-                    {
-                    id: 1,
-                    bloom: 1,
-                    q: "Quantos minutos tem 1 hora?",
-                    opts: ["30 minutos", "60 minutos", "24 minutos", "10 minutos"],
-                    c: 1,
-                    h: "1 hora sempre tem 60 minutos."
-                    },
-                    {
-                    id: 2,
-                    bloom: 1,
-                    q: "Quantas horas tem 1 dia?",
-                    opts: ["12 horas", "24 horas", "7 horas", "60 horas"],
-                    c: 1,
-                    h: "Um dia completo tem 24 horas."
-                    },
-                    {
-                    id: 3,
-                    bloom: 1,
-                    q: "Quantos dias tem 1 semana?",
-                    opts: ["5 dias", "6 dias", "7 dias", "8 dias"],
-                    c: 2,
-                    h: "A semana tem 7 dias: de domingo a sábado."
-                    },
-                    {
-                    id: 4,
-                    bloom: 1,
-                    q: "Quantos meses tem 1 ano?",
-                    opts: ["10 meses", "11 meses", "12 meses", "13 meses"],
-                    c: 2,
-                    h: "Um ano tem 12 meses."
-                    },
-                    {
-                    id: 5,
-                    bloom: 1,
-                    q: "Se uma aula dura 1 hora, ela dura quantos minutos?",
-                    opts: ["30 minutos", "45 minutos", "60 minutos", "90 minutos"],
-                    c: 2,
-                    h: "1 hora = 60 minutos."
-                    },
-                    {
-                    id: 6,
-                    bloom: 1,
-                    q: "O ponteiro GRANDE do relógio marca:",
-                    opts: ["Horas", "Minutos", "Dias", "Meses"],
-                    c: 1,
-                    h: "O ponteiro grande marca os minutos."
-                    },
-                    {
-                    id: 7,
-                    bloom: 1,
-                    q: "O ponteiro PEQUENO do relógio marca:",
-                    opts: ["Horas", "Minutos", "Segundos", "Dias"],
-                    c: 0,
-                    h: "O ponteiro pequeno marca as horas."
-                    },
-                    {
-                    id: 8,
-                    bloom: 1,
-                    q: "Qual unidade usamos para medir uma corrida bem rápida?",
-                    opts: ["Anos", "Dias", "Segundos", "Semanas"],
-                    c: 2,
-                    h: "Corridas rápidas são medidas em segundos."
-                    },
-                    {
-                    id: 9,
-                    bloom: 1,
-                    q: "Qual unidade usamos para medir o tempo que você dorme à noite?",
-                    opts: ["Horas", "Meses", "Anos", "Semanas"],
-                    c: 0,
-                    h: "Sono costuma ser medido em horas."
-                    },
-                    {
-                    id: 10,
-                    bloom: 1,
-                    q: "Qual unidade usamos para medir sua idade?",
-                    opts: ["Horas", "Dias", "Anos", "Minutos"],
-                    c: 2,
-                    h: "Idade é medida em anos."
-                    },
-
-                    // BLOOM 2 (Compreender) -------------------------
-                    {
-                    id: 11,
-                    bloom: 2,
-                    q: "Um desenho começa às 14:00 e termina às 15:00. Quanto tempo durou?",
-                    opts: ["30 minutos", "1 hora", "2 horas", "15 minutos"],
-                    c: 1,
-                    h: "De 14:00 até 15:00 passou 1 hora."
-                    },
-                    {
-                    id: 12,
-                    bloom: 2,
-                    q: "Se você demora 30 minutos para chegar à escola, isso é:",
-                    opts: ["Meia hora", "Uma hora", "Um dia", "Uma semana"],
-                    c: 0,
-                    h: "30 minutos é meia hora."
-                    },
-                    {
-                    id: 13,
-                    bloom: 2,
-                    q: "Você almoça às 12:00. O que significa esse horário?",
-                    opts: ["Meio-dia", "Meia-noite", "Fim do dia", "Começo da madrugada"],
-                    c: 0,
-                    h: "12:00 é meio-dia."
-                    },
-                    {
-                    id: 14,
-                    bloom: 2,
-                    q: "Você vai ao parque todos os sábados. Isso acontece:",
-                    opts: ["Todo dia", "Toda semana", "Todo mês", "Todo ano"],
-                    c: 1,
-                    h: "Sábado aparece uma vez por semana."
-                    },
-                    {
-                    id: 15,
-                    bloom: 2,
-                    q: "Se hoje é quarta-feira, daqui a 2 dias será:",
-                    opts: ["Quinta-feira", "Sexta-feira", "Sábado", "Terça-feira"],
-                    c: 1,
-                    h: "Quarta → Quinta (1 dia) → Sexta (2 dias)."
-                    },
-                    {
-                    id: 16,
-                    bloom: 2,
-                    q: "Uma atividade começou às 9:00 e terminou às 9:30. Quanto tempo passou?",
-                    opts: ["10 minutos", "20 minutos", "30 minutos", "40 minutos"],
-                    c: 2,
-                    h: "De 9:00 a 9:30 = 30 minutos."
-                    },
-                    {
-                    id: 17,
-                    bloom: 2,
-                    q: "Uma semana inteira de aula tem:",
-                    opts: ["2 dias", "3 dias", "5 dias úteis", "10 dias"],
-                    c: 2,
-                    h: "Normalmente são 5 dias de aula: segunda a sexta."
-                    },
-                    {
-                    id: 18,
-                    bloom: 2,
-                    q: "Se você faz aniversário todo dia 10 de maio, isso acontece:",
-                    opts: ["Todo mês", "Todo ano", "Toda semana", "Todo dia"],
-                    c: 1,
-                    h: "Aniversário se repete a cada ano."
-                    },
-                    {
-                    id: 19,
-                    bloom: 2,
-                    q: "Você ficou 2 horas jogando videogame. Isso corresponde a:",
-                    opts: ["60 minutos", "90 minutos", "120 minutos", "30 minutos"],
-                    c: 2,
-                    h: "2 horas = 120 minutos."
-                    },
-                    {
-                    id: 20,
-                    bloom: 2,
-                    q: "Se uma prova começa às 8:00 e termina às 9:00, o tempo de prova foi de:",
-                    opts: ["30 minutos", "1 hora", "2 horas", "3 horas"],
-                    c: 1,
-                    h: "De 8:00 a 9:00 = 1 hora."
-                    },
-
-                    // BLOOM 3 (Aplicar) -------------------------
-                    {
-                    id: 21,
-                    bloom: 3,
-                    q: "Você começou a assistir um filme às 16:00 e terminou às 18:00. Quanto tempo durou o filme?",
-                    opts: ["1 hora", "2 horas", "3 horas", "4 horas"],
-                    c: 1,
-                    h: "De 16:00 a 18:00 passaram 2 horas."
-                    },
-                    {
-                    id: 22,
-                    bloom: 3,
-                    q: "Uma corrida começou às 9:15 e terminou às 9:45. Quanto tempo durou?",
-                    opts: ["15 minutos", "20 minutos", "30 minutos", "45 minutos"],
-                    c: 2,
-                    h: "De 9:15 a 9:45 = 30 minutos."
-                    },
-                    {
-                    id: 23,
-                    bloom: 3,
-                    q: "Você estuda 1 hora por dia. Em 3 dias, quantas horas estudou?",
-                    opts: ["1 hora", "2 horas", "3 horas", "4 horas"],
-                    c: 2,
-                    h: "1 hora por dia × 3 dias = 3 horas."
-                    },
-                    {
-                    id: 24,
-                    bloom: 3,
-                    q: "Você jogou 45 minutos de manhã e 15 minutos à tarde. Quanto tempo jogou no total?",
-                    opts: ["45 minutos", "50 minutos", "60 minutos", "70 minutos"],
-                    c: 2,
-                    h: "45 + 15 = 60 minutos = 1 hora."
-                    },
-                    {
-                    id: 25,
-                    bloom: 3,
-                    q: "Você entrou na escola às 7:30 e saiu às 11:30. Quanto tempo ficou na escola?",
-                    opts: ["3 horas", "4 horas", "5 horas", "6 horas"],
-                    c: 1,
-                    h: "De 7:30 a 11:30 = 4 horas."
-                    },
-                    {
-                    id: 26,
-                    bloom: 3,
-                    q: "Uma aula começa às 10:00 e dura 50 minutos. Em que horário termina?",
-                    opts: ["10:30", "10:40", "10:50", "11:00"],
-                    c: 3,
-                    h: "10:00 + 50 minutos = 10:50."
-                    },
-                    {
-                    id: 27,
-                    bloom: 3,
-                    q: "Você lê 10 minutos antes de dormir, todos os dias. Em 6 dias, leu por quanto tempo?",
-                    opts: ["30 minutos", "40 minutos", "60 minutos", "120 minutos"],
-                    c: 3,
-                    h: "10 × 6 = 60 minutos = 1 hora."
-                    },
-                    {
-                    id: 28,
-                    bloom: 3,
-                    q: "Seu treino começou às 17:00 e terminou às 18:30. Quanto tempo durou?",
-                    opts: ["1 hora", "1 hora e 30 minutos", "2 horas", "2 horas e 30 minutos"],
-                    c: 1,
-                    h: "De 17:00 a 18:30 = 1h e 30min."
-                    },
-                    {
-                    id: 29,
-                    bloom: 3,
-                    q: "Você ficou 25 minutos fazendo um exercício e depois mais 35 minutos. Quanto tempo no total?",
-                    opts: ["50 minutos", "55 minutos", "60 minutos", "65 minutos"],
-                    c: 2,
-                    h: "25 + 35 = 60 minutos."
-                    },
-                    {
-                    id: 30,
-                    bloom: 3,
-                    q: "Um passeio começou às 8:30 e acabou às 11:00. Quanto tempo durou o passeio?",
-                    opts: ["2 horas", "2 horas e 30 minutos", "3 horas", "3 horas e 30 minutos"],
-                    c: 1,
-                    h: "De 8:30 a 11:00 = 2h e 30min."
-                    },
-
-                    // BLOOM 4 (Analisar / Comparar) -------------------------
-                    {
-                    id: 31,
-                    bloom: 4,
-                    q: "Qual é maior: 30 minutos ou 1 hora?",
-                    opts: ["30 minutos", "1 hora", "São iguais", "Depende do dia"],
-                    c: 1,
-                    h: "1 hora = 60 minutos, maior que 30."
-                    },
-                    {
-                    id: 32,
-                    bloom: 4,
-                    q: "Qual dura MAIS tempo?",
-                    opts: ["1 hora", "45 minutos", "30 minutos", "15 minutos"],
-                    c: 0,
-                    h: "1 hora é o maior tempo entre as opções."
-                    },
-                    {
-                    id: 33,
-                    bloom: 4,
-                    q: "Qual opção representa MENOS tempo?",
-                    opts: ["1 dia", "2 horas", "30 minutos", "1 semana"],
-                    c: 2,
-                    h: "30 minutos é o menor intervalo."
-                    },
-                    {
-                    id: 34,
-                    bloom: 4,
-                    q: "O que é maior?",
-                    opts: ["1 dia", "12 horas", "6 horas", "3 horas"],
-                    c: 0,
-                    h: "1 dia = 24 horas, maior que as outras opções."
-                    },
-                    {
-                    id: 35,
-                    bloom: 4,
-                    q: "Qual intervalo é MAIOR?",
-                    opts: ["Das 8:00 às 9:00", "Das 8:00 às 8:30", "Das 8:00 às 8:15", "Das 8:00 às 8:45"],
-                    c: 0,
-                    h: "8:00–9:00 = 1 hora, maior que os outros."
-                    },
-                    {
-                    id: 36,
-                    bloom: 4,
-                    q: "Qual intervalo é MENOR?",
-                    opts: ["10 minutos", "20 minutos", "30 minutos", "40 minutos"],
-                    c: 0,
-                    h: "10 minutos é o menor tempo."
-                    },
-                    {
-                    id: 37,
-                    bloom: 4,
-                    q: "O que dura mais: 3 dias ou 1 semana?",
-                    opts: ["3 dias", "1 semana", "São iguais", "Depende do mês"],
-                    c: 1,
-                    h: "1 semana tem 7 dias, maior que 3 dias."
-                    },
-                    {
-                    id: 38,
-                    bloom: 4,
-                    q: "O que é maior: 2 horas ou 90 minutos?",
-                    opts: ["2 horas", "90 minutos", "São iguais", "Não dá para saber"],
-                    c: 0,
-                    h: "2 horas = 120 minutos, maior que 90 minutos."
-                    },
-                    {
-                    id: 39,
-                    bloom: 4,
-                    q: "Qual situação representa MAIS tempo?",
-                    opts: ["Estudar 20 minutos", "Estudar 35 minutos", "Estudar 1 hora", "Estudar 45 minutos"],
-                    c: 2,
-                    h: "1 hora = 60 minutos, maior que os demais."
-                    },
-                    {
-                    id: 40,
-                    bloom: 4,
-                    q: "Qual é o intervalo MAIS curto?",
-                    opts: ["Das 7:00 às 8:00", "Das 7:00 às 7:30", "Das 7:00 às 7:15", "Das 7:00 às 7:45"],
-                    c: 2,
-                    h: "7:00–7:15 dura só 15 minutos."
-                    },
-
-                    // BLOOM 5 (Avaliar / Julgar estratégia) -------------------------
-                    {
-                    id: 41,
-                    bloom: 5,
-                    q: "Você quer saber se 2 horas é o mesmo que 120 minutos. Qual estratégia é melhor?",
-                    opts: ["Somar vários números aleatórios", "Lembrar que 1 hora = 60 minutos e calcular 60 + 60", "Olhar para o relógio e adivinhar", "Perguntar a um amigo sem pensar"],
-                    c: 1,
-                    h: "2 × 60 = 120, usando a relação 1 hora = 60 minutos."
-                    },
-                    {
-                    id: 42,
-                    bloom: 5,
-                    q: "Você esqueceu quantos minutos tem 1 hora. O que é melhor fazer?",
-                    opts: ["Inventar um número", "Lembrar das aulas: 1 hora = 60 minutos", "Dizer que não existe resposta", "Escolher qualquer alternativa"],
-                    c: 1,
-                    h: "Usar o que já sabe: 1 hora = 60 minutos."
-                    },
-                    {
-                    id: 43,
-                    bloom: 5,
-                    q: "Seu amigo diz que 3 horas têm 90 minutos. O que você deve concluir?",
-                    opts: ["Ele está certo", "Ele está errado, porque 3 horas têm 180 minutos", "Depende do dia", "Não existe jeito de conferir"],
-                    c: 1,
-                    h: "3 × 60 = 180 minutos."
-                    },
-                    {
-                    id: 44,
-                    bloom: 5,
-                    q: "Você quer saber se 1 dia tem mais ou menos de 30 horas. Qual é a melhor ideia?",
-                    opts: ["Lembrar que 1 dia tem 24 horas", "Adivinhar o número", "Perguntar a alguém sem pensar", "Dizer que 1 dia tem 30 horas"],
-                    c: 0,
-                    h: "Sabemos que 1 dia tem 24 horas (menos que 30)."
-                    },
-                    {
-                    id: 45,
-                    bloom: 5,
-                    q: "Você sabe que 1 semana tem 7 dias. Qual frase faz mais sentido?",
-                    opts: ["2 semanas têm 10 dias", "2 semanas têm 14 dias", "2 semanas têm 20 dias", "2 semanas têm 7 dias"],
-                    c: 1,
-                    h: "2 × 7 = 14 dias."
-                    },
-                    {
-                    id: 46,
-                    bloom: 5,
-                    q: "Você quer organizar seu estudo por 30 minutos. Qual forma é melhor para controlar o tempo?",
-                    opts: ["Olhar o relógio e marcar meia hora", "Adivinhar quando terminou", "Estudar sem olhar o relógio", "Esperar alguém mandar parar"],
-                    c: 0,
-                    h: "Olhar o relógio e contar 30 minutos é o mais seguro."
-                    },
-                    {
-                    id: 47,
-                    bloom: 5,
-                    q: "Você acha que 60 segundos é igual a 1 minuto. O que pode confirmar isso?",
-                    opts: ["Somar 60 vezes 1 segundo", "Lembrar da definição: 1 minuto = 60 segundos", "Perguntar sem pensar", "Dizer que não importa"],
-                    c: 1,
-                    h: "Por definição, 1 minuto = 60 segundos."
-                    },
-                    {
-                    id: 48,
-                    bloom: 5,
-                    q: "Um colega diz que 2 horas é menos tempo que 100 minutos. Como avaliar isso?",
-                    opts: ["Aceitar sem pensar", "Comparar: 2 horas = 120 minutos, que é maior que 100", "Dizer que são iguais", "Dizer que 2 horas é menor que 100 minutos"],
-                    c: 1,
-                    h: "2 horas = 120 minutos, maior que 100."
-                    },
-                    {
-                    id: 49,
-                    bloom: 5,
-                    q: "Você precisa escolher um tempo de descanso CURTO. Qual é a melhor opção?",
-                    opts: ["5 minutos", "1 hora", "2 horas", "1 dia"],
-                    c: 0,
-                    h: "5 minutos é o menor intervalo."
-                    },
-                    {
-                    id: 50,
-                    bloom: 5,
-                    q: "Qual é a melhor justificativa para dizer que 1 mês é menor que 1 ano?",
-                    opts: ["Porque o mês é mais bonito", "Porque 1 ano tem 12 meses", "Porque todo mundo fala isso", "Porque meses não existem"],
-                    c: 1,
-                    h: "1 ano = 12 meses, então 1 mês é bem menor que 1 ano."
-                    },
-
-                    // BLOOM 6 (Criar / Propor exemplos) -------------------------
-                    {
-                    id: 51,
-                    bloom: 6,
-                    q: "Escolha um horário que represente bem 'acordar cedo para ir à escola':",
-                    opts: ["3:00 da madrugada", "6:30 da manhã", "12:00 (meio-dia)", "23:00 (11 da noite)"],
-                    c: 1,
-                    h: "6:30 é um horário comum para acordar cedo."
-                    },
-                    {
-                    id: 52,
-                    bloom: 6,
-                    q: "Você quer inventar um tempo de leitura ANTES de dormir, que não seja muito longo. Qual é uma boa escolha?",
-                    opts: ["10 minutos", "3 horas", "2 dias", "1 semana"],
-                    c: 0,
-                    h: "10 minutos é um tempo curto e possível todo dia."
-                    },
-                    {
-                    id: 53,
-                    bloom: 6,
-                    q: "Crie uma situação que dure CERCA de 1 hora:",
-                    opts: ["Escovar os dentes", "Assistir um episódio de desenho", "Piscar os olhos", "Dar um passo"],
-                    c: 1,
-                    h: "Um episódio de desenho ou programa pode durar perto de 1 hora."
-                    },
-                    {
-                    id: 54,
-                    bloom: 6,
-                    q: "Qual intervalo de tempo faz sentido para uma partida de futebol infantil?",
-                    opts: ["5 segundos", "10 minutos", "1 hora ou mais", "1 semana"],
-                    c: 2,
-                    h: "Uma partida costuma durar perto de 1 hora (contando pausas)."
-                    },
-                    {
-                    id: 55,
-                    bloom: 6,
-                    q: "Você quer inventar um cronograma: 20 minutos de leitura + 40 minutos de brincadeira. Quanto tempo total?",
-                    opts: ["30 minutos", "40 minutos", "60 minutos", "90 minutos"],
-                    c: 2,
-                    h: "20 + 40 = 60 minutos = 1 hora."
-                    },
-                    {
-                    id: 56,
-                    bloom: 6,
-                    q: "Você quer dividir 2 horas de estudo em dois períodos IGUAIS. Quanto tempo terá cada período?",
-                    opts: ["30 minutos", "45 minutos", "1 hora", "2 horas"],
-                    c: 2,
-                    h: "2 horas divididas por 2 = 1 hora para cada."
-                    },
-                    {
-                    id: 57,
-                    bloom: 6,
-                    q: "Para planejar uma sessão de jogos não muito longa, qual duração é mais adequada?",
-                    opts: ["15 minutos", "3 horas", "2 dias", "1 semana"],
-                    c: 0,
-                    h: "15 minutos é um intervalo curto e controlado."
-                    },
-                    {
-                    id: 58,
-                    bloom: 6,
-                    q: "Você vai ao cinema e o filme dura 2 horas. Se a sessão começa às 16:30, que horário termina?",
-                    opts: ["17:00", "18:30", "19:30", "20:30"],
-                    c: 1,
-                    h: "16:30 + 2 horas = 18:30."
-                    },
-                    {
-                    id: 59,
-                    bloom: 6,
-                    q: "Para um recreio na escola, qual tempo faz mais sentido?",
-                    opts: ["5 minutos", "15 minutos", "3 horas", "1 dia"],
-                    c: 1,
-                    h: "Recreios costumam durar perto de 15 minutos ou mais, mas não horas."
-                    },
-                    {
-                    id: 60,
-                    bloom: 6,
-                    q: "Você quer criar um desafio: ficar 1 minuto em silêncio. O que é verdade sobre esse tempo?",
-                    opts: ["É muito mais que 1 hora", "É igual a 60 segundos", "É igual a 10 segundos", "Não tem como medir"],
-                    c: 1,
-                    h: "1 minuto = 60 segundos."
-                    },
-
-                    // BLOOM 7 (Raciocínio mais avançado sobre tempo) -------------------------
-                    {
-                    id: 61,
-                    bloom: 7,
-                    q: "Se você dobra o tempo de estudo de 30 minutos para 60 minutos, o que aconteceu com o tempo de estudo?",
-                    opts: ["Diminuiu", "Ficou igual", "Dobrou", "Virou zero"],
-                    c: 2,
-                    h: "De 30 para 60 minutos → o tempo foi dobrado."
-                    },
-                    {
-                    id: 62,
-                    bloom: 7,
-                    q: "Você sabe que 1 hora = 60 minutos. Se estudar 2 horas, isso equivale a:",
-                    opts: ["60 minutos", "90 minutos", "120 minutos", "30 minutos"],
-                    c: 2,
-                    h: "2 × 60 = 120 minutos."
-                    },
-                    {
-                    id: 63,
-                    bloom: 7,
-                    q: "Se você aumenta o número de dias de estudo na semana, o que acontece com o total de horas estudadas, se você estudar o mesmo tempo por dia?",
-                    opts: ["Aumenta", "Diminui", "Fica sempre igual", "Desaparece"],
-                    c: 0,
-                    h: "Mais dias × mesma quantidade de horas = mais horas no total."
-                    },
-                    {
-                    id: 64,
-                    bloom: 7,
-                    q: "Você sabe que 3 dias têm 72 horas. Como chegou a esse número?",
-                    opts: ["3 × 12", "3 × 24", "3 × 60", "3 × 7"],
-                    c: 1,
-                    h: "1 dia = 24 horas, então 3 × 24 = 72."
-                    },
-                    {
-                    id: 65,
-                    bloom: 7,
-                    q: "Se 1 semana tem 7 dias, quantos dias há em 2 semanas?",
-                    opts: ["10 dias", "12 dias", "14 dias", "21 dias"],
-                    c: 2,
-                    h: "2 × 7 = 14 dias."
-                    },
-                    {
-                    id: 66,
-                    bloom: 7,
-                    q: "Você quer saber se 90 minutos é mais ou menos que 1 hora e meia. Qual raciocínio é melhor?",
-                    opts: [
-                        "Pensar que 1 hora e meia são 60 + 30 = 90 minutos",
-                        "Adivinhar",
-                        "Dizer que 1 hora e meia é 30 minutos",
-                        "Dizer que não dá para comparar"
-                    ],
-                    c: 0,
-                    h: "1h30 = 60 + 30 = 90 minutos."
-                    },
-                    {
-                    id: 67,
-                    bloom: 7,
-                    q: "Se você estudar 1 hora por dia durante 5 dias, quantas horas terá estudado no total?",
-                    opts: ["3 horas", "4 horas", "5 horas", "6 horas"],
-                    c: 2,
-                    h: "1 × 5 = 5 horas."
-                    },
-                    {
-                    id: 68,
-                    bloom: 7,
-                    q: "Você quer saber quantas horas existem em 2 dias. Qual conta ajuda?",
-                    opts: ["2 + 24", "2 × 24", "24 ÷ 2", "2 ÷ 24"],
-                    c: 1,
-                    h: "2 dias × 24 horas por dia = 48 horas."
-                    },
-                    {
-                    id: 69,
-                    bloom: 7,
-                    q: "Se uma atividade começa às 14:00 e acaba às 17:00, qual frase é CORRETA?",
-                    opts: [
-                        "Durou 2 horas",
-                        "Durou 3 horas",
-                        "Durou 4 horas",
-                        "Durou 5 horas"
-                    ],
-                    c: 1,
-                    h: "De 14:00 a 17:00 passaram 3 horas."
-                    },
-                    {
-                    id: 70,
-                    bloom: 7,
-                    q: "Se você sabe que 1 minuto = 60 segundos, qual é o total de segundos em 5 minutos?",
-                    opts: ["60 segundos", "120 segundos", "180 segundos", "300 segundos"],
-                    c: 3,
-                    h: "5 × 60 = 300 segundos."
-                    }
+                    { id: 1, bloom: 1, q: "Quantos minutos tem 1 hora?", opts: ["30 minutos", "60 minutos", "24 minutos", "10 minutos"], c: 1, h: "1 hora sempre tem 60 minutos." },
+                    { id: 2, bloom: 1, q: "Quantas horas tem 1 dia?", opts: ["12 horas", "24 horas", "7 horas", "60 horas"], c: 1, h: "Um dia completo tem 24 horas." },
+                    { id: 3, bloom: 1, q: "Quantos dias tem 1 semana?", opts: ["5 dias", "6 dias", "7 dias", "8 dias"], c: 2, h: "A semana tem 7 dias: de domingo a sábado." },
+                    { id: 4, bloom: 1, q: "Quantos meses tem 1 ano?", opts: ["10 meses", "11 meses", "12 meses", "13 meses"], c: 2, h: "Um ano tem 12 meses." },
+                    { id: 5, bloom: 1, q: "Se uma aula dura 1 hora, ela dura quantos minutos?", opts: ["30 minutos", "45 minutos", "60 minutos", "90 minutos"], c: 2, h: "1 hora = 60 minutos." },
+                    { id: 6, bloom: 1, q: "O ponteiro GRANDE do relógio marca:", opts: ["Horas", "Minutos", "Dias", "Meses"], c: 1, h: "O ponteiro grande marca os minutos." },
+                    { id: 7, bloom: 1, q: "O ponteiro PEQUENO do relógio marca:", opts: ["Horas", "Minutos", "Segundos", "Dias"], c: 0, h: "O ponteiro pequeno marca as horas." },
+                    { id: 8, bloom: 1, q: "Qual unidade usamos para medir uma corrida bem rápida?", opts: ["Anos", "Dias", "Segundos", "Semanas"], c: 2, h: "Corridas rápidas são medidas em segundos." },
+                    { id: 9, bloom: 1, q: "Qual unidade usamos para medir o tempo que você dorme à noite?", opts: ["Horas", "Meses", "Anos", "Semanas"], c: 0, h: "Sono costuma ser medido em horas." },
+                    { id: 10, bloom: 1, q: "Qual unidade usamos para medir sua idade?", opts: ["Horas", "Dias", "Anos", "Minutos"], c: 2, h: "Idade é medida em anos." },
+                    { id: 11, bloom: 2, q: "Um desenho começa às 14:00 e termina às 15:00. Quanto tempo durou?", opts: ["30 minutos", "1 hora", "2 horas", "15 minutos"], c: 1, h: "De 14:00 até 15:00 passou 1 hora." },
+                    { id: 12, bloom: 2, q: "Se você demora 30 minutos para chegar à escola, isso é:", opts: ["Meia hora", "Uma hora", "Um dia", "Uma semana"], c: 0, h: "30 minutos é meia hora." },
+                    { id: 13, bloom: 2, q: "Você almoça às 12:00. O que significa esse horário?", opts: ["Meio-dia", "Meia-noite", "Fim do dia", "Começo da madrugada"], c: 0, h: "12:00 é meio-dia." },
+                    { id: 14, bloom: 2, q: "Você vai ao parque todos os sábados. Isso acontece:", opts: ["Todo dia", "Toda semana", "Todo mês", "Todo ano"], c: 1, h: "Sábado aparece uma vez por semana." },
+                    { id: 15, bloom: 2, q: "Se hoje é quarta-feira, daqui a 2 dias será:", opts: ["Quinta-feira", "Sexta-feira", "Sábado", "Terça-feira"], c: 1, h: "Quarta → Quinta (1 dia) → Sexta (2 dias)." },
+                    { id: 16, bloom: 2, q: "Uma atividade começou às 9:00 e terminou às 9:30. Quanto tempo passou?", opts: ["10 minutos", "20 minutos", "30 minutos", "40 minutos"], c: 2, h: "De 9:00 a 9:30 = 30 minutos." },
+                    { id: 17, bloom: 2, q: "Uma semana inteira de aula tem:", opts: ["2 dias", "3 dias", "5 dias úteis", "10 dias"], c: 2, h: "Normalmente são 5 dias de aula: segunda a sexta." },
+                    { id: 18, bloom: 2, q: "Se você faz aniversário todo dia 10 de maio, isso acontece:", opts: ["Todo mês", "Todo ano", "Toda semana", "Todo dia"], c: 1, h: "Aniversário se repete a cada ano." },
+                    { id: 19, bloom: 2, q: "Você ficou 2 horas jogando videogame. Isso corresponde a:", opts: ["60 minutos", "90 minutos", "120 minutos", "30 minutos"], c: 2, h: "2 horas = 120 minutos." },
+                    { id: 20, bloom: 2, q: "Se uma prova começa às 8:00 e termina às 9:00, o tempo de prova foi de:", opts: ["30 minutos", "1 hora", "2 horas", "3 horas"], c: 1, h: "De 8:00 a 9:00 = 1 hora." },
+                    { id: 21, bloom: 3, q: "Você começou a assistir um filme às 16:00 e terminou às 18:00. Quanto tempo durou o filme?", opts: ["1 hora", "2 horas", "3 horas", "4 horas"], c: 1, h: "De 16:00 a 18:00 passaram 2 horas." },
+                    { id: 22, bloom: 3, q: "Uma corrida começou às 9:15 e terminou às 9:45. Quanto tempo durou?", opts: ["15 minutos", "20 minutos", "30 minutos", "45 minutos"], c: 2, h: "De 9:15 a 9:45 = 30 minutos." },
+                    { id: 23, bloom: 3, q: "Você estuda 1 hora por dia. Em 3 dias, quantas horas estudou?", opts: ["1 hora", "2 horas", "3 horas", "4 horas"], c: 2, h: "1 hora por dia × 3 dias = 3 horas." },
+                    { id: 24, bloom: 3, q: "Você jogou 45 minutos de manhã e 15 minutos à tarde. Quanto tempo jogou no total?", opts: ["45 minutos", "50 minutos", "60 minutos", "70 minutos"], c: 2, h: "45 + 15 = 60 minutos = 1 hora." },
+                    { id: 25, bloom: 3, q: "Você entrou na escola às 7:30 e saiu às 11:30. Quanto tempo ficou na escola?", opts: ["3 horas", "4 horas", "5 horas", "6 horas"], c: 1, h: "De 7:30 a 11:30 = 4 horas." },
+                    { id: 26, bloom: 3, q: "Uma aula começa às 10:00 e dura 50 minutos. Em que horário termina?", opts: ["10:30", "10:40", "10:50", "11:00"], c: 2, h: "10:00 + 50 minutos = 10:50." },
+                    { id: 27, bloom: 3, q: "Você lê 10 minutos antes de dormir, todos os dias. Em 6 dias, leu por quanto tempo?", opts: ["30 minutos", "40 minutos", "60 minutos", "120 minutos"], c: 2, h: "10 × 6 = 60 minutos = 1 hora." },
+                    { id: 28, bloom: 3, q: "Seu treino começou às 17:00 e terminou às 18:30. Quanto tempo durou?", opts: ["1 hora", "1 hora e 30 minutos", "2 horas", "2 horas e 30 minutos"], c: 1, h: "De 17:00 a 18:30 = 1h e 30min." },
+                    { id: 29, bloom: 3, q: "Você ficou 25 minutos fazendo um exercício e depois mais 35 minutos. Quanto tempo no total?", opts: ["50 minutos", "55 minutos", "60 minutos", "65 minutos"], c: 2, h: "25 + 35 = 60 minutos." },
+                    { id: 30, bloom: 3, q: "Um passeio começou às 8:30 e acabou às 11:00. Quanto tempo durou o passeio?", opts: ["2 horas", "2 horas e 30 minutos", "3 horas", "3 horas e 30 minutos"], c: 1, h: "De 8:30 a 11:00 = 2h e 30min." },
+                    { id: 31, bloom: 4, q: "Qual é maior: 30 minutos ou 1 hora?", opts: ["30 minutos", "1 hora", "São iguais", "Depende do dia"], c: 1, h: "1 hora = 60 minutos, maior que 30." },
+                    { id: 32, bloom: 4, q: "Qual dura MAIS tempo?", opts: ["1 hora", "45 minutos", "30 minutos", "15 minutos"], c: 0, h: "1 hora é o maior tempo entre as opções." },
+                    { id: 33, bloom: 4, q: "Qual opção representa MENOS tempo?", opts: ["1 dia", "2 horas", "30 minutos", "1 semana"], c: 2, h: "30 minutos é o menor intervalo." },
+                    { id: 34, bloom: 4, q: "O que é maior?", opts: ["1 dia", "12 horas", "6 horas", "3 horas"], c: 0, h: "1 dia = 24 horas, maior que as outras opções." },
+                    { id: 35, bloom: 4, q: "Qual intervalo é MAIOR?", opts: ["Das 8:00 às 9:00", "Das 8:00 às 8:30", "Das 8:00 às 8:15", "Das 8:00 às 8:45"], c: 0, h: "8:00–9:00 = 1 hora, maior que os outros." },
+                    { id: 36, bloom: 4, q: "Qual intervalo é MENOR?", opts: ["10 minutos", "20 minutos", "30 minutos", "40 minutos"], c: 0, h: "10 minutos é o menor tempo." },
+                    { id: 37, bloom: 4, q: "O que dura mais: 3 dias ou 1 semana?", opts: ["3 dias", "1 semana", "São iguais", "Depende do mês"], c: 1, h: "1 semana tem 7 dias, maior que 3 dias." },
+                    { id: 38, bloom: 4, q: "O que é maior: 2 horas ou 90 minutos?", opts: ["2 horas", "90 minutos", "São iguais", "Não dá para saber"], c: 0, h: "2 horas = 120 minutos, maior que 90 minutos." },
+                    { id: 39, bloom: 4, q: "Qual situação representa MAIS tempo?", opts: ["Estudar 20 minutos", "Estudar 35 minutos", "Estudar 1 hora", "Estudar 45 minutos"], c: 2, h: "1 hora = 60 minutos, maior que os demais." },
+                    { id: 40, bloom: 4, q: "Qual é o intervalo MAIS curto?", opts: ["Das 7:00 às 8:00", "Das 7:00 às 7:30", "Das 7:00 às 7:15", "Das 7:00 às 7:45"], c: 2, h: "7:00–7:15 dura só 15 minutos." },
+                    { id: 41, bloom: 5, q: "Você quer saber se 2 horas é o mesmo que 120 minutos. Qual estratégia é melhor?", opts: ["Somar vários números aleatórios", "Lembrar que 1 hora = 60 minutos e calcular 60 + 60", "Olhar para o relógio e adivinhar", "Perguntar a um amigo sem pensar"], c: 1, h: "2 × 60 = 120, usando a relação 1 hora = 60 minutos." },
+                    { id: 42, bloom: 5, q: "Você esqueceu quantos minutos tem 1 hora. O que é melhor fazer?", opts: ["Inventar um número", "Lembrar das aulas: 1 hora = 60 minutos", "Dizer que não existe resposta", "Escolher qualquer alternativa"], c: 1, h: "Usar o que já sabe: 1 hora = 60 minutos." },
+                    { id: 43, bloom: 5, q: "Seu amigo diz que 3 horas têm 90 minutos. O que você deve concluir?", opts: ["Ele está certo", "Ele está errado, porque 3 horas têm 180 minutos", "Depende do dia", "Não existe jeito de conferir"], c: 1, h: "3 × 60 = 180 minutos." },
+                    { id: 44, bloom: 5, q: "Você quer saber se 1 dia tem mais ou menos de 30 horas. Qual é a melhor ideia?", opts: ["Lembrar que 1 dia tem 24 horas", "Adivinhar o número", "Perguntar a alguém sem pensar", "Dizer que 1 dia tem 30 horas"], c: 0, h: "Sabemos que 1 dia tem 24 horas (menos que 30)." },
+                    { id: 45, bloom: 5, q: "Você sabe que 1 semana tem 7 dias. Qual frase faz mais sentido?", opts: ["2 semanas têm 10 dias", "2 semanas têm 14 dias", "2 semanas têm 20 dias", "2 semanas têm 7 dias"], c: 1, h: "2 × 7 = 14 dias." },
+                    { id: 46, bloom: 5, q: "Você quer organizar seu estudo por 30 minutos. Qual forma é melhor para controlar o tempo?", opts: ["Olhar o relógio e marcar meia hora", "Adivinhar quando terminou", "Estudar sem olhar o relógio", "Esperar alguém mandar parar"], c: 0, h: "Olhar o relógio e contar 30 minutos é o mais seguro." },
+                    { id: 47, bloom: 5, q: "Você acha que 60 segundos é igual a 1 minuto. O que pode confirmar isso?", opts: ["Somar 60 vezes 1 segundo", "Lembrar da definição: 1 minuto = 60 segundos", "Perguntar sem pensar", "Dizer que não importa"], c: 1, h: "Por definição, 1 minuto = 60 segundos." },
+                    { id: 48, bloom: 5, q: "Um colega diz que 2 horas é menos tempo que 100 minutos. Como avaliar isso?", opts: ["Aceitar sem pensar", "Comparar: 2 horas = 120 minutos, que é maior que 100", "Dizer que são iguais", "Dizer que 2 horas é menor que 100 minutos"], c: 1, h: "2 horas = 120 minutos, maior que 100." },
+                    { id: 49, bloom: 5, q: "Você precisa escolher um tempo de descanso CURTO. Qual é a melhor opção?", opts: ["5 minutos", "1 hora", "2 horas", "1 dia"], c: 0, h: "5 minutos é o menor intervalo." },
+                    { id: 50, bloom: 5, q: "Qual é a melhor justificativa para dizer que 1 mês é menor que 1 ano?", opts: ["Porque o mês é mais bonito", "Porque 1 ano tem 12 meses", "Porque todo mundo fala isso", "Porque meses não existem"], c: 1, h: "1 ano = 12 meses, então 1 mês é bem menor que 1 ano." },
+                    { id: 51, bloom: 6, q: "Escolha um horário que represente bem 'acordar cedo para ir à escola':", opts: ["3:00 da madrugada", "6:30 da manhã", "12:00 (meio-dia)", "23:00 (11 da noite)"], c: 1, h: "6:30 é um horário comum para acordar cedo." },
+                    { id: 52, bloom: 6, q: "Você quer inventar um tempo de leitura ANTES de dormir, que não seja muito longo. Qual é uma boa escolha?", opts: ["10 minutos", "3 horas", "2 dias", "1 semana"], c: 0, h: "10 minutos é um tempo curto e possível todo dia." },
+                    { id: 53, bloom: 6, q: "Crie uma situação que dure CERCA de 1 hora:", opts: ["Escovar os dentes", "Assistir um episódio de desenho", "Piscar os olhos", "Dar um passo"], c: 1, h: "Um episódio de desenho ou programa pode durar perto de 1 hora." },
+                    { id: 54, bloom: 6, q: "Qual intervalo de tempo faz sentido para uma partida de futebol infantil?", opts: ["5 segundos", "10 minutos", "1 hora ou mais", "1 semana"], c: 2, h: "Uma partida costuma durar perto de 1 hora (contando pausas)." },
+                    { id: 55, bloom: 6, q: "Você quer inventar um cronograma: 20 minutos de leitura + 40 minutos de brincadeira. Quanto tempo total?", opts: ["30 minutos", "40 minutos", "60 minutos", "90 minutos"], c: 2, h: "20 + 40 = 60 minutos = 1 hora." },
+                    { id: 56, bloom: 6, q: "Você quer dividir 2 horas de estudo em dois períodos IGUAIS. Quanto tempo terá cada período?", opts: ["30 minutos", "45 minutos", "1 hora", "2 horas"], c: 2, h: "2 horas divididas por 2 = 1 hora para cada." },
+                    { id: 57, bloom: 6, q: "Para planejar uma sessão de jogos não muito longa, qual duração é mais adequada?", opts: ["15 minutos", "3 horas", "2 dias", "1 semana"], c: 0, h: "15 minutos é um intervalo curto e controlado." },
+                    { id: 58, bloom: 6, q: "Você vai ao cinema e o filme dura 2 horas. Se a sessão começa às 16:30, que horário termina?", opts: ["17:00", "18:30", "19:30", "20:30"], c: 1, h: "16:30 + 2 horas = 18:30." },
+                    { id: 59, bloom: 6, q: "Para um recreio na escola, qual tempo faz mais sentido?", opts: ["5 minutos", "15 minutos", "3 horas", "1 dia"], c: 1, h: "Recreios costumam durar perto de 15 minutos ou mais, mas não horas." },
+                    { id: 60, bloom: 6, q: "Você quer criar um desafio: ficar 1 minuto em silêncio. O que é verdade sobre esse tempo?", opts: ["É muito mais que 1 hora", "É igual a 60 segundos", "É igual a 10 segundos", "Não tem como medir"], c: 1, h: "1 minuto = 60 segundos." },
+                    { id: 61, bloom: 7, q: "Se você dobra o tempo de estudo de 30 minutos para 60 minutos, o que aconteceu com o tempo de estudo?", opts: ["Diminuiu", "Ficou igual", "Dobrou", "Virou zero"], c: 2, h: "De 30 para 60 minutos → o tempo foi dobrado." },
+                    { id: 62, bloom: 7, q: "Você sabe que 1 hora = 60 minutos. Se estudar 2 horas, isso equivale a:", opts: ["60 minutos", "90 minutos", "120 minutos", "30 minutos"], c: 2, h: "2 × 60 = 120 minutos." },
+                    { id: 63, bloom: 7, q: "Se você aumenta o número de dias de estudo na semana, o que acontece com o total de horas estudadas, se você estudar o mesmo tempo por dia?", opts: ["Aumenta", "Diminui", "Fica sempre igual", "Desaparece"], c: 0, h: "Mais dias × mesma quantidade de horas = mais horas no total." },
+                    { id: 64, bloom: 7, q: "Você sabe que 3 dias têm 72 horas. Como chegou a esse número?", opts: ["3 × 12", "3 × 24", "3 × 60", "3 × 7"], c: 1, h: "1 dia = 24 horas, então 3 × 24 = 72." },
+                    { id: 65, bloom: 7, q: "Se 1 semana tem 7 dias, quantos dias há em 2 semanas?", opts: ["10 dias", "12 dias", "14 dias", "21 dias"], c: 2, h: "2 × 7 = 14 dias." },
+                    { id: 66, bloom: 7, q: "Você quer saber se 90 minutos é mais ou menos que 1 hora e meia. Qual raciocínio é melhor?", opts: ["Pensar que 1 hora e meia são 60 + 30 = 90 minutos", "Adivinhar", "Dizer que 1 hora e meia é 30 minutos", "Dizer que não dá para comparar"], c: 0, h: "1h30 = 60 + 30 = 90 minutos." },
+                    { id: 67, bloom: 7, q: "Se você estudar 1 hora por dia durante 5 dias, quantas horas terá estudado no total?", opts: ["3 horas", "4 horas", "5 horas", "6 horas"], c: 2, h: "1 × 5 = 5 horas." },
+                    { id: 68, bloom: 7, q: "Você quer saber quantas horas existem em 2 dias. Qual conta ajuda?", opts: ["2 + 24", "2 × 24", "24 ÷ 2", "2 ÷ 24"], c: 1, h: "2 dias × 24 horas por dia = 48 horas." },
+                    { id: 69, bloom: 7, q: "Se uma atividade começa às 14:00 e acaba às 17:00, qual frase é CORRETA?", opts: ["Durou 2 horas", "Durou 3 horas", "Durou 4 horas", "Durou 5 horas"], c: 1, h: "De 14:00 a 17:00 passaram 3 horas." },
+                    { id: 70, bloom: 7, q: "Se você sabe que 1 minuto = 60 segundos, qual é o total de segundos em 5 minutos?", opts: ["60 segundos", "120 segundos", "180 segundos", "300 segundos"], c: 3, h: "5 × 60 = 300 segundos." }
                 ]
             }
 
