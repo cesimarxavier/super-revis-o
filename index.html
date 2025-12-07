@@ -246,11 +246,41 @@
             </div>
             <label class="label"><span class="label-text font-bold">Estilo Visual</span></label>
             <div class="grid grid-cols-3 gap-2 mb-6">
-                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('cupcake')">Cupcake</button>
-                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('bumblebee')">Abelha</button>
-                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('emerald')">Esmeralda</button>
-                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('dracula')">Noite</button>
-                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('retro')">Retro</button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('cupcake')">
+                    <span class="w-4 h-4 rounded-full bg-[#65c3c8]"></span>Cupcake
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('cyberpunk')">
+                    <span class="w-4 h-4 rounded-full bg-[#e0a82e]"></span>Abelha
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('forest')">
+                    <span class="w-4 h-4 rounded-full bg-[#66cc8a]"></span>Esmeralda
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('fantasy')">
+                    <span class="w-4 h-4 rounded-full bg-[#6e0b75]"></span>Fantasia
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('dracula')">
+                    <span class="w-4 h-4 rounded-full bg-[#ff79c6]"></span>Noite
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('retro')">
+                    <span class="w-4 h-4 rounded-full bg-[#ef9995]"></span>Retro
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('valentine')">
+                    <span class="w-4 h-4 rounded-full bg-[#f3bdf4]"></span>Rosinha
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('caramellatte')">
+                    <span class="w-4 h-4 rounded-full bg-[#cebf87]"></span>Caramelo
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1" onclick="UI.changeTheme('nord')">
+                    <span class="w-4 h-4 rounded-full bg-[#676663]"></span>Cinza
+                </button>
             </div>
             <div class="modal-action justify-center">
                 <form method="dialog"><button class="btn btn-ghost">Fechar</button></form>
