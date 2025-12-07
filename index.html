@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mestres do Saber</title>
 
-    <meta name="theme-color" content="#65C3C8">
+    <meta name="theme-color" content="#7C3AED">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
@@ -25,12 +25,13 @@
                     fontFamily: { sans: ['Fredoka', 'sans-serif'] },
                     animation: {
                         'bounce-slow': 'bounce 3s infinite',
-                        'float': 'float 4s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
                         'pop': 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                         'slide-up': 'slideUp 0.4s ease-out forwards',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
                         pop: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
                         slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
                     }
@@ -64,7 +65,6 @@
             border-radius: 10px;
         }
 
-        /* Estilo Tabuada */
         .tabuada-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -79,10 +79,38 @@
             font-weight: bold;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
+
+        /* Splash Screen Transition */
+        #screen-splash {
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+        }
+
+        .splash-fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
     </style>
 </head>
 
 <body class="min-h-screen flex flex-col items-center overflow-x-hidden bg-base-200 text-base-content">
+
+    <div id="screen-splash"
+        class="fixed inset-0 z-[100] bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex flex-col items-center justify-center text-white">
+        <div class="relative mb-8">
+            <div class="absolute inset-0 bg-white blur-3xl opacity-30 rounded-full animate-pulse-fast"></div>
+            <div class="text-9xl animate-float relative z-10 drop-shadow-2xl">🏰</div>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-black mb-2 drop-shadow-md tracking-tight text-center">Mestres<br>do Saber
+        </h1>
+        <p class="text-purple-200 text-lg font-bold tracking-widest uppercase mb-12">A Lenda de Cognitia</p>
+
+        <div class="loading loading-infinity loading-lg text-warning scale-150 mb-8"></div>
+
+        <div class="absolute bottom-10 px-6 text-center">
+            <p class="text-sm font-bold opacity-80 uppercase mb-1">Dica do Mestre:</p>
+            <p class="text-lg font-medium text-yellow-300 animate-pulse" id="splash-tip">Carregando conhecimento...</p>
+        </div>
+    </div>
 
     <div id="main-header" class="fixed top-0 z-40 w-full p-2 hidden-screen transition-all duration-300">
         <div
@@ -119,16 +147,16 @@
 
     <main id="game-container" class="w-full max-w-xl flex-grow flex flex-col pt-24 px-4 gap-4">
 
-        <section id="screen-intro" class="hero min-h-[80vh] animate-slide-up">
+        <section id="screen-intro" class="hero min-h-[80vh] hidden-screen">
             <div class="hero-content text-center">
-                <div class="max-w-md">
+                <div class="max-w-md animate-slide-up">
                     <div class="mb-6 relative inline-block">
                         <div class="absolute inset-0 bg-primary blur-3xl opacity-40 rounded-full animate-pulse"></div>
                         <div class="text-9xl animate-float relative z-10">🏰</div>
                     </div>
                     <h1 class="text-5xl font-black text-primary mb-2 drop-shadow-sm">Mestres<br><span
                             class="text-secondary">do Saber</span></h1>
-                    <div class="card w-full bg-base-100 shadow-xl border-b-8 border-base-300">
+                    <div class="card w-full bg-base-100 shadow-xl border-b-8 border-base-300 mt-8">
                         <div class="card-body">
                             <label class="label"><span class="label-text font-bold uppercase text-xs opacity-60">Como
                                     devo te chamar?</span></label>
@@ -161,19 +189,15 @@
 
         <section id="screen-game" class="hidden-screen w-full pb-32">
             <div class="flex items-center gap-2 mb-6 bg-base-100 p-2 rounded-2xl shadow-sm border border-base-200">
-
                 <button onclick="Game.exitGame()"
                     class="btn btn-sm btn-error btn-outline bg-red-50 hover:bg-red-100 border-red-200 text-red-600 gap-1 flex-none">
                     ✕ <span class="hidden sm:inline">Sair</span>
                 </button>
-
                 <div id="game-tools-container"></div>
-
                 <div class="flex-grow flex flex-col justify-center px-2">
                     <progress class="progress progress-primary w-full h-3 transition-all duration-500" value="0"
                         max="100" id="game-progress"></progress>
                 </div>
-
                 <div class="badge badge-lg badge-neutral font-bold uppercase tracking-widest flex-none text-xs sm:text-sm"
                     id="game-level-tag">NÍVEL 1</div>
             </div>
@@ -183,7 +207,6 @@
                     <div class="absolute -top-4 -right-4 text-8xl opacity-5 rotate-12 select-none">❓</div>
                     <h2 class="card-title text-2xl md:text-3xl font-black mb-6 leading-snug z-10 flex flex-col items-center gap-4 w-full"
                         id="game-question">...</h2>
-
                     <div class="w-full grid gap-3 z-10" id="game-options"></div>
                 </div>
             </div>
@@ -199,15 +222,12 @@
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
                 onclick="tabuada_modal.close()">✕</button>
             <h3 class="font-black text-2xl text-center text-primary mb-4">🔢 Tabuada Mágica</h3>
-
             <div class="flex flex-wrap gap-2 justify-center mb-6" id="tabuada-selector"></div>
-
             <div id="tabuada-display" class="bg-base-200 rounded-2xl p-4 hidden">
                 <h4 class="text-center font-bold text-xl text-secondary mb-3" id="tabuada-current-title">Tabuada do 2
                 </h4>
                 <div class="tabuada-grid text-lg text-base-content/80" id="tabuada-content"></div>
             </div>
-
             <p class="text-center text-xs text-gray-400 mt-4">Toque em um número para ver!</p>
         </div>
         <form method="dialog" class="modal-backdrop"><button>close</button></form>
@@ -226,41 +246,11 @@
             </div>
             <label class="label"><span class="label-text font-bold">Estilo Visual</span></label>
             <div class="grid grid-cols-3 gap-2 mb-6">
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('cupcake')">
-                    <span class="w-4 h-4 rounded-full bg-[#65c3c8]"></span>Cupcake
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('cyberpunk')">
-                    <span class="w-4 h-4 rounded-full bg-[#e0a82e]"></span>Abelha
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('forest')">
-                    <span class="w-4 h-4 rounded-full bg-[#66cc8a]"></span>Esmeralda
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('fantasy')">
-                    <span class="w-4 h-4 rounded-full bg-[#6e0b75]"></span>Fantasia
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('dracula')">
-                    <span class="w-4 h-4 rounded-full bg-[#ff79c6]"></span>Noite
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('retro')">
-                    <span class="w-4 h-4 rounded-full bg-[#ef9995]"></span>Retro
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('valentine')">
-                    <span class="w-4 h-4 rounded-full bg-[#f3bdf4]"></span>Rosinha
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('caramellatte')">
-                    <span class="w-4 h-4 rounded-full bg-[#cebf87]"></span>Caramelo
-                </button>
-                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1" onclick="UI.changeTheme('nord')">
-                    <span class="w-4 h-4 rounded-full bg-[#676663]"></span>Cinza
-                </button>
+                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('cupcake')">Cupcake</button>
+                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('bumblebee')">Abelha</button>
+                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('emerald')">Esmeralda</button>
+                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('dracula')">Noite</button>
+                <button class="btn btn-outline btn-xs" onclick="UI.changeTheme('retro')">Retro</button>
             </div>
             <div class="modal-action justify-center">
                 <form method="dialog"><button class="btn btn-ghost">Fechar</button></form>
@@ -329,13 +319,24 @@
             save: function () { localStorage.setItem(CURRENT_VERSION, JSON.stringify(this.data)); UI.updateHeader(); },
             addToHistory: function (ids) { ids.forEach(id => { if (!this.data.history.includes(id)) this.data.history.push(id); }); this.save(); },
             cleanHistoryForPool: function (poolIds) { this.data.history = this.data.history.filter(id => !poolIds.includes(id)); this.save(); },
+            registerAttempt: function (catId, lvlIdx, passed) {
+                const key = `${catId}-lvl${lvlIdx}`;
+                if (!this.data.attempts[key]) this.data.attempts[key] = { count: 0, timestamp: 0 };
+                if (passed) this.data.attempts[key].count = 0;
+                else { this.data.attempts[key].count++; this.data.attempts[key].timestamp = Date.now(); }
+                this.save();
+            },
+            getAttemptStatus: function (catId, lvlIdx) {
+                // LÓGICA DE COOLDOWN REMOVIDA
+                // Retorna sempre desbloqueado
+                return { locked: false };
+            },
             unlockSkin: function (skin) { if (!this.data.skins.includes(skin)) { this.data.skins.push(skin); this.data.currentSkin = skin; this.save(); alert(`Nova Skin: ${skin}`); } },
             checkLevelUnlock: function (catId, lvlIdx) { if (lvlIdx === 0) return true; return this.data.progress[`${catId}-lvl${lvlIdx - 1}`] === true; }
         };
 
         const UI = {
             screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
-
             showScreen: function (id) {
                 this.screens.forEach(s => document.getElementById(s).classList.add('hidden-screen'));
                 const target = document.getElementById(id);
@@ -352,7 +353,6 @@
                 document.getElementById('header-gems').innerText = State.data.gems;
                 document.documentElement.setAttribute('data-theme', State.data.theme);
 
-                // Vida
                 const heartBadge = document.getElementById('header-hearts-badge');
                 const heartCount = document.getElementById('header-hearts-count');
                 const livesToShow = Game.currentSession ? Game.currentSession.lives : 3;
@@ -420,6 +420,8 @@
                     levels.forEach((lvl, idx) => {
                         const isUnlocked = State.checkLevelUnlock(cat.id, idx);
                         const isDone = State.data.progress[`${cat.id}-lvl${idx}`];
+                        // COOLDOWN REMOVIDO: Sempre verifica apenas se está desbloqueado
+
                         let btnClass = isUnlocked ? `btn ${lvl.class} border-b-4` : "btn btn-disabled";
                         if (isDone) btnClass = "btn btn-outline border-b-4 btn-success";
                         const icon = isDone ? "✅" : (isUnlocked ? lvl.icon : "🔒");
@@ -434,7 +436,7 @@
                 document.getElementById('prep-icon').innerText = content.skin;
                 document.getElementById('prep-title').innerHTML = content.title;
                 document.getElementById('prep-content').innerHTML = content.content;
-                document.getElementById('prep-reward-text').innerText = `Skin: ${content.skin}`;
+                document.getElementById('prep-reward-text').innerText = `Skin Nova: ${content.skin}`;
                 document.getElementById('prep_modal').showModal();
             },
             closePrep: function () { document.getElementById('prep_modal').close(); },
@@ -551,7 +553,7 @@
                 const s = this.currentSession;
                 State.addToHistory(s.questionIds);
                 const passed = (s.correct / s.total) * 100 >= 70;
-
+                State.registerAttempt(s.catId, s.levelIdx, passed);
                 const retryFn = `Game.startLevel('${s.catId}', ${s.levelIdx}, ${[2, 4, 6, 7][s.levelIdx]}, '${s.levelName}')`;
                 const subjectFn = `UI.renderSubject('${s.subjectId}')`;
                 let nextLevelFn = null;
@@ -572,13 +574,31 @@
             }
         };
 
+        // Splash Loader Animation
         window.onload = function () {
             UI.initTabuada();
-            if (State.load()) {
-                UI.renderMap();
-                document.getElementById('screen-intro').classList.add('hidden-screen');
-            }
-            UI.updateHeader();
+
+            // Random Tip Logic
+            const tips = ["A tabuada ajuda a dividir!", "Verbos são palavras de ação.", "Leia a pergunta com calma.", "Você ganha moedas ao estudar!"];
+            document.getElementById('splash-tip').innerText = tips[Math.floor(Math.random() * tips.length)];
+
+            // Simulated Loading
+            setTimeout(() => {
+                const splash = document.getElementById('screen-splash');
+                splash.classList.add('splash-fade-out');
+
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    if (State.load()) {
+                        UI.renderMap();
+                        document.getElementById('screen-intro').classList.add('hidden-screen');
+                        document.getElementById('main-header').classList.remove('hidden-screen');
+                    } else {
+                        document.getElementById('screen-intro').classList.remove('hidden-screen');
+                    }
+                    UI.updateHeader();
+                }, 800); // Wait for transition
+            }, 2500); // Splash duration
         };
     </script>
 </body>
