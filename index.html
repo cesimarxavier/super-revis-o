@@ -36,7 +36,6 @@
                     }
                 }
             },
-            // Configuração dos Temas do DaisyUI permitidos
             daisyui: {
                 themes: ["cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter", "dim", "nord", "sunset"],
             },
@@ -45,7 +44,6 @@
 
     <style>
         body {
-            /* Padrão de fundo sutil para dar textura */
             background-image: radial-gradient(hsla(var(--bc) / 0.1) 1px, transparent 1px);
             background-size: 20px 20px;
             user-select: none;
@@ -53,20 +51,10 @@
             padding-bottom: 100px;
         }
 
-        /* Utilitários de Animação e UX */
         .hidden-screen {
             display: none !important;
         }
 
-        .avatar-ring {
-            transition: transform 0.2s;
-        }
-
-        .avatar-ring:active {
-            transform: scale(0.9);
-        }
-
-        /* Scroll personalizado suave */
         .custom-scroll::-webkit-scrollbar {
             width: 6px;
         }
@@ -75,6 +63,22 @@
             background-color: hsla(var(--p) / 0.5);
             border-radius: 10px;
         }
+
+        /* Estilo para a Tabuada */
+        .tabuada-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .tabuada-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
@@ -82,7 +86,7 @@
 
     <div id="main-header" class="fixed top-0 z-40 w-full p-2 hidden-screen transition-all duration-300">
         <div
-            class="navbar bg-base-100/90 backdrop-blur-md shadow-lg rounded-box max-w-xl mx-auto border-b-4 border-base-300">
+            class="navbar bg-base-100/90 backdrop-blur-md shadow-lg rounded-box max-w-xl mx-auto border-b-4 border-base-300 min-h-[4rem]">
             <div class="flex-1">
                 <button class="btn btn-ghost gap-2 normal-case p-1 pr-3" onclick="settings_modal.showModal()">
                     <div class="avatar placeholder">
@@ -93,16 +97,20 @@
                     </div>
                     <div class="flex flex-col items-start leading-none">
                         <span class="text-[10px] opacity-60 uppercase font-bold tracking-wider">Guardião</span>
-                        <span class="font-bold text-base truncate max-w-[100px]" id="header-nick">Jogador</span>
+                        <span class="font-bold text-base truncate max-w-[80px]" id="header-nick">Jogador</span>
                     </div>
                 </button>
             </div>
 
             <div class="flex-none gap-2">
+                <div class="badge badge-lg bg-red-100 text-red-600 border-red-200 gap-1 font-black shadow-sm p-3 transition-colors"
+                    id="header-hearts-badge">
+                    <span id="header-hearts-count">3</span>x ❤️
+                </div>
                 <div class="badge badge-lg badge-primary gap-1 font-bold shadow-sm p-3">
                     🪙 <span id="header-coins">0</span>
                 </div>
-                <div class="badge badge-lg badge-secondary gap-1 font-bold shadow-sm p-3">
+                <div class="hidden sm:flex badge badge-lg badge-secondary gap-1 font-bold shadow-sm p-3">
                     💎 <span id="header-gems">0</span>
                 </div>
             </div>
@@ -120,22 +128,15 @@
                     </div>
                     <h1 class="text-5xl font-black text-primary mb-2 drop-shadow-sm">Mestres<br><span
                             class="text-secondary">do Saber</span></h1>
-                    <p class="py-6 text-lg font-medium opacity-80">Restaure as cores de Cognitia e torne-se uma lenda!
-                    </p>
-
                     <div class="card w-full bg-base-100 shadow-xl border-b-8 border-base-300">
                         <div class="card-body">
-                            <label class="label">
-                                <span class="label-text font-bold uppercase text-xs opacity-60">Como devo te
-                                    chamar?</span>
-                            </label>
+                            <label class="label"><span class="label-text font-bold uppercase text-xs opacity-60">Como
+                                    devo te chamar?</span></label>
                             <input type="text" id="input-nick" placeholder="Ex: Super Sofia" maxlength="12"
-                                class="input input-bordered input-primary w-full text-center text-xl font-bold mb-4 focus:scale-105 transition-transform" />
-
+                                class="input input-bordered input-primary w-full text-center text-xl font-bold mb-4" />
                             <button onclick="Game.startAdventure()"
-                                class="btn btn-primary btn-lg w-full shadow-lg border-b-4 border-primary-focus active:border-b-0 active:translate-y-1">
-                                Começar Aventura 🚀
-                            </button>
+                                class="btn btn-primary btn-lg w-full shadow-lg border-b-4 border-primary-focus active:border-b-0 active:translate-y-1">Começar
+                                Aventura 🚀</button>
                         </div>
                     </div>
                 </div>
@@ -147,56 +148,76 @@
                 <div class="badge badge-accent badge-outline font-bold mb-2">MUNDO 1</div>
                 <h2 class="text-3xl font-black">Mapa Mundi</h2>
             </div>
-            <div class="grid grid-cols-2 gap-4 animate-slide-up" id="subjects-grid">
-            </div>
+            <div class="grid grid-cols-2 gap-4 animate-slide-up" id="subjects-grid"></div>
         </section>
 
         <section id="screen-subject" class="hidden-screen w-full pb-20">
-            <button onclick="UI.showScreen('screen-map')" class="btn btn-sm btn-ghost mb-4 gap-2">
-                ⬅ Voltar ao Mapa
-            </button>
+            <button onclick="UI.showScreen('screen-map')" class="btn btn-sm btn-ghost mb-4 gap-2">⬅ Voltar ao
+                Mapa</button>
             <div id="subject-header"
-                class="card bg-base-100 shadow-xl mb-6 border-b-4 border-base-300 text-center animate-slide-up">
-            </div>
-            <div class="flex flex-col gap-4 animate-slide-up" style="animation-delay: 0.1s" id="categories-list">
-            </div>
+                class="card bg-base-100 shadow-xl mb-6 border-b-4 border-base-300 text-center animate-slide-up"></div>
+            <div class="flex flex-col gap-4 animate-slide-up" style="animation-delay: 0.1s" id="categories-list"></div>
         </section>
 
         <section id="screen-game" class="hidden-screen w-full pb-32">
-            <div class="flex justify-between items-center mb-4">
-                <button onclick="Game.exitGame()" class="btn btn-circle btn-sm btn-ghost text-error">✕</button>
-                <div class="badge badge-lg badge-neutral font-bold uppercase tracking-widest" id="game-level-tag">NÍVEL
-                    1</div>
-            </div>
+            <div class="flex items-center gap-3 mb-6 bg-base-100 p-2 rounded-2xl shadow-sm border border-base-200">
 
-            <div class="flex items-center gap-4 mb-6 bg-base-100 p-2 rounded-box shadow-sm">
-                <div class="flex gap-1 text-2xl px-2" id="game-hearts">❤️❤️❤️</div>
-                <progress class="progress progress-primary w-full h-3" value="0" max="100"
-                    id="game-progress"></progress>
+                <button onclick="Game.exitGame()"
+                    class="btn btn-sm btn-error btn-outline bg-red-50 hover:bg-red-100 border-red-200 text-red-600 gap-1 flex-none">
+                    ✕ <span class="hidden sm:inline">Sair</span>
+                </button>
+
+                <div class="flex-grow flex flex-col justify-center px-2">
+                    <progress class="progress progress-primary w-full h-3 transition-all duration-500" value="0"
+                        max="100" id="game-progress"></progress>
+                </div>
+
+                <div class="badge badge-lg badge-neutral font-bold uppercase tracking-widest flex-none text-xs sm:text-sm"
+                    id="game-level-tag">NÍVEL 1</div>
             </div>
 
             <div class="card w-full bg-base-100 shadow-xl border-b-8 border-base-300 animate-pop">
                 <div class="card-body items-center text-center relative overflow-hidden">
                     <div class="absolute -top-4 -right-4 text-8xl opacity-5 rotate-12 select-none">❓</div>
-                    <h2 class="card-title text-2xl md:text-3xl font-black mb-6 leading-snug z-10" id="game-question">...
-                    </h2>
+                    <h2 class="card-title text-2xl md:text-3xl font-black mb-6 leading-snug z-10 flex flex-col items-center gap-4 w-full"
+                        id="game-question">...</h2>
 
-                    <div class="w-full grid gap-3 z-10" id="game-options">
-                    </div>
+                    <div class="w-full grid gap-3 z-10" id="game-options"></div>
                 </div>
             </div>
         </section>
 
         <section id="screen-result" class="hidden-screen w-full flex-grow flex items-center justify-center pb-20">
-            <div id="result-container" class="w-full">
-            </div>
+            <div id="result-container" class="w-full"></div>
         </section>
     </main>
 
+    <dialog id="tabuada_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box bg-white relative">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                onclick="tabuada_modal.close()">✕</button>
+            <h3 class="font-black text-2xl text-center text-primary mb-4">🔢 Tabuada Mágica</h3>
+
+            <div class="flex flex-wrap gap-2 justify-center mb-6" id="tabuada-selector">
+            </div>
+
+            <div id="tabuada-display" class="bg-base-200 rounded-2xl p-4 hidden">
+                <h4 class="text-center font-bold text-xl text-secondary mb-3" id="tabuada-current-title">Tabuada do 2
+                </h4>
+                <div class="tabuada-grid text-lg text-base-content/80" id="tabuada-content">
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-gray-400 mt-4">Toque em um número para ver!</p>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
     <dialog id="settings_modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-            <h3 class="font-bold text-lg mb-4 text-center">Configurações do Guardião</h3>
-
+            <h3 class="font-bold text-lg mb-4 text-center">Configurações</h3>
             <div class="form-control w-full mb-6">
                 <label class="label"><span class="label-text font-bold">Seu Nome</span></label>
                 <div class="join w-full">
@@ -205,8 +226,8 @@
                     <button class="btn btn-primary join-item" onclick="Game.updateSettings()">Salvar</button>
                 </div>
             </div>
+            <label class="label"><span class="label-text font-bold">Estilo Visual</span></label>
 
-            <label class="label"><span class="label-text font-bold">Estilo Visual (Tema)</span></label>
             <div class="grid grid-cols-3 gap-2 mb-6">
                 <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
                     onclick="UI.changeTheme('cupcake')">
@@ -217,7 +238,7 @@
                     <span class="w-4 h-4 rounded-full bg-[#e0a82e]"></span>Abelha
                 </button>
                 <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
-                    onclick="UI.changeTheme('emerald')">
+                    onclick="UI.changeTheme('forest')">
                     <span class="w-4 h-4 rounded-full bg-[#66cc8a]"></span>Esmeralda
                 </button>
                 <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
@@ -232,17 +253,23 @@
                     onclick="UI.changeTheme('retro')">
                     <span class="w-4 h-4 rounded-full bg-[#ef9995]"></span>Retro
                 </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('valentine')">
+                    <span class="w-4 h-4 rounded-full bg-[#f3bdf4]"></span>Rosinha
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1"
+                    onclick="UI.changeTheme('caramellatte')">
+                    <span class="w-4 h-4 rounded-full bg-[#cebf87]"></span>Caramelo
+                </button>
+                <button class="btn btn-outline btn-xs h-auto py-2 flex flex-col gap-1" onclick="UI.changeTheme('nord')">
+                    <span class="w-4 h-4 rounded-full bg-[#676663]"></span>Cinza
+                </button>
             </div>
-
             <div class="modal-action justify-center">
-                <form method="dialog">
-                    <button class="btn btn-ghost">Fechar</button>
-                </form>
+                <form method="dialog"><button class="btn btn-ghost">Fechar</button></form>
             </div>
         </div>
-        <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-        </form>
+        <form method="dialog" class="modal-backdrop"><button>close</button></form>
     </dialog>
 
     <dialog id="prep_modal" class="modal modal-bottom sm:modal-middle">
@@ -253,11 +280,8 @@
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-white"
                     onclick="prep_modal.close()">✕</button>
             </div>
-
             <div class="p-6 max-h-[60vh] overflow-y-auto custom-scroll">
-                <div class="prose prose-lg leading-snug text-base-content/80 text-center" id="prep-content">
-                </div>
-
+                <div class="prose prose-lg leading-snug text-base-content/80 text-center" id="prep-content"></div>
                 <div class="alert alert-warning mt-6 shadow-sm">
                     <div class="text-2xl">🎁</div>
                     <div>
@@ -266,43 +290,51 @@
                     </div>
                 </div>
             </div>
-
             <div class="p-4 bg-base-200 border-t border-base-300">
                 <button onclick="Game.finishPrep()"
-                    class="btn btn-success btn-lg w-full shadow-lg border-b-4 border-success-content/20 active:border-b-0 active:translate-y-1">
-                    Estou Pronto! ⚔️
-                </button>
+                    class="btn btn-success btn-lg w-full shadow-lg border-b-4 border-success-content/20 active:border-b-0 active:translate-y-1">Estou
+                    Pronto! ⚔️</button>
             </div>
         </div>
-        <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-        </form>
+        <form method="dialog" class="modal-backdrop"><button>close</button></form>
     </dialog>
 
     <div id="footer-action"
         class="fixed bottom-0 left-0 w-full bg-base-100/90 backdrop-blur-md border-t border-base-200 p-4 z-40 hidden-screen transition-all duration-300">
-        <div class="max-w-xl mx-auto" id="footer-content">
-        </div>
+        <div class="max-w-xl mx-auto" id="footer-content"></div>
     </div>
 
     <script src="database.js"></script>
-
     <script>
-        /* MESTRES DO SABER - ENGINE V3.1 (Fixed) */
+        // --- CONFIG ---
+        const CURRENT_VERSION = 'mestres_save_v6';
+        const LEGACY_VERSIONS = ['mestres_save_v5'];
 
+        // --- STATE ---
         const State = {
             data: { nick: "", coins: 0, gems: 0, skins: ["🧙‍♂️"], currentSkin: "🧙‍♂️", progress: {}, attempts: {}, history: [], theme: "cupcake" },
+            // Vidas da Sessão (Não salvas no storage)
+            sessionLives: 3,
+
             load: function () {
-                const saved = localStorage.getItem('mestres_save_v5');
+                let saved = localStorage.getItem(CURRENT_VERSION);
+                if (!saved) {
+                    for (const oldKey of LEGACY_VERSIONS) {
+                        const legacy = localStorage.getItem(oldKey);
+                        if (legacy) { saved = legacy; break; }
+                    }
+                }
                 if (saved) {
-                    this.data = JSON.parse(saved);
-                    if (!this.data.history) this.data.history = [];
-                    if (!this.data.theme) this.data.theme = "cupcake";
-                    return true;
+                    try {
+                        this.data = JSON.parse(saved);
+                        if (!this.data.history) this.data.history = [];
+                        if (!this.data.theme) this.data.theme = "cupcake";
+                        return true;
+                    } catch (e) { return false; }
                 }
                 return false;
             },
-            save: function () { localStorage.setItem('mestres_save_v5', JSON.stringify(this.data)); UI.updateHeader(); },
+            save: function () { localStorage.setItem(CURRENT_VERSION, JSON.stringify(this.data)); UI.updateHeader(); },
             addToHistory: function (ids) { ids.forEach(id => { if (!this.data.history.includes(id)) this.data.history.push(id); }); this.save(); },
             cleanHistoryForPool: function (poolIds) { this.data.history = this.data.history.filter(id => !poolIds.includes(id)); this.save(); },
             registerAttempt: function (catId, lvlIdx, passed) {
@@ -323,27 +355,18 @@
                 }
                 return { locked: false };
             },
-            unlockSkin: function (skin) {
-                if (!this.data.skins.includes(skin)) {
-                    this.data.skins.push(skin);
-                    this.data.currentSkin = skin;
-                    this.save();
-                    alert(`Nova Skin Desbloqueada: ${skin}`);
-                }
-            },
+            unlockSkin: function (skin) { if (!this.data.skins.includes(skin)) { this.data.skins.push(skin); this.data.currentSkin = skin; this.save(); alert(`Nova Skin: ${skin}`); } },
             checkLevelUnlock: function (catId, lvlIdx) { if (lvlIdx === 0) return true; return this.data.progress[`${catId}-lvl${lvlIdx - 1}`] === true; }
         };
 
+        // --- UI ---
         const UI = {
             screens: ['screen-intro', 'screen-map', 'screen-subject', 'screen-game', 'screen-result'],
 
             showScreen: function (id) {
                 this.screens.forEach(s => document.getElementById(s).classList.add('hidden-screen'));
                 const target = document.getElementById(id);
-                if (target) {
-                    target.classList.remove('hidden-screen');
-                    target.classList.add('animate-slide-up');
-                }
+                if (target) { target.classList.remove('hidden-screen'); target.classList.add('animate-slide-up'); }
 
                 const header = document.getElementById('main-header');
                 const footer = document.getElementById('footer-action');
@@ -363,20 +386,57 @@
                 document.getElementById('header-coins').innerText = State.data.coins;
                 document.getElementById('header-gems').innerText = State.data.gems;
                 document.documentElement.setAttribute('data-theme', State.data.theme);
-                document.getElementById('settings-nick').value = State.data.nick;
+
+                // Lógica de Coração no Header
+                const heartBadge = document.getElementById('header-hearts-badge');
+                const heartCount = document.getElementById('header-hearts-count');
+
+                // Se estiver no jogo, mostra vidas da sessão. Se não, mostra 3 padrão.
+                const livesToShow = Game.currentSession ? Game.currentSession.lives : 3;
+                heartCount.innerText = livesToShow;
+
+                if (livesToShow === 0) {
+                    heartBadge.className = "badge badge-lg bg-gray-200 text-gray-400 border-gray-300 gap-1 font-black shadow-sm p-3 transition-colors";
+                } else {
+                    heartBadge.className = "badge badge-lg bg-red-100 text-red-600 border-red-200 gap-1 font-black shadow-sm p-3 transition-colors";
+                }
             },
 
             changeTheme: function (themeName) {
                 document.documentElement.setAttribute('data-theme', themeName);
-                State.data.theme = themeName;
-                State.save();
+                State.data.theme = themeName; State.save();
+            },
+
+            // --- TABUADA UI ---
+            initTabuada: function () {
+                const selector = document.getElementById('tabuada-selector');
+                selector.innerHTML = '';
+                for (let i = 1; i <= 10; i++) {
+                    selector.innerHTML += `
+                        <button onclick="UI.showTabuadaTable(${i})" class="btn btn-circle btn-outline btn-primary font-bold text-lg hover:scale-110 transition-transform">${i}</button>
+                    `;
+                }
+            },
+
+            showTabuadaTable: function (num) {
+                const display = document.getElementById('tabuada-display');
+                const title = document.getElementById('tabuada-current-title');
+                const content = document.getElementById('tabuada-content');
+
+                display.classList.remove('hidden');
+                display.classList.add('animate-pop');
+                title.innerText = `Tabuada do ${num}`;
+
+                content.innerHTML = '';
+                for (let i = 1; i <= 10; i++) {
+                    content.innerHTML += `<div class="tabuada-item">${num} x ${i} = <span class="text-primary">${num * i}</span></div>`;
+                }
             },
 
             renderMap: function () {
                 const grid = document.getElementById('subjects-grid');
-                if (!grid) return;
-                grid.innerHTML = '';
-                if (typeof DB === 'undefined') return console.error("Database não carregado.");
+                if (!grid) return; grid.innerHTML = '';
+                if (typeof DB === 'undefined') return console.error("Database Error");
 
                 DB.subjects.forEach(sub => {
                     grid.innerHTML += `
@@ -400,8 +460,18 @@
                 const container = document.getElementById('categories-list');
                 const header = document.getElementById('subject-header');
 
+                // Botão Tabuada se for Matemática
+                let tabuadaBtn = '';
+                if (sub.id === 'mat') {
+                    tabuadaBtn = `
+                    <button onclick="document.getElementById('tabuada_modal').showModal()" class="btn btn-circle btn-primary btn-outline absolute right-4 top-4 shadow-md bg-white animate-bounce-slow tooltip tooltip-left" data-tip="Tabuada">
+                        🔢
+                    </button>`;
+                }
+
                 header.innerHTML = `
-                    <div class="card-body items-center text-center">
+                    <div class="card-body items-center text-center relative">
+                        ${tabuadaBtn}
                         <div class="text-7xl animate-float filter drop-shadow-md">${sub.icon}</div>
                         <h2 class="card-title text-3xl font-black">${sub.name}</h2>
                         <p class="opacity-70">Complete os desafios!</p>
@@ -464,14 +534,12 @@
                 const pct = ((current) / total) * 100;
                 document.getElementById('game-progress').value = pct;
                 document.getElementById('game-level-tag').innerText = levelName;
-                document.getElementById('game-hearts').innerText = '❤️'.repeat(lives);
 
-                // --- CORREÇÃO VISUAL 1: Flex-col para quebrar linha da imagem ---
-                // Adicionei 'flex flex-col items-center gap-4' ao ID e substituí no innerHTML
-                const questionEl = document.getElementById('game-question');
-                questionEl.className = "card-title text-2xl md:text-3xl font-black mb-6 leading-snug z-10 flex flex-col items-center gap-4"; // Classes atualizadas
+                // Atualiza corações no Header
+                this.updateHeader();
 
-                questionEl.innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary border-b-2 border-primary border-dashed">$1</span>').replace(/______/g, '<span class="inline-block w-16 border-b-2 border-base-content/50"></span>');
+                // Pergunta
+                document.getElementById('game-question').innerHTML = q.q.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary border-b-2 border-primary border-dashed">$1</span>').replace(/______/g, '<span class="inline-block w-16 border-b-2 border-base-content/50"></span>');
 
                 const optsContainer = document.getElementById('game-options');
                 optsContainer.innerHTML = '';
@@ -492,8 +560,6 @@
             showFeedback: function (isCorrect, hint, nextFn) {
                 const footer = document.getElementById('footer-action');
                 const bgClass = isCorrect ? 'bg-success text-success-content' : 'bg-error text-error-content';
-                const btnClass = isCorrect ? 'btn-success border-base-100' : 'btn-error border-base-100';
-
                 footer.innerHTML = `
                     <div class="w-full max-w-xl mx-auto animate-slide-up">
                         <div class="alert ${bgClass} shadow-lg mb-3 flex-row items-start">
@@ -513,7 +579,6 @@
                 const container = document.getElementById('result-container');
                 document.getElementById('footer-action').classList.add('hidden-screen');
                 const percentage = Math.round((score / (totalQuestions * 10)) * 100);
-
                 if (isVictory) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
 
                 container.innerHTML = `
@@ -523,21 +588,14 @@
                             <div class="text-9xl mb-4 animate-bounce">${isVictory ? '🏆' : '🐢'}</div>
                             <h1 class="text-4xl font-black mb-2">${isVictory ? 'Vitória Épica!' : 'Quase lá!'}</h1>
                             <p class="py-2 opacity-70 mb-6">${isVictory ? 'Você provou ser um Mestre!' : 'Você precisa de 70% para passar.'}</p>
-                            
                             <div class="stats shadow w-full mb-8 bg-base-100 border border-base-200">
                                 <div class="stat place-items-center">
                                     <div class="stat-title uppercase font-bold text-xs">Sua Nota</div>
                                     <div class="stat-value ${isVictory ? 'text-primary' : 'text-error'}">${percentage}%</div>
                                     <div class="stat-desc font-bold">Mínimo: 70%</div>
                                 </div>
-                                ${isVictory ? `
-                                <div class="stat place-items-center">
-                                    <div class="stat-title uppercase font-bold text-xs">Recompensa</div>
-                                    <div class="stat-value text-warning">20</div>
-                                    <div class="stat-desc font-bold text-warning">Moedas</div>
-                                </div>` : ''}
+                                ${isVictory ? `<div class="stat place-items-center"><div class="stat-title uppercase font-bold text-xs">Recompensa</div><div class="stat-value text-warning">20</div><div class="stat-desc font-bold text-warning">Moedas</div></div>` : ''}
                             </div>
-
                             <div class="flex flex-col gap-3">
                                 ${isVictory && nextLevelFn ? `<button onclick="${nextLevelFn}" class="btn btn-primary btn-lg shadow-lg border-b-4 border-primary-focus">Próximo Nível ➡️</button>` : ''}
                                 <button onclick="${retryFn}" class="btn btn-secondary btn-outline btn-lg">${isVictory ? 'Jogar Novamente' : 'Tentar Novamente'}</button>
@@ -561,17 +619,15 @@
         // --- GAME LOGIC ---
         const Game = {
             currentSession: null,
-
-            // --- CORREÇÃO 2: Lógica de Sair (Fix Navigation Loop) ---
             exitGame: function () {
                 if (confirm("Sair agora perde o progresso! 🛡️")) {
-                    // Salva o ID antes de destruir a sessão
                     const subjectId = this.currentSession ? this.currentSession.subjectId : 'pt';
                     this.currentSession = null;
                     UI.renderSubject(subjectId);
+                    // Reset do Header para padrão
+                    UI.updateHeader();
                 }
             },
-
             startAdventure: function () { const n = document.getElementById('input-nick').value; if (n.length < 3) return alert("Nome curto!"); State.data.nick = n; State.save(); UI.renderMap(); },
             updateSettings: function () { State.data.nick = document.getElementById('settings-nick').value; State.save(); document.getElementById('settings_modal').close(); },
             openSubject: function (id) { UI.renderSubject(id); },
@@ -582,22 +638,13 @@
             finishPrep: function () { State.unlockSkin(this.tempSkin); State.data.coins += 10; State.save(); document.getElementById('prep_modal').close(); try { confetti({ particleCount: 50, spread: 50 }); } catch (e) { } },
 
             startLevel: function (catId, levelIdx, bloomMax, levelName) {
-                let category = null;
-                let subjectId = null;
-                DB.subjects.forEach(s => {
-                    const c = s.categories.find(k => k.id === catId);
-                    if (c) { category = c; subjectId = s.id; }
-                });
+                let category = null; let subjectId = null;
+                DB.subjects.forEach(s => { const c = s.categories.find(k => k.id === catId); if (c) { category = c; subjectId = s.id; } });
 
                 let minBloom = bloomMax - 1; if (levelIdx === 0) minBloom = 1;
                 const pool = category.pool.filter(q => q.bloom >= minBloom && q.bloom <= bloomMax);
                 let fresh = pool.filter(q => !State.data.history.includes(q.id));
-
-                if (fresh.length < 5) {
-                    State.cleanHistoryForPool(pool.map(q => q.id));
-                    fresh = pool;
-                }
-
+                if (fresh.length < 5) { State.cleanHistoryForPool(pool.map(q => q.id)); fresh = pool; }
                 const selected = fresh.sort(() => 0.5 - Math.random()).slice(0, 5);
                 if (selected.length === 0) return alert("Erro: Sem questões.");
 
@@ -620,8 +667,15 @@
                 const btns = document.querySelectorAll('[id^="opt-"]'); btns.forEach(b => b.disabled = true);
                 const selBtn = document.getElementById(`opt-${s.selectedOpt}`);
 
-                if (isCorrect) { selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-success', 'text-white'); s.score += 10; s.correct++; }
-                else { selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-error', 'text-white'); s.lives--; }
+                if (isCorrect) {
+                    selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-success', 'text-white');
+                    s.score += 10; s.correct++;
+                } else {
+                    selBtn.classList.remove('btn-primary'); selBtn.classList.add('btn-error', 'text-white');
+                    s.lives--;
+                    // Update Header Lives
+                    UI.updateHeader();
+                }
                 UI.showFeedback(isCorrect, q.h, 'Game.nextQuestion()');
             },
 
@@ -650,6 +704,10 @@
                     nextLevelFn = `Game.startLevel('${s.catId}', ${nextIdx}, ${nextBlooms[nextIdx]}, '${nextNames[nextIdx]}')`;
                 }
 
+                this.currentSession = null; // Limpa sessão
+                // Reseta header para estado padrão (3 vidas)
+                UI.updateHeader();
+
                 if (passed) {
                     State.data.progress[`${s.catId}-lvl${s.levelIdx}`] = true;
                     State.data.coins += 20; State.save();
@@ -663,6 +721,7 @@
         };
 
         window.onload = function () {
+            UI.initTabuada(); // Inicia Tabuada
             if (State.load()) {
                 UI.renderMap();
                 document.getElementById('screen-intro').classList.add('hidden-screen');
@@ -670,7 +729,6 @@
             UI.updateHeader();
         };
     </script>
-
 </body>
 
 </html>
