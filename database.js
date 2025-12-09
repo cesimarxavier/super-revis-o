@@ -904,7 +904,122 @@ const DB = {
             { id: 3040, bloom: 4, q: "A resistência cultural foi importante para:", opts: ["Nada", "Manter a identidade do povo negro viva", "Arrumar briga", "Esquecer a África"], c: 1, h: "Sem ela, as tradições teriam sumido." }
         ]
     },
-    // ... (Cole aqui os próximos tópicos se desejar)
+    {
+        id: "heranca_africana",
+        name: "Herança africana",
+        prep: {
+            title: "Marcas Africanas",
+            content: "<p>O Brasil tem um pedacinho da África em todo lugar! <br><br><strong>Música:</strong> Samba, Maracatu.<br><strong>Comida:</strong> Acarajé, Vatapá, Feijoada.<br><strong>Palavras:</strong> Moleque, caçula, dengo.</p>",
+            skin: "🥁"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 4001, bloom: 1, q: "Qual instrumento musical é símbolo da Capoeira?", opts: ["Violão", "Berimbau", "Flauta", "Piano"], c: 1, h: "Tem um arco e uma cabaça." },
+            { id: 4002, bloom: 1, q: "O Acarajé é uma comida típica feita de:", opts: ["Feijão fradinho frito no azeite", "Milho cozido", "Trigo", "Carne de sol"], c: 0, h: "É um bolinho famoso na Bahia." },
+            { id: 4003, bloom: 1, q: "Qual destas palavras usamos graças aos africanos?", opts: ["Shopping", "Moleque", "Abajur", "Sanduíche"], c: 1, h: "Significa menino travesso." },
+            { id: 4004, bloom: 1, q: "O Samba nasceu da mistura de ritmos:", opts: ["Europeus", "Africanos", "Asiáticos", "Americanos"], c: 1, h: "Vem dos tambores e batuques." },
+            { id: 4005, bloom: 1, q: "O que é um turbante?", opts: ["Um sapato", "Um tecido amarrado na cabeça", "Uma calça", "Um cinto"], c: 1, h: "É um acessório de beleza e identidade." },
+            { id: 4006, bloom: 1, q: "A palavra 'Cafuné' significa:", opts: ["Briga", "Carinho na cabeça", "Comida", "Dança"], c: 1, h: "Gesto de afeto nos cabelos." },
+            { id: 4007, bloom: 1, q: "Qual festa popular tem muita influência africana?", opts: ["Carnaval", "Halloween", "Páscoa", "Dia das Mães"], c: 0, h: "Tem desfiles, baterias e muita cor." },
+            { id: 4008, bloom: 1, q: "O que é o 'Vatapá'?", opts: ["Uma dança", "Um prato típico cremoso", "Uma roupa", "Um instrumento"], c: 1, h: "Comida deliciosa com azeite de dendê." },
+            { id: 4009, bloom: 1, q: "A Congada é uma festa que celebra:", opts: ["Reis do Congo e santos", "O Descobrimento", "O Natal", "A Independência"], c: 0, h: "Mistura tradições africanas e católicas." },
+            { id: 4010, bloom: 1, q: "Qual destes é um orixá famoso na cultura afro-brasileira?", opts: ["Zeus", "Thor", "Iemanjá", "Hércules"], c: 2, h: "A rainha do mar." },
+
+            // BLOOM 2 (Entender)
+            { id: 4011, bloom: 2, q: "Por que usamos roupas brancas na sexta-feira em alguns lugares?", opts: ["Porque está calor", "Em respeito às tradições religiosas afro-brasileiras", "Porque é moda", "Sem motivo"], c: 1, h: "É uma homenagem a Oxalá." },
+            { id: 4012, bloom: 2, q: "Azeite de Dendê dá cor e sabor à comida. Ele veio de onde?", opts: ["Da África", "Do Japão", "Da Itália", "Da Argentina"], c: 0, h: "É fruto de uma palmeira africana." },
+            { id: 4013, bloom: 2, q: "O que significa a palavra 'Axé'?", opts: ["Azar", "Energia positiva e força", "Dinheiro", "Silêncio"], c: 1, h: "Usamos para desejar coisas boas." },
+            { id: 4014, bloom: 2, q: "Por que a feijoada tem pedaços de porco (pé, orelha)?", opts: ["Porque é chique", "Porque os escravizados aproveitavam tudo do porco", "Porque é leve", "Por engano"], c: 1, h: "Eles transformavam sobras em banquete." },
+            { id: 4015, bloom: 2, q: "A capoeira mistura luta com dança para:", opts: ["Ficar bonita", "Disfarçar o treino de defesa", "Cansar menos", "Ganhar dinheiro"], c: 1, h: "Os senhores proibiam lutas." },
+            { id: 4016, bloom: 2, q: "O Berimbau comanda a roda de capoeira. Ele dita:", opts: ["O preço", "O ritmo e a velocidade do jogo", "Quem ganha", "A hora de dormir"], c: 1, h: "Se ele toca rápido, o jogo acelera." },
+            { id: 4017, bloom: 2, q: "Muitas palavras com 'qu' (quitute, quindim) vieram:", opts: ["Do Inglês", "Das línguas africanas (Banto)", "Do Francês", "Do Espanhol"], c: 1, h: "Influência dos povos de Angola e Congo." },
+            { id: 4018, bloom: 2, q: "As tranças no cabelo serviam antigamente para:", opts: ["Apenas beleza", "Desenhar mapas de fuga e guardar sementes", "Esquentar a cabeça", "Nada"], c: 1, h: "Tinham uma função secreta e inteligente." },
+            { id: 4019, bloom: 2, q: "O Maracatu é uma dança que lembra:", opts: ["Uma coroação real", "Uma briga", "Um casamento", "Uma corrida"], c: 0, h: "Tem rei, rainha e cortejo." },
+            { id: 4020, bloom: 2, q: "A herança africana está:", opts: ["Só nos museus", "Viva no nosso dia a dia", "Apenas nos livros", "Esquecida"], c: 1, h: "Comemos, falamos e dançamos essa cultura." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 4021, bloom: 3, q: "Se você diz 'Vou tirar um cochilo', usou uma palavra:", opts: ["Indígena", "Africana", "Inglesa", "Italiana"], c: 1, h: "Cochilo vem de 'Koxila'." },
+            { id: 4022, bloom: 3, q: "Ao comer cocada de sobremesa, você prova uma receita:", opts: ["Afro-brasileira", "Japonesa", "Alemã", "Chinesa"], c: 0, h: "O coco foi muito usado pelos africanos aqui." },
+            { id: 4023, bloom: 3, q: "Se você joga capoeira, você entra em uma:", opts: ["Quadra", "Roda", "Piscina", "Pista"], c: 1, h: "A capoeira acontece na roda." },
+            { id: 4024, bloom: 3, q: "Usar um 'Abadá' no carnaval. A palavra vem:", opts: ["Do Português", "De línguas africanas", "Do Italiano", "Do Francês"], c: 1, h: "Era uma roupa larga usada na África." },
+            { id: 4025, bloom: 3, q: "Tocar um atabaque (tambor) é praticar:", opts: ["Percussão de origem africana", "Música clássica", "Rock", "Silêncio"], c: 0, h: "O tambor é a alma do ritmo africano." },
+            { id: 4026, bloom: 3, q: "Chamar o irmão mais novo de 'caçula'. Caçula é:", opts: ["Nome de flor", "Palavra de origem africana", "Nome de cidade", "Palavra inventada"], c: 1, h: "Significa 'o último da família'." },
+            { id: 4027, bloom: 3, q: "Se você gosta de samba, você gosta de um ritmo:", opts: ["Afro-brasileiro", "Europeu", "Americano", "Asiático"], c: 0, h: "Nasceu nos terreiros e rodas." },
+            { id: 4028, bloom: 3, q: "Dizer que alguém tem 'dengo' (manhoso) é usar:", opts: ["Gíria moderna", "Herança linguística africana", "Português de Portugal", "Nada"], c: 1, h: "Dengo é uma palavra linda que eles trouxeram." },
+            { id: 4029, bloom: 3, q: "Comer 'mungunzá' ou 'canjica' nas festas. Origem:", opts: ["Africana", "Russa", "Japonesa", "Inglesa"], c: 0, h: "Pratos à base de milho e leite de coco." },
+            { id: 4030, bloom: 3, q: "A pimenta malagueta é muito usada na culinária:", opts: ["Gaúcha", "Afro-brasileira (Bahia)", "Mineira", "Paulista"], c: 1, h: "A Bahia tem forte tempero africano." },
+
+            // BLOOM 4 (Analisar)
+            { id: 4031, bloom: 4, q: "Qual a diferença entre a cultura trazida pelos portugueses e pelos africanos?", opts: ["Nenhuma", "Portugueses trouxeram o idioma, africanos trouxeram ritmos e novos sabores", "Africanos não trouxeram nada", "Portugueses trouxeram a feijoada"], c: 1, h: "Cada povo contribuiu com coisas diferentes." },
+            { id: 4032, bloom: 4, q: "O Candomblé foi perseguido no passado. Isso mostra:", opts: ["Respeito", "Intolerância religiosa", "Amizade", "Alegria"], c: 1, h: "Não aceitavam a religião do outro." },
+            { id: 4033, bloom: 4, q: "Sem os africanos, o Carnaval do Brasil seria:", opts: ["Igualzinho", "Muito diferente, sem samba e tambores", "Melhor", "Mais colorido"], c: 1, h: "A alma do carnaval vem da África." },
+            { id: 4034, bloom: 4, q: "A capoeira hoje é esporte, mas antes era:", opts: ["Brincadeira", "Luta de resistência e defesa", "Ginástica escolar", "Dança de salão"], c: 1, h: "Sua função mudou com o tempo." },
+            { id: 4035, bloom: 4, q: "Muitas palavras africanas em nosso dicionário mostram:", opts: ["Que falamos errado", "A força da cultura negra na nossa fala", "Que não sabemos português", "Nada"], c: 1, h: "Nossa língua é viva e misturada." },
+            { id: 4036, bloom: 4, q: "Por que a Bahia é chamada de 'Pequena África'?", opts: ["Porque é longe", "Porque lá a herança africana é muito forte e visível", "Porque é um país", "Por engano"], c: 1, h: "É o estado com mais marcas dessa cultura." },
+            { id: 4037, bloom: 4, q: "O preconceito contra religiões afro-brasileiras é:", opts: ["Correto", "Um erro que precisamos combater (respeito)", "Engraçado", "Legal"], c: 1, h: "Todas as crenças merecem respeito." },
+            { id: 4038, bloom: 4, q: "A feijoada era comida de senzala e hoje é prato nacional. Isso mostra:", opts: ["Que o Brasil empobreceu", "A valorização da cultura afro-brasileira", "Que não temos comida", "Nada"], c: 1, h: "O que era desprezado virou orgulho." },
+            { id: 4039, bloom: 4, q: "Comparando: Violão (Europa) e Tambor (África).", opts: ["Um é melhor que o outro", "Juntos criam a música brasileira rica", "Não combinam", "O tambor é ruim"], c: 1, h: "A mistura cria nossa identidade." },
+            { id: 4040, bloom: 4, q: "Reconhecer a herança africana ajuda a:", opts: ["Combater o racismo e ter orgulho do Brasil", "Dividir as pessoas", "Esquecer o passado", "Gastar dinheiro"], c: 0, h: "Entender nossa história nos torna melhores." }
+        ]
+    },
+    {
+        id: "diferencas_culturais",
+        name: "Diferenças culturais",
+        prep: {
+            title: "Um Brasil, Muitas Caras",
+            content: "<p>O Brasil é gigante! Cada região tem seu jeito de falar, comer e festejar. Somos uma mistura de indígenas, africanos, europeus e asiáticos.</p>",
+            skin: "🎭"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 5001, bloom: 1, q: "O Brasil foi formado pela mistura de:", opts: ["Apenas portugueses", "Indígenas, Africanos e Europeus", "Apenas indígenas", "Americanos"], c: 1, h: "Três povos principais iniciaram nossa cultura." },
+            { id: 5002, bloom: 1, q: "O Chimarrão é uma bebida típica do:", opts: ["Norte", "Sul", "Nordeste", "Centro-Oeste"], c: 1, h: "Bebida quente de erva-mate, comum no frio." },
+            { id: 5003, bloom: 1, q: "A festa do Bumba-meu-boi é famosa no:", opts: ["Sul", "Nordeste e Norte", "Japão", "Antártida"], c: 1, h: "Conta a história de um boi que ressuscita." },
+            { id: 5004, bloom: 1, q: "Os imigrantes japoneses trouxeram:", opts: ["Pizza", "Sushi e Judô", "Hambúrguer", "Churrasco"], c: 1, h: "Comida com peixe cru e arroz." },
+            { id: 5005, bloom: 1, q: "Quem trouxe o hábito de comer macarrão e pizza?", opts: ["Alemães", "Italianos", "Chineses", "Árabes"], c: 1, h: "Vieram da Itália." },
+            { id: 5006, bloom: 1, q: "O Pão de Queijo é famoso em qual estado?", opts: ["Rio de Janeiro", "Minas Gerais", "Amazonas", "Bahia"], c: 1, h: "Os mineiros adoram." },
+            { id: 5007, bloom: 1, q: "O Açaí é uma fruta original da região:", opts: ["Norte (Amazônia)", "Sul", "Europa", "Deserto"], c: 0, h: "Vem da maior floresta do mundo." },
+            { id: 5008, bloom: 1, q: "O Frevo é uma dança típica de:", opts: ["Pernambuco", "São Paulo", "Rio Grande do Sul", "Goiás"], c: 0, h: "Usam sombrinhas coloridas." },
+            { id: 5009, bloom: 1, q: "O que é 'sotaque'?", opts: ["Falar errado", "O jeito especial de falar de cada região", "Gritar", "Falar inglês"], c: 1, h: "O chiado do carioca, o jeito cantado do baiano." },
+            { id: 5010, bloom: 1, q: "A Oktoberfest (festa da cerveja) no sul veio dos:", opts: ["Japoneses", "Alemães", "Africanos", "Indígenas"], c: 1, h: "Imigrantes da Alemanha trouxeram." },
+
+            // BLOOM 2 (Entender)
+            { id: 5011, bloom: 2, q: "Por que o Brasil tem tantas culturas diferentes?", opts: ["Porque é um país pequeno", "Porque recebeu povos do mundo todo", "Porque ninguém gosta daqui", "Por engano"], c: 1, h: "Somos um país de dimensões continentais e migrações." },
+            { id: 5012, bloom: 2, q: "O que significa 'Diversidade Cultural'?", opts: ["Tudo igual", "Várias culturas convivendo juntas", "Ninguém se gosta", "Uma cultura só"], c: 1, h: "É a riqueza de ser diferente." },
+            { id: 5013, bloom: 2, q: "Se mudo de estado, a comida pode mudar?", opts: ["Não, tudo é igual", "Sim, cada lugar tem seus pratos", "Só muda a água", "Não existe comida diferente"], c: 1, h: "No Norte comem peixe, no Sul churrasco." },
+            { id: 5014, bloom: 2, q: "Por que falamos português e não espanhol?", opts: ["Porque a Espanha não quis", "Porque fomos colonizados por Portugal", "Porque escolhemos", "Porque é mais fácil"], c: 1, h: "Portugal chegou aqui em 1500." },
+            { id: 5015, bloom: 2, q: "Imigrantes são pessoas que:", opts: ["Nasceram no Brasil", "Vieram de outros países morar aqui", "Nunca saem de casa", "Não gostam de viajar"], c: 1, h: "Eles deixaram suas terras para viver aqui." },
+            { id: 5016, bloom: 2, q: "A festa Junina celebra:", opts: ["O Carnaval", "A vida no campo e santos católicos", "O mar", "A cidade grande"], c: 1, h: "Tem fogueira, milho e quadrilha." },
+            { id: 5017, bloom: 2, q: "Por que no Sul faz mais frio e tem casas de madeira?", opts: ["Influência europeia e clima", "Porque é moda", "Porque não tem tijolo", "Sem motivo"], c: 0, h: "O clima parece com o da Europa." },
+            { id: 5018, bloom: 2, q: "O que é folclore?", opts: ["Notícias falsas", "Lendas, festas e tradições de um povo", "Jogos de videogame", "Matéria de matemática"], c: 1, h: "Saci, Curupira, Boto." },
+            { id: 5019, bloom: 2, q: "As favelas surgiram por causa:", opts: ["Da riqueza", "Da desigualdade e falta de moradia", "De um projeto", "Da beleza"], c: 1, h: "É um problema social histórico." },
+            { id: 5020, bloom: 2, q: "A culinária brasileira é:", opts: ["Sem graça", "Uma mistura deliciosa de várias origens", "Apenas hambúrguer", "Apenas salada"], c: 1, h: "Misturamos índio, branco e negro na panela." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 5021, bloom: 3, q: "Se você chama pão de 'cacetinho', você provavelmente está no:", opts: ["Rio de Janeiro", "Rio Grande do Sul", "Bahia", "Amazonas"], c: 1, h: "É como os gaúchos chamam o pão francês." },
+            { id: 5022, bloom: 3, q: "Comer sushi em São Paulo mostra a influência:", opts: ["Italiana", "Japonesa", "Alemã", "Árabe"], c: 1, h: "O bairro da Liberdade é famoso por isso." },
+            { id: 5023, bloom: 3, q: "Dançar quadrilha na escola é manter viva uma tradição:", opts: ["Rural/Caipira", "Americana", "Chinesa", "Moderna"], c: 0, h: "Lembra a vida na roça." },
+            { id: 5024, bloom: 3, q: "Se um amigo fala 'uai', ele deve ser de:", opts: ["São Paulo", "Minas Gerais", "Ceará", "Paraná"], c: 1, h: "Uai é a marca do mineiro!" },
+            { id: 5025, bloom: 3, q: "Ao comer kibe ou esfiha, agradecemos aos imigrantes:", opts: ["Japoneses", "Árabes/Sírios/Libaneses", "Alemães", "Africanos"], c: 1, h: "Comida do Oriente Médio." },
+            { id: 5026, bloom: 3, q: "O Carnaval do Rio é diferente do de Olinda. Por quê?", opts: ["Um é certo e outro errado", "Cada região tem seu jeito de festejar", "Não são diferentes", "Ninguém gosta"], c: 1, h: "No Rio tem desfile, em Olinda bonecos gigantes." },
+            { id: 5027, bloom: 3, q: "Ver uma igreja coberta de ouro em Salvador lembra:", opts: ["O futuro", "O passado colonial e riqueza", "Pobreza", "Nada"], c: 1, h: "É herança do tempo de Portugal." },
+            { id: 5028, bloom: 3, q: "A literatura de cordel é típica do:", opts: ["Sul", "Nordeste", "Norte", "Sudeste"], c: 1, h: "Poesias penduradas em cordas." },
+            { id: 5029, bloom: 3, q: "Tomar tereré (bebida fria) é costume no:", opts: ["Centro-Oeste", "Sul (quente)", "Nordeste", "Polo Norte"], c: 0, h: "Muito comum no Mato Grosso do Sul." },
+            { id: 5030, bloom: 3, q: "Praticar 'Capoeira' e dançar 'Fandango' mostra:", opts: ["Confusão", "A diversidade de culturas no mesmo país", "Que somos estrangeiros", "Nada"], c: 1, h: "Uma é afro, a outra europeia." },
+
+            // BLOOM 4 (Analisar)
+            { id: 5031, bloom: 4, q: "É correto rir do sotaque de alguém de outro estado?", opts: ["Sim, é engraçado", "Não, devemos respeitar as diferenças", "Sim, se for estranho", "Não sei"], c: 1, h: "Sotaque é identidade, não erro." },
+            { id: 5032, bloom: 4, q: "O Brasil seria o mesmo sem os imigrantes?", opts: ["Sim", "Não, perderíamos muitas festas e comidas", "Seria melhor", "Não faria diferença"], c: 1, h: "Eles ajudaram a construir o país." },
+            { id: 5033, bloom: 4, q: "Qual a relação entre comida e cultura?", opts: ["Nenhuma, é só para encher a barriga", "A comida conta a história e a origem do povo", "Comida é industrial", "Cultura não se come"], c: 1, h: "O prato diz quem você é." },
+            { id: 5034, bloom: 4, q: "Por que no Brasil se fala português e nos vizinhos espanhol?", opts: ["Escolha do povo", "Divisão de terras antiga (Tratado de Tordesilhas)", "Sorteio", "O rei quis"], c: 1, h: "Portugal ficou com o Brasil, Espanha com o resto." },
+            { id: 5035, bloom: 4, q: "A mistura de raças no Brasil resultou em:", opts: ["Brigas apenas", "Um povo miscigenado e diverso", "Todos iguais", "Ninguém brasileiro"], c: 1, h: "A miscigenação é nossa marca." },
+            { id: 5036, bloom: 4, q: "Dizer que 'cultura do Sul é melhor que do Nordeste' é:", opts: ["Verdade", "Preconceito (todas têm valor)", "Mentira, a do Nordeste é melhor", "Opinião"], c: 1, h: "Não existe cultura superior." },
+            { id: 5037, bloom: 4, q: "Como a geografia (clima, rios) influencia a cultura?", opts: ["Não influencia", "Define a roupa, a comida e a casa das pessoas", "Só muda a chuva", "Influencia a internet"], c: 1, h: "Quem vive no calor vive diferente de quem vive no frio." },
+            { id: 5038, bloom: 4, q: "Preservar tradições antigas é:", opts: ["Perda de tempo", "Manter a identidade de um povo viva", "Coisa de velho", "Chato"], c: 1, h: "Um povo sem memória não existe." },
+            { id: 5039, bloom: 4, q: "O Brasil é conhecido como 'país do futebol'. Isso é:", opts: ["A única cultura que temos", "Parte da nossa identidade cultural", "Mentira", "Ruim"], c: 1, h: "O esporte também é cultura." },
+            { id: 5040, bloom: 4, q: "A unidade do Brasil, mesmo com tantas diferenças, está:", opts: ["No dinheiro", "Na língua portuguesa e no sentimento de ser brasileiro", "Nos governantes", "Na televisão"], c: 1, h: "Apesar de diferentes, somos todos um só povo." }
+        ]
+    }
 ] },
         {   id: "geo", name: "Geografia", icon: "🌍", color: "bg-green-500", accent: "border-green-600", categories: [
             { id: "recursos_naturais", name: "Recursos naturais", prep: { title: "O que a natureza nos dá", content: "<p>Água, solo, ar, minerais e outros recursos que usamos.</p>", skin: "🌱" }, pool: [] },
