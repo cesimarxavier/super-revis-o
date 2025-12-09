@@ -1030,13 +1030,297 @@ const DB = {
             
         ] },
         { id: "cienc", name: "Ciências", icon: "🧪", color: "bg-purple-500", accent: "border-purple-600", categories: [
-            { id: "espacos_urbanos_rurais", name: "Espaços urbanos e rurais", prep: { title: "Cidade e campo", content: "<p>Diferenças e relações entre o urbano e o rural.</p>", skin: "🏙️" }, pool: [] },
-                { id: "circulacao", name: "Circulação entre espaços urbanos e rurais", prep: { title: "Vai e vem", content: "<p>Pessoas, produtos e serviços circulam entre cidade e campo.</p>", skin: "🚚" }, pool: [] },
-                { id: "ciclo_agua", name: "Ciclo da água", prep: { title: "A viagem da água", content: "<p>Evaporação, condensação, precipitação e infiltração.</p>", skin: "💧" }, pool: [] },
-                { id: "abastecimento_agua", name: "Abastecimento de água", prep: { title: "Da fonte até a torneira", content: "<p>Captação, tratamento e distribuição da água.</p>", skin: "🚰" }, pool: [] },
-                { id: "importancia_agua", name: "Importância da água", prep: { title: "Água é vida", content: "<p>Água para beber, produzir alimentos, higiene e equilíbrio ambiental.</p>", skin: "🌊" }, pool: [] }
-            
-        ] },
+    {
+        id: "espacos_urbanos_rurais",
+        name: "Espaços urbanos e rurais",
+        prep: {
+            title: "Cidade e Campo",
+            content: "<p>Onde você vive? <br><br><strong>Zona Urbana (Cidade):</strong> Muitos prédios, carros, lojas e barulho.<br><strong>Zona Rural (Campo):</strong> Plantações, animais, estradas de terra e ar puro.</p>",
+            skin: "🏙️"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 6001, bloom: 1, q: "Onde encontramos muitos prédios e lojas?", opts: ["Na Zona Rural", "Na Zona Urbana", "Na Floresta", "No Mar"], c: 1, h: "É onde tem muito asfalto e movimento." },
+            { id: 6002, bloom: 1, q: "Onde geralmente ficam as fazendas e sítios?", opts: ["Na Cidade", "No Espaço", "Na Zona Rural", "No Shopping"], c: 2, h: "Lá tem criação de animais e plantações." },
+            { id: 6003, bloom: 1, q: "Qual som é mais comum na cidade grande?", opts: ["Galo cantando", "Buzina de carros", "Vento nas árvores", "Grilo"], c: 1, h: "O trânsito faz muito barulho." },
+            { id: 6004, bloom: 1, q: "Onde o ar costuma ser mais puro e limpo?", opts: ["Na cidade", "Perto de fábricas", "No campo", "No túnel"], c: 2, h: "Tem menos carros soltando fumaça." },
+            { id: 6005, bloom: 1, q: "O que é 'Zona Urbana'?", opts: ["A área da cidade", "A área da floresta", "A área do campo", "A área do deserto"], c: 0, h: "Urbano vem de Urbe (cidade)." },
+            { id: 6006, bloom: 1, q: "O que é 'Zona Rural'?", opts: ["O centro da cidade", "O campo", "A praia", "O shopping"], c: 1, h: "Lugar de plantar e colher." },
+            { id: 6007, bloom: 1, q: "Qual animal é fácil de ver solto no campo?", opts: ["Leão", "Vaca", "Pinguim", "Tubarão"], c: 1, h: "Ela nos dá leite." },
+            { id: 6008, bloom: 1, q: "O que cobre o chão da maioria das ruas na cidade?", opts: ["Terra", "Grama", "Asfalto", "Areia"], c: 2, h: "É preto e duro para os carros passarem." },
+            { id: 6009, bloom: 1, q: "Onde ficam as grandes fábricas geralmente?", opts: ["No meio da floresta", "Nas zonas industriais urbanas", "Dentro de casas", "Na praia"], c: 1, h: "Precisam de energia e estradas." },
+            { id: 6010, bloom: 1, q: "Onde vemos mais estrelas no céu à noite?", opts: ["Na cidade iluminada", "No campo escuro", "Dentro de casa", "No cinema"], c: 1, h: "As luzes da cidade atrapalham ver o céu." },
+
+            // BLOOM 2 (Entender)
+            { id: 6011, bloom: 2, q: "Por que as casas no campo são mais distantes uma da outra?", opts: ["Porque eles não gostam de vizinhos", "Porque precisam de espaço para plantar", "Porque é proibido", "Porque não tem tijolo"], c: 1, h: "As plantações ocupam muito espaço." },
+            { id: 6012, bloom: 2, q: "Por que na cidade tem semáforos?", opts: ["Para enfeitar a rua", "Para organizar o trânsito intenso", "Para iluminar a noite", "Para os pássaros"], c: 1, h: "Muitos carros precisam de regras para não bater." },
+            { id: 6013, bloom: 2, q: "O que acontece se asfaltarmos todo o campo?", opts: ["Fica mais bonito", "Não teremos onde plantar comida", "Os carros correm mais", "Nada muda"], c: 1, h: "Precisamos de terra para plantar." },
+            { id: 6014, bloom: 2, q: "A vida no campo costuma ser:", opts: ["Mais agitada que na cidade", "Mais calma e ligada à natureza", "Barulhenta igual", "Sem trabalho"], c: 1, h: "O ritmo segue o sol e as plantas." },
+            { id: 6015, bloom: 2, q: "Na cidade, muitas pessoas moram em apartamentos porque:", opts: ["É mais chique", "Falta espaço no chão, então constroem para cima", "Não gostam de casas", "É mais barato"], c: 1, h: "Prédios altos cabem mais gente." },
+            { id: 6016, bloom: 2, q: "Por que o ar da cidade pode ser poluído?", opts: ["Por causa das flores", "Pela fumaça de carros e fábricas", "Pela chuva", "Pelo sol"], c: 1, h: "A queima de combustível suja o ar." },
+            { id: 6017, bloom: 2, q: "O que é 'paisagem modificada'?", opts: ["Uma paisagem natural", "Um lugar que o homem construiu ou alterou", "Um desenho", "Uma foto"], c: 1, h: "Prédios, pontes e ruas são modificações." },
+            { id: 6018, bloom: 2, q: "O campo depende da cidade para quê?", opts: ["Para comprar comida", "Para comprar máquinas, roupas e remédios", "Para plantar", "Para respirar"], c: 1, h: "A tecnologia vem da indústria urbana." },
+            { id: 6019, bloom: 2, q: "Por que existem parques na cidade?", opts: ["Para estacionar carros", "Para ter um pouco de área verde e lazer", "Para construir prédios", "Para nada"], c: 1, h: "Para as pessoas respirarem e brincarem." },
+            { id: 6020, bloom: 2, q: "Onde o trabalho depende mais do clima (chuva/sol)?", opts: ["No escritório", "Na fábrica", "No campo (agricultura)", "No shopping"], c: 2, h: "Se não chover, a planta não cresce." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 6021, bloom: 3, q: "Se você quer criar galinhas soltas, onde é melhor morar?", opts: ["Em um apartamento", "No centro da cidade", "Em um sítio", "Em um barco"], c: 2, h: "Animais precisam de espaço e terra." },
+            { id: 6022, bloom: 3, q: "Para construir um shopping gigante, é mais provável escolher:", opts: ["Uma grande cidade", "O topo de uma montanha", "Uma ilha deserta", "O meio da floresta"], c: 0, h: "Shoppings precisam de muita gente para comprar." },
+            { id: 6023, bloom: 3, q: "Se você vê uma estrada de terra e muita plantação, você está:", opts: ["No centro de São Paulo", "Na Zona Rural", "Na praia", "No aeroporto"], c: 1, h: "Características típicas do campo." },
+            { id: 6024, bloom: 3, q: "Um trator é uma máquina usada principalmente:", opts: ["Para passear na cidade", "Para arar a terra no campo", "Para corrida", "Para ir à escola"], c: 1, h: "É ferramenta de trabalho rural." },
+            { id: 6025, bloom: 3, q: "Se o ar está cinza e difícil de respirar, provavelmente é:", opts: ["Poluição urbana", "Neblina do campo", "Cheiro de chuva", "Vento do mar"], c: 0, h: "Fumaça deixa o ar cinza." },
+            { id: 6026, bloom: 3, q: "Para ir ao cinema e ao hospital grande, as pessoas do campo vão:", opts: ["Para a floresta", "Para a cidade", "Para o rio", "Para o celeiro"], c: 1, h: "Serviços grandes ficam nas cidades." },
+            { id: 6027, bloom: 3, q: "Se você planta uma horta no seu apartamento, você trouxe:", opts: ["A cidade para o campo", "Um pouco do campo para a cidade", "O mar para casa", "Nada"], c: 1, h: "Agricultura é coisa de campo, mas adaptada." },
+            { id: 6028, bloom: 3, q: "Onde é mais fácil ver um engarrafamento (trânsito parado)?", opts: ["Na estrada de terra", "Na avenida da cidade", "No rio", "No pasto"], c: 1, h: "Muitos carros juntos." },
+            { id: 6029, bloom: 3, q: "Quem trabalha com computador geralmente fica:", opts: ["No campo", "Na cidade (escritórios)", "No mar", "Na mina"], c: 1, h: "A maioria das empresas está na zona urbana." },
+            { id: 6030, bloom: 3, q: "Acordar com o sol e dormir cedo é um hábito mais comum:", opts: ["Na balada", "Na cidade", "No campo", "No shopping"], c: 2, h: "A vida rural segue a luz do dia." },
+
+            // BLOOM 4 (Analisar)
+            { id: 6031, bloom: 4, q: "Qual a diferença entre a paisagem natural e a humanizada?", opts: ["Nenhuma", "Natural não tem dedo do homem; Humanizada tem construções", "Natural é feia", "Humanizada tem árvores"], c: 1, h: "Prédios e pontes são obras humanas." },
+            { id: 6032, bloom: 4, q: "O campo pode viver sem a cidade?", opts: ["Sim, facilmente", "Não, precisa de roupas, máquinas e serviços da cidade", "Sim, eles têm tudo", "Não sei"], c: 1, h: "Eles precisam de coisas que a indústria faz." },
+            { id: 6033, bloom: 4, q: "A cidade pode viver sem o campo?", opts: ["Sim, compra tudo no mercado", "Não, a comida vem do campo", "Sim, comem plástico", "Talvez"], c: 1, h: "O mercado só vende o que o campo produz." },
+            { id: 6034, bloom: 4, q: "Compare: O lixo na cidade e no campo.", opts: ["É igual", "Na cidade acumula mais rápido e precisa de coleta constante", "No campo tem mais lixo", "Ninguém faz lixo"], c: 1, h: "Muita gente junta gera muito lixo." },
+            { id: 6035, bloom: 4, q: "Por que as cidades estão ficando cada vez maiores?", opts: ["Porque as pessoas saem do campo buscando emprego", "Porque chove muito", "Porque as árvores crescem", "Porque sim"], c: 0, h: "Isso se chama êxodo rural." },
+            { id: 6036, bloom: 4, q: "Qual o problema de ter muito asfalto e pouca terra na cidade?", opts: ["Fica feio", "A água da chuva não entra na terra e causa enchentes", "Os carros estragam", "Não tem problema"], c: 1, h: "A terra chupa a água, o asfalto não." },
+            { id: 6037, bloom: 4, q: "O campo está mudando com a tecnologia. Como?", opts: ["Tem menos plantas", "Usam drones e máquinas modernas para plantar", "Virou cidade", "Não mudou nada"], c: 1, h: "A tecnologia chegou na roça." },
+            { id: 6038, bloom: 4, q: "O que é 'poluição sonora'?", opts: ["Sujeira no chão", "Barulho excessivo que faz mal à saúde", "Música boa", "Gente falando baixo"], c: 1, h: "Comum nas grandes cidades." },
+            { id: 6039, bloom: 4, q: "Se uma indústria joga esgoto no rio que vai pro campo:", opts: ["Não acontece nada", "Pode contaminar a plantação e os animais", "A água fica limpa", "Os peixes gostam"], c: 1, h: "A água conecta os dois lugares." },
+            { id: 6040, bloom: 4, q: "Viver no campo ou na cidade. Qual é melhor?", opts: ["Cidade", "Campo", "Os dois têm vantagens e desvantagens", "Nenhum"], c: 2, h: "Um tem sossego, o outro tem serviços." }
+        ]
+    },
+    {
+        id: "circulacao",
+        name: "Circulação entre espaços",
+        prep: {
+            title: "O Vai e Vem",
+            content: "<p>A cidade e o campo são amigos! Um precisa do outro.<br>🚚 <strong>Campo manda:</strong> Comida e matéria-prima.<br>🚗 <strong>Cidade manda:</strong> Roupas, máquinas e tecnologia.</p>",
+            skin: "🚚"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 6101, bloom: 1, q: "O que leva os produtos do campo para a cidade?", opts: ["Mágica", "Caminhões e trens", "Vento", "Pássaros"], c: 1, h: "Eles viajam pelas estradas." },
+            { id: 6102, bloom: 1, q: "De onde vem o leite que compramos na caixinha?", opts: ["Da fábrica de plástico", "Da vaca no campo", "Do mar", "Da farmácia"], c: 1, h: "A caixinha é feita na cidade, o leite vem da roça." },
+            { id: 6103, bloom: 1, q: "O que é 'matéria-prima'?", opts: ["Uma prima legal", "O material natural usado para fabricar coisas", "Lixo", "Comida pronta"], c: 1, h: "Ex: Algodão para fazer roupa." },
+            { id: 6104, bloom: 1, q: "Para onde vai o lixo da cidade muitas vezes?", opts: ["Para o espaço", "Para aterros sanitários (longe do centro)", "Para o mar", "Fica na rua"], c: 1, h: "Precisam de áreas grandes e afastadas." },
+            { id: 6105, bloom: 1, q: "O algodão plantado no campo vira o quê na cidade?", opts: ["Comida", "Roupa (tecido)", "Ferro", "Vidro"], c: 1, h: "As fábricas tecem o fio." },
+            { id: 6106, bloom: 1, q: "O que a cidade fornece para o campo?", opts: ["Terra", "Arvores", "Tratores, vacinas e roupas", "Rios"], c: 2, h: "Produtos industrializados." },
+            { id: 6107, bloom: 1, q: "Como as pessoas do campo falam com quem está na cidade?", opts: ["Gritando", "Telefone e Internet", "Sinais de fumaça", "Não falam"], c: 1, h: "A tecnologia conecta os dois." },
+            { id: 6108, bloom: 1, q: "O que é 'êxodo rural'?", opts: ["Uma festa", "Quando pessoas saem do campo para morar na cidade", "Um tipo de planta", "Um remédio"], c: 1, h: "É a mudança de casa." },
+            { id: 6109, bloom: 1, q: "As estradas servem para:", opts: ["Enfeitar o mapa", "Conectar a cidade e o campo", "Os animais dormirem", "Nada"], c: 1, h: "Por elas passam pessoas e produtos." },
+            { id: 6110, bloom: 1, q: "Onde o café é empacotado?", opts: ["No pé de café", "Na indústria (cidade)", "No rio", "Na nuvem"], c: 1, h: "Ele é colhido no campo e processado na fábrica." },
+
+            // BLOOM 2 (Entender)
+            { id: 6111, bloom: 2, q: "Por que dizemos que cidade e campo são interdependentes?", opts: ["Porque são inimigos", "Porque um depende da ajuda do outro", "Porque são iguais", "Porque ficam longe"], c: 1, h: "Ninguém vive sozinho." },
+            { id: 6112, bloom: 2, q: "Se os caminhoneiros pararem, o que acontece?", opts: ["Fica tudo bem", "A cidade pode ficar sem comida", "Chove", "O campo muda de lugar"], c: 1, h: "Eles transportam tudo." },
+            { id: 6113, bloom: 2, q: "A madeira sai da floresta (campo) e vira o que na cidade?", opts: ["Água", "Móveis e papel", "Ferro", "Plástico"], c: 1, h: "As fábricas transformam a madeira." },
+            { id: 6114, bloom: 2, q: "O turismo rural acontece quando:", opts: ["Pessoas do campo vão à cidade", "Pessoas da cidade vão passear no campo", "Ninguém viaja", "Animais viajam"], c: 1, h: "Para descansar e ver a natureza." },
+            { id: 6115, bloom: 2, q: "Como a internet ajuda o agricultor?", opts: ["Não ajuda", "Ele vê a previsão do tempo e vende produtos", "Para jogar apenas", "Para ver filmes"], c: 1, h: "Informação é importante para plantar." },
+            { id: 6116, bloom: 2, q: "O suco de caixinha vem da fruta. Qual o caminho?", opts: ["Fábrica -> Campo", "Campo -> Fábrica -> Mercado", "Mercado -> Campo", "Fábrica -> Rio"], c: 1, h: "Nasce, processa, vende." },
+            { id: 6117, bloom: 2, q: "Por que as indústrias de alimentos ficam perto das cidades?", opts: ["Para vender mais fácil para as pessoas", "Porque gostam de barulho", "Por causa dos prédios", "Não sei"], c: 1, h: "Onde estão os consumidores." },
+            { id: 6118, bloom: 2, q: "Se chover muito e estragar a estrada de terra:", opts: ["O produto do campo não chega na cidade", "Fica tudo bem", "A cidade planta", "O caminhão voa"], c: 0, h: "O transporte é interrompido." },
+            { id: 6119, bloom: 2, q: "O couro do boi (campo) vira sapato (cidade). Isso é:", opts: ["Mágica", "Transformação da matéria-prima", "Desperdício", "Sujeira"], c: 1, h: "A indústria transforma." },
+            { id: 6120, bloom: 2, q: "Pessoas que moram no campo e trabalham na cidade fazem o movimento:", opts: ["De dormir", "Pendular (vai e volta)", "De pular", "De correr"], c: 1, h: "Viajam todo dia." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 6121, bloom: 3, q: "Você está comendo batata frita. A batata veio de onde?", opts: ["Da fábrica de plástico", "Da plantação no campo", "Do mar", "Da impressora"], c: 1, h: "Batata é um vegetal." },
+            { id: 6122, bloom: 3, q: "Seu celular foi feito na indústria, mas usa minérios. De onde vieram?", opts: ["Da mineração no campo", "Do céu", "Da árvore", "Da água"], c: 0, h: "Metais vêm da terra." },
+            { id: 6123, bloom: 3, q: "Se acabar a gasolina na cidade, o trator no campo:", opts: ["Funciona normal", "Para, pois precisa de combustível", "Usa água", "Usa vento"], c: 1, h: "O combustível é refinado na cidade." },
+            { id: 6124, bloom: 3, q: "Um agricultor usa um drone para ver a plantação. O drone é:", opts: ["Tecnologia da cidade no campo", "Um pássaro", "Uma fruta", "Nuvem"], c: 0, h: "Tecnologia aplicada." },
+            { id: 6125, bloom: 3, q: "A camiseta de algodão conecta:", opts: ["Apenas cidades", "O agricultor e a fábrica de tecidos", "Ninguém", "O peixe e o rio"], c: 1, h: "Campo planta, cidade costura." },
+            { id: 6126, bloom: 3, q: "Se o preço do tomate sobe na feira, pode ser porque:", opts: ["Choveu granizo na plantação (campo)", "O mercado quis", "O tomate fugiu", "Ninguém gosta de tomate"], c: 0, h: "Problemas no campo afetam o preço na cidade." },
+            { id: 6127, bloom: 3, q: "Para fazer um bolo, você usa trigo (campo) e batedeira (indústria). Você usou:", opts: ["Só campo", "Só cidade", "Produtos dos dois espaços", "Nenhum"], c: 2, h: "A mistura perfeita." },
+            { id: 6128, bloom: 3, q: "O lixo eletrônico (celular velho) jogado no campo:", opts: ["Vira adubo", "Contamina o solo e a água", "Vira planta", "Some"], c: 1, h: "Poluição da cidade afetando o campo." },
+            { id: 6129, bloom: 3, q: "Um hotel fazenda oferece:", opts: ["Prédios altos", "Experiência de vida rural para turistas", "Metrô", "Shopping"], c: 1, h: "Turismo rural." },
+            { id: 6130, bloom: 3, q: "A eletricidade da cidade muitas vezes vem de:", opts: ["Lojas", "Usinas hidrelétricas em rios (áreas rurais)", "Carros", "Postes"], c: 1, h: "A energia é gerada longe e vem por fios." },
+
+            // BLOOM 4 (Analisar)
+            { id: 6131, bloom: 4, q: "O que acontece se a cidade parar de comprar do campo?", opts: ["O campo fica rico", "O agricultor perde dinheiro e para de plantar", "A cidade melhora", "Nada"], c: 1, h: "O campo precisa vender para sobreviver." },
+            { id: 6132, bloom: 4, q: "O que acontece se o campo parar de produzir?", opts: ["A cidade fica sem comida", "A cidade come plástico", "Fica tudo bem", "A cidade planta tudo nos prédios"], c: 0, h: "A cidade não tem espaço para plantar tudo." },
+            { id: 6133, bloom: 4, q: "A modernização (máquinas) no campo causou:", opts: ["Mais empregos braçais", "Menos necessidade de gente, gerando êxodo rural", "Mais chuva", "Nada"], c: 1, h: "A máquina faz o trabalho de muitos homens." },
+            { id: 6134, bloom: 4, q: "Comparando: Feira livre vs Supermercado.", opts: ["Feira tem produtos mais diretos do campo; Mercado tem mais industrializados", "São iguais", "Mercado é ruim", "Feira não tem comida"], c: 0, h: "A feira conecta mais rápido o produtor." },
+            { id: 6135, bloom: 4, q: "Por que é importante ter boas estradas?", opts: ["Para correr", "Para facilitar a circulação de produtos e pessoas", "Para gastar asfalto", "Para os animais"], c: 1, h: "Sem estrada, a conexão quebra." },
+            { id: 6136, bloom: 4, q: "O desperdício de comida na cidade afeta o campo?", opts: ["Não", "Sim, desperdiça o trabalho e recursos naturais usados para plantar", "Afeta o mar", "Só afeta o lixo"], c: 1, h: "Jogar comida fora é jogar fora água e terra." },
+            { id: 6137, bloom: 4, q: "Produtos orgânicos (sem veneno) são uma tendência. Por quê?", opts: ["Porque são mais feios", "Pessoas da cidade buscam mais saúde vinda do campo", "Porque são azuis", "Porque são de plástico"], c: 1, h: "Valorização da natureza." },
+            { id: 6138, bloom: 4, q: "A poluição do ar na cidade pode afetar o campo?", opts: ["Sim, a chuva ácida e o vento levam a poluição", "Não, tem um muro", "A poluição some", "O campo gosta"], c: 0, h: "O ar não tem fronteiras." },
+            { id: 6139, bloom: 4, q: "Quem é mais importante: Cidade ou Campo?", opts: ["Cidade", "Campo", "Os dois são igualmente importantes e conectados", "Nenhum"], c: 2, h: "É um ciclo de ajuda mútua." },
+            { id: 6140, bloom: 4, q: "Como podemos diminuir a distância entre campo e cidade?", opts: ["Construindo muros", "Valorizando o produtor local e conhecendo a origem do alimento", "Parando de comer", "Fechando estradas"], c: 1, h: "Saber de onde vem a comida conecta as pessoas." }
+        ]
+    },
+    {
+        id: "ciclo_agua",
+        name: "Ciclo da água",
+        prep: {
+            title: "A Viagem da Água",
+            content: "<p>A água nunca para quieta! Ela viaja do chão para o céu e volta. [Image of water cycle diagram for kids] <br>☀️ Sol esquenta -> Vira vapor (Evaporação).<br>☁️ Nuvens -> Chuva (Precipitação).<br>💧 Terra -> Rios e lençóis (Infiltração).</p>",
+            skin: "💧"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 6201, bloom: 1, q: "O que faz a água dos rios virar vapor?", opts: ["O frio", "O calor do Sol", "O vento", "Os peixes"], c: 1, h: "O sol aquece a água." },
+            { id: 6202, bloom: 1, q: "Como chamamos quando a água cai das nuvens?", opts: ["Subida", "Precipitação (Chuva)", "Evaporação", "Seca"], c: 1, h: "É a chuva caindo." },
+            { id: 6203, bloom: 1, q: "Onde a água da chuva entra?", opts: ["No vidro", "No solo (Infiltração) e rios", "No fogo", "No espaço"], c: 1, h: "A terra bebe a água." },
+            { id: 6204, bloom: 1, q: "O que são as nuvens?", opts: ["Algodão doce", "Gotas de água ou cristais de gelo juntos", "Fumaça de carro", "Papel"], c: 1, h: "Vapor que esfriou lá no alto." },
+            { id: 6205, bloom: 1, q: "A água pode virar gelo?", opts: ["Sim, se esquentar", "Sim, se esfriar muito", "Não", "Só na lua"], c: 1, h: "No congelador vira gelo." },
+            { id: 6206, bloom: 1, q: "A água pode virar gás (vapor)?", opts: ["Sim, se ferver ou evaporar", "Não, nunca", "Só se for mágica", "Só de noite"], c: 0, h: "Na panela quente ela some." },
+            { id: 6207, bloom: 1, q: "O ciclo da água tem fim?", opts: ["Sim, acaba amanhã", "Não, é um ciclo contínuo", "Acaba quando chove", "Acaba no mar"], c: 1, h: "Acontece sem parar, repetidamente." },
+            { id: 6208, bloom: 1, q: "O que acontece com a poça d'água no sol?", opts: ["Ela cresce", "Ela evapora (seca)", "Ela congela", "Ela vira pedra"], c: 1, h: "A água sobe como vapor." },
+            { id: 6209, bloom: 1, q: "De onde vem a água da chuva?", opts: ["Do espaço", "Das nuvens", "Do telhado", "Das árvores"], c: 1, h: "As nuvens ficam pesadas e soltam água." },
+            { id: 6210, bloom: 1, q: "A água subterrânea fica:", opts: ["No céu", "Embaixo da terra", "Nas folhas", "No mar"], c: 1, h: "Fica nos lençóis freáticos." },
+
+            // BLOOM 2 (Entender)
+            { id: 6211, bloom: 2, q: "O que é evaporação?", opts: ["Água virando gelo", "Água líquida virando vapor", "Gelo derretendo", "Chuva caindo"], c: 1, h: "É quando a água sobe invisível." },
+            { id: 6212, bloom: 2, q: "O que é condensação?", opts: ["Vapor virando gotinhas (nuvem)", "Água virando vapor", "Água congelando", "Chuva"], c: 0, h: "O vapor esfria e vira líquido de novo." },
+            { id: 6213, bloom: 2, q: "Por que chove?", opts: ["Porque as nuvens ficam cheias e pesadas", "Porque o céu está triste", "Porque o sol dormiu", "Porque o vento empurra"], c: 0, h: "A gravidade puxa as gotas." },
+            { id: 6214, bloom: 2, q: "As plantas participam do ciclo da água?", opts: ["Não", "Sim, elas liberam vapor (transpiração)", "Só as árvores de Natal", "Elas bebem mas não devolvem"], c: 1, h: "As plantas suam pelas folhas." },
+            { id: 6215, bloom: 2, q: "O ciclo da água limpa a água?", opts: ["Sim, ao evaporar a sujeira fica", "Não, a sujeira sobe junto", "Deixa a água suja", "Não faz nada"], c: 0, h: "A evaporação é um filtro natural." },
+            { id: 6216, bloom: 2, q: "Se não tiver sol, o ciclo para?", opts: ["Acelera", "Fica mais lento, pois precisa de calor", "Para totalmente", "Não muda nada"], c: 1, h: "O sol é o motor do ciclo." },
+            { id: 6217, bloom: 2, q: "A água que bebemos hoje é:", opts: ["Nova, veio do espaço", "A mesma água que existe há bilhões de anos", "Fabricada na loja", "Mágica"], c: 1, h: "A água se recicla na Terra." },
+            { id: 6218, bloom: 2, q: "O que é lençol freático?", opts: ["Um lençol de cama molhado", "Reserva de água embaixo do solo", "Uma nuvem baixa", "Um rio voador"], c: 1, h: "Água escondida na terra." },
+            { id: 6219, bloom: 2, q: "Por que vemos nossa 'fumacinha' no frio?", opts: ["Estamos pegando fogo", "O vapor da nossa boca condensa no ar frio", "É mágica", "É fumaça de poluição"], c: 1, h: "Igual a fazer nuvem." },
+            { id: 6220, bloom: 2, q: "O granizo (chuva de gelo) acontece quando:", opts: ["Está muito calor", "As gotas congelam lá no alto da nuvem", "Alguém joga gelo do avião", "A nuvem é de pedra"], c: 1, h: "Frio intenso na atmosfera." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 6221, bloom: 3, q: "Se você deixar um copo d'água no sol por dias, o que acontece?", opts: ["A água some (evapora)", "A água congela", "A água muda de cor", "O copo quebra"], c: 0, h: "O calor transforma em vapor." },
+            { id: 6222, bloom: 3, q: "Quando você toma banho quente e o espelho embaça, isso é:", opts: ["Evaporação e Condensação", "Chuva", "Infiltração", "Solidificação"], c: 0, h: "O vapor encosta no vidro frio e vira água." },
+            { id: 6223, bloom: 3, q: "Secar roupa no varal depende da:", opts: ["Chuva", "Evaporação da água da roupa", "Lua", "Terra"], c: 1, h: "A água sai da roupa para o ar." },
+            { id: 6224, bloom: 3, q: "Se taparmos o solo com cimento, a água da chuva:", opts: ["Infiltra melhor", "Não infiltra e causa enchentes", "Desaparece", "Vira gelo"], c: 1, h: "O cimento bloqueia a entrada na terra." },
+            { id: 6225, bloom: 3, q: "A tampa da panela molhada quando a comida cozinha é exemplo de:", opts: ["Condensação", "Chuva", "Seca", "Gelo"], c: 0, h: "O vapor bate na tampa e vira gota." },
+            { id: 6226, bloom: 3, q: "Em dias úmidos (muito vapor no ar), a roupa no varal:", opts: ["Seca rápido", "Demora mais para secar", "Pega fogo", "Congela"], c: 1, h: "O ar já está cheio de água." },
+            { id: 6227, bloom: 3, q: "Para formar gelo, preciso colocar a água:", opts: ["No sol", "No freezer (tirar calor)", "No armário", "No fogo"], c: 1, h: "Precisa esfriar muito." },
+            { id: 6228, bloom: 3, q: "O orvalho na grama de manhã é:", opts: ["Chuva que caiu", "Vapor do ar que condensou no frio da noite", "Alguém regou", "Suor da grama"], c: 1, h: "O ar frio faz o vapor virar gotinhas." },
+            { id: 6229, bloom: 3, q: "Árvores ajudam a chover porque:", opts: ["Elas pedem chuva", "Elas soltam muito vapor no ar", "Elas seguram as nuvens", "Elas choram"], c: 1, h: "A floresta transpira e forma nuvens." },
+            { id: 6230, bloom: 3, q: "Se eu ferver a água, ela passa do estado:", opts: ["Sólido para Líquido", "Líquido para Gasoso", "Gasoso para Sólido", "Líquido para Sólido"], c: 1, h: "Vira fumaça (vapor)." },
+
+            // BLOOM 4 (Analisar)
+            { id: 6231, bloom: 4, q: "Se cortarmos todas as árvores, o que acontece com o ciclo da água?", opts: ["Melhora", "Chove menos e o clima muda", "Fica igual", "Chove mais"], c: 1, h: "Menos árvores, menos vapor, menos chuva." },
+            { id: 6232, bloom: 4, q: "Por que em cidades grandes tem mais enchentes que na floresta?", opts: ["Porque chove mais", "Porque o asfalto não deixa a água entrar na terra", "Porque tem bueiro", "Porque Deus quer"], c: 1, h: "Impermeabilização do solo." },
+            { id: 6233, bloom: 4, q: "A água do mar é salgada, mas a chuva é doce. Por quê?", opts: ["O sal não evapora, só a água", "O sal cai antes", "A nuvem tem açúcar", "O mar não evapora"], c: 0, h: "O sal é pesado e fica no mar." },
+            { id: 6234, bloom: 4, q: "O ciclo da água é importante porque:", opts: ["É bonito", "Distribui a água pelo planeta e permite a vida", "Molha os carros", "Faz barulho"], c: 1, h: "Sem ele, a água não chegaria a todos os lugares." },
+            { id: 6235, bloom: 4, q: "Se o planeta esquentar muito (aquecimento global):", opts: ["O ciclo acelera e causa tempestades mais fortes", "O ciclo para", "A água congela", "Nada acontece"], c: 0, h: "Mais calor = mais evaporação = mais energia." },
+            { id: 6236, bloom: 4, q: "Um cacto no deserto e uma planta na floresta. Quem transpira mais?", opts: ["O cacto", "A planta da floresta", "Igual", "Nenhuma"], c: 1, h: "Na floresta tem mais água disponível." },
+            { id: 6237, bloom: 4, q: "Por que a roupa seca mais rápido com vento?", opts: ["O vento empurra as partículas de água para longe", "O vento esquenta", "O vento quebra a água", "Mágica"], c: 0, h: "O vento renova o ar ao redor." },
+            { id: 6238, bloom: 4, q: "Qual a relação entre rios voadores e a Amazônia?", opts: ["Nenhuma", "A umidade da Amazônia viaja pelo céu e faz chover no Sul", "Rios voam de verdade", "É lenda"], c: 1, h: "Massas de vapor gigantes." },
+            { id: 6239, bloom: 4, q: "Se poluirmos o rio, a água evapora suja?", opts: ["Sim, leva o lixo", "Não, evapora limpa, mas a poluição fica e mata os peixes", "Vira ácido", "O rio seca"], c: 1, h: "A sujeira fica concentrada." },
+            { id: 6240, bloom: 4, q: "O ciclo da água renova a quantidade de água no mundo?", opts: ["Sim, cria água nova", "Não, a quantidade é a mesma, só muda de lugar e estado", "Diminui a água", "Aumenta a água"], c: 1, h: "Nada se cria, tudo se transforma." }
+        ]
+    },
+    {
+        id: "abastecimento_agua",
+        name: "Abastecimento de água",
+        prep: {
+            title: "Da Fonte à Torneira",
+            content: "<p>Como a água chega limpa na sua casa? <br>1. <strong>Captação:</strong> Tira do rio/represa.<br>2. <strong>ETA:</strong> Estação de Tratamento (Limpeza).<br>3. <strong>Distribuição:</strong> Canos até a caixa d'água.</p>",
+            skin: "🚰"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 6301, bloom: 1, q: "O que significa ETA?", opts: ["Estação de Trem Azul", "Estação de Tratamento de Água", "Escola Técnica", "Espaço de Terra"], c: 1, h: "Lugar onde limpam a água." },
+            { id: 6302, bloom: 1, q: "De onde vem a água da torneira geralmente?", opts: ["Do mar direto", "De rios e represas", "Da chuva direto", "Do esgoto"], c: 1, h: "Fontes de água doce." },
+            { id: 6303, bloom: 1, q: "Onde guardamos água em casa?", opts: ["Na gaveta", "Na caixa d'água", "No bolso", "No telhado solto"], c: 1, h: "Reservatório doméstico." },
+            { id: 6304, bloom: 1, q: "Para que serve o cloro na água?", opts: ["Dar sabor", "Matar micróbios e bactérias", "Deixar azul", "Esfriar"], c: 1, h: "Desinfeta a água." },
+            { id: 6305, bloom: 1, q: "O que leva a água da rua para casa?", opts: ["Caminhões", "Canos (tubulações)", "Baldes", "Vento"], c: 1, h: "Rede de distribuição subterrânea." },
+            { id: 6306, bloom: 1, q: "A água do mar é boa para beber?", opts: ["Sim, é doce", "Não, é muito salgada", "Sim, é gelada", "Talvez"], c: 1, h: "O sal faz mal em excesso." },
+            { id: 6307, bloom: 1, q: "O que é 'água potável'?", opts: ["Água suja", "Água própria para beber", "Água de piscina", "Água colorida"], c: 1, h: "Segura para a saúde." },
+            { id: 6308, bloom: 1, q: "Quem cuida do tratamento da água?", opts: ["A escola", "A companhia de saneamento", "O médico", "A polícia"], c: 1, h: "Empresas especializadas." },
+            { id: 6309, bloom: 1, q: "O que é flúor na água?", opts: ["Um veneno", "Um produto para proteger os dentes", "Um corante", "Açúcar"], c: 1, h: "Ajuda contra cáries." },
+            { id: 6310, bloom: 1, q: "Depois que usamos a água, ela vira:", opts: ["Ouro", "Esgoto", "Vapor", "Nada"], c: 1, h: "Água suja que desce pelo ralo." },
+
+            // BLOOM 2 (Entender)
+            { id: 6311, bloom: 2, q: "Por que não podemos beber água direto do rio?", opts: ["Porque é quente", "Pode ter sujeira e doenças", "Porque é proibido", "Porque tem peixe"], c: 1, h: "Precisa ser tratada antes." },
+            { id: 6312, bloom: 2, q: "O que acontece na Estação de Tratamento (ETA)?", opts: ["A água é fabricada", "A sujeira é removida e matam os germes", "A água é aquecida", "Colocam peixes"], c: 1, h: "Filtram e limpam." },
+            { id: 6313, bloom: 2, q: "Por que a caixa d'água deve ficar tampada?", opts: ["Para não cair bicho e evitar dengue", "Para a água não fugir", "Para ficar escuro", "Para não congelar"], c: 0, h: "Mosquitos gostam de água parada limpa." },
+            { id: 6314, bloom: 2, q: "O que é decantação no tratamento da água?", opts: ["Cantar para a água", "Deixar a sujeira pesada ir para o fundo", "Ferver a água", "Filtrar"], c: 1, h: "A sujeira descansa e afunda." },
+            { id: 6315, bloom: 2, q: "A filtração serve para:", opts: ["Segurar as partículas sólidas de sujeira", "Matar bactérias", "Dar gosto", "Esquentar"], c: 0, h: "Passa por areia e pedras." },
+            { id: 6316, bloom: 2, q: "Se faltar luz, pode faltar água. Por quê?", opts: ["A água tem medo de escuro", "As bombas que empurram a água usam eletricidade", "O cano fecha", "Não tem relação"], c: 1, h: "Precisamos de força para bombear." },
+            { id: 6317, bloom: 2, q: "O que é esgoto?", opts: ["Água limpa", "Água usada com sujeira do banheiro e pia", "Água da chuva", "Água do mar"], c: 1, h: "Água residual." },
+            { id: 6318, bloom: 2, q: "A água sai da ETA e vai para:", opts: ["O rio", "Grandes reservatórios e depois casas", "O céu", "A lua"], c: 1, h: "Armazenada antes de distribuir." },
+            { id: 6319, bloom: 2, q: "Por que pagamos conta de água?", opts: ["Pela água em si", "Pelo serviço de tratar e levar até a casa", "Para o prefeito", "Porque sim"], c: 1, h: "O tratamento e transporte custam caro." },
+            { id: 6320, bloom: 2, q: "Água mineral é:", opts: ["Água com açúcar", "Água natural com sais minerais", "Água fervida", "Água de esgoto"], c: 1, h: "Vem de fontes naturais." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 6321, bloom: 3, q: "Se a água da torneira sair marrom, você deve:", opts: ["Beber rápido", "Não beber e avisar os pais", "Tomar banho", "Congelar"], c: 1, h: "Sinal de sujeira ou problema no cano." },
+            { id: 6322, bloom: 3, q: "Para limpar a água em casa se não tiver filtro, podemos:", opts: ["Ferver ou usar hipoclorito", "Colocar açúcar", "Deixar no sol", "Agitar"], c: 0, h: "Mata os germes." },
+            { id: 6323, bloom: 3, q: "Se você ver um cano estourado na rua:", opts: ["Brinca na água", "Avisa a companhia de água para consertar", "Ignora", "Bebe"], c: 1, h: "Evita desperdício." },
+            { id: 6324, bloom: 3, q: "Limpar a caixa d'água a cada 6 meses ajuda a:", opts: ["Gastar água", "Manter a qualidade da água", "Quebrar a caixa", "Nada"], c: 1, h: "Tira a sujeira acumulada." },
+            { id: 6325, bloom: 3, q: "Jogar óleo na pia:", opts: ["Entope o cano e polui a água", "Limpa o cano", "Ajuda os peixes", "Não faz nada"], c: 0, h: "Óleo e água não se misturam e poluem." },
+            { id: 6326, bloom: 3, q: "Se moramos em um lugar alto, a água precisa de:", opts: ["Mais força (pressão) para subir", "Menos força", "Mágica", "Elevador"], c: 0, h: "Bombas empurram a água para cima." },
+            { id: 6327, bloom: 3, q: "Usar filtro de barro ou purificador serve para:", opts: ["Enfeitar", "Garantir uma limpeza extra antes de beber", "Esquentar", "Piorar a água"], c: 1, h: "Retém impurezas finais." },
+            { id: 6328, bloom: 3, q: "Água de poço (cisterna) precisa ser testada? Por quê?", opts: ["Não, é sempre limpa", "Sim, pode estar contaminada pelo solo", "Não, poço é mágico", "Só se for fundo"], c: 1, h: "Fossas perto podem sujar a água." },
+            { id: 6329, bloom: 3, q: "O caminhão pipa serve para:", opts: ["Molhar o asfalto", "Levar água onde não tem encanamento ou faltou água", "Passear", "Apagar fogo só"], c: 1, h: "Transporte de água." },
+            { id: 6330, bloom: 3, q: "Nas secas, o nível das represas:", opts: ["Sobe", "Baixa e pode faltar água", "Fica igual", "Congela"], c: 1, h: "Sem chuva, o estoque diminui." },
+
+            // BLOOM 4 (Analisar)
+            { id: 6331, bloom: 4, q: "Qual a diferença entre ETA e ETE?", opts: ["Nenhuma", "ETA trata água pra beber; ETE trata esgoto pra devolver ao rio", "ETE é melhor", "ETA é suja"], c: 1, h: "Uma limpa para entrar, outra para sair." },
+            { id: 6332, bloom: 4, q: "Se jogarmos lixo no rio antes da captação:", opts: ["O tratamento fica mais difícil e caro", "Não muda nada", "A água fica melhor", "Os peixes comem"], c: 0, h: "Mais sujeira = mais trabalho para limpar." },
+            { id: 6333, bloom: 4, q: "Por que algumas pessoas não têm água encanada?", opts: ["Porque não querem", "Falta de investimento em saneamento básico", "Porque preferem rio", "Porque é moda"], c: 1, h: "Problema social e político." },
+            { id: 6334, bloom: 4, q: "Beber água salgada desidrata. Por quê?", opts: ["Porque é ruim", "O excesso de sal faz o corpo perder mais água para se livrar dele", "O sal queima", "Não desidrata"], c: 1, h: "O rim trabalha demais." },
+            { id: 6335, bloom: 4, q: "A água é um recurso finito ou infinito?", opts: ["Infinito, nunca acaba", "Finito (a água doce e limpa é pouca)", "Tem muita água", "Não sei"], c: 1, h: "Podemos ficar sem água boa se não cuidar." },
+            { id: 6336, bloom: 4, q: "Fervura vs Cloro. Qual a diferença?", opts: ["Fervura usa calor, cloro é químico. Ambos matam germes", "Fervura é melhor", "Cloro é melhor", "Nenhuma"], c: 0, h: "Métodos diferentes, mesmo objetivo." },
+            { id: 6337, bloom: 4, q: "O que acontece se o esgoto for jogado direto no rio sem ETE?", opts: ["Mata a vida no rio e espalha doenças", "Aduba o rio", "Limpa o rio", "Os peixes crescem"], c: 0, h: "Poluição grave." },
+            { id: 6338, bloom: 4, q: "Reuso da água (ex: água da máquina de lavar) serve para:", opts: ["Beber", "Lavar quintal e economizar água potável", "Tomar banho", "Cozinhar"], c: 1, h: "Água cinza serve para limpeza bruta." },
+            { id: 6339, bloom: 4, q: "Por que a água tem gosto de cloro as vezes?", opts: ["Exagero no tratamento ou canos novos", "É sabor natural", "É sujeira", "É açúcar"], c: 0, h: "Resíduo do processo de desinfecção." },
+            { id: 6340, bloom: 4, q: "Sem saneamento básico (água e esgoto), o que aumenta?", opts: ["A saúde", "As doenças como diarreia e verminoses", "A alegria", "O dinheiro"], c: 1, h: "Água suja transmite doenças." }
+        ]
+    },
+    {
+        id: "importancia_agua",
+        name: "Importância da água",
+        prep: {
+            title: "Água é Vida",
+            content: "<p>Sem água, nada sobrevive! <br>🌊 <strong>Uso:</strong> Beber, higiene, plantar, gerar energia.<br>🚫 <strong>Cuidado:</strong> Não desperdice, ela pode acabar!</p>",
+            skin: "🌊"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 6401, bloom: 1, q: "Quem precisa de água para viver?", opts: ["Ninguém", "Todos os seres vivos (plantas, animais, pessoas)", "Só peixes", "Só plantas"], c: 1, h: "É essencial para a vida." },
+            { id: 6402, bloom: 1, q: "A maior parte do nosso corpo é feita de:", opts: ["Osso", "Água", "Músculo", "Ar"], c: 1, h: "Cerca de 70%." },
+            { id: 6403, bloom: 1, q: "Para que usamos água em casa?", opts: ["Apenas beber", "Banho, limpeza, cozinhar", "Queimar", "Nada"], c: 1, h: "Higiene e alimentação." },
+            { id: 6404, bloom: 1, q: "A água serve para gerar:", opts: ["Vento", "Eletricidade (em hidrelétricas)", "Fogo", "Terra"], c: 1, h: "A força da água move turbinas." },
+            { id: 6405, bloom: 1, q: "Onde tem mais água no mundo?", opts: ["Nos rios", "Nos oceanos (água salgada)", "Nas nuvens", "Nas caixas d'água"], c: 1, h: "O mar cobre a maior parte da Terra." },
+            { id: 6406, bloom: 1, q: "Podemos viver sem água?", opts: ["Sim, por anos", "Não, apenas poucos dias", "Sim, bebendo suco", "Talvez"], c: 1, h: "Desidratação mata rápido." },
+            { id: 6407, bloom: 1, q: "A água é usada na agricultura para:", opts: ["Lavar o trator", "Regar as plantações (irrigação)", "Afogar plantas", "Nada"], c: 1, h: "Plantas precisam beber." },
+            { id: 6408, bloom: 1, q: "Qual a cor da água pura?", opts: ["Azul", "Branca", "Incolor (sem cor)", "Transparente azulada"], c: 2, h: "Não tem cor, cheiro nem gosto." },
+            { id: 6409, bloom: 1, q: "O que é desperdício de água?", opts: ["Beber água", "Deixar a torneira aberta sem usar", "Regar planta", "Tomar banho rápido"], c: 1, h: "Jogar água fora à toa." },
+            { id: 6410, bloom: 1, q: "Animais aquáticos vivem:", opts: ["Na terra", "Na água", "No ar", "No fogo"], c: 1, h: "Peixes, baleias, polvos." },
+
+            // BLOOM 2 (Entender)
+            { id: 6411, bloom: 2, q: "Por que devemos economizar água?", opts: ["Porque é cara", "Porque a água doce disponível é pouca", "Porque o governo manda", "Porque sim"], c: 1, h: "Recurso escasso." },
+            { id: 6412, bloom: 2, q: "Como a água regula a temperatura do corpo?", opts: ["Pelo suor", "Pelo cabelo", "Pela unha", "Pelo dente"], c: 0, h: "Suar resfria a pele." },
+            { id: 6413, bloom: 2, q: "A indústria usa água para quê?", opts: ["Só para os funcionários beberem", "Para fabricar produtos, lavar e resfriar máquinas", "Para nada", "Para encher piscina"], c: 1, h: "Fazer roupa, papel e metal gasta muita água." },
+            { id: 6414, bloom: 2, q: "Se a água do rio acabar, o que acontece com os animais?", opts: ["Mudam de casa", "Morrem ou sofrem muito", "Compram água", "Ficam felizes"], c: 1, h: "Eles dependem do rio." },
+            { id: 6415, bloom: 2, q: "Água salgada serve para beber?", opts: ["Sim", "Não, faz mal", "Serve para cozinhar", "Serve para plantas"], c: 1, h: "Tem muito sal." },
+            { id: 6416, bloom: 2, q: "Por que a água é chamada de 'solvente universal'?", opts: ["Porque dissolve muitas coisas", "Porque resolve problemas", "Porque é do universo", "Porque é solta"], c: 0, h: "Mistura com açúcar, sal, etc." },
+            { id: 6417, bloom: 2, q: "O que é 'pegada hídrica'?", opts: ["Marca de pé molhado", "Quantidade de água gasta para fazer um produto", "Um sapato d'água", "Água no chão"], c: 1, h: "Quanto de água gastou para fazer sua calça?" },
+            { id: 6418, bloom: 2, q: "A água ajuda no transporte?", opts: ["Não", "Sim, em navios e barcos (hidrovias)", "Só de submarino", "Só de lancha"], c: 1, h: "Rios e mares são estradas de água." },
+            { id: 6419, bloom: 2, q: "Lavar a calçada com mangueira é:", opts: ["Necessário", "Desperdício, use vassoura", "Bom", "Rápido"], c: 1, h: "Gasta litros por minuto." },
+            { id: 6420, bloom: 2, q: "A água ajuda a limpar o planeta?", opts: ["Não", "Sim, a chuva limpa o ar e leva sujeira", "Sujo", "Talvez"], c: 1, h: "A natureza se lava." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 6421, bloom: 3, q: "Ao escovar os dentes, você deve:", opts: ["Deixar a torneira aberta", "Fechar a torneira enquanto escova", "Usar mangueira", "Não usar água"], c: 1, h: "Economia simples." },
+            { id: 6422, bloom: 3, q: "Para lavar o carro economizando, use:", opts: ["Mangueira ligada", "Balde", "Chuva", "Rio"], c: 1, h: "Balde controla a quantidade." },
+            { id: 6423, bloom: 3, q: "Se você vir um vazamento em casa:", opts: ["Deixa pingar", "Avisa um adulto para consertar", "Brinca com a água", "Põe um copo"], c: 1, h: "Gota a gota se perde muito." },
+            { id: 6424, bloom: 3, q: "Comer menos carne economiza água? Por quê?", opts: ["Não tem relação", "Sim, criar gado gasta muita água (beber e pasto)", "Carne é seca", "O boi não bebe água"], c: 1, h: "A produção de carne consome muita água." },
+            { id: 6425, bloom: 3, q: "Reutilizar a água da chuva serve para:", opts: ["Beber", "Lavar quintal e regar plantas", "Tomar banho", "Cozinhar"], c: 1, h: "Não é potável, mas serve para limpeza." },
+            { id: 6426, bloom: 3, q: "Se a água do mundo acabasse hoje:", opts: ["Compraríamos água", "A vida na Terra acabaria em poucos dias", "Beberíamos leite", "Nada mudaria"], c: 1, h: "Sem água, sem vida." },
+            { id: 6427, bloom: 3, q: "Tomar banho de 5 minutos em vez de 20:", opts: ["Não limpa", "Economiza muita água e energia", "É ruim", "Gasta mais"], c: 1, h: "Banhos rápidos salvam o planeta." },
+            { id: 6428, bloom: 3, q: "Plantar árvores na beira do rio (mata ciliar) ajuda a:", opts: ["Esconder o rio", "Proteger a água de secar e da terra cair", "Atrapalhar o rio", "Sujar a água"], c: 1, h: "Protege a nascente e o curso." },
+            { id: 6429, bloom: 3, q: "Se poluirmos o oceano, prejudicamos:", opts: ["Ninguém", "A vida marinha e o clima do planeta", "Só os peixes", "Os navios"], c: 1, h: "O mar regula o clima." },
+            { id: 6430, bloom: 3, q: "Uma torneira pingando o dia todo:", opts: ["Não gasta nada", "Enche muitos baldes (desperdício)", "É legal", "Faz música"], c: 1, h: "Pode gastar 40 litros por dia." },
+
+            // BLOOM 4 (Analisar)
+            { id: 6431, bloom: 4, q: "O Brasil tem muita água, então por que falta em alguns lugares?", opts: ["O Brasil é pequeno", "Má distribuição, poluição e desperdício", "A água fugiu", "Porque é salgada"], c: 1, h: "Tem muita na Amazônia, pouca no Nordeste." },
+            { id: 6432, bloom: 4, q: "Qual a relação entre desmatamento e falta d'água?", opts: ["Nenhuma", "Sem árvores, chove menos e as nascentes secam", "As árvores bebem a água toda", "O sol fica mais forte"], c: 1, h: "A floresta produz chuva." },
+            { id: 6433, bloom: 4, q: "Água é um direito ou uma mercadoria?", opts: ["Mercadoria, só tem quem paga", "Direito humano essencial à vida", "Nenhum", "Brinquedo"], c: 1, h: "Todos deveriam ter acesso." },
+            { id: 6434, bloom: 4, q: "O que gasta mais água: uso doméstico ou agricultura?", opts: ["Doméstico", "Agricultura (irrigação)", "Indústria", "Escola"], c: 1, h: "Plantações gastam 70% da água." },
+            { id: 6435, bloom: 4, q: "Se a água é um ciclo fechado, por que dizem que vai acabar?", opts: ["É mentira", "Porque estamos poluindo a água limpa mais rápido do que ela se limpa", "Ela vira pedra", "O sol bebe tudo"], c: 1, h: "A água potável fica escassa." },
+            { id: 6436, bloom: 4, q: "Dessalinizar a água do mar é a solução?", opts: ["Sim, é fácil e barato", "Ajuda, mas é muito caro e gasta muita energia", "Não funciona", "O sal volta"], c: 1, h: "Tecnologia cara." },
+            { id: 6437, bloom: 4, q: "Conflitos por água podem acontecer?", opts: ["Não, tem muita", "Sim, se a água ficar escassa, países podem brigar", "Só em filme", "Água acalma"], c: 1, h: "A 'guerra da água' é um risco." },
+            { id: 6438, bloom: 4, q: "Poluir a água subterrânea é pior que o rio?", opts: ["Igual", "Pior, pois é muito difícil de limpar lá embaixo", "Melhor", "Não polui"], c: 1, h: "O dano é quase irreversível." },
+            { id: 6439, bloom: 4, q: "O que é 'água virtual'?", opts: ["Água de jogo", "A água usada para produzir coisas que compramos", "Água falsa", "Nuvem"], c: 1, h: "Água embutida no produto." },
+            { id: 6440, bloom: 4, q: "A responsabilidade de cuidar da água é:", opts: ["Do governo", "Das empresas", "De todos nós", "Dos peixes"], c: 2, h: "Coletiva." }
+        ]
+    }
+]},
         { id: "ing", name: "Inglês", icon: "💂", color: "bg-pink-500", accent: "border-pink-600", categories: [
             {id: "fruits",
                     name: "Fruits",
