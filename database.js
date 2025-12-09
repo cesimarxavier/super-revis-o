@@ -730,13 +730,182 @@ const DB = {
             
         ] },
         {   id: "hist", name: "História", icon: "🏛️", color: "bg-yellow-500", accent: "border-yellow-600", categories: [
-            { id: "heranca_indigena", name: "Herança indígena", prep: { title: "Marcas indígenas", content: "<p>Palavras, comidas, costumes indígenas presentes no nosso dia a dia.</p>", skin: "🏹" }, pool: [] },
-            { id: "africanos", name: "Os africanos", prep: { title: "Povos africanos", content: "<p>Origem, culturas e trajetórias de povos africanos.</p>", skin: "🌍" }, pool: [] },
-            { id: "vida_escravizados", name: "Vida dos africanos escravizados", prep: { title: "Tempo de escravidão", content: "<p>As condições de vida, resistência e lutas das pessoas escravizadas.</p>", skin: "⛓️" }, pool: [] },
-            { id: "heranca_africana", name: "Herança africana", prep: { title: "Marcas africanas", content: "<p>Música, religião, comidas e costumes de origem africana no Brasil.</p>", skin: "🥁" }, pool: [] },
-            { id: "diferencas_culturais", name: "Diferenças culturais no Brasil", prep: { title: "Um país diverso", content: "<p>O Brasil é feito de muitas culturas, tradições e sotaques.</p>", skin: "🎭" }, pool: [] }
-            
-        ] },
+    {
+        id: "heranca_indigena",
+        name: "Herança indígena",
+        prep: {
+            title: "Marcas indígenas",
+            content: "<p>Muitas coisas que fazemos hoje vieram dos povos indígenas! <br><br><strong>Comidas:</strong> Mandioca, milho, pipoca.<br><strong>Costumes:</strong> Tomar banho todos os dias, dormir em rede.<br><strong>Palavras:</strong> Abacaxi, pipoca, perereca.</p>",
+            skin: "🏹"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 1001, bloom: 1, q: "Qual destes alimentos é de origem indígena?", opts: ["Hambúrguer", "Mandioca", "Pizza", "Sushi"], c: 1, h: "É uma raiz muito usada para fazer farinha e tapioca." },
+            { id: 1002, bloom: 1, q: "Onde muitos povos indígenas moravam antigamente?", opts: ["Em prédios", "Em castelos", "Em ocas", "Em iglus"], c: 2, h: "Eram casas grandes feitas de madeira e palha." },
+            { id: 1003, bloom: 1, q: "Qual hábito de higiene aprendemos com os indígenas?", opts: ["Usar perfume", "Tomar banho todos os dias", "Cortar o cabelo", "Escovar os dentes"], c: 1, h: "Eles adoravam se banhar nos rios." },
+            { id: 1004, bloom: 1, q: "Que objeto indígena usamos para dormir ou descansar?", opts: ["Cama", "Sofá", "Rede", "Colchão"], c: 2, h: "É feita de tecido e fica pendurada." },
+            { id: 1005, bloom: 1, q: "Quem é o líder espiritual e curandeiro na aldeia?", opts: ["Cacique", "Pajé", "Guerreiro", "Professor"], c: 1, h: "Ele cuida da saúde e dos rituais." },
+            { id: 1006, bloom: 1, q: "Qual palavra abaixo tem origem indígena?", opts: ["Abacaxi", "Computador", "Futebol", "Chocolate"], c: 0, h: "É o nome de uma fruta com coroa." },
+            { id: 1007, bloom: 1, q: "O que os indígenas usavam para pintar o corpo?", opts: ["Tinta guache", "Canetinha", "Urucum e Genipapo", "Lápis de cor"], c: 2, h: "São tintas naturais tiradas de plantas." },
+            { id: 1008, bloom: 1, q: "Qual destes brinquedos tem origem indígena?", opts: ["Videogame", "Peteca", "Carrinho", "Boneca de plástico"], c: 1, h: "É feito com penas e se joga batendo com a mão." },
+            { id: 1009, bloom: 1, q: "Como os indígenas conseguiam comida na natureza?", opts: ["Comprando no mercado", "Pedindo pizza", "Caçando e pescando", "Trocando moedas"], c: 2, h: "Eles buscavam direto na floresta e nos rios." },
+            { id: 1010, bloom: 1, q: "Qual cereal era a base da alimentação indígena?", opts: ["Trigo", "Arroz", "Milho", "Aveia"], c: 2, h: "Usado para fazer pipoca e pamonha." },
+
+            // BLOOM 2 (Entender)
+            { id: 1011, bloom: 2, q: "Por que os indígenas pintavam o corpo?", opts: ["Para rituais e proteção", "Porque achavam feio sem tinta", "Para imitar roupas", "Para se esconder dos animais"], c: 0, h: "As pinturas tinham significados especiais e mágicos." },
+            { id: 1012, bloom: 2, q: "O que significa dizer que o Brasil tem herança indígena?", opts: ["Que todos somos indígenas", "Que nossa cultura tem costumes indígenas", "Que só usamos coisas indígenas", "Que os indígenas mandam no país"], c: 1, h: "Significa que aprendemos e usamos coisas deles hoje." },
+            { id: 1013, bloom: 2, q: "Qual a função do Cacique na tribo?", opts: ["Cuidar dos doentes", "Fazer a comida", "Liderar e organizar a tribo", "Pintar as crianças"], c: 2, h: "Ele é como um chefe político da aldeia." },
+            { id: 1014, bloom: 2, q: "Como as crianças indígenas aprendiam?", opts: ["Lendo livros sozinhas", "Observando os adultos e ouvindo histórias", "Vendo televisão", "Indo para a cidade"], c: 1, h: "O aprendizado era prático e oral." },
+            { id: 1015, bloom: 2, q: "Por que a mandioca é tão importante?", opts: ["Porque é fácil de plantar", "Porque é a base de muitas comidas", "Porque serve de remédio", "Porque é doce"], c: 1, h: "Dela se faz farinha, beiju e muito mais." },
+            { id: 1016, bloom: 2, q: "O que é uma lenda indígena?", opts: ["Uma mentira", "Uma história para explicar a natureza", "Uma notícia de jornal", "Uma música de festa"], c: 1, h: "Explicava a origem da noite, da mandioca, etc." },
+            { id: 1017, bloom: 2, q: "Por que os indígenas respeitavam tanto a natureza?", opts: ["Porque tinham medo", "Porque ela dava tudo que precisavam", "Porque era lei", "Porque não gostavam da cidade"], c: 1, h: "A floresta era a casa e o mercado deles." },
+            { id: 1018, bloom: 2, q: "O que é um 'mutirão' na cultura indígena?", opts: ["Uma festa", "Trabalho coletivo onde todos ajudam", "Uma guerra", "Um tipo de comida"], c: 1, h: "Quando todos se juntam para construir algo rápido." },
+            { id: 1019, bloom: 2, q: "Para que servia o arco e flecha?", opts: ["Apenas para brincar", "Para caça e defesa", "Para cortar árvores", "Para pescar apenas"], c: 1, h: "Era uma ferramenta fundamental de sobrevivência." },
+            { id: 1020, bloom: 2, q: "O que significa a palavra 'Pindorama'?", opts: ["Terra das Palmeiras", "Lugar de Ouro", "Casa dos Homens", "Rio Grande"], c: 0, h: "Era como alguns indígenas chamavam o Brasil." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 1021, bloom: 3, q: "Se você comer tapioca no café, está praticando um costume:", opts: ["Africano", "Indígena", "Português", "Italiano"], c: 1, h: "Tapioca vem da mandioca." },
+            { id: 1022, bloom: 3, q: "Ao chamar alguém de 'xará', você usa uma palavra Tupi. Isso mostra:", opts: ["Que você fala errado", "A influência indígena na língua", "Que você é estrangeiro", "Nada"], c: 1, h: "Muitas gírias nossas vêm do Tupi." },
+            { id: 1023, bloom: 3, q: "Você vai acampar e dorme em uma rede. Quem inventou isso?", opts: ["Os escoteiros", "Os indígenas", "Os soldados", "Os astronautas"], c: 1, h: "Os indígenas já usavam redes nas ocas." },
+            { id: 1024, bloom: 3, q: "Se uma cidade se chama 'Itaquaquecetuba', o nome é de origem:", opts: ["Portuguesa", "Indígena", "Inglesa", "Africana"], c: 1, h: "Nomes difíceis com 'Ita', 'Ibi', 'Uba' geralmente são indígenas." },
+            { id: 1025, bloom: 3, q: "Um remédio feito de ervas da floresta é um saber:", opts: ["Industrial", "Indígena ancestral", "Moderno", "Químico"], c: 1, h: "Eles conheciam o poder de cura das plantas." },
+            { id: 1026, bloom: 3, q: "Andar descalço na terra para sentir a natureza lembra:", opts: ["A vida na cidade", "A conexão indígena com a terra", "A escola", "O trabalho no escritório"], c: 1, h: "O contato direto com o solo é um costume nativo." },
+            { id: 1027, bloom: 3, q: "Comer pipoca no cinema. A pipoca veio do:", opts: ["Trigo europeu", "Arroz asiático", "Milho indígena", "Feijão africano"], c: 2, h: "Estourar milho é uma técnica antiga da América." },
+            { id: 1028, bloom: 3, q: "Usar cestos de palha para guardar coisas é uma técnica de:", opts: ["Trançado indígena", "Plástico moderno", "Vidro", "Ferro"], c: 0, h: "O artesanato com fibras naturais é herança deles." },
+            { id: 1029, bloom: 3, q: "Chamar um menino de 'guri'. Guri é:", opts: ["Uma palavra inglesa", "Uma palavra indígena", "Uma palavra inventada", "Uma palavra portuguesa"], c: 1, h: "Vem do Tupi-Guarani." },
+            { id: 1030, bloom: 3, q: "Tomar um banho de rio para se refrescar é um hábito:", opts: ["De origem europeia", "De origem indígena", "De origem asiática", "Moderno apenas"], c: 1, h: "Os portugueses se espantaram com o quanto os índios se banhavam." },
+
+            // BLOOM 4 (Analisar)
+            { id: 1031, bloom: 4, q: "Qual a diferença entre a escola da cidade e a educação na aldeia?", opts: ["Na aldeia não se aprende nada", "Na aldeia se aprende vivendo e observando", "Na cidade é mais fácil", "Na aldeia tem prova todo dia"], c: 1, h: "Na aldeia, a escola é o dia a dia e a natureza." },
+            { id: 1032, bloom: 4, q: "Comparando uma casa de tijolo e uma oca, a oca é:", opts: ["Mais quente", "Feita de materiais naturais", "Mais resistente a tudo", "Menor que um quarto"], c: 1, h: "A oca usa palha e madeira, biodegradáveis." },
+            { id: 1033, bloom: 4, q: "Antigamente, os indígenas caçavam para comer. Hoje, nós:", opts: ["Caçamos também", "Compramos no supermercado", "Não comemos carne", "Plantamos tudo"], c: 1, h: "Nossa forma de obter comida mudou muito." },
+            { id: 1034, bloom: 4, q: "O que aconteceu com as terras indígenas ao longo do tempo?", opts: ["Aumentaram muito", "Diminuíram com a colonização", "Ficaram iguais", "Eles venderam tudo"], c: 1, h: "As cidades ocuparam o lugar das florestas." },
+            { id: 1035, bloom: 4, q: "Diferente dos portugueses que usavam roupas pesadas, os indígenas:", opts: ["Usavam armaduras", "Andavam nus ou com pouca roupa", "Usavam casacos de pele", "Usavam uniformes"], c: 1, h: "Por causa do calor, usavam pouca ou nenhuma roupa." },
+            { id: 1036, bloom: 4, q: "A medicina indígena usa ervas. A medicina moderna usa:", opts: ["Apenas rezas", "Remédios de laboratório", "Apenas água", "Frutas"], c: 1, h: "Hoje usamos química, mas a base vem das plantas." },
+            { id: 1037, bloom: 4, q: "Na tribo tudo é de todos. Na nossa sociedade:", opts: ["Também dividimos tudo", "Cada um tem suas coisas (propriedade privada)", "Ninguém tem nada", "O governo tem tudo"], c: 1, h: "Nós temos o conceito de 'meu' e 'seu' muito forte." },
+            { id: 1038, bloom: 4, q: "Os indígenas preservavam a mata. O homem moderno muitas vezes:", opts: ["Preserva mais ainda", "Desmata e polui", "Não liga para nada", "Vive na árvore"], c: 1, h: "Hoje temos problemas ambientais graves." },
+            { id: 1039, bloom: 4, q: "A comunicação indígena era oral (fala). A nossa é:", opts: ["Apenas escrita", "Escrita, falada e digital", "Apenas por sinais", "Ninguém se fala"], c: 1, h: "Temos livros, internet e mensagens." },
+            { id: 1040, bloom: 4, q: "Por que é importante proteger as terras indígenas hoje?", opts: ["Para eles ficarem ricos", "Para preservar a cultura e a natureza", "Para construir prédios", "Porque eles pediram"], c: 1, h: "Eles são os guardiões das florestas." }
+        ]
+    },
+    {
+        id: "africanos",
+        name: "Os africanos",
+        prep: {
+            title: "Povos Africanos",
+            content: "<p>A África não é um país, é um continente enorme! De lá vieram reis, rainhas, guerreiros e muitos conhecimentos.<br><br><strong>Diversidade:</strong> Muitas línguas e culturas.<br><strong>Habilidades:</strong> Agricultura, metalurgia e arte.</p>",
+            skin: "🌍"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 2001, bloom: 1, q: "A África é um:", opts: ["País", "Continente", "Estado", "Cidade"], c: 1, h: "É um lugar gigante com vários países dentro." },
+            { id: 2002, bloom: 1, q: "Como os africanos chegaram ao Brasil antigamente?", opts: ["De avião", "De carro", "Em navios", "A pé"], c: 2, h: "Atravessaram o oceano Atlântico." },
+            { id: 2003, bloom: 1, q: "Os africanos que vieram para o Brasil eram:", opts: ["Turistas", "Escravizados", "Exploradores", "Convidados"], c: 1, h: "Eles foram trazidos contra a vontade." },
+            { id: 2004, bloom: 1, q: "Antes de serem trazidos, os africanos eram:", opts: ["Livres", "Escravos", "Prisioneiros", "Sem casa"], c: 0, h: "Tinham suas vidas, famílias e trabalhos livres." },
+            { id: 2005, bloom: 1, q: "O que é um 'Griot' na cultura africana?", opts: ["Um guerreiro", "Um contador de histórias", "Um tipo de comida", "Uma arma"], c: 1, h: "É quem guarda a memória e conta as lendas." },
+            { id: 2006, bloom: 1, q: "Muitos povos africanos sabiam trabalhar com:", opts: ["Gelo", "Ferro e Ouro", "Plástico", "Vidro"], c: 1, h: "Eles eram ótimos em metalurgia." },
+            { id: 2007, bloom: 1, q: "Qual oceano separa o Brasil da África?", opts: ["Pacífico", "Índico", "Atlântico", "Ártico"], c: 2, h: "É o mar que banha nossas praias." },
+            { id: 2008, bloom: 1, q: "A África tem:", opts: ["Apenas florestas", "Apenas desertos", "Florestas, desertos e cidades", "Apenas gelo"], c: 2, h: "É um continente muito diverso em paisagens." },
+            { id: 2009, bloom: 1, q: "Os africanos trouxeram para o Brasil suas:", opts: ["Roupas de frio", "Culturas e religiões", "Carruagens", "Neve"], c: 1, h: "Trouxeram seus deuses, festas e costumes." },
+            { id: 2010, bloom: 1, q: "Um reino famoso da África antiga era:", opts: ["Reino do Congo", "Reino da Inglaterra", "Reino da França", "Reino gelado"], c: 0, h: "Era um reino poderoso na África." },
+
+            // BLOOM 2 (Entender)
+            { id: 2011, bloom: 2, q: "Por que dizemos que a África é o berço da humanidade?", opts: ["Porque só tem bebês", "Porque os primeiros humanos surgiram lá", "Porque fabricam berços", "Porque é pequena"], c: 1, h: "A história do ser humano começou lá." },
+            { id: 2012, bloom: 2, q: "Como as histórias eram passadas na África antiga?", opts: ["Pelo WhatsApp", "Pela escrita apenas", "Pela fala (oralidade)", "Pela televisão"], c: 2, h: "Os mais velhos contavam para os mais novos." },
+            { id: 2013, bloom: 2, q: "Os africanos eram todos iguais?", opts: ["Sim, todos falavam a mesma língua", "Não, tinham culturas e línguas diferentes", "Sim, todos eram reis", "Não, eles não se conheciam"], c: 1, h: "Havia centenas de povos diferentes." },
+            { id: 2014, bloom: 2, q: "O que os africanos sabiam fazer muito bem?", opts: ["Apenas caçar", "Agricultura, mineração e arte", "Construir iglus", "Fazer neve"], c: 1, h: "Eles tinham tecnologias avançadas para a época." },
+            { id: 2015, bloom: 2, q: "Por que os portugueses trouxeram africanos?", opts: ["Para passear", "Para trabalhar forçado nas plantações", "Para ensinar português", "Para conhecer o Brasil"], c: 1, h: "Precisavam de mão de obra para o açúcar." },
+            { id: 2016, bloom: 2, q: "As máscaras africanas serviam para:", opts: ["Brincar de esconde-esconde", "Rituais religiosos e festas", "Proteger do sol", "Dormir"], c: 1, h: "Tinham significados sagrados." },
+            { id: 2017, bloom: 2, q: "O que aconteceu com a cultura africana no Brasil?", opts: ["Desapareceu", "Se misturou e formou a cultura brasileira", "Foi proibida e acabou", "Ninguém lembra"], c: 1, h: "Ela está viva na nossa música, comida e fala." },
+            { id: 2018, bloom: 2, q: "Os reinos africanos tinham:", opts: ["Apenas aldeias pobres", "Cidades ricas e organizadas", "Apenas florestas vazias", "Castelos de gelo"], c: 1, h: "Existiam impérios muito ricos." },
+            { id: 2019, bloom: 2, q: "A viagem da África ao Brasil era:", opts: ["Rápida e confortável", "Longa, triste e perigosa", "Divertida", "Feita de avião"], c: 1, h: "Muitos adoeciam nos navios negreiros." },
+            { id: 2020, bloom: 2, q: "O que os africanos valorizavam muito?", opts: ["O dinheiro apenas", "A família e os antepassados", "Carros velozes", "Ficar sozinhos"], c: 1, h: "O respeito aos mais velhos era essencial." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 2021, bloom: 3, q: "Se você olhar um mapa, onde está a África?", opts: ["Ao norte do Brasil", "Do outro lado do oceano Atlântico", "Colada no Brasil", "No polo Sul"], c: 1, h: "Fica a leste do Brasil." },
+            { id: 2022, bloom: 3, q: "Identificar uma pessoa negra é reconhecer sua origem:", opts: ["Europeia", "Africana", "Asiática", "Indígena"], c: 1, h: "A ascendência vem da África." },
+            { id: 2023, bloom: 3, q: "Ao ver uma estampa de tecidos coloridos e geométricos, lembramos da:", opts: ["Ásia", "Arte Africana", "Europa", "Antártida"], c: 1, h: "Os tecidos africanos são famosos pelas cores." },
+            { id: 2024, bloom: 3, q: "Se contarmos uma história dos nossos avós, agimos como:", opts: ["Um Griot", "Um soldado", "Um cozinheiro", "Um médico"], c: 0, h: "Estamos passando a memória adiante." },
+            { id: 2025, bloom: 3, q: "A agricultura no Brasil cresceu graças ao saber:", opts: ["Dos marcianos", "Dos africanos", "Dos robôs", "Dos animais"], c: 1, h: "Eles trouxeram técnicas de plantio." },
+            { id: 2026, bloom: 3, q: "Qual animal nos lembra a África?", opts: ["Pinguim", "Urso Polar", "Leão", "Canguru"], c: 2, h: "O rei da selva vive nas savanas africanas." },
+            { id: 2027, bloom: 3, q: "O Brasil tem a maior população negra fora da África. Isso mostra:", opts: ["Que a África é aqui", "A forte ligação entre Brasil e África", "Que não tem ninguém na África", "Nada"], c: 1, h: "Muitos africanos vieram para cá." },
+            { id: 2028, bloom: 3, q: "Usar turbantes e tranças é uma forma de:", opts: ["Esconder o cabelo", "Valorizar a beleza africana", "Sentir calor", "Dormir"], c: 1, h: "São estilos de origem africana." },
+            { id: 2029, bloom: 3, q: "O ritmo do tambor nos lembra:", opts: ["O silêncio", "A música africana", "O vento", "O mar"], c: 1, h: "O tambor é central na cultura deles." },
+            { id: 2030, bloom: 3, q: "Se você estuda os Iorubás e Bantos, estuda povos:", opts: ["Africanos", "Europeus", "Asiáticos", "Americanos"], c: 0, h: "São grandes grupos étnicos da África." },
+
+            // BLOOM 4 (Analisar)
+            { id: 2031, bloom: 4, q: "Qual a diferença entre um imigrante e um escravizado?", opts: ["Nenhuma", "O imigrante escolhe vir, o escravizado é forçado", "O escravizado ganha passagem", "O imigrante vem nadando"], c: 1, h: "A liberdade de escolha é a chave." },
+            { id: 2032, bloom: 4, q: "O clima do Brasil e de partes da África é parecido. Por isso:", opts: ["Neva nos dois", "Plantas como café crescem bem nos dois", "Não chove nunca", "É sempre frio"], c: 1, h: "O clima tropical ajuda na agricultura." },
+            { id: 2033, bloom: 4, q: "Por que existem tantas cores de pele no Brasil?", opts: ["Por causa do sol", "Pela mistura de indígenas, africanos e europeus", "Porque pintamos a pele", "Não existem cores diferentes"], c: 1, h: "Nossa história é feita de misturas." },
+            { id: 2034, bloom: 4, q: "A África é pobre ou rica?", opts: ["Só pobre", "Rica em cultura e recursos, mas com problemas", "Não existe nada lá", "É vazia"], c: 1, h: "É um continente muito rico explorado por outros." },
+            { id: 2035, bloom: 4, q: "Comparando: Um rei africano e um rei europeu.", opts: ["Só o europeu era rei", "Ambos governavam seus povos e tinham riquezas", "O africano não mandava nada", "Reis não existiam"], c: 1, h: "A África teve impérios poderosos." },
+            { id: 2036, bloom: 4, q: "A escravidão tirou a liberdade, mas não tirou:", opts: ["O dinheiro", "A cultura e a memória", "A casa", "As roupas"], c: 1, h: "Eles guardaram seus saberes na mente e no coração." },
+            { id: 2037, bloom: 4, q: "O que seria do Brasil sem os africanos?", opts: ["Igualzinho", "Muito diferente, sem nossa cultura atual", "Melhor", "Vazio"], c: 1, h: "Nossa identidade seria outra sem o samba, feijoada, etc." },
+            { id: 2038, bloom: 4, q: "Por que estudamos a África na escola?", opts: ["Para viajar", "Para entender quem nós somos", "Porque é longe", "Para desenhar mapas"], c: 1, h: "Nossas raízes estão lá." },
+            { id: 2039, bloom: 4, q: "Os navios negreiros eram chamados de 'tumbas flutuantes'. Por quê?", opts: ["Eram feitos de pedra", "Muitas pessoas morriam neles", "Eram submarinos", "Eram silenciosos"], c: 1, h: "As condições eram terríveis." },
+            { id: 2040, bloom: 4, q: "A liberdade é importante porque:", opts: ["Podemos fazer o que quisermos", "Podemos decidir nossa própria vida", "Podemos não trabalhar", "Podemos dormir o dia todo"], c: 1, h: "Ninguém manda no nosso destino além de nós." }
+        ]
+    },
+    {
+        id: "vida_escravizados",
+        name: "Vida dos escravizados",
+        prep: {
+            title: "O Tempo da Escravidão",
+            content: "<p>Africanos foram trazidos à força para trabalhar muito sem ganhar nada. Mas eles resistiram!<br><br><strong>Trabalho:</strong> Cana-de-açúcar, café, minas.<br><strong>Resistência:</strong> Quilombos, capoeira.</p>",
+            skin: "⛓️"
+        },
+        pool: [
+            // BLOOM 1 (Lembrar)
+            { id: 3001, bloom: 1, q: "Onde os escravizados dormiam?", opts: ["Na Casa Grande", "Na Senzala", "No hotel", "Na floresta"], c: 1, h: "Era um galpão simples e sem conforto." },
+            { id: 3002, bloom: 1, q: "Qual era o principal trabalho dos escravizados no início?", opts: ["Fábrica de carros", "Plantação de cana-de-açúcar", "Escritório", "Lojas"], c: 1, h: "Produziam açúcar para vender." },
+            { id: 3003, bloom: 1, q: "O que é um Quilombo?", opts: ["Uma festa", "Um refúgio de escravizados que fugiam", "Uma comida", "Uma dança"], c: 1, h: "Lugar de liberdade e resistência." },
+            { id: 3004, bloom: 1, q: "Quem foi Zumbi dos Palmares?", opts: ["Um cantor", "Um grande líder de um quilombo", "Um rei português", "Um soldado"], c: 1, h: "Lutou pela liberdade dos negros." },
+            { id: 3005, bloom: 1, q: "A capoeira foi criada como:", opts: ["Apenas dança", "Luta disfarçada de dança", "Ginástica", "Teatro"], c: 1, h: "Servia para se defender." },
+            { id: 3006, bloom: 1, q: "Os escravizados recebiam salário?", opts: ["Sim, muito dinheiro", "Não, trabalhavam de graça", "Às vezes", "Ganhavam ouro"], c: 1, h: "Eles eram forçados a trabalhar." },
+            { id: 3007, bloom: 1, q: "Quem mandava nos escravizados?", opts: ["O Senhor de Engenho", "O Pajé", "O Prefeito", "O Padre"], c: 0, h: "O dono da fazenda." },
+            { id: 3008, bloom: 1, q: "O que os escravizados comiam?", opts: ["O que quisessem", "Restos de comida dos senhores", "Pizza", "Churrasco"], c: 1, h: "A alimentação era simples e pouca." },
+            { id: 3009, bloom: 1, q: "Dia 20 de Novembro é o dia:", opts: ["Do Natal", "Da Consciência Negra", "Das Crianças", "Do Índio"], c: 1, h: "Homenagem a Zumbi." },
+            { id: 3010, bloom: 1, q: "Como os escravizados eram transportados?", opts: ["Em ônibus", "Em navios negreiros", "Em trens", "Em cavalos"], c: 1, h: "Atravessavam o mar em condições ruins." },
+
+            // BLOOM 2 (Entender)
+            { id: 3011, bloom: 2, q: "Por que os escravizados fugiam para os quilombos?", opts: ["Para passear", "Para serem livres e viverem em comunidade", "Para caçar", "Para dormir"], c: 1, h: "Lá eles não tinham donos." },
+            { id: 3012, bloom: 2, q: "Por que a capoeira parece uma dança?", opts: ["Para enganar os senhores", "Porque eles gostavam de dançar", "Porque não sabiam lutar", "Porque tinha música"], c: 0, h: "Era proibido treinar lutas, então disfarçavam." },
+            { id: 3013, bloom: 2, q: "A vida na senzala era:", opts: ["Boa e confortável", "Dura, triste e apertada", "Cheia de festas", "Silenciosa"], c: 1, h: "Muitas pessoas viviam juntas em pouco espaço." },
+            { id: 3014, bloom: 2, q: "O que significa 'resistência' na escravidão?", opts: ["Aceitar tudo", "Lutar contra a escravidão e manter a cultura", "Ficar forte", "Correr maratona"], c: 1, h: "É não deixar sua cultura morrer." },
+            { id: 3015, bloom: 2, q: "Quem eram as 'Mães Pretas'?", opts: ["Mulheres escravizadas que cuidavam dos filhos dos senhores", "Professoras", "Rainhas", "Cozinheiras apenas"], c: 0, h: "Elas amamentavam e criavam as crianças brancas." },
+            { id: 3016, bloom: 2, q: "O trabalho nas minas de ouro era:", opts: ["Fácil e rico", "Perigoso e cansativo", "Divertido", "Rápido"], c: 1, h: "Muitos ficavam doentes buscando ouro na água." },
+            { id: 3017, bloom: 2, q: "Por que Zumbi é um herói?", opts: ["Porque voava", "Porque defendeu seu povo até o fim", "Porque era rico", "Porque escreveu livros"], c: 1, h: "Símbolo de coragem." },
+            { id: 3018, bloom: 2, q: "Como os escravizados mantinham sua religião?", opts: ["Escondidos ou misturando com santos católicos", "Na igreja", "Na TV", "Não mantinham"], c: 0, h: "Eles precisavam disfarçar suas crenças." },
+            { id: 3019, bloom: 2, q: "A Lei Áurea serviu para:", opts: ["Criar o Brasil", "Acabar com a escravidão", "Começar a guerra", "Dar feriado"], c: 1, h: "Foi a lei que libertou os escravos." },
+            { id: 3020, bloom: 2, q: "O que acontecia se um escravizado não trabalhasse?", opts: ["Ganhava folga", "Era castigado", "Ganhava doce", "Ia para casa"], c: 1, h: "Os castigos físicos eram comuns." },
+
+            // BLOOM 3 (Aplicar)
+            { id: 3021, bloom: 3, q: "Se você ver uma roda de capoeira hoje, você vê:", opts: ["Uma briga", "Uma herança de resistência cultural", "Um esporte olímpico", "Uma festa junina"], c: 1, h: "É uma tradição viva." },
+            { id: 3022, bloom: 3, q: "Visitar um quilombo hoje é conhecer:", opts: ["Um museu", "A história viva dos descendentes", "Uma fazenda", "Uma floresta"], c: 1, h: "Muitos quilombos ainda existem." },
+            { id: 3023, bloom: 3, q: "A feijoada, segundo a lenda, veio de:", opts: ["Restos de carne que os senhores não queriam", "Comida de rei", "Receita francesa", "Peixe"], c: 0, h: "Eles transformaram sobras em um prato delicioso." },
+            { id: 3024, bloom: 3, q: "Quando usamos a palavra 'banzo' (tristeza), lembramos:", opts: ["Da saudade da África", "De alegria", "De fome", "De sono"], c: 0, h: "Era a tristeza profunda dos escravizados." },
+            { id: 3025, bloom: 3, q: "Identificar racismo hoje é importante para:", opts: ["Nada", "Combater o que começou na escravidão", "Fazer amigos", "Estudar"], c: 1, h: "O preconceito vem dessa época." },
+            { id: 3026, bloom: 3, q: "Onde podemos ver marcas do trabalho escravo?", opts: ["Em igrejas antigas e fazendas históricas", "No shopping", "Na praia", "Na lua"], c: 0, h: "Muitas construções antigas foram feitas por eles." },
+            { id: 3027, bloom: 3, q: "Dandara dos Palmares foi:", opts: ["Uma guerreira esposa de Zumbi", "Uma cantora", "Uma cozinheira", "Uma lenda"], c: 0, h: "Mulheres também lutaram." },
+            { id: 3028, bloom: 3, q: "Se trabalharmos sem receber, isso é:", opts: ["Estágio", "Trabalho análogo à escravidão", "Brincadeira", "Ajuda"], c: 1, h: "Trabalho deve ser pago." },
+            { id: 3029, bloom: 3, q: "Aleijadinho, grande artista, era filho de:", opts: ["Rei e Rainha", "Português e Escravizada", "Índio e Africana", "Dois portugueses"], c: 1, h: "Ele sofreu preconceito mas foi genial." },
+            { id: 3030, bloom: 3, q: "A música 'Canto das Três Raças' fala sobre:", opts: ["Futebol", "O sofrimento e força de negros e índios", "Natureza", "Amor"], c: 1, h: "Fala da construção do Brasil." },
+
+            // BLOOM 4 (Analisar)
+            { id: 3031, bloom: 4, q: "Qual a diferença entre trabalho e escravidão?", opts: ["Nenhuma", "No trabalho você recebe e é livre; na escravidão não", "Trabalho é chato", "Escravidão é remunerada"], c: 1, h: "A liberdade e o salário são a diferença." },
+            { id: 3032, bloom: 4, q: "Por que a escravidão durou tanto tempo?", opts: ["Porque era boa", "Porque gerava muito lucro para os senhores", "Porque ninguém ligava", "Porque não tinha lei"], c: 1, h: "O dinheiro movia o sistema." },
+            { id: 3033, bloom: 4, q: "O Quilombo era diferente da Fazenda porque:", opts: ["No Quilombo eram livres e trabalhavam para si", "Na Fazenda era melhor", "O Quilombo era menor", "Não tinha comida"], c: 0, h: "Lá eles viviam de forma comunitária." },
+            { id: 3034, bloom: 4, q: "A Princesa Isabel assinou a lei, mas quem lutou pela liberdade?", opts: ["Só ela", "Os próprios escravizados e abolicionistas", "O rei", "Ninguém"], c: 1, h: "A liberdade foi uma conquista de muitas lutas." },
+            { id: 3035, bloom: 4, q: "Ser livre sem ter para onde ir após a Lei Áurea foi:", opts: ["Ótimo", "Um grande problema difícil", "Fácil", "Divertido"], c: 1, h: "Eles não ganharam terras nem emprego." },
+            { id: 3036, bloom: 4, q: "A escravidão deixou marcas hoje?", opts: ["Não, acabou faz tempo", "Sim, na desigualdade e no preconceito", "Tudo foi resolvido", "Ninguém lembra"], c: 1, h: "Ainda lutamos por igualdade." },
+            { id: 3037, bloom: 4, q: "Comparando Zumbi e um Rei:", opts: ["Zumbi era pobre", "Zumbi liderava e protegia seu povo como um rei", "Rei é melhor", "Zumbi não mandava"], c: 1, h: "Ele exerceu liderança e governo em Palmares." },
+            { id: 3038, bloom: 4, q: "Por que proibiam a religião africana?", opts: ["Porque era feia", "Para dominar e apagar a cultura deles", "Porque fazia barulho", "Sem motivo"], c: 1, h: "Tirar a cultura ajuda a dominar a pessoa." },
+            { id: 3039, bloom: 4, q: "O café enriqueceu o Brasil, mas custou:", opts: ["Pouco dinheiro", "O suor e sangue dos escravizados", "Apenas água", "Nada"], c: 1, h: "A riqueza foi construída sobre o trabalho forçado." },
+            { id: 3040, bloom: 4, q: "A resistência cultural foi importante para:", opts: ["Nada", "Manter a identidade do povo negro viva", "Arrumar briga", "Esquecer a África"], c: 1, h: "Sem ela, as tradições teriam sumido." }
+        ]
+    },
+    // ... (Cole aqui os próximos tópicos se desejar)
+] },
         {   id: "geo", name: "Geografia", icon: "🌍", color: "bg-green-500", accent: "border-green-600", categories: [
             { id: "recursos_naturais", name: "Recursos naturais", prep: { title: "O que a natureza nos dá", content: "<p>Água, solo, ar, minerais e outros recursos que usamos.</p>", skin: "🌱" }, pool: [] },
             { id: "materia_energia", name: "Matéria e energia", prep: { title: "Do que tudo é feito", content: "<p>Estados físicos, transformações e formas de energia.</p>", skin: "⚡" }, pool: [] },
