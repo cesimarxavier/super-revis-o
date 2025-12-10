@@ -1083,7 +1083,20 @@ const DB = {
                     { id: 7037, bloom: 4, q: "Carros elétricos são melhores para o ar que carros a gasolina?", opts: ["Não", "Sim, pois não soltam fumaça na rua", "São iguais", "Gasolina é melhor"], c: 1, h: "Não queimam combustível." },
                     { id: 7038, bloom: 4, q: "A pesca excessiva (pescar tudo de uma vez) causa:", opts: ["Muitos peixes", "A extinção dos peixes, pois não dá tempo de reproduzir", "Riqueza eterna", "Mar limpo"], c: 1, h: "É preciso respeitar o tempo da natureza." },
                     { id: 7039, bloom: 4, q: "Construir uma cidade em cima de um manguezal é:", opts: ["Bom", "Ruim, pois destrói o berçário dos animais marinhos", "Moderno", "Bonito"], c: 1, h: "O mangue é vital para a vida marinha." },
-                    { id: 7040, bloom: 4, q: "Para garantir recursos para o futuro (sustentabilidade), devemos:", opts: ["Gastar tudo hoje", "Usar com inteligência para não acabar", "Não usar nada", "Esconder os recursos"], c: 1, h: "Cuidar hoje para ter amanhã." }
+                    { id: 7040, bloom: 4, q: "Para garantir recursos para o futuro (sustentabilidade), devemos:", opts: ["Gastar tudo hoje", "Usar com inteligência para não acabar", "Não usar nada", "Esconder os recursos"], c: 1, h: "Cuidar hoje para ter amanhã." },
+                    // BLOOM 5 (Avaliar)
+                    { id: 7041, bloom: 5, q: "João escova os dentes com a torneira aberta. O que você diria a ele?", opts: ["Que está certo", "Que ele está desperdiçando um recurso valioso e deve fechar", "Que a água nunca acaba", "Para abrir mais"], c: 1, h: "Julgamos a atitude para proteger o recurso." },
+                    { id: 7042, bloom: 5, q: "Entre usar copo descartável todo dia ou ter sua própria garrafinha, qual é melhor para o planeta?", opts: ["Copo descartável", "Garrafinha reutilizável, pois gera menos lixo", "Tanto faz", "Não beber água"], c: 1, h: "Avaliamos qual gera menos impacto." },
+                    { id: 7043, bloom: 5, q: "Uma fábrica joga fumaça preta no ar. Essa atitude é:", opts: ["Boa, enfeita o céu", "Prejudicial, pois polui o ar que todos respiram", "Engraçada", "Saudável"], c: 1, h: "Julgamento sobre poluição." },
+                    { id: 7044, bloom: 5, q: "Por que proteger as abelhas é uma decisão inteligente?", opts: ["Porque elas fazem mel e polinizam a comida", "Porque elas picam", "Porque são amarelas", "Não é importante"], c: 0, h: "Sem elas, muitas frutas sumiriam." },
+                    { id: 7045, bloom: 5, q: "O que vale mais a pena: consertar um brinquedo quebrado ou jogar fora e comprar outro?", opts: ["Jogar fora", "Consertar, para economizar recursos e dinheiro", "Quebrar mais", "Esconder"], c: 1, h: "Reutilizar é melhor que descartar." },
+
+                    // BLOOM 6 (Criar / Propor Solução)
+                    { id: 7046, bloom: 6, q: "Como podemos resolver o problema do lixo na escola?", opts: ["Escondendo o lixo", "Criando uma campanha de reciclagem e lixeiras coloridas", "Jogando no vizinho", "Queimando tudo"], c: 1, h: "Proposta de solução criativa." },
+                    { id: 7047, bloom: 6, q: "Se você fosse prefeito, como cuidaria dos rios?", opts: ["Proibiria jogar esgoto e plantaria árvores na margem", "Secaria o rio", "Jogaria perfume", "Colocaria corante azul"], c: 0, h: "Planejamento de preservação." },
+                    { id: 7048, bloom: 6, q: "Imagine um mundo sem petróleo (plástico/gasolina). O que usaríamos?", opts: ["Nada", "Carros elétricos, bicicletas e bioplásticos de plantas", "Cavalos apenas", "Ficaríamos parados"], c: 1, h: "Imaginar alternativas sustentáveis." },
+                    { id: 7049, bloom: 6, q: "Como criar uma horta se você mora em apartamento sem quintal?", opts: ["Não dá", "Usando vasos verticais na parede ou na varanda", "Enchendo a sala de terra", "Plantando no teto"], c: 1, h: "Adaptação criativa de espaço." },
+                    { id: 7050, bloom: 6, q: "Para evitar gastar sacolas plásticas, você inventaria:", opts: ["Uma sacola que some", "O uso de sacolas de pano (ecobags) retornáveis", "Levar as compras na mão", "Comer no mercado"], c: 1, h: "Solução para redução de lixo." }
                 ] 
             },
             { 
@@ -1141,7 +1154,20 @@ const DB = {
                     { id: 7137, bloom: 4, q: "O som não se propaga no espaço (vácuo). Por quê?", opts: ["Porque é longe", "Não tem ar nem matéria para vibrar", "Os astronautas usam capacete", "É proibido"], c: 1, h: "O som precisa de meio material." },
                     { id: 7138, bloom: 4, q: "O arco-íris aparece quando:", opts: ["Alguém pinta o céu", "A luz do sol passa pelas gotas de chuva e se separa em cores", "É noite", "Tem nuvem"], c: 1, h: "A luz branca tem todas as cores." },
                     { id: 7139, bloom: 4, q: "Metais são bons condutores. Isso significa que:", opts: ["Eles esquentam e passam eletricidade fácil", "Eles são frios", "Eles quebram", "Eles são isolantes"], c: 0, h: "Por isso fios são de cobre e panelas de metal." },
-                    { id: 7140, bloom: 4, q: "Por que o pneu do carro é de borracha?", opts: ["Para ser macio", "Porque borracha é isolante elétrico e tem atrito", "Porque é preto", "Para derreter"], c: 1, h: "Segurança e aderência." }
+                    { id: 7140, bloom: 4, q: "Por que o pneu do carro é de borracha?", opts: ["Para ser macio", "Porque borracha é isolante elétrico e tem atrito", "Porque é preto", "Para derreter"], c: 1, h: "Segurança e aderência." },
+                    // BLOOM 5 (Avaliar)
+                    { id: 7141, bloom: 5, q: "Para levar água gelada para a escola, qual garrafa é melhor?", opts: ["De vidro transparente", "Térmica (metal/plástico duplo)", "De papel", "De pano"], c: 1, h: "Avaliamos qual material isola melhor a temperatura." },
+                    { id: 7142, bloom: 5, q: "Deixar a geladeira aberta para 'esfriar a cozinha' é uma boa ideia?", opts: ["Sim, refresca", "Não, gasta muita energia e estraga a comida", "Sim, a geladeira gosta", "Talvez"], c: 1, h: "Julgamento sobre eficiência energética." },
+                    { id: 7143, bloom: 5, q: "Qual o perigo de soltar pipa perto de fios elétricos?", opts: ["Nenhum", "Risco de choque elétrico grave e morte", "A pipa voa mais alto", "O fio quebra"], c: 1, h: "Avaliação de risco e segurança." },
+                    { id: 7144, bloom: 5, q: "Entre um prato de vidro e um de plástico, qual é mais perigoso para uma criança pequena?", opts: ["Plástico", "Vidro, pois se quebrar corta", "Os dois", "Nenhum"], c: 1, h: "Análise de propriedades do material." },
+                    { id: 7145, bloom: 5, q: "Andar de bicicleta é melhor que de carro para distâncias curtas?", opts: ["Sim, gasta nossa energia (saúde) e não polui", "Não, cansa", "Carro é mais chique", "Bicicleta é lenta"], c: 0, h: "Avaliação de impacto ambiental e saúde." },
+
+                    // BLOOM 6 (Criar / Propor Solução)
+                    { id: 7146, bloom: 6, q: "Se acabar a luz à noite, como você ilumina a casa sem velas?", opts: ["Gritando", "Usando lanternas a pilha ou celular", "Abrindo a geladeira", "Dormindo"], c: 1, h: "Uso alternativo de energia armazenada." },
+                    { id: 7147, bloom: 6, q: "Como você faria um 'telefone' usando sucata?", opts: ["Com dois copos de iogurte e um barbante esticado", "Com papelão", "Com pedra", "Com água"], c: 0, h: "Criação de brinquedo usando propagação do som." },
+                    { id: 7148, bloom: 6, q: "Para secar uma poça d'água bem rápido sem pano, você:", opts: ["Assopra", "Aumenta o calor e o vento (secador ou sol)", "Congela", "Pisa nela"], c: 1, h: "Manipulação das mudanças de estado." },
+                    { id: 7149, bloom: 6, q: "Como construir uma casa que seja fresca no verão sem ar-condicionado?", opts: ["Pintando de preto", "Com janelas grandes para o vento e teto alto", "Sem janelas", "Feita de vidro"], c: 1, h: "Planejamento usando circulação de ar." },
+                    { id: 7150, bloom: 6, q: "Se você precisasse derreter gelo sem fogo e sem sol, o que faria?", opts: ["Sopraria ar quente ou esfregaria as mãos", "Colocaria no freezer", "Gritaria", "Jogaria água gelada"], c: 0, h: "Gerar calor por atrito ou condução." }
                 ]
             },
             { 
@@ -1199,8 +1225,164 @@ const DB = {
                     { id: 7237, bloom: 4, q: "Se a luz viaja em linha reta, como iluminamos uma sala inteira?", opts: ["A luz faz curva", "A luz reflete nas paredes e objetos e se espalha", "Usamos curva", "Não iluminamos"], c: 1, h: "Difusão da luz." },
                     { id: 7238, bloom: 4, q: "Eclipse solar acontece quando:", opts: ["O sol apaga", "A lua passa na frente do sol e faz sombra na Terra", "A Terra some", "Chove"], c: 1, h: "Bloqueio da luz solar." },
                     { id: 7239, bloom: 4, q: "Por que as ambulâncias têm o nome escrito ao contrário na frente?", opts: ["Erro de pintura", "Para ler certo pelo espelho retrovisor do carro da frente", "Para ficar bonito", "É código"], c: 1, h: "O espelho inverte a imagem." },
-                    { id: 7240, bloom: 4, q: "A luz azul das telas (celular) à noite:", opts: ["Ajuda a dormir", "Pode atrapalhar o sono enganando o cérebro", "Não faz nada", "É escura"], c: 1, h: "O corpo acha que ainda é dia." }
+                    { id: 7240, bloom: 4, q: "A luz azul das telas (celular) à noite:", opts: ["Ajuda a dormir", "Pode atrapalhar o sono enganando o cérebro", "Não faz nada", "É escura"], c: 1, h: "O corpo acha que ainda é dia." },
+                    // BLOOM 5 (Avaliar)
+                    { id: 7241, bloom: 5, q: "Ler no escuro força a vista. Isso é:", opts: ["Bom", "Ruim para a saúde dos olhos", "Normal", "Divertido"], c: 1, h: "Avaliação de hábito saudável." },
+                    { id: 7242, bloom: 5, q: "Janelas de vidro transparente no banheiro tiram a privacidade. Isso é:", opts: ["Um erro de escolha de material", "Bom para ver a rua", "Normal", "Bonito"], c: 0, h: "Julgamento sobre uso de materiais opacos/translúcidos." },
+                    { id: 7243, bloom: 5, q: "Apontar laser no olho do colega é:", opts: ["Brincadeira", "Perigoso, pode cegar", "Ajuda a ver", "Engraçado"], c: 1, h: "Avaliação de segurança com luz." },
+                    { id: 7244, bloom: 5, q: "Por que pintar o teto de branco é melhor que de preto?", opts: ["Porque branco reflete a luz e ilumina mais o quarto", "Preto é feio", "Branco é mais barato", "Não muda nada"], c: 0, h: "Avaliação de eficiência luminosa." },
+                    { id: 7245, bloom: 5, q: "Qual a melhor hora para ir à praia e não queimar a pele?", opts: ["Meio-dia", "Antes das 10h ou depois das 16h", "Às 13h", "Qualquer hora"], c: 1, h: "Julgamento sobre intensidade solar." },
+
+                    // BLOOM 6 (Criar / Propor Solução)
+                    { id: 7246, bloom: 6, q: "Como você faria um arco-íris em casa?", opts: ["Desenhando", "Com uma mangueira esguichando água contra o sol", "Com lanterna", "No escuro"], c: 1, h: "Recriar um fenômeno natural." },
+                    { id: 7247, bloom: 6, q: "Se quiser fazer um teatro de sombras, você precisa posicionar:", opts: ["A luz atrás da tela e você entre a luz e a tela", "A luz na frente", "Você na frente da tela", "Sem luz"], c: 0, h: "Planejamento espacial da luz." },
+                    { id: 7248, bloom: 6, q: "Para mandar um sinal para um amigo longe usando o sol, você usaria:", opts: ["Um espelho para refletir a luz", "Uma pedra", "Um pano preto", "Um grito"], c: 0, h: "Uso criativo da reflexão." },
+                    { id: 7249, bloom: 6, q: "Como criar uma cor rosa usando luzes (ou tintas)?", opts: ["Misturando verde e azul", "Misturando vermelho e branco", "Usando preto", "Amarelo e verde"], c: 1, h: "Combinação de cores." },
+                    { id: 7250, bloom: 6, q: "Se a luz da sala é muito forte e dói o olho, o que você cria?", opts: ["Um abajur ou cúpula para suavizar a luz", "Quebra a lâmpada", "Fecha o olho", "Pinta a lâmpada de preto"], c: 0, h: "Solução para conforto visual." }
                 ]
+            },
+            { 
+                id: "som_vibracao", 
+                name: "Som e vibração", 
+                prep: { 
+                    title: "Tudo Vibra!", 
+                    content: "<p>O som é invisível, mas podemos senti-lo! <br>🔊 <strong>Vibração:</strong> O som nasce quando algo treme.<br>👂 <strong>Audição:</strong> Nossos ouvidos captam essas ondas.<br>🚫 <strong>Vácuo:</strong> No espaço não tem som!</p>", 
+                    skin: "🔊" 
+                }, 
+                pool: [
+                    // BLOOM 1 (Lembrar)
+                    { id: 8001, bloom: 1, q: "O que produz o som?", opts: ["Luz", "Vibrações de um material", "Vento parado", "Silêncio"], c: 1, h: "Quando algo treme, faz barulho." },
+                    { id: 8002, bloom: 1, q: "Qual parte do corpo usamos para ouvir?", opts: ["Nariz", "Olhos", "Orelhas (Ouvidos)", "Boca"], c: 2, h: "O sentido é a audição." },
+                    { id: 8003, bloom: 1, q: "O som precisa de quê para viajar?", opts: ["De um meio material (ar, água, parede)", "De luz", "De nada", "De espaço"], c: 0, h: "Ele não viaja no vazio." },
+                    { id: 8004, bloom: 1, q: "O que é poluição sonora?", opts: ["Lixo na rua", "Barulho muito alto e constante", "Fumaça", "Água suja"], c: 1, h: "Faz mal para os ouvidos e causa estresse." },
+                    { id: 8005, bloom: 1, q: "O violão é um instrumento de:", opts: ["Sopro", "Cordas", "Percussão (batida)", "Elétrico"], c: 1, h: "As cordas vibram e fazem música." },
+                    { id: 8006, bloom: 1, q: "A voz humana sai de onde?", opts: ["Do nariz", "Das cordas vocais na garganta", "Da barriga", "Do dente"], c: 1, h: "O ar passa e faz elas vibrarem." },
+                    { id: 8007, bloom: 1, q: "Qual animal usa o som para se guiar (ecolocalização)?", opts: ["Gato", "Morcego", "Cachorro", "Peixe"], c: 1, h: "Ele 'vê' com os ouvidos." },
+                    { id: 8008, bloom: 1, q: "O trovão é o barulho do:", opts: ["Raio", "Vento", "Mar", "Sol"], c: 0, h: "Vem depois do relâmpago." },
+                    { id: 8009, bloom: 1, q: "O som viaja mais rápido que a luz?", opts: ["Sim", "Não, a luz é muito mais rápida", "São iguais", "Depende do dia"], c: 1, h: "Por isso vemos o raio antes de ouvir o trovão." },
+                    { id: 8010, bloom: 1, q: "Linguagem de sinais (LIBRAS) é usada por:", opts: ["Quem não enxerga", "Quem não ouve (surdos)", "Quem não fala inglês", "Todos"], c: 1, h: "Comunicação visual com as mãos." },
+
+                    // BLOOM 2 (Entender)
+                    { id: 8011, bloom: 2, q: "Como o som chega ao nosso ouvido?", opts: ["Teletransporte", "Ondas sonoras viajam pelo ar", "Cai do céu", "Por um fio"], c: 1, h: "O ar empurra o som até você." },
+                    { id: 8012, bloom: 2, q: "Por que não ouvimos som no espaço (vácuo)?", opts: ["Porque é longe", "Porque não tem ar para o som vibrar", "Porque o astronauta dorme", "Porque é proibido"], c: 1, h: "O som precisa de 'carona' no ar." },
+                    { id: 8013, bloom: 2, q: "O que é o eco?", opts: ["Um fantasma", "O som batendo numa parede e voltando", "O som sumindo", "Uma música"], c: 1, h: "É a reflexão do som." },
+                    { id: 8014, bloom: 2, q: "Qual a diferença entre barulho e música?", opts: ["Nenhuma", "Música é organizado e agradável; barulho é desordenado", "Barulho é baixo", "Música é ruim"], c: 1, h: "Música tem ritmo e melodia." },
+                    { id: 8015, bloom: 2, q: "Por que tapamos o ouvido quando passa uma ambulância?", opts: ["Porque é feio", "Porque o som é muito intenso (alto) e dói", "Para brincar", "Porque é música"], c: 1, h: "O volume alto incomoda." },
+                    { id: 8016, bloom: 2, q: "O som viaja na água?", opts: ["Não, a água molha o som", "Sim, até mais rápido que no ar", "Só se for quente", "Nunca"], c: 1, h: "Baleias conversam embaixo d'água." },
+                    { id: 8017, bloom: 2, q: "O que faz o som ser agudo (fininho) ou grave (grosso)?", opts: ["A cor", "A frequência da vibração", "O tamanho", "O preço"], c: 1, h: "Vibração rápida = agudo. Lenta = grave." },
+                    { id: 8018, bloom: 2, q: "Para que serve o megafone?", opts: ["Para comer", "Para amplificar (aumentar) o som da voz", "Para ver longe", "Para ouvir melhor"], c: 1, h: "Faz a voz ir mais longe." },
+                    { id: 8019, bloom: 2, q: "O que vibra no tambor?", opts: ["A madeira", "A membrana (pele) esticada", "O ar dentro apenas", "Nada"], c: 1, h: "Batemos na pele e ela treme." },
+                    { id: 8020, bloom: 2, q: "Animais escutam igual a gente?", opts: ["Sim, igualzinho", "Não, alguns escutam sons que nós não ouvimos", "Eles não escutam", "Só o cachorro"], c: 1, h: "Cães ouvem sons muito distantes." },
+
+                    // BLOOM 3 (Aplicar)
+                    { id: 8021, bloom: 3, q: "Se você colocar a mão na garganta e falar 'AAAA', sente:", opts: ["Frio", "Calor", "Uma vibração (tremor)", "Dor"], c: 2, h: "São suas cordas vocais trabalhando." },
+                    { id: 8022, bloom: 3, q: "Para fazer um som mais alto no violão, você:", opts: ["Assopra", "Toca a corda com mais força", "Pinta a corda", "Toca devagar"], c: 1, h: "Mais força = mais volume." },
+                    { id: 8023, bloom: 3, q: "Em uma biblioteca, devemos:", opts: ["Gritar", "Fazer silêncio ou sussurrar", "Cantar", "Tocar tambor"], c: 1, h: "Respeito a quem lê." },
+                    { id: 8024, bloom: 3, q: "Se você encostar o ouvido no chão, ouve passos de longe. Por quê?", opts: ["A terra é mágica", "O som viaja bem no sólido (chão)", "Tem um rádio", "Não ouve nada"], c: 1, h: "Sólidos transmitem som muito bem." },
+                    { id: 8025, bloom: 3, q: "Um apito funciona usando:", opts: ["Ar soprado que vibra", "Água", "Fogo", "Terra"], c: 0, h: "É um instrumento de sopro." },
+                    { id: 8026, bloom: 3, q: "Para proteger os ouvidos em uma obra barulhenta, usamos:", opts: ["Óculos", "Protetor auricular (fone)", "Luva", "Chapéu"], c: 1, h: "Segurança do trabalho." },
+                    { id: 8027, bloom: 3, q: "Se o vizinho ouve som alto de madrugada, isso é:", opts: ["Legal", "Desrespeito e poluição sonora", "Uma festa boa", "Saudável"], c: 1, h: "Perturba o sono e a saúde." },
+                    { id: 8028, bloom: 3, q: "O sino da escola toca. O som avisa que:", opts: ["É hora do recreio ou saída", "Vai chover", "É feriado", "Tem doce"], c: 0, h: "Som como sinal de comunicação." },
+                    { id: 8029, bloom: 3, q: "O médico usa o estetoscópio para:", opts: ["Ver o dente", "Ouvir os sons do coração e pulmão", "Ver o ouvido", "Operar"], c: 1, h: "Ele amplifica o som de dentro do corpo." },
+                    { id: 8030, bloom: 3, q: "Ao ver fogos de artifício longe, você primeiro:", opts: ["Ouve o estouro", "Vê a luz, depois ouve o som", "Sente o cheiro", "Nada"], c: 1, h: "A luz corre mais que o som." },
+
+                    // BLOOM 4 (Analisar)
+                    { id: 8031, bloom: 4, q: "Por que uma sala vazia tem mais eco que uma sala com móveis?", opts: ["Porque é triste", "Os móveis e cortinas absorvem o som; paredes lisas refletem", "A sala cheia é barulhenta", "Não tem diferença"], c: 1, h: "Objetos macios 'seguram' o som." },
+                    { id: 8032, bloom: 4, q: "O som pode quebrar um copo de cristal?", opts: ["Impossível", "Sim, se a vibração for muito forte e aguda (ressonância)", "Só se jogar o som", "Só em filme"], c: 1, h: "A vibração do ar balança o vidro até quebrar." },
+                    { id: 8033, bloom: 4, q: "Qual a relação entre música alta no fone e surdez?", opts: ["Nenhuma", "Ouvir muito alto destrói as células do ouvido com o tempo", "Deixa o ouvido forte", "Limpa o ouvido"], c: 1, h: "O dano é acumulativo e irreversível." },
+                    { id: 8034, bloom: 4, q: "Por que índios colocavam o ouvido nos trilhos do trem?", opts: ["Para dormir", "Para saber se o trem vinha, pois o ferro vibra antes do ar", "Para sujar", "Brincadeira"], c: 1, h: "O som no metal é super rápido." },
+                    { id: 8035, bloom: 4, q: "A vibração do celular no silencioso produz som?", opts: ["Não, é mágica", "Sim, produz um zumbido baixo devido ao motor vibrando", "Não, é luz", "Faz música"], c: 1, h: "Toda vibração gera algum som, mesmo baixo." },
+                    { id: 8036, bloom: 4, q: "Se furarmos o tímpano (membrana do ouvido):", opts: ["Ouvimos melhor", "Podemos ficar surdos, pois ele não vibra mais", "Não dói", "Nada acontece"], c: 1, h: "O tímpano é como a pele do tambor." },
+                    { id: 8037, bloom: 4, q: "Cantar no chuveiro parece deixar a voz mais bonita. Por quê?", opts: ["A água ajuda", "As paredes do banheiro fazem o som reverberar (ecoar)", "O xampu é mágico", "É ilusão"], c: 1, h: "Acústica do ambiente pequeno e liso." },
+                    { id: 8038, bloom: 4, q: "Comparando Luz e Som: Qual atravessa parede?", opts: ["Luz", "Som (atravessa, mas fica abafado)", "Os dois", "Nenhum"], c: 1, h: "A luz para na parede opaca, o som vibra a parede." },
+                    { id: 8039, bloom: 4, q: "Por que o som de um mosquito irrita tanto?", opts: ["Porque é alto", "Porque é muito agudo (frequência alta)", "Porque ele pica", "Porque é grave"], c: 1, h: "Sons agudos penetrantes incomodam o cérebro." },
+                    { id: 8040, bloom: 4, q: "O sonar do submarino funciona como o do morcego?", opts: ["Sim, emite som e espera o eco para achar objetos", "Não, usa luz", "Usa internet", "Usa cheiro"], c: 0, h: "Tecnologia inspirada na natureza." },
+                    // BLOOM 5 (Avaliar)
+                    { id: 8041, bloom: 5, q: "Ouvir música muito alta no fone de ouvido o dia todo é:", opts: ["Legal", "Prejudicial à audição a longo prazo", "Bom para treinar o ouvido", "Normal"], c: 1, h: "Julgamento de saúde auditiva." },
+                    { id: 8042, bloom: 5, q: "Construir um hospital ao lado de um aeroporto é:", opts: ["Uma má ideia, muito barulho atrapalha a recuperação", "Bom para viajar", "Prático", "Bonito"], c: 0, h: "Avaliação de poluição sonora." },
+                    { id: 8043, bloom: 5, q: "O que é melhor para isolar o som do quarto: parede fina ou grossa?", opts: ["Fina", "Grossa ou com espuma", "De vidro", "Aberta"], c: 1, h: "Avaliação de isolamento acústico." },
+                    { id: 8044, bloom: 5, q: "Buzinar na frente da escola é:", opts: ["Divertido", "Desrespeitoso e atrapalha a aula", "Necessário", "Música"], c: 1, h: "Julgamento social sobre ruído." },
+                    { id: 8045, bloom: 5, q: "Qual som alerta perigo?", opts: ["Canto de pássaro", "Sirene de bombeiro ou ambulância", "Vento", "Chuva"], c: 1, h: "Identificação de sinais sonoros críticos." },
+
+                    // BLOOM 6 (Criar / Propor Solução)
+                    { id: 8046, bloom: 6, q: "Como criar um instrumento musical com garrafas de vidro?", opts: ["Quebrando elas", "Enchendo com diferentes níveis de água e batendo levemente", "Pintando", "Escondendo"], c: 1, h: "Criação baseada em vibração e volume." },
+                    { id: 8047, bloom: 6, q: "Se sua casa tem muito eco, como resolver?", opts: ["Tirando tudo de dentro", "Colocando tapetes, cortinas e móveis", "Gritando mais", "Molhando o chão"], c: 1, h: "Solução para acústica (absorção)." },
+                    { id: 8048, bloom: 6, q: "Como conversar com um amigo através de uma janela de vidro fechada?", opts: ["Gritando muito", "Usando gestos ou mímica (luz)", "Batendo no vidro", "Não dá"], c: 1, h: "Substituir som por visual." },
+                    { id: 8049, bloom: 6, q: "Para fazer um chocalho caseiro, você usaria:", opts: ["Uma lata vazia com pedrinhas ou arroz dentro", "Uma esponja", "Um papel", "Água"], c: 0, h: "Invenção de instrumento de percussão." },
+                    { id: 8050, bloom: 6, q: "Se você fosse um morcego cego, como acharia comida?", opts: ["Pelo cheiro", "Emitindo sons e ouvindo o eco (sonar)", "Tateando", "Adivinhando"], c: 1, h: "Aplicação do conceito de ecolocalização." }
+                ] 
+            },
+            { 
+                id: "tecnologia_cotidiano", 
+                name: "Tecnologia no dia a dia", 
+                prep: { 
+                    title: "Tecnologia é Vida", 
+                    content: "<p>Tecnologia não é só celular! 📱 <br>🪑 Uma cadeira é tecnologia (conforto).<br>✏️ Um lápis é tecnologia (escrita).<br>Ela serve para resolver problemas e facilitar a vida.</p>", 
+                    skin: "📱" 
+                }, 
+                pool: [
+                    // BLOOM 1 (Lembrar)
+                    { id: 8101, bloom: 1, q: "O que é tecnologia?", opts: ["Apenas computadores", "Tudo que o ser humano cria para facilitar a vida", "Jogos", "Robôs"], c: 1, h: "Desde a roda até o foguete." },
+                    { id: 8102, bloom: 1, q: "Qual foi uma das primeiras tecnologias da humanidade?", opts: ["Celular", "Roda e Fogo", "Tablet", "Carro"], c: 1, h: "Ajudou a transportar e cozinhar." },
+                    { id: 8103, bloom: 1, q: "O lápis serve para:", opts: ["Comer", "Escrever e registrar ideias", "Ligar", "Voar"], c: 1, h: "Tecnologia de escrita." },
+                    { id: 8104, bloom: 1, q: "A geladeira serve para:", opts: ["Esquentar comida", "Conservar os alimentos no frio", "Assistir TV", "Lavar roupa"], c: 1, h: "Sem ela, a comida estragaria rápido." },
+                    { id: 8105, bloom: 1, q: "Qual objeto nos ajuda a enxergar coisas muito pequenas?", opts: ["Telescópio", "Microscópio", "Óculos de sol", "Espelho"], c: 1, h: "Usado pelos cientistas." },
+                    { id: 8106, bloom: 1, q: "Para ver as estrelas de perto, usamos:", opts: ["Microscópio", "Telescópio", "Lupa", "Lanterna"], c: 1, h: "Olha para o céu." },
+                    { id: 8107, bloom: 1, q: "O que substituiu a carta de papel na comunicação rápida?", opts: ["Pombo correio", "E-mail e mensagens de celular", "Jornal", "Livro"], c: 1, h: "Chega na hora." },
+                    { id: 8108, bloom: 1, q: "A máquina de lavar roupas ajuda a:", opts: ["Sujar roupas", "Economizar tempo e esforço físico", "Rasgar roupas", "Passar roupa"], c: 1, h: "Antigamente lavava-se no rio." },
+                    { id: 8109, bloom: 1, q: "O semáforo é uma tecnologia para:", opts: ["Iluminar", "Organizar o trânsito", "Tocar música", "Vender coisas"], c: 1, h: "Evita acidentes." },
+                    { id: 8110, bloom: 1, q: "Qual material plástico é feito pelo homem (artificial)?", opts: ["Madeira", "Petróleo transformado (Plástico)", "Pedra", "Algodão"], c: 1, h: "Não nasce em árvore." },
+
+                    // BLOOM 2 (Entender)
+                    { id: 8111, bloom: 2, q: "Por que o homem inventa máquinas?", opts: ["Para gastar dinheiro", "Para fazer tarefas difíceis ficarem fáceis e rápidas", "Para fazer barulho", "Por nada"], c: 1, h: "Facilitar o trabalho." },
+                    { id: 8112, bloom: 2, q: "O que é 'reciclar'?", opts: ["Jogar fora", "Transformar lixo em novos produtos", "Queimar", "Guardar"], c: 1, h: "Tecnologia de reaproveitamento." },
+                    { id: 8113, bloom: 2, q: "Como a vacina protege a gente?", opts: ["Mata a gente", "Ensina o corpo a combater doenças", "É um remédio para dor", "É vitamina"], c: 1, h: "Tecnologia de saúde." },
+                    { id: 8114, bloom: 2, q: "A invenção da lâmpada mudou o mundo porque:", opts: ["Ficou mais quente", "Podemos trabalhar e estudar à noite", "Ficou mais caro", "Acabou o sol"], c: 1, h: "Trouxe luz para a escuridão." },
+                    { id: 8115, bloom: 2, q: "Qual a diferença entre natural e artificial?", opts: ["Nenhuma", "Natural vem da natureza; Artificial é feito pelo homem", "Artificial é melhor", "Natural é ruim"], c: 1, h: "Maçã é natural, plástico é artificial." },
+                    { id: 8116, bloom: 2, q: "Para que servem os satélites no espaço?", opts: ["Enfeitar o céu", "GPS, TV e previsão do tempo", "Iluminar", "Vigiar alienígenas"], c: 1, h: "Enviam sinais para a Terra." },
+                    { id: 8117, bloom: 2, q: "O computador processa:", opts: ["Comida", "Informações e dados", "Roupa", "Lixo"], c: 1, h: "É uma máquina de pensar rápido." },
+                    { id: 8118, bloom: 2, q: "O que é um 'drone'?", opts: ["Um pássaro", "Um robô voador controlado à distância", "Um avião de papel", "Um brinquedo só"], c: 1, h: "Usado para filmar e vigiar." },
+                    { id: 8119, bloom: 2, q: "O arado serve para quê na agricultura?", opts: ["Colher", "Remexer a terra para plantar", "Regar", "Matar bichos"], c: 1, h: "Tecnologia antiga e importante." },
+                    { id: 8120, bloom: 2, q: "Por que usamos roupas?", opts: ["Tecnologia de proteção contra frio e sol", "Só por beleza", "Porque sim", "Para gastar"], c: 0, h: "A roupa é uma ferramenta de proteção." },
+
+                    // BLOOM 3 (Aplicar)
+                    { id: 8121, bloom: 3, q: "Se você precisa falar com alguém no Japão agora, usa:", opts: ["Carta", "Internet/Videochamada", "Grito", "Sinal de fumaça"], c: 1, h: "A tecnologia encurta distâncias." },
+                    { id: 8122, bloom: 3, q: "Para subir 20 andares sem cansar, você usa:", opts: ["Escada", "Elevador", "Corda", "Pulo"], c: 1, h: "Máquina de transporte vertical." },
+                    { id: 8123, bloom: 3, q: "Se acabou a luz, qual tecnologia antiga ajuda?", opts: ["Celular", "Vela ou lamparina", "Microondas", "TV"], c: 1, h: "Tecnologias antigas ainda são úteis." },
+                    { id: 8124, bloom: 3, q: "Para saber se vai chover amanhã, olhamos:", opts: ["Para o chão", "Para a Previsão do Tempo (satélites)", "Para o relógio", "Para o calendário"], c: 1, h: "Ciência prevendo o futuro." },
+                    { id: 8125, bloom: 3, q: "O uso excessivo de telas (celular) pode causar:", opts: ["Super visão", "Problemas de visão e sono", "Força", "Alegria eterna"], c: 1, h: "Tecnologia precisa de limite." },
+                    { id: 8126, bloom: 3, q: "O cinto de segurança no carro serve para:", opts: ["Enfeitar", "Proteger a vida em batidas", "Segurar as calças", "Nada"], c: 1, h: "Tecnologia de segurança." },
+                    { id: 8127, bloom: 3, q: "Um filtro de barro e um purificador elétrico:", opts: ["São opostos", "Servem para a mesma coisa (limpar água)", "Não funcionam", "São brinquedos"], c: 1, h: "Tecnologias diferentes, mesmo fim." },
+                    { id: 8128, bloom: 3, q: "O código de barras no produto serve para:", opts: ["Enfeitar", "O computador ler o preço rápido", "Nada", "Esconder o preço"], c: 1, h: "Agiliza o caixa do mercado." },
+                    { id: 8129, bloom: 3, q: "Painéis solares nas casas ajudam a:", opts: ["Esquentar o telhado", "Economizar conta de luz e poluir menos", "Fazer sombra", "Atrair raios"], c: 1, h: "Energia limpa." },
+                    { id: 8130, bloom: 3, q: "Usar GPS no carro substitui:", opts: ["O motorista", "O mapa de papel e perguntar na rua", "A gasolina", "O rádio"], c: 1, h: "Facilita a localização." },
+
+                    // BLOOM 4 (Analisar)
+                    { id: 8131, bloom: 4, q: "A tecnologia é sempre boa?", opts: ["Sim, sempre", "Não, depende de como usamos (pode poluir ou viciar)", "Sempre ruim", "Não existe"], c: 1, h: "O uso define se é bom ou ruim." },
+                    { id: 8132, bloom: 4, q: "Comparando: Livro de papel e E-book (livro digital).", opts: ["Um é melhor", "Ambos guardam conhecimento, mas em formatos diferentes", "Papel é ruim", "Digital é ruim"], c: 1, h: "A função é a mesma: ler." },
+                    { id: 8133, bloom: 4, q: "O que a invenção do plástico trouxe de ruim?", opts: ["Nada", "Muito lixo que demora a sumir na natureza", "Ficou tudo barato", "As tartarugas gostam"], c: 1, h: "Poluição ambiental grave." },
+                    { id: 8134, bloom: 4, q: "Robôs substituindo pessoas no trabalho. Isso gera:", opts: ["Alegria", "Desemprego, mas também novas profissões", "Fome", "Guerra"], c: 1, h: "A sociedade muda com a tecnologia." },
+                    { id: 8135, bloom: 4, q: "Por que as vacinas são uma das maiores tecnologias da história?", opts: ["Porque doem", "Porque salvaram milhões de vidas de doenças graves", "Porque são líquidas", "Por nada"], c: 1, h: "Saúde é a maior riqueza." },
+                    { id: 8136, bloom: 4, q: "Carros autônomos (sem motorista) no futuro vão:", opts: ["Bater mais", "Mudar como nos transportamos", "Voar", "Sumir"], c: 1, h: "O futuro do transporte." },
+                    { id: 8137, bloom: 4, q: "A internet aproxima quem está longe, mas pode:", opts: ["Afastar quem está perto (vício)", "Dar comida", "Limpar a casa", "Lavar roupa"], c: 0, h: "Cuidado para não viver só na tela." },
+                    { id: 8138, bloom: 4, q: "Tecnologia na agricultura (agrotóxicos) ajuda a produzir mais, mas:", opts: ["É saudável", "Pode contaminar comida e água", "É barato", "Não faz nada"], c: 1, h: "Precisamos de equilíbrio." },
+                    { id: 8139, bloom: 4, q: "O que seria da medicina sem a tecnologia (Raio-X, exames)?", opts: ["Melhor", "Muito difícil descobrir e curar doenças", "Igual", "Mais rápida"], c: 1, h: "Médicos precisam de ferramentas." },
+                    { id: 8140, bloom: 4, q: "A evolução da roda até o pneu de borracha mostra que:", opts: ["A tecnologia parou", "A tecnologia sempre melhora e evolui", "A roda é ruim", "Borracha é pior"], c: 1, h: "Estamos sempre aperfeiçoando." },
+
+                    // BLOOM 5 (Avaliar)
+                    { id: 8141, bloom: 5, q: "Ficar no celular durante o jantar em família é:", opts: ["Bom", "Ruim, atrapalha a conversa e o convívio", "Moderno", "Necessário"], c: 1, h: "Avaliação do impacto social da tecnologia." },
+                    { id: 8142, bloom: 5, q: "Qual a melhor forma de ir à padaria na esquina?", opts: ["De carro (polui)", "A pé ou bicicleta (saudável e limpo)", "De avião", "De caminhão"], c: 1, h: "Escolha consciente de tecnologia." },
+                    { id: 8143, bloom: 5, q: "A internet é perigosa?", opts: ["Não, é tudo seguro", "Sim, se não tivermos cuidado com estranhos e tempo de uso", "Nunca", "Só para adultos"], c: 1, h: "Julgamento de segurança digital." },
+                    { id: 8144, bloom: 5, q: "O plástico descartável foi uma invenção boa ou ruim?", opts: ["Ótima, usamos muito", "Trouxe praticidade, mas gerou um enorme problema de lixo", "Não existe", "É comestível"], c: 1, h: "Avaliação crítica de prós e contras." },
+                    { id: 8145, bloom: 5, q: "O que é mais confiável: um livro de ciências ou uma mensagem de 'zap'?", opts: ["O 'zap'", "O livro, pois foi estudado e revisado", "O vizinho", "Nenhum"], c: 1, h: "Avaliação de fontes de informação." },
+
+                    // BLOOM 6 (Criar / Propor Solução)
+                    { id: 8146, bloom: 6, q: "Se você pudesse inventar um robô para ajudar em casa, o que ele faria?", opts: ["Dormiria", "Limparia a casa e separaria o lixo reciclável", "Comeria tudo", "Quebraria coisas"], c: 1, h: "Imaginação e design de solução." },
+                    { id: 8147, bloom: 6, q: "Como avisar a cidade toda que vai chover forte sem usar eletricidade?", opts: ["Com internet", "Tocando sinos ou sirenes mecânicas", "Mandando carta", "Gritando"], c: 1, h: "Solução tecnológica analógica." },
+                    { id: 8148, bloom: 6, q: "Crie um brinquedo usando sucata tecnológica (teclas velhas, fios):", opts: ["Jogar no lixo", "Montar um robô de enfeite ou quadro", "Comer", "Queimar"], c: 1, h: "Reutilização criativa (Maker)." },
+                    { id: 8149, bloom: 6, q: "Como seria uma escola no futuro?", opts: ["Igual a hoje", "Com hologramas, viagens virtuais e aprendizado prático", "Sem alunos", "Escura"], c: 1, h: "Projeção futurística." },
+                    { id: 8150, bloom: 6, q: "Se o carro quebra no meio do nada, qual tecnologia simples ajuda?", opts: ["O celular (se tiver sinal) ou ferramentas mecânicas", "Chorar", "Dormir", "Um livro"], c: 0, h: "Uso de ferramentas para resolver problemas." }
+                ] 
             }
         ]
     },
