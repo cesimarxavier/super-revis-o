@@ -1021,15 +1021,190 @@ const DB = {
         ]
     }
 ] },
-        {   id: "geo", name: "Geografia", icon: "🌍", color: "bg-green-500", accent: "border-green-600", categories: [
-            { id: "recursos_naturais", name: "Recursos naturais", prep: { title: "O que a natureza nos dá", content: "<p>Água, solo, ar, minerais e outros recursos que usamos.</p>", skin: "🌱" }, pool: [] },
-            { id: "materia_energia", name: "Matéria e energia", prep: { title: "Do que tudo é feito", content: "<p>Estados físicos, transformações e formas de energia.</p>", skin: "⚡" }, pool: [] },
-            { id: "luz", name: "A luz", prep: { title: "Ver o mundo", content: "<p>A luz permite enxergar, forma sombras e reflexos.</p>", skin: "💡" }, pool: [] },
-            { id: "som_vibracao", name: "Som e vibração da matéria", prep: { title: "Tudo vibra", content: "<p>O som é produzido por vibrações e se propaga em meios materiais.</p>", skin: "🔊" }, pool: [] },
-            { id: "tecnologia_cotidiano", name: "Tecnologia no cotidiano", prep: { title: "Tecnologia e vida", content: "<p>Ferramentas, aparelhos e sistemas que usamos todos os dias.</p>", skin: "📱" }, pool: [] }
-            
-        ] },
-        { id: "cienc", name: "Ciências", icon: "🧪", color: "bg-purple-500", accent: "border-purple-600", categories: [
+        {
+        id: "cienc", 
+        name: "Ciências", 
+        icon: "🧪", 
+        color: "bg-green-500", 
+        accent: "border-green-600", 
+        categories: [
+            { 
+                id: "recursos_naturais", 
+                name: "Recursos naturais", 
+                prep: { 
+                    title: "Presentes da Natureza", 
+                    content: "<p>Tudo que usamos vem da natureza! <br>🌱 <strong>Renováveis:</strong> Nunca acabam se cuidarmos (Sol, Vento).<br>🛢️ <strong>Não Renováveis:</strong> Podem acabar (Petróleo, Ouro).<br>💧 <strong>Água e Solo:</strong> Essenciais para a vida.</p>", 
+                    skin: "🌱" 
+                }, 
+                pool: [
+                    // BLOOM 1 (Lembrar)
+                    { id: 7001, bloom: 1, q: "O que são recursos naturais?", opts: ["Coisas feitas em fábricas", "Elementos da natureza úteis ao homem", "Apenas animais", "Brinquedos"], c: 1, h: "Água, solo, sol, ar." },
+                    { id: 7002, bloom: 1, q: "Qual destes é um recurso natural?", opts: ["Plástico", "Luz do Sol", "Vidro", "Celular"], c: 1, h: "Vem direto da natureza, sem fábrica." },
+                    { id: 7003, bloom: 1, q: "O que o Sol nos fornece?", opts: ["Água e peixes", "Luz e Calor", "Vento e terra", "Ouro e Prata"], c: 1, h: "Ele ilumina e esquenta a Terra." },
+                    { id: 7004, bloom: 1, q: "De onde vem a madeira?", opts: ["Das pedras", "Das árvores", "Do rio", "Do céu"], c: 1, h: "É o tronco das plantas." },
+                    { id: 7005, bloom: 1, q: "Para que serve o solo (terra)?", opts: ["Para nada", "Para plantar alimentos e construir casas", "Para voar", "Para beber"], c: 1, h: "É onde pisamos e plantamos." },
+                    { id: 7006, bloom: 1, q: "O ar é importante para:", opts: ["Apenas os peixes", "A respiração dos seres vivos", "Enfeitar o céu", "Nada"], c: 1, h: "Sem ele não respiramos." },
+                    { id: 7007, bloom: 1, q: "O que é minério?", opts: ["Uma fruta", "Minerais retirados das rochas (ouro, ferro)", "Um tipo de água", "Uma nuvem"], c: 1, h: "Usamos para fazer metal." },
+                    { id: 7008, bloom: 1, q: "A água é um recurso:", opts: ["Sólido apenas", "Natural e essencial à vida", "Artificial", "Seco"], c: 1, h: "Todos os seres vivos bebem." },
+                    { id: 7009, bloom: 1, q: "O petróleo é usado para fazer:", opts: ["Comida", "Gasolina e plástico", "Roupas de algodão", "Papel"], c: 1, h: "É um líquido preto que sai do fundo da terra." },
+                    { id: 7010, bloom: 1, q: "O vento pode gerar:", opts: ["Energia elétrica (eólica)", "Fogo", "Terra", "Ouro"], c: 0, h: "Ele gira grandes cata-ventos." },
+
+                    // BLOOM 2 (Entender)
+                    { id: 7011, bloom: 2, q: "O que é um recurso renovável?", opts: ["Aquele que acaba rápido", "Aquele que a natureza repõe (como o sol e vento)", "Aquele que compramos", "Aquele que polui"], c: 1, h: "Ele se renova, não acaba fácil." },
+                    { id: 7012, bloom: 2, q: "O petróleo é não-renovável. Isso significa que:", opts: ["Ele nunca acaba", "Se usarmos tudo, ele acaba e não volta logo", "Ele se renova todo dia", "Ele vem da chuva"], c: 1, h: "Demora milhões de anos para formar." },
+                    { id: 7013, bloom: 2, q: "Por que não devemos poluir o solo?", opts: ["Porque fica feio", "Porque contamina os alimentos e a água subterrânea", "Porque as pedras choram", "Não tem problema"], c: 1, h: "A sujeira entra na terra e na comida." },
+                    { id: 7014, bloom: 2, q: "As plantas precisam de quê para crescer?", opts: ["Apenas areia", "Água, luz do sol, ar e solo fértil", "Refrigerante", "Escuro"], c: 1, h: "Recursos naturais básicos." },
+                    { id: 7015, bloom: 2, q: "O que é desmatamento?", opts: ["Plantar árvores", "Cortar e queimar as florestas", "Cuidar dos animais", "Limpar o rio"], c: 1, h: "É destruir a mata." },
+                    { id: 7016, bloom: 2, q: "Por que a água doce pode acabar?", opts: ["Porque o mar invade", "Pelo desperdício e poluição", "Porque o sol bebe tudo", "Ela não acaba"], c: 1, h: "Temos pouca água potável disponível." },
+                    { id: 7017, bloom: 2, q: "A argila é um recurso do solo usado para:", opts: ["Comer", "Fazer cerâmica, tijolos e vasos", "Beber", "Queimar"], c: 1, h: "É um barro moldável." },
+                    { id: 7018, bloom: 2, q: "O que acontece se o ar estiver poluído?", opts: ["Fica cheiroso", "Causa doenças respiratórias", "Fica colorido", "Nada"], c: 1, h: "Faz mal para o pulmão." },
+                    { id: 7019, bloom: 2, q: "O Sol é importante porque:", opts: ["Aquece a Terra e permite a vida", "É amarelo", "Fica longe", "Dorme a noite"], c: 0, h: "Sem calor, a Terra seria gelo." },
+                    { id: 7020, bloom: 2, q: "Recursos minerais (ferro, alumínio) vêm de onde?", opts: ["Das árvores", "Das rochas e do subsolo", "Do mar", "Das nuvens"], c: 1, h: "São escavados em minas." },
+
+                    // BLOOM 3 (Aplicar)
+                    { id: 7021, bloom: 3, q: "Se você deixa a luz acesa sem ninguém no quarto, você:", opts: ["Ajuda o planeta", "Desperdiça energia e recursos", "Não faz nada", "Economiza"], c: 1, h: "Energia gasta recursos naturais." },
+                    { id: 7022, bloom: 3, q: "Para economizar papel (que vem da árvore), você deve:", opts: ["Rasgar tudo", "Usar os dois lados da folha", "Jogar no lixo", "Queimar"], c: 1, h: "Aproveitar o máximo o papel." },
+                    { id: 7023, bloom: 3, q: "Separar o lixo (reciclagem) ajuda a:", opts: ["Sujar a casa", "Poupar recursos naturais, reutilizando materiais", "Gastar mais", "Matar plantas"], c: 1, h: "O plástico reciclado vira plástico novo." },
+                    { id: 7024, bloom: 3, q: "Se a água da chuva é coletada em um balde, ela pode servir para:", opts: ["Beber direto", "Lavar o quintal (reuso)", "Tomar banho", "Cozinhar"], c: 1, h: "Economiza a água da torneira." },
+                    { id: 7025, bloom: 3, q: "Um painel solar no telhado serve para:", opts: ["Enfeitar", "Transformar luz do sol em energia elétrica", "Esfriar a casa", "Atrair pássaros"], c: 1, h: "Usa um recurso renovável (Sol)." },
+                    { id: 7026, bloom: 3, q: "Jogar óleo na pia contamina:", opts: ["O fogo", "A água dos rios", "O ar", "O prato"], c: 1, h: "O óleo vai pelo cano até a água." },
+                    { id: 7027, bloom: 3, q: "Plantar uma árvore ajuda a:", opts: ["Melhorar o ar e dar sombra", "Sujar a rua", "Gastar água à toa", "Atrapalhar"], c: 0, h: "Árvores limpam o ar." },
+                    { id: 7028, bloom: 3, q: "Usar sacola de pano no mercado evita:", opts: ["Gastar dinheiro", "O uso excessivo de sacolas plásticas (petróleo)", "Carregar peso", "Comprar comida"], c: 1, h: "Plástico polui e vem do petróleo." },
+                    { id: 7029, bloom: 3, q: "Se você encontra uma minhoca na terra, isso indica:", opts: ["Sujeira", "Solo fértil e saudável", "Perigo", "Veneno"], c: 1, h: "Minhocas ajudam a terra." },
+                    { id: 7030, bloom: 3, q: "Tomar banho rápido ajuda a preservar:", opts: ["O sabonete", "A água potável", "A toalha", "O tempo"], c: 1, h: "Menos tempo, menos água gasta." },
+
+                    // BLOOM 4 (Analisar)
+                    { id: 7031, bloom: 4, q: "Qual a diferença entre usar vento e usar carvão para energia?", opts: ["Nenhuma", "Vento é limpo e infinito; carvão polui e acaba", "Carvão é melhor", "Vento polui"], c: 1, h: "Um é renovável, o outro não." },
+                    { id: 7032, bloom: 4, q: "O que acontece se retirarmos toda a vegetação da beira do rio?", opts: ["O rio fica bonito", "A terra cai no rio (assoreamento) e ele pode secar", "Os peixes gostam", "A água aumenta"], c: 1, h: "As raízes seguram a terra." },
+                    { id: 7033, bloom: 4, q: "Reciclar latinha de alumínio é importante porque:", opts: ["É divertido", "Evita ter que cavar mais minério (bauxita) da natureza", "A latinha é bonita", "Não serve pra nada"], c: 1, h: "Poupa a mineração." },
+                    { id: 7034, bloom: 4, q: "A agricultura depende do solo. Se usarmos muito veneno:", opts: ["O solo fica mais forte", "O solo pode ficar estragado e contaminar a comida", "As plantas crescem para sempre", "O solo vira ouro"], c: 1, h: "O solo é vivo e pode morrer." },
+                    { id: 7035, bloom: 4, q: "Por que dizemos que a Amazônia é importante para o mundo?", opts: ["Porque é grande", "Pela biodiversidade e regulação do clima/ar", "Porque tem índio", "Porque chove"], c: 1, h: "Ela ajuda a controlar a temperatura da Terra." },
+                    { id: 7036, bloom: 4, q: "O consumo exagerado (comprar sem precisar) afeta a natureza?", opts: ["Não", "Sim, pois tudo que compramos usa recursos naturais para ser feito", "Ajuda a natureza", "Só gasta dinheiro"], c: 1, h: "Mais produtos = mais recursos gastos." },
+                    { id: 7037, bloom: 4, q: "Carros elétricos são melhores para o ar que carros a gasolina?", opts: ["Não", "Sim, pois não soltam fumaça na rua", "São iguais", "Gasolina é melhor"], c: 1, h: "Não queimam combustível." },
+                    { id: 7038, bloom: 4, q: "A pesca excessiva (pescar tudo de uma vez) causa:", opts: ["Muitos peixes", "A extinção dos peixes, pois não dá tempo de reproduzir", "Riqueza eterna", "Mar limpo"], c: 1, h: "É preciso respeitar o tempo da natureza." },
+                    { id: 7039, bloom: 4, q: "Construir uma cidade em cima de um manguezal é:", opts: ["Bom", "Ruim, pois destrói o berçário dos animais marinhos", "Moderno", "Bonito"], c: 1, h: "O mangue é vital para a vida marinha." },
+                    { id: 7040, bloom: 4, q: "Para garantir recursos para o futuro (sustentabilidade), devemos:", opts: ["Gastar tudo hoje", "Usar com inteligência para não acabar", "Não usar nada", "Esconder os recursos"], c: 1, h: "Cuidar hoje para ter amanhã." }
+                ] 
+            },
+            { 
+                id: "materia_energia", 
+                name: "Matéria e energia", 
+                prep: { 
+                    title: "Do que tudo é feito?", 
+                    content: "<p>Tudo que ocupa lugar no espaço é matéria! <br>🧊 <strong>Estados:</strong> Sólido, Líquido, Gasoso.<br>⚡ <strong>Energia:</strong> Luz, Calor, Som, Eletricidade.</p>", 
+                    skin: "⚡" 
+                }, 
+                pool: [
+                    // BLOOM 1 (Lembrar)
+                    { id: 7101, bloom: 1, q: "O gelo é a água em qual estado?", opts: ["Líquido", "Sólido", "Gasoso", "Vapor"], c: 1, h: "É duro e frio." },
+                    { id: 7102, bloom: 1, q: "A água que bebemos está no estado:", opts: ["Sólido", "Líquido", "Gasoso", "Plasma"], c: 1, h: "Ela flui e molha." },
+                    { id: 7103, bloom: 1, q: "O vapor da panela é água no estado:", opts: ["Sólido", "Gasoso", "Líquido", "Gelo"], c: 1, h: "Parece uma fumaça." },
+                    { id: 7104, bloom: 1, q: "O que usamos para medir a temperatura (calor)?", opts: ["Régua", "Termômetro", "Balança", "Relógio"], c: 1, h: "Usamos quando temos febre." },
+                    { id: 7105, bloom: 1, q: "O Sol nos fornece que tipo de energia?", opts: ["Elétrica", "Luz e Calor", "Sonora", "Cinética"], c: 1, h: "Ele ilumina e esquenta." },
+                    { id: 7106, bloom: 1, q: "Para o carro andar, ele precisa de:", opts: ["Água", "Energia (combustível)", "Vento", "Frio"], c: 1, h: "A gasolina dá força ao motor." },
+                    { id: 7107, bloom: 1, q: "O que acontece com o sorvete fora da geladeira?", opts: ["Congela", "Derrete (vira líquido)", "Sobe", "Fica duro"], c: 1, h: "O calor derrete." },
+                    { id: 7108, bloom: 1, q: "O som é um tipo de:", opts: ["Matéria", "Energia (vibração)", "Líquido", "Gás"], c: 1, h: "Ouvimos com os ouvidos." },
+                    { id: 7109, bloom: 1, q: "A pilha guarda energia:", opts: ["Solar", "Química/Elétrica", "Sonora", "Térmica"], c: 1, h: "Faz os brinquedos funcionarem." },
+                    { id: 7110, bloom: 1, q: "Tudo que ocupa lugar no espaço é:", opts: ["Vento", "Matéria", "Pensamento", "Luz"], c: 1, h: "Cadeira, água, ar... tudo é matéria." },
+
+                    // BLOOM 2 (Entender)
+                    { id: 7111, bloom: 2, q: "O que é fusão?", opts: ["Gás virando líquido", "Sólido virando líquido (derreter)", "Líquido virando gás", "Água congelando"], c: 1, h: "Como o gelo derretendo." },
+                    { id: 7112, bloom: 2, q: "O que é solidificação?", opts: ["Água virando gelo", "Gelo derretendo", "Água fervendo", "Vapor sumindo"], c: 0, h: "Fica sólido (duro)." },
+                    { id: 7113, bloom: 2, q: "O que é vaporização?", opts: ["Água congelando", "Água líquida virando vapor", "Gelo derretendo", "Chuva"], c: 1, h: "Quando a água ferve ou seca." },
+                    { id: 7114, bloom: 2, q: "Por que sentimos frio?", opts: ["Porque ganhamos calor", "Porque perdemos calor do corpo", "Porque comemos", "Porque corremos"], c: 1, h: "O calor sai do nosso corpo." },
+                    { id: 7115, bloom: 2, q: "A comida nos dá energia para:", opts: ["Brincar e viver", "Dormir apenas", "Ficar parados", "Nada"], c: 0, h: "É o combustível do corpo." },
+                    { id: 7116, bloom: 2, q: "Materiais opacos são aqueles que:", opts: ["Deixam a luz passar", "Não deixam a luz passar (fazem sombra)", "São transparentes", "Brilham"], c: 1, h: "Como uma parede de madeira." },
+                    { id: 7117, bloom: 2, q: "Materiais transparentes:", opts: ["Escondem tudo", "Deixam ver através deles (luz passa)", "São pretos", "Fazem sombra escura"], c: 1, h: "Como o vidro da janela." },
+                    { id: 7118, bloom: 2, q: "O que faz a lâmpada acender?", opts: ["Água", "Energia elétrica", "Vento", "Som"], c: 1, h: "A eletricidade passa pelo fio." },
+                    { id: 7119, bloom: 2, q: "O som se espalha através de:", opts: ["Vibrações no ar ou objetos", "Luz", "Cores", "Silêncio"], c: 0, h: "Precisa de um meio para viajar." },
+                    { id: 7120, bloom: 2, q: "O ferro é um material:", opts: ["Líquido", "Sólido e resistente", "Gasoso", "Mole"], c: 1, h: "Usado em construções." },
+
+                    // BLOOM 3 (Aplicar)
+                    { id: 7121, bloom: 3, q: "Se você colocar água no freezer, ela sofre:", opts: ["Fusão", "Solidificação", "Evaporação", "Ebulição"], c: 1, h: "Vira gelo." },
+                    { id: 7122, bloom: 3, q: "A roupa no varal seca porque a água:", opts: ["Cai no chão", "Evapora com o calor e vento", "Congela", "Entra no tecido"], c: 1, h: "Vira vapor e vai para o ar." },
+                    { id: 7123, bloom: 3, q: "Para derreter chocolate, precisamos de:", opts: ["Frio", "Calor", "Vento", "Escuro"], c: 1, h: "O calor amolece o sólido." },
+                    { id: 7124, bloom: 3, q: "Qual material é bom para fazer uma janela?", opts: ["Madeira", "Vidro (transparente)", "Ferro", "Papelão"], c: 1, h: "Precisamos ver lá fora." },
+                    { id: 7125, bloom: 3, q: "O cabo da panela geralmente é de plástico ou madeira para:", opts: ["Não queimar a mão (isolante térmico)", "Ficar bonito", "Esquentar mais", "Derreter"], c: 0, h: "Eles não deixam o calor passar fácil." },
+                    { id: 7126, bloom: 3, q: "Se você gritar na caverna e ouvir de novo, é o:", opts: ["Silêncio", "Eco (reflexão do som)", "Vento", "Fantasma"], c: 1, h: "O som bate e volta." },
+                    { id: 7127, bloom: 3, q: "Quando ligamos o ventilador, a energia elétrica vira:", opts: ["Energia sonora", "Energia de movimento (cinética) e vento", "Luz", "Calor apenas"], c: 1, h: "As pás giram." },
+                    { id: 7128, bloom: 3, q: "Um espelho funciona por:", opts: ["Refração", "Reflexão da luz", "Absorção", "Fusão"], c: 1, h: "A luz bate e volta para nossos olhos." },
+                    { id: 7129, bloom: 3, q: "Misturar água e areia. A areia:", opts: ["Dissolve", "Não dissolve (mistura heterogênea)", "Vira água", "Sobe"], c: 1, h: "Fica separada no fundo." },
+                    { id: 7130, bloom: 3, q: "Misturar água e açúcar bem mexido. O açúcar:", opts: ["Dissolve (mistura homogênea)", "Fica inteiro", "Vira pedra", "Explode"], c: 0, h: "A água fica doce e transparente." },
+
+                    // BLOOM 4 (Analisar)
+                    { id: 7131, bloom: 4, q: "Por que usamos roupas de lã no frio?", opts: ["Porque são bonitas", "Porque a lã segura o calor do corpo (isolante)", "Porque são geladas", "Para suar"], c: 1, h: "Ela não deixa o calor sair." },
+                    { id: 7132, bloom: 4, q: "Qual a diferença entre calor e temperatura?", opts: ["Nenhuma", "Calor é energia em movimento; Temperatura é a medida (graus)", "Calor é frio", "Temperatura é sol"], c: 1, h: "O termômetro mede a temperatura." },
+                    { id: 7133, bloom: 4, q: "A queima de papel é uma transformação:", opts: ["Reversível (volta a ser papel)", "Irreversível (vira cinza e não volta)", "De estado", "Líquida"], c: 1, h: "Não dá para 'desqueimar'." },
+                    { id: 7134, bloom: 4, q: "O derretimento do gelo é uma transformação:", opts: ["Reversível (pode congelar de novo)", "Irreversível", "Química", "Permanente"], c: 0, h: "Água vira gelo e gelo vira água." },
+                    { id: 7135, bloom: 4, q: "Por que vemos o relâmpago antes de ouvir o trovão?", opts: ["O ouvido é lento", "A luz é muito mais rápida que o som", "O trovão acontece depois", "É ilusão"], c: 1, h: "A velocidade da luz é imensa." },
+                    { id: 7136, bloom: 4, q: "Qual lâmpada é mais eficiente (gasta menos e ilumina mais)?", opts: ["Incandescente (quente)", "LED", "Vela", "Fogueira"], c: 1, h: "Tecnologia moderna que não esquenta tanto." },
+                    { id: 7137, bloom: 4, q: "O som não se propaga no espaço (vácuo). Por quê?", opts: ["Porque é longe", "Não tem ar nem matéria para vibrar", "Os astronautas usam capacete", "É proibido"], c: 1, h: "O som precisa de meio material." },
+                    { id: 7138, bloom: 4, q: "O arco-íris aparece quando:", opts: ["Alguém pinta o céu", "A luz do sol passa pelas gotas de chuva e se separa em cores", "É noite", "Tem nuvem"], c: 1, h: "A luz branca tem todas as cores." },
+                    { id: 7139, bloom: 4, q: "Metais são bons condutores. Isso significa que:", opts: ["Eles esquentam e passam eletricidade fácil", "Eles são frios", "Eles quebram", "Eles são isolantes"], c: 0, h: "Por isso fios são de cobre e panelas de metal." },
+                    { id: 7140, bloom: 4, q: "Por que o pneu do carro é de borracha?", opts: ["Para ser macio", "Porque borracha é isolante elétrico e tem atrito", "Porque é preto", "Para derreter"], c: 1, h: "Segurança e aderência." }
+                ]
+            },
+            { 
+                id: "luz", 
+                name: "A luz", 
+                prep: { 
+                    title: "Ver o Mundo", 
+                    content: "<p>A luz nos permite enxergar! <br>💡 <strong>Fontes:</strong> Naturais (Sol) e Artificiais (Lâmpada).<br>🌑 <strong>Sombra:</strong> Quando a luz é bloqueada.</p>", 
+                    skin: "💡" 
+                }, 
+                pool: [
+                    // BLOOM 1 (Lembrar)
+                    { id: 7201, bloom: 1, q: "Qual a maior fonte de luz natural da Terra?", opts: ["A Lua", "O Sol", "A Lâmpada", "O Fogo"], c: 1, h: "Ilumina o dia todo." },
+                    { id: 7202, bloom: 1, q: "A lâmpada é uma fonte de luz:", opts: ["Natural", "Artificial", "Fria", "Eterna"], c: 1, h: "Criada pelo homem." },
+                    { id: 7203, bloom: 1, q: "O que é sombra?", opts: ["Um fantasma", "A ausência de luz quando algo bloqueia os raios", "Uma mancha", "Escuro total"], c: 1, h: "Fica atrás do objeto iluminado." },
+                    { id: 7204, bloom: 1, q: "Para ver as coisas precisamos de:", opts: ["Som", "Luz e olhos saudáveis", "Vento", "Calor"], c: 1, h: "No escuro total não vemos nada." },
+                    { id: 7205, bloom: 1, q: "O vidro é um material:", opts: ["Opaco", "Transparente", "Escuro", "Mole"], c: 1, h: "A luz passa direto." },
+                    { id: 7206, bloom: 1, q: "A madeira é um material:", opts: ["Transparente", "Opaco (não deixa luz passar)", "Brilhante", "Líquido"], c: 1, h: "Faz sombra se iluminada." },
+                    { id: 7207, bloom: 1, q: "A Lua tem luz própria?", opts: ["Sim, brilha muito", "Não, ela reflete a luz do Sol", "Sim, é uma estrela", "Às vezes"], c: 1, h: "Ela funciona como um espelho do sol." },
+                    { id: 7208, bloom: 1, q: "O vagalume é uma fonte de luz:", opts: ["Artificial", "Natural (bioluminescência)", "Elétrica", "Falsa"], c: 1, h: "É um bicho que brilha." },
+                    { id: 7209, bloom: 1, q: "O que usamos para nos ver?", opts: ["Parede", "Espelho", "Papel", "Chão"], c: 1, h: "Reflete nossa imagem." },
+                    { id: 7210, bloom: 1, q: "A luz viaja em:", opts: ["Curvas", "Linha reta", "Círculos", "Zigue-zague"], c: 1, h: "Não faz curva sozinha." },
+
+                    // BLOOM 2 (Entender)
+                    { id: 7211, bloom: 2, q: "Como se forma a sombra?", opts: ["A luz atravessa o objeto", "Um objeto opaco bloqueia a passagem da luz", "A luz apaga", "O objeto brilha"], c: 1, h: "A luz não consegue passar." },
+                    { id: 7212, bloom: 2, q: "Por que vemos nossa imagem na água parada?", opts: ["A água funciona como um espelho (reflete)", "A água tem foto", "Tem alguém lá dentro", "É mágica"], c: 0, h: "Superfície lisa reflete a luz." },
+                    { id: 7213, bloom: 2, q: "O que são corpos luminosos?", opts: ["Corpos que recebem luz", "Corpos que emitem luz própria (Sol, vela)", "Espelhos", "Pedras"], c: 1, h: "Eles produzem a luz." },
+                    { id: 7214, bloom: 2, q: "O que são corpos iluminados?", opts: ["Lâmpadas", "Corpos que apenas refletem luz (mesa, lua, nós)", "O Sol", "Fogo"], c: 1, h: "Precisam de luz para serem vistos." },
+                    { id: 7215, bloom: 2, q: "Por que usamos óculos escuros?", opts: ["Para ficar bonito", "Para proteger os olhos do excesso de luz solar", "Para ver no escuro", "Para dormir"], c: 1, h: "Filtram a luz forte." },
+                    { id: 7216, bloom: 2, q: "Um material translúcido (como vidro jateado):", opts: ["Deixa passar toda luz", "Deixa passar um pouco de luz, mas a imagem fica embaçada", "Não passa nada", "É preto"], c: 1, h: "Vemos vultos através dele." },
+                    { id: 7217, bloom: 2, q: "A luz branca do Sol é feita de:", opts: ["Apenas branco", "Todas as cores do arco-íris misturadas", "Preto e branco", "Azul"], c: 1, h: "O prisma separa essas cores." },
+                    { id: 7218, bloom: 2, q: "O que acontece se apagarmos a luz no quarto fechado?", opts: ["Vemos melhor", "Fica tudo escuro e não enxergamos", "Os olhos brilham", "Vemos cores"], c: 1, h: "Visão precisa de luz." },
+                    { id: 7219, bloom: 2, q: "O espelho retrovisor do carro serve para:", opts: ["Ver quem está atrás refletido", "Ver a frente", "Se pentear", "Nada"], c: 0, h: "Reflete a imagem da estrada." },
+                    { id: 7220, bloom: 2, q: "Durante o dia, a principal luz vem do:", opts: ["Poste", "Sol", "Celular", "Carro"], c: 1, h: "Iluminação natural." },
+
+                    // BLOOM 3 (Aplicar)
+                    { id: 7221, bloom: 3, q: "Se você colocar a mão na frente da lanterna, o que aparece na parede?", opts: ["A mão colorida", "A sombra da mão", "Nada", "Luz forte"], c: 1, h: "Você bloqueou a luz." },
+                    { id: 7222, bloom: 3, q: "Para ler um livro à noite, você precisa de:", opts: ["Barulho", "Uma fonte de luz artificial (abajur)", "Óculos de sol", "Estar no escuro"], c: 1, h: "Precisa iluminar a página." },
+                    { id: 7223, bloom: 3, q: "Se você usar uma camisa preta no sol:", opts: ["Sente mais calor (absorve luz)", "Sente frio", "Brilha", "Fica invisível"], c: 0, h: "Preto absorve a energia da luz." },
+                    { id: 7224, bloom: 3, q: "Se usar uma camisa branca no sol:", opts: ["Absorve tudo", "Reflete a luz e esquenta menos", "Fica preta", "Derrete"], c: 1, h: "Branco reflete o calor." },
+                    { id: 7225, bloom: 3, q: "O arco-íris aparece quando:", opts: ["Está de noite", "Tem sol e chuva (gotas de água) ao mesmo tempo", "Tem vento", "Tem trovão"], c: 1, h: "A gota separa as cores da luz." },
+                    { id: 7226, bloom: 3, q: "Brincar de 'teatro de sombras' usa:", opts: ["Som", "Luz e bloqueio da luz com as mãos", "Água", "Espelhos"], c: 1, h: "Cria formas na parede." },
+                    { id: 7227, bloom: 3, q: "Um periscópio (tubo com espelhos) serve para:", opts: ["Ver o que está acima ou escondido", "Ver o futuro", "Ouvir longe", "Respirar"], c: 0, h: "Desvia a luz com espelhos." },
+                    { id: 7228, bloom: 3, q: "Por que as plantas crescem em direção à janela?", opts: ["Para ver a rua", "Para buscar a luz do sol (fotossíntese)", "Para fugir", "Por acaso"], c: 1, h: "Elas precisam de luz para comer." },
+                    { id: 7229, bloom: 3, q: "Se a luz acabar na cidade (blecaute), usamos:", opts: ["Velas ou lanternas", "Televisão", "Ventilador", "Geladeira"], c: 0, h: "Fontes de luz de emergência." },
+                    { id: 7230, bloom: 3, q: "Olhar direto para o Sol:", opts: ["É bom", "Faz muito mal aos olhos", "Melhora a visão", "Não acontece nada"], c: 1, h: "A luz é forte demais e queima." },
+
+                    // BLOOM 4 (Analisar)
+                    { id: 7231, bloom: 4, q: "Por que a sombra muda de tamanho durante o dia?", opts: ["A pessoa cresce", "A posição do Sol muda no céu", "A sombra tem vida", "O chão mexe"], c: 1, h: "De manhã e tarde a sombra é longa, meio-dia é curta." },
+                    { id: 7232, bloom: 4, q: "Diferença entre reflexão e refração:", opts: ["Nenhuma", "Reflexão bate e volta (espelho); Refração atravessa e desvia (lupa)", "Refração é sombra", "Reflexão é vidro"], c: 1, h: "Espelho reflete, água/lupa refrata." },
+                    { id: 7233, bloom: 4, q: "Por que vemos um lápis 'quebrado' dentro do copo d'água?", opts: ["Ele quebrou", "Ilusão causada pela refração da luz na água", "O copo é torto", "Mágica"], c: 1, h: "A luz muda de velocidade na água." },
+                    { id: 7234, bloom: 4, q: "A Lua cheia ilumina a noite. Ela é:", opts: ["Fonte primária (luz própria)", "Fonte secundária (reflete o sol)", "Uma lâmpada", "Fogo"], c: 1, h: "Sem o sol, a lua seria escura." },
+                    { id: 7235, bloom: 4, q: "Por que os espelhos de lojas de roupa são bem iluminados?", opts: ["Para gastar energia", "Para vermos as cores e detalhes da roupa com clareza", "Para esquentar", "Para cegar"], c: 1, h: "A luz revela a cor real." },
+                    { id: 7236, bloom: 4, q: "Como funciona uma lupa?", opts: ["Ela apaga a luz", "Ela concentra e desvia a luz para aumentar a imagem", "Ela reflete", "Ela pinta"], c: 1, h: "Usa lente para ampliar." },
+                    { id: 7237, bloom: 4, q: "Se a luz viaja em linha reta, como iluminamos uma sala inteira?", opts: ["A luz faz curva", "A luz reflete nas paredes e objetos e se espalha", "Usamos curva", "Não iluminamos"], c: 1, h: "Difusão da luz." },
+                    { id: 7238, bloom: 4, q: "Eclipse solar acontece quando:", opts: ["O sol apaga", "A lua passa na frente do sol e faz sombra na Terra", "A Terra some", "Chove"], c: 1, h: "Bloqueio da luz solar." },
+                    { id: 7239, bloom: 4, q: "Por que as ambulâncias têm o nome escrito ao contrário na frente?", opts: ["Erro de pintura", "Para ler certo pelo espelho retrovisor do carro da frente", "Para ficar bonito", "É código"], c: 1, h: "O espelho inverte a imagem." },
+                    { id: 7240, bloom: 4, q: "A luz azul das telas (celular) à noite:", opts: ["Ajuda a dormir", "Pode atrapalhar o sono enganando o cérebro", "Não faz nada", "É escura"], c: 1, h: "O corpo acha que ainda é dia." }
+                ]
+            }
+        ]
+    },
+        { id: "geo", name: "Geografia", icon: "🌍", color: "bg-purple-500", accent: "border-purple-600", categories: [
     {
         id: "espacos_urbanos_rurais",
         name: "Espaços urbanos e rurais",
