@@ -1407,6 +1407,11 @@ const DB = {
             { id: 6008, bloom: 1, q: "O que cobre o chão da maioria das ruas na cidade?", opts: ["Terra", "Grama", "Asfalto", "Areia"], c: 2, h: "É preto e duro para os carros passarem." },
             { id: 6009, bloom: 1, q: "Onde ficam as grandes fábricas geralmente?", opts: ["No meio da floresta", "Nas zonas industriais urbanas", "Dentro de casas", "Na praia"], c: 1, h: "Precisam de energia e estradas." },
             { id: 6010, bloom: 1, q: "Onde vemos mais estrelas no céu à noite?", opts: ["Na cidade iluminada", "No campo escuro", "Dentro de casa", "No cinema"], c: 1, h: "As luzes da cidade atrapalham ver o céu." },
+            { id: 9001, bloom: 1, q: "O que é uma paisagem natural?", opts: ["Feita pelo homem", "Feita pela natureza, sem alterações", "Uma pintura", "Uma cidade"], c: 1, h: "Não tem prédios nem ruas." },
+            { id: 9002, bloom: 1, q: "O que é uma paisagem cultural (ou antrópica)?", opts: ["Uma floresta virgem", "Uma paisagem modificada pelo ser humano", "O fundo do mar", "O céu"], c: 1, h: "Tem casas, pontes ou roças." },
+            { id: 9003, bloom: 1, q: "Qual destes é um elemento natural?", opts: ["Poste", "Rio", "Carro", "Estrada"], c: 1, h: "Nasceu na natureza." },
+            { id: 9004, bloom: 1, q: "Qual destes é um elemento cultural?", opts: ["Árvore nativa", "Nuvem", "Prédio", "Cachoeira"], c: 2, h: "Foi construído por pessoas." },
+            { id: 9005, bloom: 1, q: "Uma plantação de milho é uma paisagem:", opts: ["Natural", "Cultural (modificada)", "Selvagem", "Espacial"], c: 1, h: "O homem plantou e organizou." },
 
             // BLOOM 2 (Entender)
             { id: 6011, bloom: 2, q: "Por que as casas no campo são mais distantes uma da outra?", opts: ["Porque eles não gostam de vizinhos", "Porque precisam de espaço para plantar", "Porque é proibido", "Porque não tem tijolo"], c: 1, h: "As plantações ocupam muito espaço." },
@@ -1419,6 +1424,9 @@ const DB = {
             { id: 6018, bloom: 2, q: "O campo depende da cidade para quê?", opts: ["Para comprar comida", "Para comprar máquinas, roupas e remédios", "Para plantar", "Para respirar"], c: 1, h: "A tecnologia vem da indústria urbana." },
             { id: 6019, bloom: 2, q: "Por que existem parques na cidade?", opts: ["Para estacionar carros", "Para ter um pouco de área verde e lazer", "Para construir prédios", "Para nada"], c: 1, h: "Para as pessoas respirarem e brincarem." },
             { id: 6020, bloom: 2, q: "Onde o trabalho depende mais do clima (chuva/sol)?", opts: ["No escritório", "Na fábrica", "No campo (agricultura)", "No shopping"], c: 2, h: "Se não chover, a planta não cresce." },
+            { id: 9006, bloom: 2, q: "Por que o homem modifica a paisagem?", opts: ["Porque não gosta de árvores", "Para morar, plantar e se deslocar", "Para estragar tudo", "Por diversão"], c: 1, h: "Para atender suas necessidades de vida." },
+            { id: 9007, bloom: 2, q: "O que acontece com a paisagem quando construímos uma represa?", opts: ["Fica igual", "Muda muito, alagando áreas e criando um lago", "Seca tudo", "Vira deserto"], c: 1, h: "A água cobre a terra antiga." },
+            { id: 9008, bloom: 2, q: "Uma cidade abandonada tomada pelo mato mostra que:", opts: ["A natureza tenta recuperar seu espaço", "A cidade cresceu", "Nada mudou", "É fantasma"], c: 0, h: "O mato cresce onde ninguém pisa." },
 
             // BLOOM 3 (Aplicar)
             { id: 6021, bloom: 3, q: "Se você quer criar galinhas soltas, onde é melhor morar?", opts: ["Em um apartamento", "No centro da cidade", "Em um sítio", "Em um barco"], c: 2, h: "Animais precisam de espaço e terra." },
@@ -1431,7 +1439,11 @@ const DB = {
             { id: 6028, bloom: 3, q: "Onde é mais fácil ver um engarrafamento (trânsito parado)?", opts: ["Na estrada de terra", "Na avenida da cidade", "No rio", "No pasto"], c: 1, h: "Muitos carros juntos." },
             { id: 6029, bloom: 3, q: "Quem trabalha com computador geralmente fica:", opts: ["No campo", "Na cidade (escritórios)", "No mar", "Na mina"], c: 1, h: "A maioria das empresas está na zona urbana." },
             { id: 6030, bloom: 3, q: "Acordar com o sol e dormir cedo é um hábito mais comum:", opts: ["Na balada", "Na cidade", "No campo", "No shopping"], c: 2, h: "A vida rural segue a luz do dia." },
-
+            { id: 9009, bloom: 3, q: "Se você olhar pela janela e ver prédios e antenas, você está em uma paisagem:", opts: ["Rural", "Urbana (cidade)", "Natural", "Deserta"], c: 1, h: "Muitos elementos construídos." },
+            { id: 9010, bloom: 3, q: "Identifique a modificação: Construir um túnel na montanha.", opts: ["Natural", "Ação do vento", "Obra de engenharia humana", "Ação da chuva"], c: 2, h: "Homens furaram a pedra." },
+            { id: 9009, bloom: 3, q: "Se você olhar pela janela e ver prédios e antenas, você está em uma paisagem:", opts: ["Rural", "Urbana (cidade)", "Natural", "Deserta"], c: 1, h: "Muitos elementos construídos." },
+            { id: 9010, bloom: 3, q: "Identifique a modificação: Construir um túnel na montanha.", opts: ["Natural", "Ação do vento", "Obra de engenharia humana", "Ação da chuva"], c: 2, h: "Homens furaram a pedra." },
+            
             // BLOOM 4 (Analisar)
             { id: 6031, bloom: 4, q: "Qual a diferença entre a paisagem natural e a humanizada?", opts: ["Nenhuma", "Natural não tem dedo do homem; Humanizada tem construções", "Natural é feia", "Humanizada tem árvores"], c: 1, h: "Prédios e pontes são obras humanas." },
             { id: 6032, bloom: 4, q: "O campo pode viver sem a cidade?", opts: ["Sim, facilmente", "Não, precisa de roupas, máquinas e serviços da cidade", "Sim, eles têm tudo", "Não sei"], c: 1, h: "Eles precisam de coisas que a indústria faz." },
@@ -1442,7 +1454,46 @@ const DB = {
             { id: 6037, bloom: 4, q: "O campo está mudando com a tecnologia. Como?", opts: ["Tem menos plantas", "Usam drones e máquinas modernas para plantar", "Virou cidade", "Não mudou nada"], c: 1, h: "A tecnologia chegou na roça." },
             { id: 6038, bloom: 4, q: "O que é 'poluição sonora'?", opts: ["Sujeira no chão", "Barulho excessivo que faz mal à saúde", "Música boa", "Gente falando baixo"], c: 1, h: "Comum nas grandes cidades." },
             { id: 6039, bloom: 4, q: "Se uma indústria joga esgoto no rio que vai pro campo:", opts: ["Não acontece nada", "Pode contaminar a plantação e os animais", "A água fica limpa", "Os peixes gostam"], c: 1, h: "A água conecta os dois lugares." },
-            { id: 6040, bloom: 4, q: "Viver no campo ou na cidade. Qual é melhor?", opts: ["Cidade", "Campo", "Os dois têm vantagens e desvantagens", "Nenhum"], c: 2, h: "Um tem sossego, o outro tem serviços." }
+            { id: 6040, bloom: 4, q: "Viver no campo ou na cidade. Qual é melhor?", opts: ["Cidade", "Campo", "Os dois têm vantagens e desvantagens", "Nenhum"], c: 2, h: "Um tem sossego, o outro tem serviços." },
+            { id: 9011, bloom: 4, q: "Qual paisagem mudou mais rápido nos últimos 100 anos?", opts: ["A Antártida", "O centro de uma grande cidade", "O fundo do oceano", "O deserto"], c: 1, h: "Muitos prédios surgiram." },
+            { id: 9012, bloom: 4, q: "Uma praia cheia de quiosques e lixo é:", opts: ["Totalmente natural", "Uma paisagem natural impactada pelo homem", "Cultural apenas", "Limpa"], c: 1, h: "Era natural, mas foi alterada." },
+
+            // NÍVEL 5 (Avaliar)
+            { id: 6041, bloom: 5, q: "Asfaltar o quintal inteiro da casa é:", opts: ["Bom, fica limpo", "Ruim, a água da chuva não entra na terra e causa enchente", "Bonito", "Necessário"], c: 1, h: "A terra precisa beber a chuva." },
+            { id: 6042, bloom: 5, q: "Jogar esgoto da cidade no rio que vai para o campo é:", opts: ["Justo", "Injusto e polui a água que irriga as plantas que comemos", "Engraçado", "Bom"], c: 1, h: "O problema volta no prato de comida." },
+            { id: 6043, bloom: 5, q: "Viver no campo é pior que na cidade?", opts: ["Sim, não tem nada", "Não, é diferente. Tem mais sossego e ar puro, mas menos serviços", "Sim, é chato", "Cidade é perfeita"], c: 1, h: "Cada espaço tem vantagens e desvantagens." },
+            { id: 6044, bloom: 5, q: "Construir prédios muito altos em ruas estreitas é:", opts: ["Moderno", "Ruim, pois tapa o sol e aumenta o calor e trânsito", "Bom", "Legal"], c: 1, h: "Planejamento urbano." },
+            { id: 6045, bloom: 5, q: "Queimar o mato para limpar o terreno no campo é:", opts: ["Rápido e bom", "Perigoso, mata os bichos e estraga o solo", "Adubo", "Necessário"], c: 1, h: "O fogo destrói a vida do solo." },
+            { id: 6046, bloom: 5, q: "Uma cidade sem parques e árvores é:", opts: ["Limpa", "Doente, quente e ruim para viver", "Rica", "Moderna"], c: 1, h: "Áreas verdes são saúde." },
+            { id: 6047, bloom: 5, q: "O uso de agrotóxicos (veneno) no campo é:", opts: ["Ótimo", "Preocupante, pois pode contaminar a água e nossa comida", "Seguro", "Barato"], c: 1, h: "Saúde alimentar." },
+            { id: 6048, bloom: 5, q: "O barulho excessivo (poluição sonora) na cidade deve ser:", opts: ["Aceito", "Combatido, pois faz mal à saúde", "Aumentado", "Ignorado"], c: 1, h: "Qualidade de vida." },
+            { id: 6049, bloom: 5, q: "Transformar uma fazenda em condomínio de casas é:", opts: ["Mudança do uso do solo (Rural para Urbano)", "Impossível", "Agricultura", "Ruim"], c: 0, h: "Expansão urbana." },
+            { id: 6050, bloom: 5, q: "Desperdiçar comida na cidade desvaloriza o trabalho do campo?", opts: ["Não", "Sim, joga fora o esforço de quem plantou", "Ajuda", "Não sei"], c: 1, h: "Consciência de consumo." },
+
+            // NÍVEL 6 (Criar)
+            { id: 6051, bloom: 6, q: "Como diminuir o calor na cidade cheia de concreto?", opts: ["Ligando ar condicionado na rua", "Criando telhados verdes e plantando árvores", "Pintando de vermelho", "Tirando janelas"], c: 1, h: "Soluções baseadas na natureza." },
+            { id: 6052, bloom: 6, q: "Invente uma solução para o trânsito:", opts: ["Mais carros", "Investir em metrô, ciclovias e ônibus de qualidade", "Tirar os semáforos", "Ficar em casa"], c: 1, h: "Mobilidade sustentável." },
+            { id: 6053, bloom: 6, q: "Como levar internet para a área rural distante?", opts: ["Gritando", "Usando satélites e antenas rurais", "Com fios de barbante", "Não precisa"], c: 1, h: "Conectividade no campo." },
+            { id: 6054, bloom: 6, q: "Crie um projeto para aproveitar terrenos baldios na cidade:", opts: ["Lixão", "Hortas comunitárias urbanas", "Estacionamento", "Nada"], c: 1, h: "Agricultura urbana." },
+            { id: 6055, bloom: 6, q: "O que fazer com o lixo orgânico (cascas) do campo?", opts: ["Queimar", "Compostagem (virar adubo)", "Jogar no rio", "Esconder"], c: 1, h: "Ciclo de nutrientes." },
+            { id: 6056, bloom: 6, q: "Como seria uma escola ideal no campo?", opts: ["Igual a da cidade", "Com aulas de plantio, criação e tecnologia agrícola", "Sem internet", "Fechada"], c: 1, h: "Educação contextualizada." },
+            { id: 6057, bloom: 6, q: "Solução para a falta de água na cidade:", opts: ["Comprar água", "Captar água da chuva e proteger as nascentes", "Chorar", "Mudar de cidade"], c: 1, h: "Gestão hídrica." },
+            { id: 6058, bloom: 6, q: "Crie um slogan para valorizar o agricultor:", opts: ["Coma pouco", "Sem campo não há cidade. Valorize quem planta!", "Cidade é melhor", "Venda tudo"], c: 1, h: "Reconhecimento." },
+            { id: 6059, bloom: 6, q: "Como proteger os animais silvestres na expansão da cidade?", opts: ["Matando", "Criando corredores ecológicos e parques", "Prendendo", "Expulsando"], c: 1, h: "Convivência com a fauna." },
+            { id: 6060, bloom: 6, q: "Ideia para reduzir o lixo na cidade:", opts: ["Jogar no chão", "Incentivar o uso de embalagens retornáveis e recicláveis", "Queimar", "Esconder"], c: 1, h: "Redução de resíduos." },
+
+            // NÍVEL 7 (Mestre)
+            { id: 6061, bloom: 7, q: "O que é 'Ilha de Calor'?", opts: ["Uma ilha no mar", "Quando o centro da cidade é muito mais quente que a área rural ao redor", "Férias", "Vulcão"], c: 1, h: "Fenômeno climático urbano." },
+            { id: 6062, bloom: 7, q: "O que é Êxodo Rural?", opts: ["Uma festa", "A saída em massa das pessoas do campo para viver na cidade", "Plantio de soja", "Turismo"], c: 1, h: "Migração interna." },
+            { id: 6063, bloom: 7, q: "O que é Conurbação?", opts: ["Uma doença", "Quando duas cidades crescem tanto que se juntam", "Uma planta", "Um transporte"], c: 1, h: "Cidades grudadas." },
+            { id: 6064, bloom: 7, q: "O que define o limite entre município e cidade?", opts: ["São a mesma coisa", "Município é todo o território (rural+urbano); Cidade é a sede urbana", "Cidade é maior", "Não tem limite"], c: 1, h: "Conceito administrativo." },
+            { id: 6065, bloom: 7, q: "O que é Agricultura Familiar?", opts: ["Plantas da família", "Pequenas propriedades onde a família trabalha e produz a maioria da nossa comida", "Empresas gigantes", "Jardim"], c: 1, h: "Base da alimentação brasileira." },
+            { id: 6066, bloom: 7, q: "O que é Agronegócio?", opts: ["Negócio chato", "Grandes empresas agrícolas focadas em exportação e tecnologia", "Horta pequena", "Venda de flor"], c: 1, h: "Produção em larga escala." },
+            { id: 6067, bloom: 7, q: "O que é Saneamento Básico?", opts: ["Limpeza da casa", "Conjunto de: Água, Esgoto, Lixo e Drenagem", "Saúde", "Hospital"], c: 1, h: "Infraestrutura vital." },
+            { id: 6068, bloom: 7, q: "O que causa enchentes urbanas?", opts: ["Só a chuva forte", "Impermeabilização do solo (asfalto) e lixo nos bueiros", "O rio gosta", "Azar"], c: 1, h: "Falta de drenagem." },
+            { id: 6069, bloom: 7, q: "O que é sustentabilidade urbana?", opts: ["Gastar tudo", "Crescer cuidando do meio ambiente e das pessoas para o futuro", "Parar de crescer", "Vender a cidade"], c: 1, h: "Desenvolvimento equilibrado." },
+
+
         ]
     },
     {
@@ -1500,7 +1551,42 @@ const DB = {
             { id: 6137, bloom: 4, q: "Produtos orgânicos (sem veneno) são uma tendência. Por quê?", opts: ["Porque são mais feios", "Pessoas da cidade buscam mais saúde vinda do campo", "Porque são azuis", "Porque são de plástico"], c: 1, h: "Valorização da natureza." },
             { id: 6138, bloom: 4, q: "A poluição do ar na cidade pode afetar o campo?", opts: ["Sim, a chuva ácida e o vento levam a poluição", "Não, tem um muro", "A poluição some", "O campo gosta"], c: 0, h: "O ar não tem fronteiras." },
             { id: 6139, bloom: 4, q: "Quem é mais importante: Cidade ou Campo?", opts: ["Cidade", "Campo", "Os dois são igualmente importantes e conectados", "Nenhum"], c: 2, h: "É um ciclo de ajuda mútua." },
-            { id: 6140, bloom: 4, q: "Como podemos diminuir a distância entre campo e cidade?", opts: ["Construindo muros", "Valorizando o produtor local e conhecendo a origem do alimento", "Parando de comer", "Fechando estradas"], c: 1, h: "Saber de onde vem a comida conecta as pessoas." }
+            { id: 6140, bloom: 4, q: "Como podemos diminuir a distância entre campo e cidade?", opts: ["Construindo muros", "Valorizando o produtor local e conhecendo a origem do alimento", "Parando de comer", "Fechando estradas"], c: 1, h: "Saber de onde vem a comida conecta as pessoas." },
+            // NÍVEL 5 (Avaliar)
+            { id: 6141, bloom: 5, q: "Vale a pena comprar produtos que vêm de muito longe?", opts: ["Sim, é chique", "Não, pois o transporte polui muito. Melhor comprar local", "Tanto faz", "É mais barato"], c: 1, h: "Pegada de carbono do transporte." },
+            { id: 6142, bloom: 5, q: "Se a estrada é ruim, quem paga a conta?", opts: ["Ninguém", "Todos nós, pois o frete e o produto ficam mais caros", "O caminhoneiro", "O governo"], c: 1, h: "Custo Brasil." },
+            { id: 6143, bloom: 5, q: "Investir em trens é melhor que em caminhões?", opts: ["Não", "Sim, trem carrega mais carga e polui menos", "Caminhão é mais bonito", "Trem é velho"], c: 1, h: "Eficiência logística." },
+            { id: 6144, bloom: 5, q: "O desperdício de alimentos no transporte é:", opts: ["Normal", "Um problema grave, perde-se comida boa", "Bom para os bichos", "Mentira"], c: 1, h: "Perda pós-colheita." },
+            { id: 6145, bloom: 5, q: "Turismo rural ajuda o campo?", opts: ["Atrapalha", "Sim, gera renda extra e valoriza a cultura local", "Sujar o mato", "Não"], c: 1, h: "Nova economia rural." },
+            { id: 6146, bloom: 5, q: "Usar drones para entregar pizza no campo é:", opts: ["Impossível", "Uma inovação tecnológica de transporte", "Perigoso", "Brincadeira"], c: 1, h: "Novos modais." },
+            { id: 6147, bloom: 5, q: "Comprar artesanato local ajuda quem?", opts: ["A fábrica", "A comunidade local e a cultura da região", "Ninguém", "O turista"], c: 1, h: "Economia solidária." },
+            { id: 6148, bloom: 5, q: "As rodovias cortam a natureza. Isso é:", opts: ["Bom", "Um impacto ambiental que precisa de cuidados (passagem de fauna)", "Bonito", "Necessário sem cuidado"], c: 1, h: "Barreira ecológica." },
+            { id: 6149, bloom: 5, q: "A internet no campo é luxo ou necessidade?", opts: ["Luxo", "Necessidade para negócios, estudo e saúde", "Não serve", "Só para jogo"], c: 1, h: "Inclusão digital." },
+            { id: 6150, bloom: 5, q: "Exportar (vender pra fora) toda a comida é bom?", opts: ["Ótimo", "Pode faltar comida aqui e ficar caro (segurança alimentar)", "Sim, ficamos ricos", "Não muda nada"], c: 1, h: "Equilíbrio de mercado." },
+
+            // NÍVEL 6 (Criar)
+            { id: 6151, bloom: 6, q: "Como levar remédio rápido para uma aldeia isolada?", opts: ["De carro", "Usando Drones de entrega", "Nadando", "Esperar secar o rio"], c: 1, h: "Tecnologia salvando vidas." },
+            { id: 6152, bloom: 6, q: "Crie um meio de transporte que não polui entre cidades:", opts: ["Trem bala solar/elétrico", "Avião a carvão", "Carro velho", "Foguete"], c: 0, h: "Transporte do futuro." },
+            { id: 6153, bloom: 6, q: "Ideia para diminuir o preço da comida na cidade:", opts: ["Comer menos", "Criar 'Cinturões Verdes' (hortas) perto da cidade para diminuir o frete", "Pagar mais", "Importar"], c: 1, h: "Produção local." },
+            { id: 6154, bloom: 6, q: "Como vender o produto do sítio sem atravessador (vendedor)?", opts: ["Jogar fora", "Criar um site ou aplicativo de venda direta", "Gritar", "Esperar"], c: 1, h: "Comércio digital." },
+            { id: 6155, bloom: 6, q: "Projete uma estrada amiga dos animais:", opts: ["Com cercas", "Com túneis e pontes verdes para os bichos cruzarem", "Sem carros", "Com buracos"], c: 1, h: "Ecologia de estradas." },
+            { id: 6156, bloom: 6, q: "Como aproveitar o caminhão que volta vazio da cidade?", opts: ["Voltar rápido", "Levar lixo reciclável ou adubo para o campo (Logística Reversa)", "Dormir", "Passear"], c: 1, h: "Otimização de transporte." },
+            { id: 6157, bloom: 6, q: "Crie uma embalagem para o morango não estragar na viagem:", opts: ["Saco plástico", "Caixa biodegradável com amortecimento", "Jornal", "Mão"], c: 1, h: "Design de produto." },
+            { id: 6158, bloom: 6, q: "Como conectar uma ilha ao continente sem ponte?", opts: ["Nadando", "Balsas elétricas ou túnel subaquático", "Voando", "Secando o mar"], c: 1, h: "Infraestrutura." },
+            { id: 6159, bloom: 6, q: "Solução para o trânsito de caminhões na cidade:", opts: ["Proibir tudo", "Criar anéis viários (estradas por fora da cidade) e centros de distribuição", "Buzinar", "Parar"], c: 1, h: "Planejamento logístico." },
+            { id: 6160, bloom: 6, q: "Campanha para valorizar o produto local:", opts: ["Compre de fora", "Da nossa terra para sua mesa!", "É ruim", "Não compre"], c: 1, h: "Marketing local." },
+
+            // NÍVEL 7 (Mestre)
+            { id: 6161, bloom: 7, q: "O que é Logística?", opts: ["Matemática", "Planejamento inteligente do transporte e armazenamento de coisas", "Lógica", "Caminhão"], c: 1, h: "Organização do fluxo." },
+            { id: 6162, bloom: 7, q: "O que é Agroindústria?", opts: ["Loja", "Indústria localizada no campo para processar a colheita na hora", "Fazenda", "Cidade"], c: 1, h: "Fábrica na roça." },
+            { id: 6163, bloom: 7, q: "Movimento Pendular é:", opts: ["Relógio", "O vai e vem diário de pessoas para trabalhar em outra cidade", "Balanço", "Dança"], c: 1, h: "Migração diária." },
+            { id: 6164, bloom: 7, q: "O que são 'Commodities'?", opts: ["Comodas", "Produtos básicos brutos (soja, ferro) vendidos para o mundo", "Computadores", "Carros"], c: 1, h: "Matéria-prima de exportação." },
+            { id: 6165, bloom: 7, q: "Intermodalidade no transporte significa:", opts: ["Usar só caminhão", "Usar vários tipos de transporte (trem, navio, caminhão) integrados", "Andar a pé", "Moda"], c: 1, h: "Mistura de meios." },
+            { id: 6166, bloom: 7, q: "O que é Globalização na geografia?", opts: ["Mundo redondo", "A conexão e troca rápida de produtos e informações pelo mundo todo", "Globo", "Viagem"], c: 1, h: "Mundo conectado." },
+            { id: 6167, bloom: 7, q: "Segurança Alimentar é:", opts: ["Cadeado na geladeira", "Garantir que todos tenham acesso a comida de qualidade e em quantidade", "Comer muito", "Polícia"], c: 1, h: "Direito à comida." },
+            { id: 6168, bloom: 7, q: "Hidrovia é:", opts: ["Estrada de água (rios navegáveis)", "Cano de água", "Piscina", "Chuva"], c: 0, h: "Transporte fluvial." },
+            { id: 6169, bloom: 7, q: "O que é 'Cadeia Produtiva'?", opts: ["Prisão", "Todo o caminho do produto: da matéria-prima até a venda", "Corrente", "Fábrica"], c: 1, h: "Do campo à mesa." },
+            { id: 6170, bloom: 7, q: "Tecnopolos são:", opts: ["Polos de gelo", "Cidades ou regiões que concentram empresas de alta tecnologia e universidades", "Lojas", "Jogos"], c: 1, h: "Centros de inteligência." }
         ]
     },
     {
@@ -1558,7 +1644,43 @@ const DB = {
             { id: 6237, bloom: 4, q: "Por que a roupa seca mais rápido com vento?", opts: ["O vento empurra as partículas de água para longe", "O vento esquenta", "O vento quebra a água", "Mágica"], c: 0, h: "O vento renova o ar ao redor." },
             { id: 6238, bloom: 4, q: "Qual a relação entre rios voadores e a Amazônia?", opts: ["Nenhuma", "A umidade da Amazônia viaja pelo céu e faz chover no Sul", "Rios voam de verdade", "É lenda"], c: 1, h: "Massas de vapor gigantes." },
             { id: 6239, bloom: 4, q: "Se poluirmos o rio, a água evapora suja?", opts: ["Sim, leva o lixo", "Não, evapora limpa, mas a poluição fica e mata os peixes", "Vira ácido", "O rio seca"], c: 1, h: "A sujeira fica concentrada." },
-            { id: 6240, bloom: 4, q: "O ciclo da água renova a quantidade de água no mundo?", opts: ["Sim, cria água nova", "Não, a quantidade é a mesma, só muda de lugar e estado", "Diminui a água", "Aumenta a água"], c: 1, h: "Nada se cria, tudo se transforma." }
+            { id: 6240, bloom: 4, q: "O ciclo da água renova a quantidade de água no mundo?", opts: ["Sim, cria água nova", "Não, a quantidade é a mesma, só muda de lugar e estado", "Diminui a água", "Aumenta a água"], c: 1, h: "Nada se cria, tudo se transforma." },
+            
+            // NÍVEL 5 (Avaliar)
+            { id: 6241, bloom: 5, q: "Asfaltar a cidade toda é bom para o ciclo da água?", opts: ["Sim", "Não, impede a infiltração e causa enchentes", "Melhora", "Não afeta"], c: 1, h: "Impermeabilização do solo." },
+            { id: 6242, bloom: 5, q: "Cortar árvores afeta a chuva?", opts: ["Não", "Sim, as árvores suam (transpiram) e ajudam a criar nuvens", "Árvore não faz nada", "Melhora"], c: 1, h: "Relação Floresta-Chuva." },
+            { id: 6243, bloom: 5, q: "A água é um recurso infinito?", opts: ["Sim, nunca acaba", "A água potável (doce e limpa) é finita e pode acabar", "Tem muita no mar", "É mágica"], c: 1, h: "Escassez hídrica." },
+            { id: 6244, bloom: 5, q: "Construir casas em áreas de manancial (nascente) é:", opts: ["Bom", "Crime ambiental e perigoso para o abastecimento", "Bonito", "Necessário"], c: 1, h: "Proteção das fontes." },
+            { id: 6245, bloom: 5, q: "Se a água do mundo é a mesma há bilhões de anos, por que nos preocupamos?", opts: ["Bobagem", "Porque estamos poluindo a água mais rápido do que a natureza limpa", "Ela vira pedra", "O sol gasta"], c: 1, h: "Qualidade da água." },
+            { id: 6246, bloom: 5, q: "A chuva ácida (poluída) é culpa de quem?", opts: ["Das nuvens", "Da poluição das fábricas e carros que sobe para o céu", "Do sol", "Da lua"], c: 1, h: "Poluição atmosférica." },
+            { id: 6247, bloom: 5, q: "Usar água potável para lavar rua é:", opts: ["Higiênico", "Um desperdício irresponsável", "Bom", "Normal"], c: 1, h: "Uso nobre da água." },
+            { id: 6248, bloom: 5, q: "Represas mudam o ciclo da água local?", opts: ["Não", "Sim, alteram o rio e a evaporação da área", "Melhoram", "Secam tudo"], c: 1, h: "Impacto ambiental." },
+            { id: 6249, bloom: 5, q: "A água subterrânea está segura de poluição?", opts: ["Sim, está funda", "Não, venenos e esgoto podem infiltrar e contaminar", "Sempre", "O chão filtra tudo"], c: 1, h: "Contaminação do lençol." },
+            { id: 6250, bloom: 5, q: "O clima do mundo depende da água?", opts: ["Não", "Sim, os oceanos e nuvens regulam a temperatura", "Só do sol", "Do vento"], c: 1, h: "Regulação térmica." },
+
+            // NÍVEL 6 (Criar)
+            { id: 6251, bloom: 6, q: "Como fazer 'chover' dentro de um pote (experiência)?", opts: ["Gritando", "Água quente embaixo, tampa com gelo em cima (condensação)", "Virando", "Congelando"], c: 1, h: "Simulação do ciclo." },
+            { id: 6252, bloom: 6, q: "Crie um sistema para evitar enchentes na sua rua:", opts: ["Telhado", "Jardins de chuva (terra para absorver) e bueiros limpos", "Cimento", "Muro"], c: 1, h: "Cidade Esponja." },
+            { id: 6253, bloom: 6, q: "Como aproveitar a água da chuva em casa?", opts: ["Beber", "Cisterna para captar e usar na limpeza/descarga", "Jogar fora", "Banho"], c: 1, h: "Reuso." },
+            { id: 6254, bloom: 6, q: "Ideia para proteger uma nascente de rio:", opts: ["Cercar e plantar mata ciliar em volta", "Colocar cimento", "Fazer uma casa", "Tirar as plantas"], c: 0, h: "Restauração ecológica." },
+            { id: 6255, bloom: 6, q: "Se você fosse uma gota d'água, qual seria sua viagem?", opts: ["Ficar parada", "Mar -> Nuvem -> Chuva -> Rio -> Mar", "Ir pra lua", "Sumir"], c: 1, h: "Narrativa do ciclo." },
+            { id: 6256, bloom: 6, q: "Invenção para tirar sal da água do mar barato:", opts: ["Filtro solar", "Dessalinizador solar simples", "Peneira", "Fogo"], c: 1, h: "Tecnologia social." },
+            { id: 6257, bloom: 6, q: "Como mostrar que as plantas 'suam'?", opts: ["Perguntando", "Amarrando um saco plástico num galho (vai suar dentro)", "Molhando", "Cortando"], c: 1, h: "Evapotranspiração." },
+            { id: 6258, bloom: 6, q: "Campanha sobre água:", opts: ["Gaste tudo", "Água é vida, não jogue fora!", "Sujo é bom", "Seca é legal"], c: 1, h: "Conscientização." },
+            { id: 6259, bloom: 6, q: "Como limpar água suja numa ilha deserta?", opts: ["Bebendo", "Evaporação e condensação (destilação solar)", "Pano", "Areia"], c: 1, h: "Sobrevivência." },
+            { id: 6260, bloom: 6, q: "Solução para cidade que afunda (rebaixamento):", opts: ["Mais prédios", "Parar de tirar água excessiva do subsolo e recarregar aquíferos", "Pular", "Nadar"], c: 1, h: "Gestão subterrânea." },
+
+            // NÍVEL 7 (Mestre)
+            { id: 6261, bloom: 7, q: "O que são Rios Voadores?", opts: ["Pássaros", "Massas gigantes de vapor da Amazônia que levam chuva pro Sul", "Avião", "Lenda"], c: 1, h: "Transporte aéreo de umidade." },
+            { id: 6262, bloom: 7, q: "Diferença: Lençol Freático vs Aquífero.", opts: ["Nenhuma", "Freático é raso e livre; Aquífero é profundo e confinado (rocha)", "Aquífero é rio", "Freático é cama"], c: 1, h: "Profundidade e geologia." },
+            { id: 6263, bloom: 7, q: "O que é Mata Ciliar?", opts: ["Cílios", "Vegetação na margem do rio que protege contra erosão", "Mato feio", "Alga"], c: 1, h: "Proteção das margens." },
+            { id: 6264, bloom: 7, q: "Assoreamento do rio acontece quando:", opts: ["Limpam o rio", "Terra e lixo entopem o fundo do rio, deixando-o raso", "Chove muito", "Tem peixe"], c: 1, h: "Rio soterrado." },
+            { id: 6265, bloom: 7, q: "Bacia Hidrográfica é:", opts: ["Bacia de banho", "A área onde toda a água escorre para um mesmo rio principal", "Piscina", "Copo"], c: 1, h: "Território das águas." },
+            { id: 6266, bloom: 7, q: "O El Niño afeta o ciclo da água?", opts: ["Não", "Sim, aquece o oceano e muda as chuvas no mundo todo", "Só no mar", "Esfria tudo"], c: 1, h: "Fenômeno climático." },
+            { id: 6267, bloom: 7, q: "Água Virtual é:", opts: ["De videogame", "A água gasta para produzir um produto (ex: carne, calça)", "Falsa", "Nuvem"], c: 1, h: "Pegada hídrica oculta." },
+            { id: 6268, bloom: 7, q: "Eutrofização (água verde) é causada por:", opts: ["Tinta", "Excesso de esgoto/adubo que faz algas crescerem demais e matar peixes", "Sol", "Plantas boas"], c: 1, h: "Morte do lago." },
+            { id: 6269, bloom: 7, q: "A Transpiração das plantas é vital porque:", opts: ["Refresca elas", "Devolve umidade ao ar formando nuvens", "Seca o chão", "Nada"], c: 1, h: "Ciclo biológico." },
+            { id: 6270, bloom: 7, q: "Permeabilidade do solo significa:", opts: ["Ser duro", "A capacidade de deixar a água passar", "Ser seco", "Ser pedra"], c: 1, h: "Infiltração." }
         ]
     },
     {
@@ -1616,7 +1738,43 @@ const DB = {
             { id: 6337, bloom: 4, q: "O que acontece se o esgoto for jogado direto no rio sem ETE?", opts: ["Mata a vida no rio e espalha doenças", "Aduba o rio", "Limpa o rio", "Os peixes crescem"], c: 0, h: "Poluição grave." },
             { id: 6338, bloom: 4, q: "Reuso da água (ex: água da máquina de lavar) serve para:", opts: ["Beber", "Lavar quintal e economizar água potável", "Tomar banho", "Cozinhar"], c: 1, h: "Água cinza serve para limpeza bruta." },
             { id: 6339, bloom: 4, q: "Por que a água tem gosto de cloro as vezes?", opts: ["Exagero no tratamento ou canos novos", "É sabor natural", "É sujeira", "É açúcar"], c: 0, h: "Resíduo do processo de desinfecção." },
-            { id: 6340, bloom: 4, q: "Sem saneamento básico (água e esgoto), o que aumenta?", opts: ["A saúde", "As doenças como diarreia e verminoses", "A alegria", "O dinheiro"], c: 1, h: "Água suja transmite doenças." }
+            { id: 6340, bloom: 4, q: "Sem saneamento básico (água e esgoto), o que aumenta?", opts: ["A saúde", "As doenças como diarreia e verminoses", "A alegria", "O dinheiro"], c: 1, h: "Água suja transmite doenças." },
+
+            // NÍVEL 5 (Avaliar)
+            { id: 6341, bloom: 5, q: "Saneamento básico é luxo ou direito?", opts: ["Luxo", "Direito humano essencial e questão de saúde pública", "Chato", "Caro"], c: 1, h: "Dignidade humana." },
+            { id: 6342, bloom: 5, q: "Beber água salgada desidrata?", opts: ["Não", "Sim, o excesso de sal faz o corpo perder água", "Hidrata muito", "É gostoso"], c: 1, h: "Osmose perigosa." },
+            { id: 6343, bloom: 5, q: "Lavar o carro com mangueira na seca é:", opts: ["Normal", "Irresponsável e desperdício", "Bom pro carro", "Proibido sempre"], c: 1, h: "Uso racional." },
+            { id: 6344, bloom: 5, q: "Ferver a água substitui o filtro?", opts: ["Não", "Em emergências sim, pois mata bactérias, mas não tira sujeira sólida", "Filtro é ruim", "Ferver suja"], c: 1, h: "Métodos de purificação." },
+            { id: 6345, bloom: 5, q: "Caixa d'água sem tampa é perigoso?", opts: ["Não", "Sim, cria mosquito da Dengue e suja a água", "Refresca", "Venta"], c: 1, h: "Risco sanitário." },
+            { id: 6346, bloom: 5, q: "O cloro na água faz mal?", opts: ["Sim, mata", "Na quantidade certa protege a saúde; em excesso é ruim", "É vitamina", "Não faz nada"], c: 1, h: "Dosagem segura." },
+            { id: 6347, bloom: 5, q: "Poço artesiano pode secar?", opts: ["Nunca", "Sim, se tirarmos mais água do que a chuva repõe", "É infinito", "Água brota"], c: 1, h: "Reserva subterrânea." },
+            { id: 6348, bloom: 5, q: "Quem deve pagar pela limpeza da água?", opts: ["Ninguém", "Todos, através da conta de água ou impostos", "O governo só", "O rio"], c: 1, h: "Custo do serviço." },
+            { id: 6349, bloom: 5, q: "Esgoto a céu aberto na rua é:", opts: ["Normal", "Grave problema de saúde e ambiental", "Adubo", "Rio"], c: 1, h: "Vetor de doenças." },
+            { id: 6350, bloom: 5, q: "Água de reuso (esgoto tratado) pode beber?", opts: ["Sim", "Geralmente não, serve para limpar rua, regar e indústria", "Sempre", "Nunca"], c: 1, h: "Água não potável." },
+
+            // NÍVEL 6 (Criar)
+            { id: 6351, bloom: 6, q: "Como aproveitar água da chuva em casa?", opts: ["Beber", "Cisterna para captar e usar na limpeza/descarga", "Jogar fora", "Banho"], c: 1, h: "Sistema de captação." },
+            { id: 6352, bloom: 6, q: "Ideia para economizar no banho:", opts: ["Não tomar", "Fechar o chuveiro ao se ensaboar", "Banho de mangueira", "Banho frio"], c: 1, h: "Hábito sustentável." },
+            { id: 6353, bloom: 6, q: "Como filtrar água barrenta na floresta (sobrevivência)?", opts: ["Beber direto", "Filtro de camadas (pedra, areia, carvão, pano)", "Soprar", "Esquentar"], c: 1, h: "Filtração física." },
+            { id: 6354, bloom: 6, q: "Crie um alerta para vazamento:", opts: ["Deixar vazar", "Relógio de água girando com tudo fechado = Vazamento", "Gritar", "Secar"], c: 1, h: "Detecção." },
+            { id: 6355, bloom: 6, q: "Solução para lugares sem encanamento:", opts: ["Ficar sem", "Caminhão Pipa ou Poço Comunitário", "Mudar", "Chuva"], c: 1, h: "Abastecimento alternativo." },
+            { id: 6356, bloom: 6, q: "Como dessalinizar água do mar barato?", opts: ["Filtro de café", "Evaporação solar (destilador solar)", "Peneira", "Gelo"], c: 1, h: "Uso do sol." },
+            { id: 6357, bloom: 6, q: "Projeto para escola economizar água:", opts: ["Torneiras automáticas e reuso de chuva nos banheiros", "Tirar água", "Copinho", "Nada"], c: 1, h: "Gestão escolar." },
+            { id: 6358, bloom: 6, q: "Slogan para não poluir o rio:", opts: ["Rio sujo", "Rio limpo, vida saudável!", "Jogue lixo", "Água preta"], c: 1, h: "Consciência." },
+            { id: 6359, bloom: 6, q: "Como limpar caixa d'água?", opts: ["Com sabão em pó", "Esfregar, usar água sanitária e enxaguar bem", "Não limpa", "Com óleo"], c: 1, h: "Procedimento correto." },
+            { id: 6360, bloom: 6, q: "Invenção para descarga ecológica:", opts: ["Balde", "Caixa acoplada com duplo fluxo (3L e 6L)", "Sem água", "Mangueira"], c: 1, h: "Tecnologia de economia." },
+
+            // NÍVEL 7 (Mestre)
+            { id: 6361, bloom: 7, q: "O que é Coagulação/Floculação na ETA?", opts: ["Congelar", "Juntar a sujeira pequena em flocos grandes para afundar", "Ferver", "Filtrar"], c: 1, h: "Química da limpeza." },
+            { id: 6362, bloom: 7, q: "Flúor na água serve para:", opts: ["Sabor", "Prevenir cáries na população (saúde bucal)", "Cor", "Matar bicho"], c: 1, h: "Política de saúde." },
+            { id: 6363, bloom: 7, q: "Diferença: Água Mineral vs Água Potável de Mesa.", opts: ["Nenhuma", "Mineral vem da fonte com sais naturais; Potável pode ser tratada", "Mineral é gelada", "Potável é suja"], c: 1, h: "Origem da água." },
+            { id: 6364, bloom: 7, q: "O que é 'Crise Hídrica'?", opts: ["Chuva", "Situação de escassez grave de água nos reservatórios", "Água barata", "Enchente"], c: 1, h: "Falta d'água sistêmica." },
+            { id: 6365, bloom: 7, q: "Osmose Reversa é usada para:", opts: ["Sujar", "Dessalinizar água do mar (filtragem molecular)", "Esquentar", "Gelar"], c: 1, h: "Tecnologia de ponta." },
+            { id: 6366, bloom: 7, q: "Manancial é:", opts: ["Mão", "Qualquer corpo d'água (rio, lago, lençol) usado para abastecimento", "Torneira", "Cano"], c: 1, h: "Fonte de abastecimento." },
+            { id: 6367, bloom: 7, q: "pH da água potável deve ser:", opts: ["Ácido", "Neutro ou levemente alcalino (perto de 7)", "Básico", "Zero"], c: 1, h: "Acidez da água." },
+            { id: 6368, bloom: 7, q: "Doenças de veiculação hídrica são:", opts: ["Gripe", "Cólera, Hepatite A, Leptospirose (transmitidas pela água)", "Dor de pé", "Cárie"], c: 1, h: "Perigos da água suja." },
+            { id: 6369, bloom: 7, q: "Águas Cinzas são:", opts: ["Esgoto de vaso", "Águas de chuveiro e pia (menos sujas) que podem ser reusadas", "Água de chuva", "Lama"], c: 1, h: "Classificação de resíduo." },
+            { id: 6370, bloom: 7, q: "O que é Turbidez?", opts: ["Barulho", "O quanto a água está turva (nublada/suja) por partículas", "Velocidade", "Sabor"], c: 1, h: "Transparência da água." }
         ]
     },
     {
@@ -1674,7 +1832,43 @@ const DB = {
             { id: 6437, bloom: 4, q: "Conflitos por água podem acontecer?", opts: ["Não, tem muita", "Sim, se a água ficar escassa, países podem brigar", "Só em filme", "Água acalma"], c: 1, h: "A 'guerra da água' é um risco." },
             { id: 6438, bloom: 4, q: "Poluir a água subterrânea é pior que o rio?", opts: ["Igual", "Pior, pois é muito difícil de limpar lá embaixo", "Melhor", "Não polui"], c: 1, h: "O dano é quase irreversível." },
             { id: 6439, bloom: 4, q: "O que é 'água virtual'?", opts: ["Água de jogo", "A água usada para produzir coisas que compramos", "Água falsa", "Nuvem"], c: 1, h: "Água embutida no produto." },
-            { id: 6440, bloom: 4, q: "A responsabilidade de cuidar da água é:", opts: ["Do governo", "Das empresas", "De todos nós", "Dos peixes"], c: 2, h: "Coletiva." }
+            { id: 6440, bloom: 4, q: "A responsabilidade de cuidar da água é:", opts: ["Do governo", "Das empresas", "De todos nós", "Dos peixes"], c: 2, h: "Coletiva." },
+
+            // NÍVEL 5 (Avaliar)
+            { id: 7041, bloom: 5, q: "Usar carvão ou vento para energia? Qual é melhor?", opts: ["Carvão", "Vento, pois é limpo e renovável; Carvão polui", "Igual", "Nenhum"], c: 1, h: "Energia limpa vs suja." },
+            { id: 7042, bloom: 5, q: "Reciclar latinha é importante?", opts: ["Não", "Sim, economiza minério (bauxita) e energia", "Tanto faz", "É chato"], c: 1, h: "Alumínio é 100% reciclável." },
+            { id: 7043, bloom: 5, q: "Comprar coisas que não precisamos (consumismo) é:", opts: ["Bom para a natureza", "Ruim, gasta recursos naturais à toa", "Legal", "Normal"], c: 1, h: "Impacto do consumo." },
+            { id: 7044, bloom: 5, q: "O garimpo de ouro no rio é:", opts: ["Bom", "Perigoso, usa mercúrio que envenena a água e peixes", "Limpo", "Rápido"], c: 1, h: "Poluição por metais." },
+            { id: 7045, bloom: 5, q: "Plantar Eucalipto (monocultura) substitui a floresta nativa?", opts: ["Sim, é árvore", "Não, a floresta tem diversidade de vida; eucalipto é só um tipo", "É melhor", "Igual"], c: 1, h: "Biodiversidade." },
+            { id: 7046, bloom: 5, q: "Pescar na época de reprodução (Piracema) é:", opts: ["Esperto", "Crime ambiental, pois impede os peixes de nascerem", "Bom", "Sorte"], c: 1, h: "Respeito ao ciclo." },
+            { id: 7047, bloom: 5, q: "Usar sacola de pano ou de plástico?", opts: ["Plástico", "Pano, pois reutiliza e evita lixo no mar", "Nenhuma", "Duas de plástico"], c: 1, h: "Redução de plástico." },
+            { id: 7048, bloom: 5, q: "O solo é infinito?", opts: ["Sim", "Não, ele pode ficar pobre, seco e erodido se mal usado", "Cresce", "É pedra"], c: 1, h: "Degradação do solo." },
+            { id: 7049, bloom: 5, q: "Extrair petróleo do mar (Pré-sal) tem riscos?", opts: ["Não", "Sim, vazamentos podem matar a vida marinha", "Ajuda os peixes", "Limpa o mar"], c: 1, h: "Risco ambiental." },
+            { id: 7050, bloom: 5, q: "Desenvolvimento Sustentável é:", opts: ["Não crescer", "Crescer usando recursos sem esgotá-los para o futuro", "Gastar tudo", "Ficar rico"], c: 1, h: "Equilíbrio." },
+
+            // NÍVEL 6 (Criar)
+            { id: 7051, bloom: 6, q: "Ideia para reduzir o lixo eletrônico:", opts: ["Jogar no rio", "Consertar aparelhos ou reciclar metais preciosos", "Queimar", "Guardar"], c: 1, h: "Mineração urbana." },
+            { id: 7052, bloom: 6, q: "Crie um brinquedo com sucata:", opts: ["Lixo", "Carrinho de garrafa pet ou robô de caixa", "Comprar", "Quebrar"], c: 1, h: "Reutilização criativa." },
+            { id: 6053, bloom: 6, q: "Como usar o Sol em casa?", opts: ["Olhando", "Painel solar para esquentar água ou gerar luz", "Fechando janela", "Pintando"], c: 1, h: "Energia solar." },
+            { id: 7054, bloom: 6, q: "Solução para solo fraco na horta:", opts: ["Jogar fora", "Adubar com compostagem (restos de comida)", "Cimento", "Areia"], c: 1, h: "Recuperação do solo." },
+            { id: 7055, bloom: 6, q: "Se o petróleo acabar, o que move os carros?", opts: ["Nada", "Eletricidade, hidrogênio ou biocombustíveis", "Carvão", "Mágica"], c: 1, h: "Transição energética." },
+            { id: 7056, bloom: 6, q: "Projeto de reflorestamento:", opts: ["Cortar", "Plantar árvores nativas da região", "Plantar plástico", "Cimentar"], c: 1, h: "Restaurar a mata." },
+            { id: 7057, bloom: 6, q: "Como economizar papel na escola?", opts: ["Rasgar", "Usar os dois lados, digitalizar e reciclar", "Jogar", "Queimar"], c: 1, h: "Menos árvores cortadas." },
+            { id: 7058, bloom: 6, q: "Slogan para economia de energia:", opts: ["Gaste luz", "Apague a luz, acenda o futuro!", "Luz é barata", "Durma"], c: 1, h: "Consciência." },
+            { id: 7059, bloom: 6, q: "Alternativa ao copo de plástico em festas:", opts: ["Mão", "Copo de vidro, metal ou biodegradável", "Chão", "Papelão"], c: 1, h: "Lixo zero." },
+            { id: 7060, bloom: 6, q: "O que fazer com óleo de cozinha usado?", opts: ["Pia", "Guardar em garrafa e levar para fazer sabão", "Chão", "Rua"], c: 1, h: "Reciclagem de óleo." },
+
+            // NÍVEL 7 (Mestre)
+            { id: 7061, bloom: 7, q: "Biocombustível (Etanol) vem de onde?", opts: ["Petróleo", "Plantas como cana-de-açúcar e milho (Renovável)", "Pedra", "Água"], c: 1, h: "Energia da biomassa." },
+            { id: 7062, bloom: 7, q: "O que é Obsolescência Programada?", opts: ["Nome de filme", "Quando produtos são feitos para quebrar logo e você comprar outro", "Qualidade", "Durabilidade"], c: 1, h: "Lixo proposital." },
+            { id: 7063, bloom: 7, q: "Efeito Estufa é:", opts: ["Estufa de planta", "Gases que seguram o calor na Terra (natural), mas em excesso aquecem demais", "Frio", "Vidro"], c: 1, h: "Aquecimento global." },
+            { id: 7064, bloom: 7, q: "Combustíveis Fósseis são:", opts: ["Ossos", "Petróleo, Carvão e Gás (formados há milhões de anos)", "Madeira", "Sol"], c: 1, h: "Base de carbono." },
+            { id: 7065, bloom: 7, q: "O que é Biodiversidade?", opts: ["Duas vidas", "A variedade de seres vivos em um lugar", "Bio", "Zoológico"], c: 1, h: "Riqueza biológica." },
+            { id: 7066, bloom: 7, q: "Energia Eólica usa:", opts: ["Sol", "Vento", "Água", "Terra"], c: 1, h: "Cata-ventos gigantes." },
+            { id: 7067, bloom: 7, q: "Pegada Ecológica mede:", opts: ["Pé grande", "O impacto do nosso estilo de vida na natureza", "Sapato", "Caminho"], c: 1, h: "Quanto consumimos." },
+            { id: 7068, bloom: 7, q: "O que é Matéria-Prima?", opts: ["Prima da mãe", "O recurso natural bruto usado para fabricar algo", "Produto final", "Lixo"], c: 1, h: "Base da indústria." },
+            { id: 7069, bloom: 7, q: "Extrativismo Sustentável é:", opts: ["Tirar tudo", "Coletar recursos (frutas, borracha) sem destruir a floresta", "Caça", "Mineração"], c: 1, h: "Viver da floresta em pé." },
+            { id: 7070, bloom: 7, q: "O Pré-Sal brasileiro é rico em:", opts: ["Sal de cozinha", "Petróleo em águas profundas", "Peixe", "Areia"], c: 1, h: "Reserva energética." }
         ]
     }
 ]},
